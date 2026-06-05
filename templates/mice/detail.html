@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ package.title }} | {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="pt-20">
+  {% if package.cover_image %}
+  <div class="h-72 overflow-hidden relative">
+    <img src="{{ package.cover_image.url }}" alt="{{ package.title }}" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-dark/50"></div>
+    <div class="absolute bottom-8 left-8">
+      <span class="text-secondary text-sm font-semibold uppercase">{{ package.get_package_type_display }}</span>
+      <h1 class="text-white font-serif text-4xl font-bold mt-1">{{ package.title }}</h1>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div class="lg:col-span-2 prose prose-lg max-w-none">
+        <p class="text-gray-700 text-lg">{{ package.description }}</p>
+        {% if package.includes %}
+        <h3 class="font-serif text-xl font-bold text-dark mt-8 mb-4">{% trans "Package Includes" %}</h3>
+        <div class="not-prose">
+          {% for line in package.includes.splitlines %}
+          {% if line.strip %}
+          <div class="flex items-start gap-2 mb-2 text-sm text-gray-700">
+            <i class="ti ti-check text-green-600 mt-0.5 flex-shrink-0"></i> {{ line.strip }}
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <aside>
+        <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 sticky top-24">
+          <p class="text-3xl font-bold text-primary">${{ package.price_per_person|floatformat:0 }}</p>
+          <p class="text-gray-400 text-sm mb-4">{% trans "per person" %}</p>
+          <div class="space-y-2 text-sm text-gray-600 mb-6">
+            <div class="flex justify-between"><span>{% trans "Duration" %}</span><span class="font-medium">{{ package.duration_days }} {% trans "days" %}</span></div>
+            <div class="flex justify-between"><span>{% trans "Min participants" %}</span><span class="font-medium">{{ package.min_participants }}</span></div>
+            <div class="flex justify-between"><span>{% trans "Max participants" %}</span><span class="font-medium">{{ package.max_participants }}</span></div>
+          </div>
+          <a href="{% url 'bookings:inquiry' %}?type=corporate" class="btn-primary w-full text-center py-3.5 block">
+            {% trans "Request a Quote" %}
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+{% endblock %}

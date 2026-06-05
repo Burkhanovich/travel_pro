@@ -1,0 +1,1342 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: travel_pro 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-05 12:05+0000\n"
+"PO-Revision-Date: 2026-06-05 12:05+0000\n"
+"Last-Translator: Travel Pro Team\n"
+"Language-Team: ja\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "Tours"
+msgstr "ツアー一覧"
+
+msgid "Hotels"
+msgstr "ホテル一覧"
+
+msgid "Destinations"
+msgstr "目的地一覧"
+
+msgid "Guides"
+msgstr "ガイド"
+
+msgid "MICE"
+msgstr "MICE"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Sign in"
+msgstr "ログイン"
+
+msgid "Sign In"
+msgstr "ログイン"
+
+msgid "Book Now"
+msgstr "今すぐ予約"
+
+msgid "Accept"
+msgstr "承諾する"
+
+msgid "Any"
+msgstr "すべて"
+
+msgid "Apply"
+msgstr "適用"
+
+msgid "Clear"
+msgstr "クリア"
+
+msgid "Apply Filters"
+msgstr "フィルターを適用"
+
+msgid "Clear all"
+msgstr "すべてクリア"
+
+msgid "Clear filters"
+msgstr "フィルターをクリア"
+
+msgid "Filters"
+msgstr "フィルター"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "About"
+msgstr "について"
+
+msgid "All"
+msgstr "すべて"
+
+msgid "Featured"
+msgstr "注目"
+
+msgid "From"
+msgstr "から"
+
+msgid "Map"
+msgstr "地図"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Slug"
+msgstr "スラッグ"
+
+msgid "Image"
+msgstr "画像"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Category"
+msgstr "カテゴリー"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Active"
+msgstr "有効"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Price"
+msgstr "価格"
+
+msgid "Duration"
+msgstr "期間"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Currency"
+msgstr "通貨"
+
+msgid "Location"
+msgstr "場所"
+
+msgid "Contact Us"
+msgstr "お問い合わせ"
+
+msgid "Email"
+msgstr "メール"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "Type"
+msgstr "タイプ"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "Country"
+msgstr "国"
+
+msgid "City"
+msgstr "都市"
+
+msgid "Tour"
+msgstr "ツアー"
+
+msgid "Hotel"
+msgstr "ホテル"
+
+msgid "Website"
+msgstr "ウェブサイト"
+
+msgid "Address"
+msgstr "住所"
+
+msgid "Order"
+msgstr "順序"
+
+msgid "Caption"
+msgstr "キャプション"
+
+msgid "Rating"
+msgstr "評価"
+
+msgid "Published"
+msgstr "公開済み"
+
+msgid "Tags"
+msgstr "タグ"
+
+msgid "Author"
+msgstr "著者"
+
+msgid "Content"
+msgstr "コンテンツ"
+
+msgid "Continent"
+msgstr "大陸"
+
+msgid "Continents"
+msgstr "大陸一覧"
+
+msgid "Countries"
+msgstr "国々"
+
+msgid "Cities"
+msgstr "都市一覧"
+
+msgid "Reviews"
+msgstr "レビュー"
+
+msgid "Inquiry"
+msgstr "お問い合わせ"
+
+msgid "Inquiries"
+msgstr "お問い合わせ一覧"
+
+msgid "Departure"
+msgstr "出発"
+
+msgid "Return"
+msgstr "帰着"
+
+msgid "Seats"
+msgstr "席数"
+
+msgid "Book"
+msgstr "予約"
+
+msgid "Full"
+msgstr "満席"
+
+msgid "left"
+msgstr "残り"
+
+msgid "days"
+msgstr "日"
+
+msgid "pax"
+msgstr "名"
+
+msgid "min read"
+msgstr "分で読める"
+
+msgid "min"
+msgstr "分"
+
+msgid "per person"
+msgstr "1人あたり"
+
+msgid "per night from"
+msgstr "1泊から"
+
+msgid "/ night"
+msgstr "/ 泊"
+
+msgid "persons"
+msgstr "名"
+
+msgid "adults"
+msgstr "大人"
+
+msgid "children"
+msgstr "子ども"
+
+msgid "participants"
+msgstr "参加者"
+
+msgid "and"
+msgstr "と"
+
+msgid "We use cookies"
+msgstr "Cookieを使用しています"
+
+msgid ""
+"We use cookies to enhance your browsing experience and analyse traffic. By "
+"clicking 'Accept', you consent to our use of cookies."
+msgstr ""
+"当サイトではブラウジング体験の向上とトラフィック分析のためにCookieを使用しています。「承諾する」をクリックすることで、Cookieの使用に同意したことになります。"
+
+msgid "Learn more"
+msgstr "詳しく見る"
+
+msgid "Your Journey Begins Here"
+msgstr "あなたの旅はここから始まります"
+
+msgid "Discover the World"
+msgstr "世界を発見しよう"
+
+msgid "With Confidence"
+msgstr "自信を持って"
+
+msgid ""
+"Expertly crafted tours across 6 continents. Unparalleled service, "
+"unforgettable memories."
+msgstr "6大陸にわたる厳選されたツアー。類まれなサービス、忘れられない思い出。"
+
+msgid "Destination"
+msgstr "目的地"
+
+msgid "Where to?"
+msgstr "どこへ？"
+
+msgid "Happy Travelers"
+msgstr "満足した旅行者"
+
+msgid "Years Experience"
+msgstr "年の経験"
+
+msgid "Handpicked for You"
+msgstr "あなたのために厳選"
+
+msgid "Featured Tours"
+msgstr "おすすめツアー"
+
+msgid "View All Tours"
+msgstr "すべてのツアーを見る"
+
+msgid "No featured tours yet."
+msgstr "おすすめツアーはまだありません。"
+
+msgid "Explore the World"
+msgstr "世界を探索しよう"
+
+msgid "Top Destinations"
+msgstr "人気の目的地"
+
+msgid "All Destinations"
+msgstr "すべての目的地"
+
+msgid "Our Promise"
+msgstr "私たちの約束"
+
+msgid "Why Travel Pro?"
+msgstr "なぜTravel Proなのか？"
+
+msgid "Trusted Agency"
+msgstr "信頼できる代理店"
+
+msgid "Licensed and fully insured with 15+ years of excellence."
+msgstr "15年以上の実績を持つ、ライセンス取得・完全保険付きの代理店。"
+
+msgid "24/7 Support"
+msgstr "24時間365日サポート"
+
+msgid "Our team is always available to assist you anywhere in the world."
+msgstr "私たちのチームは世界中どこでもいつでもお手伝いします。"
+
+msgid "Best Price"
+msgstr "最安値保証"
+
+msgid "Price-match guarantee on all our tour packages worldwide."
+msgstr "世界中のすべてのツアーパッケージで最安値保証。"
+
+msgid "Top Rated"
+msgstr "高評価"
+
+msgid "4.9★ average rating from thousands of verified travelers."
+msgstr "何千人もの認証済み旅行者からの平均評価4.9★。"
+
+msgid "Hand-Picked Stays"
+msgstr "厳選された宿泊施設"
+
+msgid "Featured Hotels"
+msgstr "おすすめホテル"
+
+msgid "All Hotels"
+msgstr "すべてのホテル"
+
+msgid "What Travelers Say"
+msgstr "旅行者の声"
+
+msgid "Customer Reviews"
+msgstr "お客様レビュー"
+
+msgid "Read All Reviews"
+msgstr "すべてのレビューを読む"
+
+msgid "Travel Tips & Inspiration"
+msgstr "旅のヒントとインスピレーション"
+
+msgid "Latest Guides"
+msgstr "最新ガイド"
+
+msgid "All Articles"
+msgstr "すべての記事"
+
+msgid "Ready for Your Next Adventure?"
+msgstr "次の冒険の準備はできていますか？"
+
+msgid ""
+"Get a personalised itinerary from our travel experts — completely free."
+msgstr "旅行のエキスパートから個別旅程を無料でご提案します。"
+
+msgid "Plan My Trip"
+msgstr "旅を計画する"
+
+msgid "Browse Tours"
+msgstr "ツアーを探す"
+
+msgid "All Tours"
+msgstr "すべてのツアー"
+
+msgid "All Continents"
+msgstr "すべての大陸"
+
+msgid "Explore our handpicked collection of unforgettable journeys"
+msgstr "忘れられない旅の厳選コレクションをご覧ください"
+
+msgid "By Category"
+msgstr "カテゴリー別"
+
+msgid "View all tours"
+msgstr "すべてのツアー"
+
+msgid "All categories"
+msgstr "すべてのカテゴリー"
+
+msgid "Price Range (USD)"
+msgstr "価格帯（USD）"
+
+msgid "Min"
+msgstr "最小"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Duration (days)"
+msgstr "期間（日）"
+
+msgid "Difficulty"
+msgstr "難易度"
+
+msgid "{{ count }} tours found"
+msgstr "{{ count }}件のツアーが見つかりました"
+
+msgid "Price: Low to High"
+msgstr "価格：安い順"
+
+msgid "Price: High to Low"
+msgstr "価格：高い順"
+
+msgid "Newest"
+msgstr "新着順"
+
+msgid "Most Popular"
+msgstr "人気順"
+
+msgid "No tours match your filters."
+msgstr "フィルターに一致するツアーが見つかりません。"
+
+msgid "Tour Overview"
+msgstr "ツアー概要"
+
+msgid "What's Included"
+msgstr "含まれるもの"
+
+msgid "Not Included"
+msgstr "含まれないもの"
+
+msgid "Day-by-Day Itinerary"
+msgstr "日程詳細"
+
+msgid "Available Departures"
+msgstr "出発可能日"
+
+msgid "Similar Tours"
+msgstr "類似ツアー"
+
+msgid "Book This Tour"
+msgstr "このツアーを予約する"
+
+msgid "Send Inquiry"
+msgstr "お問い合わせを送る"
+
+msgid "Group size"
+msgstr "グループサイズ"
+
+msgid "Share this tour"
+msgstr "このツアーをシェアする"
+
+msgid "Book Tour"
+msgstr "ツアーを予約する"
+
+msgid "Please correct the errors below."
+msgstr "以下のエラーを修正してください。"
+
+msgid ""
+"Your information is secure and will never be shared with third parties."
+msgstr "お客様の情報は安全に保護され、第三者に共有されることはありません。"
+
+msgid "Up to 1 week"
+msgstr "1週間まで"
+
+msgid "Up to 2 weeks"
+msgstr "2週間まで"
+
+msgid "Up to 1 month"
+msgstr "1ヶ月まで"
+
+msgid "Find Your Perfect Stay"
+msgstr "完璧な宿泊先を見つけよう"
+
+msgid "Handpicked hotels from budget to luxury worldwide"
+msgstr "世界中のリーズナブルから高級まで厳選されたホテル"
+
+msgid "Filter Hotels"
+msgstr "ホテルを絞り込む"
+
+msgid "No hotels match your search."
+msgstr "検索に一致するホテルが見つかりません。"
+
+msgid "About the Hotel"
+msgstr "ホテルについて"
+
+msgid "Amenities"
+msgstr "設備・サービス"
+
+msgid "Room Types"
+msgstr "客室タイプ"
+
+msgid "Capacity"
+msgstr "定員"
+
+msgid "Guest Reviews"
+msgstr "宿泊者レビュー"
+
+msgid "Check Availability"
+msgstr "空き状況を確認する"
+
+msgid "Check-in"
+msgstr "チェックイン"
+
+msgid "Check-out"
+msgstr "チェックアウト"
+
+msgid "Explore Destinations"
+msgstr "目的地を探索する"
+
+msgid "Discover stunning countries and cities across all continents"
+msgstr "すべての大陸にわたる素晴らしい国々と都市を発見しよう"
+
+msgid "Cities to Explore"
+msgstr "探索すべき都市"
+
+msgid "Travel Information"
+msgstr "旅行情報"
+
+msgid "Best time to visit"
+msgstr "最適な訪問時期"
+
+msgid "Visa Information"
+msgstr "ビザ情報"
+
+msgid "Plan a Trip Here"
+msgstr "ここへの旅を計画する"
+
+msgid "Top Attractions"
+msgstr "人気の観光スポット"
+
+msgid "Entry"
+msgstr "入場"
+
+msgid "View on map"
+msgstr "地図で見る"
+
+msgid "Hotels in"
+msgstr "のホテル"
+
+msgid "Tours Including"
+msgstr "含むツアー"
+
+msgid "Timezone"
+msgstr "タイムゾーン"
+
+msgid "All destinations"
+msgstr "すべての目的地"
+
+msgid "Travel Guides & Tips"
+msgstr "旅行ガイドとヒント"
+
+msgid "Expert advice, destination guides, and travel inspiration"
+msgstr "専門家のアドバイス、目的地ガイド、旅のインスピレーション"
+
+msgid "Read Article"
+msgstr "記事を読む"
+
+msgid "No articles found."
+msgstr "記事が見つかりません。"
+
+msgid "Related Articles"
+msgstr "関連記事"
+
+msgid "Plan Your Trip"
+msgstr "旅を計画しよう"
+
+msgid "Ready to experience this destination?"
+msgstr "この目的地を体験する準備はできていますか？"
+
+msgid "MICE & Corporate Travel"
+msgstr "MICEと法人旅行"
+
+msgid "Business Travel"
+msgstr "ビジネストラベル"
+
+msgid ""
+"From international conferences to team-building retreats — we handle every "
+"detail."
+msgstr "国際会議からチームビルディングリトリートまで、すべての詳細をお任せください。"
+
+msgid "Request a Quote"
+msgstr "見積もりを依頼する"
+
+msgid "No packages available."
+msgstr "利用可能なパッケージがありません。"
+
+msgid "Need a Custom Corporate Package?"
+msgstr "カスタム法人パッケージが必要ですか？"
+
+msgid "Our MICE specialists will design a bespoke program for your company."
+msgstr "MICEスペシャリストが貴社専用のプログラムをデザインします。"
+
+msgid "Talk to a Specialist"
+msgstr "スペシャリストに相談する"
+
+msgid "Package Includes"
+msgstr "パッケージ内容"
+
+msgid "Min participants"
+msgstr "最小参加人数"
+
+msgid "Max participants"
+msgstr "最大参加人数"
+
+msgid "Booking Confirmed!"
+msgstr "予約が確定しました！"
+
+msgid ""
+"Thank you for booking with Travel Pro. A confirmation email has been sent to"
+msgstr "Travel Proをご利用いただきありがとうございます。確認メールを以下のアドレスに送信しました："
+
+msgid "Confirmation Number"
+msgstr "確認番号"
+
+msgid "Customer"
+msgstr "お客様"
+
+msgid "Travel date"
+msgstr "旅行日"
+
+msgid "Travelers"
+msgstr "旅行者"
+
+msgid "Browse More Tours"
+msgstr "他のツアーを見る"
+
+msgid "Back to Home"
+msgstr "ホームに戻る"
+
+msgid "I agree to the Terms & Conditions and Privacy Policy"
+msgstr "利用規約とプライバシーポリシーに同意します"
+
+msgid "Confirm Booking"
+msgstr "予約を確定する"
+
+msgid "Tell us about your dream trip and we'll create a custom itinerary."
+msgstr "理想の旅についてお聞かせください。専用の旅程を作成します。"
+
+msgid "What Our Travelers Say"
+msgstr "旅行者の声"
+
+msgid "Genuine reviews from verified customers worldwide"
+msgstr "世界中の認証済みお客様からの本物のレビュー"
+
+msgid "No reviews found."
+msgstr "レビューが見つかりません。"
+
+msgid "About Us"
+msgstr "私たちについて"
+
+msgid "Our Story"
+msgstr "私たちのストーリー"
+
+msgid "About Travel Pro"
+msgstr "Travel Proについて"
+
+msgid ""
+"For over 15 years, we've been connecting passionate travelers with "
+"extraordinary destinations across the globe."
+msgstr "15年以上にわたり、情熱的な旅行者と世界中の素晴らしい目的地をつないできました。"
+
+msgid "Our Mission"
+msgstr "私たちのミッション"
+
+msgid ""
+"To inspire and enable people to experience the world's cultures, landscapes,"
+" and communities through expertly crafted travel experiences — with a "
+"commitment to sustainability, authenticity, and excellence."
+msgstr ""
+"持続可能性、本物らしさ、卓越性へのコミットメントを持ちながら、巧みに作られた旅行体験を通じて世界の文化、景観、コミュニティを体験することを人々に促し、可能にする。"
+
+msgid "Tour Packages"
+msgstr "ツアーパッケージ"
+
+msgid "Our Values"
+msgstr "私たちの価値観"
+
+msgid "Sustainability"
+msgstr "持続可能性"
+
+msgid ""
+"We partner with eco-conscious operators and promote responsible tourism."
+msgstr "環境意識の高いオペレーターと提携し、責任ある観光を推進しています。"
+
+msgid "Authenticity"
+msgstr "本物らしさ"
+
+msgid "We create genuine local experiences, not just tourist attractions."
+msgstr "観光スポットだけでなく、本物の地域体験を創り出します。"
+
+msgid "Excellence"
+msgstr "卓越性"
+
+msgid "Every detail is carefully curated to exceed your expectations."
+msgstr "ご期待を超えるために、すべての詳細を丁寧に厳選しています。"
+
+msgid "Ready to Start Your Journey?"
+msgstr "旅を始める準備はできていますか？"
+
+msgid "Let our experts create your perfect travel experience."
+msgstr "専門家があなたにとって完璧な旅行体験を作り上げます。"
+
+msgid "Get in Touch"
+msgstr "お問い合わせ"
+
+msgid "We'd love to hear from you and help plan your perfect trip"
+msgstr "ぜひご連絡ください。完璧な旅のプランを一緒に作りましょう"
+
+msgid "Send Us a Message"
+msgstr "メッセージを送る"
+
+msgid "First Name"
+msgstr "名"
+
+msgid "Last Name"
+msgstr "姓"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Send Message"
+msgstr "メッセージを送信"
+
+msgid "Contact Information"
+msgstr "連絡先情報"
+
+msgid "Office Address"
+msgstr "オフィス住所"
+
+msgid "Social Media"
+msgstr "ソーシャルメディア"
+
+msgid "Welcome Back"
+msgstr "おかえりなさい"
+
+msgid "Sign in to manage your bookings and profile"
+msgstr "予約とプロフィールを管理するためにログインしてください"
+
+msgid "Email address"
+msgstr "メールアドレス"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Forgot password?"
+msgstr "パスワードをお忘れですか？"
+
+msgid "Keep me signed in"
+msgstr "ログイン状態を維持する"
+
+msgid "Don't have an account?"
+msgstr "アカウントをお持ちでないですか？"
+
+msgid "Create one"
+msgstr "作成する"
+
+msgid "Your information is secured with SSL encryption."
+msgstr "お客様の情報はSSL暗号化で保護されています。"
+
+msgid "Create Account"
+msgstr "アカウントを作成する"
+
+msgid "Create Your Account"
+msgstr "アカウントを作成しましょう"
+
+msgid "Join thousands of travelers exploring the world"
+msgstr "世界を旅する何千もの旅行者に参加しましょう"
+
+msgid "At least 8 characters"
+msgstr "8文字以上"
+
+msgid "Confirm password"
+msgstr "パスワードを確認"
+
+msgid "Repeat your password"
+msgstr "パスワードを再入力"
+
+msgid "By registering you agree to our"
+msgstr "登録することで、"
+
+msgid "Terms"
+msgstr "利用規約"
+
+msgid "Privacy Policy"
+msgstr "プライバシーポリシー"
+
+msgid "Already have an account?"
+msgstr "すでにアカウントをお持ちですか？"
+
+msgid "My Profile"
+msgstr "マイプロフィール"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "My Bookings"
+msgstr "予約一覧"
+
+msgid "Saved Tours"
+msgstr "保存済みツアー"
+
+msgid "Sign Out"
+msgstr "ログアウト"
+
+msgid "Ref"
+msgstr "参照"
+
+msgid "Tour / Hotel"
+msgstr "ツアー / ホテル"
+
+msgid "No bookings yet."
+msgstr "まだ予約がありません。"
+
+msgid "No saved tours yet."
+msgstr "まだ保存済みツアーがありません。"
+
+msgid "Avatar"
+msgstr "アバター"
+
+msgid "Bio"
+msgstr "自己紹介"
+
+msgid "Date of birth"
+msgstr "生年月日"
+
+msgid "Preferred language"
+msgstr "優先言語"
+
+msgid "Saved tours"
+msgstr "保存済みツアー"
+
+msgid "Newsletter subscribed"
+msgstr "ニュースレター購読"
+
+msgid "User profile"
+msgstr "ユーザープロフィール"
+
+msgid "User profiles"
+msgstr "ユーザープロフィール一覧"
+
+msgid "Draft"
+msgstr "下書き"
+
+msgid "Submitted"
+msgstr "送信済み"
+
+msgid "Confirmed"
+msgstr "確認済み"
+
+msgid "Cancelled"
+msgstr "キャンセル済み"
+
+msgid "Completed"
+msgstr "完了"
+
+msgid "Tour Booking"
+msgstr "ツアー予約"
+
+msgid "Hotel Booking"
+msgstr "ホテル予約"
+
+msgid "Corporate / MICE"
+msgstr "法人 / MICE"
+
+msgid "Custom Trip"
+msgstr "カスタムトリップ"
+
+msgid "Referral"
+msgstr "紹介"
+
+msgid "Economy (< $500)"
+msgstr "エコノミー（$500未満）"
+
+msgid "Standard ($500 – $1,500)"
+msgstr "スタンダード（$500〜$1,500）"
+
+msgid "Premium ($1,500 – $3,000)"
+msgstr "プレミアム（$1,500〜$3,000）"
+
+msgid "Luxury (> $3,000)"
+msgstr "ラグジュアリー（$3,000超）"
+
+msgid "Inquiry type"
+msgstr "問い合わせ種別"
+
+msgid "Tour departure"
+msgstr "ツアー出発"
+
+msgid "First name"
+msgstr "名"
+
+msgid "Last name"
+msgstr "姓"
+
+msgid "Country of origin"
+msgstr "出身国"
+
+msgid "Preferred travel date"
+msgstr "希望旅行日"
+
+msgid "Number of adults"
+msgstr "大人の人数"
+
+msgid "Number of children"
+msgstr "子どもの人数"
+
+msgid "Special requests"
+msgstr "特別リクエスト"
+
+msgid "Budget range"
+msgstr "予算範囲"
+
+msgid "Source"
+msgstr "情報源"
+
+msgid "Assigned to"
+msgstr "担当者"
+
+msgid "Internal notes"
+msgstr "内部メモ"
+
+msgid "Visible to staff only"
+msgstr "スタッフのみ閲覧可"
+
+msgid "Created from IP"
+msgstr "作成元IP"
+
+msgid "Confirmation number"
+msgstr "確認番号"
+
+msgid "Created at"
+msgstr "作成日時"
+
+msgid "Updated at"
+msgstr "更新日時"
+
+msgid "SEO title"
+msgstr "SEOタイトル"
+
+msgid "SEO description"
+msgstr "SEO説明"
+
+msgid "Display order"
+msgstr "表示順"
+
+msgid "Flag image"
+msgstr "国旗画像"
+
+msgid "Cover image"
+msgstr "カバー画像"
+
+msgid "Overview"
+msgstr "概要"
+
+msgid "Visa information"
+msgstr "ビザ情報"
+
+msgid "Official language"
+msgstr "公用語"
+
+msgid "Nature"
+msgstr "自然"
+
+msgid "Culture & Heritage"
+msgstr "文化と遺産"
+
+msgid "Adventure"
+msgstr "アドベンチャー"
+
+msgid "Beach"
+msgstr "ビーチ"
+
+msgid "City Sightseeing"
+msgstr "市内観光"
+
+msgid "Museum"
+msgstr "博物館"
+
+msgid "Food & Drink"
+msgstr "食べ物と飲み物"
+
+msgid "Shopping"
+msgstr "ショッピング"
+
+msgid "Entertainment"
+msgstr "エンターテインメント"
+
+msgid "Religious Site"
+msgstr "宗教施設"
+
+msgid "Entrance fee"
+msgstr "入場料"
+
+msgid "Opening hours"
+msgstr "営業時間"
+
+msgid "Google Maps URL"
+msgstr "Google Maps URL"
+
+msgid "Attraction"
+msgstr "観光スポット"
+
+msgid "Attractions"
+msgstr "観光スポット一覧"
+
+msgid "Population"
+msgstr "人口"
+
+msgid "Latitude"
+msgstr "緯度"
+
+msgid "Longitude"
+msgstr "経度"
+
+msgid "Tabler icon name"
+msgstr "Tablerアイコン名"
+
+msgid "Tag"
+msgstr "タグ"
+
+msgid "Guide category"
+msgstr "ガイドカテゴリー"
+
+msgid "Guide categories"
+msgstr "ガイドカテゴリー一覧"
+
+msgid "Excerpt"
+msgstr "抜粋"
+
+msgid "Reading time (min)"
+msgstr "読了時間（分）"
+
+msgid "Views count"
+msgstr "閲覧数"
+
+msgid "Published at"
+msgstr "公開日時"
+
+msgid "Article"
+msgstr "記事"
+
+msgid "Articles"
+msgstr "記事一覧"
+
+msgid "Hotel amenity"
+msgstr "ホテル設備"
+
+msgid "Hotel amenities"
+msgstr "ホテル設備一覧"
+
+msgid "Budget"
+msgstr "バジェット"
+
+msgid "Standard"
+msgstr "スタンダード"
+
+msgid "Superior"
+msgstr "スーペリア"
+
+msgid "Boutique"
+msgstr "ブティック"
+
+msgid "Resort"
+msgstr "リゾート"
+
+msgid "Hostel"
+msgstr "ホステル"
+
+msgid "Luxury"
+msgstr "ラグジュアリー"
+
+msgid "Stars"
+msgstr "星"
+
+msgid "Check-in time"
+msgstr "チェックイン時間"
+
+msgid "Check-out time"
+msgstr "チェックアウト時間"
+
+msgid "Price from (per night)"
+msgstr "価格から（1泊）"
+
+msgid "Hotel images"
+msgstr "ホテル画像一覧"
+
+msgid "Hotel image"
+msgstr "ホテル画像"
+
+msgid "Single"
+msgstr "シングル"
+
+msgid "Double"
+msgstr "ダブル"
+
+msgid "Twin"
+msgstr "ツイン"
+
+msgid "Triple"
+msgstr "トリプル"
+
+msgid "Suite"
+msgstr "スイート"
+
+msgid "Family Room"
+msgstr "ファミリールーム"
+
+msgid "Deluxe"
+msgstr "デラックス"
+
+msgid "Presidential Suite"
+msgstr "プレジデンシャルスイート"
+
+msgid "Room type"
+msgstr "客室タイプ"
+
+msgid "Capacity (persons)"
+msgstr "定員（名）"
+
+msgid "Price per night"
+msgstr "1泊あたりの価格"
+
+msgid "Comma-separated list"
+msgstr "カンマ区切りリスト"
+
+msgid "Available"
+msgstr "利用可能"
+
+msgid "Hotel room"
+msgstr "客室"
+
+msgid "Hotel rooms"
+msgstr "客室一覧"
+
+msgid "Conference"
+msgstr "カンファレンス"
+
+msgid "Incentive Trip"
+msgstr "インセンティブ旅行"
+
+msgid "Exhibition"
+msgstr "展示会"
+
+msgid "Team Building"
+msgstr "チームビルディング"
+
+msgid "Corporate Retreat"
+msgstr "コーポレートリトリート"
+
+msgid "Product Launch"
+msgstr "製品発表"
+
+msgid "Package type"
+msgstr "パッケージタイプ"
+
+msgid "Package includes"
+msgstr "パッケージ内容"
+
+msgid "Price per person (from)"
+msgstr "1人あたり価格（から）"
+
+msgid "Featured destinations"
+msgstr "おすすめ目的地"
+
+msgid "Corporate package"
+msgstr "法人パッケージ"
+
+msgid "Corporate packages"
+msgstr "法人パッケージ一覧"
+
+msgid "Pending moderation"
+msgstr "承認待ち"
+
+msgid "Approved"
+msgstr "承認済み"
+
+msgid "Rejected"
+msgstr "却下"
+
+msgid "Tour Review"
+msgstr "ツアーレビュー"
+
+msgid "Hotel Review"
+msgstr "ホテルレビュー"
+
+msgid "General Review"
+msgstr "一般レビュー"
+
+msgid "Review type"
+msgstr "レビュータイプ"
+
+msgid "Registered user"
+msgstr "登録ユーザー"
+
+msgid "Guest name"
+msgstr "ゲスト名"
+
+msgid "Guest country"
+msgstr "ゲストの国"
+
+msgid "Review title"
+msgstr "レビュータイトル"
+
+msgid "Review body"
+msgstr "レビュー本文"
+
+msgid "Verified purchase"
+msgstr "購入確認済み"
+
+msgid "Set by staff for confirmed bookings"
+msgstr "確認済み予約に対してスタッフが設定"
+
+msgid "Helpful votes"
+msgstr "役に立った数"
+
+msgid "Review"
+msgstr "レビュー"
+
+msgid "Easy"
+msgstr "簡単"
+
+msgid "Moderate"
+msgstr "普通"
+
+msgid "Challenging"
+msgstr "難しい"
+
+msgid "Min group size"
+msgstr "最小グループサイズ"
+
+msgid "Max group size"
+msgstr "最大グループサイズ"
+
+msgid "Price per person"
+msgstr "1人あたりの価格"
+
+msgid "Discount %"
+msgstr "割引率 %"
+
+msgid "What's included"
+msgstr "含まれるもの"
+
+msgid "What's excluded"
+msgstr "含まれないもの"
+
+msgid "Important notes"
+msgstr "重要なご案内"
+
+msgid "Tour images"
+msgstr "ツアー画像一覧"
+
+msgid "Tour image"
+msgstr "ツアー画像"
+
+msgid "No meals"
+msgstr "食事なし"
+
+msgid "Breakfast"
+msgstr "朝食"
+
+msgid "Breakfast & Lunch"
+msgstr "朝食・昼食"
+
+msgid "Breakfast & Dinner"
+msgstr "朝食・夕食"
+
+msgid "All meals"
+msgstr "全食事付き"
+
+msgid "Day number"
+msgstr "日数"
+
+msgid "Meals included"
+msgstr "食事付き"
+
+msgid "Accommodation"
+msgstr "宿泊"
+
+msgid "Transport"
+msgstr "交通"
+
+msgid "Tour day"
+msgstr "ツアー日程"
+
+msgid "Tour days"
+msgstr "ツアー日程一覧"
+
+msgid "Open for booking"
+msgstr "予約受付中"
+
+msgid "Closed"
+msgstr "締め切り"
+
+msgid "Fully booked"
+msgstr "満員"
+
+msgid "Departure date"
+msgstr "出発日"
+
+msgid "Return date"
+msgstr "帰着日"
+
+msgid "Available seats"
+msgstr "空席数"
+
+msgid "Booked seats"
+msgstr "予約済み席数"
+
+msgid "Price override"
+msgstr "価格オーバーライド"
+
+msgid "Tour departures"
+msgstr "ツアー出発一覧"
+
+msgid "Icon (Tabler icon name)"
+msgstr "アイコン（Tablerアイコン名）"
+
+msgid "Tour category"
+msgstr "ツアーカテゴリー"
+
+msgid "Tour categories"
+msgstr "ツアーカテゴリー一覧"
+
+msgid "Search tours, destinations…"
+msgstr "ツアー、目的地を検索…"

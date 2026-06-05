@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Contact Us" %} | {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="pt-20">
+  <div class="relative py-16 text-center text-white overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center"
+         style="background-image:url('{% static 'images/hero-contact.jpg' %}')"></div>
+    <div class="absolute inset-0" style="background:rgba(27,67,50,0.82)"></div>
+    <div class="relative z-10 px-4">
+      <h1 class="text-4xl font-serif font-bold mb-2">{% trans "Get in Touch" %}</h1>
+      <p class="text-white/75 mt-1">{% trans "We'd love to hear from you and help plan your perfect trip" %}</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+      {# Contact form #}
+      <div>
+        <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Send Us a Message" %}</h2>
+        <form method="post" action="{% url 'bookings:inquiry' %}" class="space-y-4">
+          {% csrf_token %}
+          <input type="hidden" name="inquiry_type" value="custom">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "First Name" %}</label>
+              <input type="text" name="first_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Last Name" %}</label>
+              <input type="text" name="last_name" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Email" %}</label>
+            <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Phone" %}</label>
+            <input type="tel" name="phone" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">{% trans "Message" %}</label>
+            <textarea name="special_requests" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full py-3 text-base">
+            <i class="ti ti-send mr-2"></i>{% trans "Send Message" %}
+          </button>
+        </form>
+      </div>
+
+      {# Contact info + map #}
+      <div>
+        <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Contact Information" %}</h2>
+        <div class="space-y-5 mb-8">
+          {% if SITE_ADDRESS %}
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="ti ti-map-pin text-primary text-xl"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-dark mb-0.5">{% trans "Office Address" %}</p>
+              <p class="text-gray-500 text-sm">{{ SITE_ADDRESS }}</p>
+            </div>
+          </div>
+          {% endif %}
+          {% if SITE_PHONE %}
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="ti ti-phone text-primary text-xl"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-dark mb-0.5">{% trans "Phone" %}</p>
+              <a href="tel:{{ SITE_PHONE }}" class="text-gray-500 text-sm hover:text-primary">{{ SITE_PHONE }}</a>
+            </div>
+          </div>
+          {% endif %}
+          {% if SITE_EMAIL %}
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="ti ti-mail text-primary text-xl"></i>
+            </div>
+            <div>
+              <p class="font-semibold text-dark mb-0.5">{% trans "Email" %}</p>
+              <a href="mailto:{{ SITE_EMAIL }}" class="text-gray-500 text-sm hover:text-primary">{{ SITE_EMAIL }}</a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+
+        {# Leaflet map #}
+        <div id="contact-map" class="h-64 rounded-2xl overflow-hidden border border-gray-200"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map = L.map('contact-map').setView([40.7128, -74.0060], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+L.marker([40.7128, -74.0060]).addTo(map).bindPopup('{{ SITE_NAME }}').openPopup();
+</script>
+{% endblock %}

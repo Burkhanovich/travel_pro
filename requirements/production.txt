@@ -1,0 +1,7 @@
+-r base.txt
+
+# WSGI server
+gunicorn==23.0.0
+
+# PostgreSQL (native, faster than binary in production)
+psycopg2==2.9.10

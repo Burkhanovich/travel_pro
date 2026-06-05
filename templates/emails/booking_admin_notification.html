@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>New Inquiry – {{ inquiry.confirmation_number }}</title></head>
+<body style="font-family:Arial,sans-serif;background:#f4f4f4;padding:20px;">
+  <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:8px;padding:24px;">
+    <h2 style="color:#1B4332;">New {{ inquiry.get_inquiry_type_display }} Inquiry</h2>
+    <p style="background:#FEF3C7;padding:10px;border-radius:6px;font-size:13px;">
+      <strong>Ref: {{ inquiry.confirmation_number }}</strong> | Status: {{ inquiry.get_status_display }}
+    </p>
+    <table style="width:100%;font-size:13px;border-collapse:collapse;">
+      <tr><td style="padding:6px 0;color:#6B7280;width:35%;">Customer</td><td style="padding:6px 0;font-weight:600;">{{ inquiry.full_name }}</td></tr>
+      <tr><td style="padding:6px 0;color:#6B7280;">Email</td><td>{{ inquiry.email }}</td></tr>
+      <tr><td style="padding:6px 0;color:#6B7280;">Phone</td><td>{{ inquiry.phone|default:"—" }}</td></tr>
+      {% if inquiry.tour %}<tr><td style="padding:6px 0;color:#6B7280;">Tour</td><td>{{ inquiry.tour.title }}</td></tr>{% endif %}
+      {% if inquiry.hotel %}<tr><td style="padding:6px 0;color:#6B7280;">Hotel</td><td>{{ inquiry.hotel.name }}</td></tr>{% endif %}
+      <tr><td style="padding:6px 0;color:#6B7280;">Travel Date</td><td>{{ inquiry.travel_date|default:"—" }}</td></tr>
+      <tr><td style="padding:6px 0;color:#6B7280;">Travelers</td><td>{{ inquiry.num_adults }} adults / {{ inquiry.num_children }} children</td></tr>
+      <tr><td style="padding:6px 0;color:#6B7280;">Budget</td><td>{{ inquiry.get_budget_range_display|default:"—" }}</td></tr>
+      <tr><td style="padding:6px 0;color:#6B7280;">Source</td><td>{{ inquiry.get_source_display }}</td></tr>
+      {% if inquiry.special_requests %}
+      <tr><td style="padding:6px 0;color:#6B7280;vertical-align:top;">Notes</td><td>{{ inquiry.special_requests }}</td></tr>
+      {% endif %}
+    </table>
+    <a href="/admin/bookings/inquiry/{{ inquiry.pk }}/change/" style="display:inline-block;margin-top:16px;background:#1B4332;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-size:13px;">View in Admin</a>
+  </div>
+</body>
+</html>

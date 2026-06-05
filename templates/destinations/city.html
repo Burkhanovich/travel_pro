@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ city.name }}, {{ city.country.name }} | {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="pt-20">
+  <div class="relative h-72 overflow-hidden">
+    {% if city.cover_image %}
+    <img src="{{ city.cover_image.url }}" alt="{{ city.name }}" class="w-full h-full object-cover">
+    {% else %}
+    <div class="w-full h-full bg-gradient-to-br from-primary to-primary/50"></div>
+    {% endif %}
+    <div class="absolute inset-0 bg-dark/50"></div>
+    <div class="absolute bottom-6 left-8">
+      <h1 class="text-white font-serif text-4xl font-bold">{{ city.name }}</h1>
+      <p class="text-white/70">{{ city.country.name }}</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {% if city.overview %}
+    <p class="text-gray-700 text-lg max-w-3xl mb-10">{{ city.overview }}</p>
+    {% endif %}
+
+    {# Attractions #}
+    {% if attractions %}
+    <section class="mb-12">
+      <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Top Attractions" %}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for attr in attractions %}
+        <div class="bg-white rounded-xl shadow-sm p-4 flex gap-4 hover:shadow-md transition">
+          {% if attr.image %}
+          <img src="{{ attr.image.url }}" alt="{{ attr.name }}" class="w-20 h-20 object-cover rounded-lg flex-shrink-0">
+          {% endif %}
+          <div>
+            <span class="text-xs text-secondary font-semibold uppercase">{{ attr.get_category_display }}</span>
+            <h3 class="font-semibold text-dark text-sm mb-1">{{ attr.name }}</h3>
+            {% if attr.entrance_fee %}<p class="text-xs text-gray-500">{% trans "Entry" %}: {{ attr.entrance_fee }}</p>{% endif %}
+            {% if attr.opening_hours %}<p class="text-xs text-gray-500">{{ attr.opening_hours }}</p>{% endif %}
+            {% if attr.google_maps_url %}
+            <a href="{{ attr.google_maps_url }}" target="_blank" rel="noopener" class="text-xs text-primary hover:underline flex items-center gap-1 mt-1">
+              <i class="ti ti-map-pin text-xs"></i>{% trans "View on map" %}
+            </a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {# Hotels #}
+    {% if hotels %}
+    <section class="mb-12">
+      <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Hotels in" %} {{ city.name }}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for hotel in hotels %}
+          {% include "components/hotel_card.html" with hotel=hotel %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {# Tours #}
+    {% if tours %}
+    <section>
+      <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Tours Including" %} {{ city.name }}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for tour in tours %}
+          {% include "components/tour_card.html" with tour=tour %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

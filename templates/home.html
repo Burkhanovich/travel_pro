@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{{ SITE_NAME }} – {{ SITE_TAGLINE }}{% endblock %}
+
+{% block content %}
+
+{# ── Hero ──────────────────────────────────────────────────── #}
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {# Background #}
+  <div class="absolute inset-0 bg-gradient-to-br from-dark via-primary/90 to-primary">
+    <div class="absolute inset-0 bg-cover bg-center opacity-30"
+         style="background-image:url('{% static 'images/hero-home.jpg' %}')"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+    <p class="text-secondary font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">{% trans "Your Journey Begins Here" %}</p>
+    <h1 class="text-white font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+      {% trans "Discover the World" %}<br>
+      <span class="text-secondary">{% trans "With Confidence" %}</span>
+    </h1>
+    <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+      {% trans "Expertly crafted tours across 6 continents. Unparalleled service, unforgettable memories." %}
+    </p>
+
+    {# Quick search #}
+    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 max-w-3xl mx-auto">
+      <form action="{% url 'tours:list' %}" method="get" class="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div>
+          <label class="block text-white/70 text-xs mb-1">{% trans "Destination" %}</label>
+          <input type="text" name="q" placeholder="{% trans 'Where to?' %}"
+                 class="w-full bg-white/20 border border-white/30 text-white placeholder-white/50 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-secondary">
+        </div>
+        <div>
+          <label class="block text-white/70 text-xs mb-1">{% trans "Date" %}</label>
+          <input type="month" name="departure_month"
+                 class="w-full bg-white/20 border border-white/30 text-white rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-secondary">
+        </div>
+        <div>
+          <label class="block text-white/70 text-xs mb-1">{% trans "Duration" %}</label>
+          <select name="max_duration" class="w-full bg-white/20 border border-white/30 text-white rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-secondary">
+            <option value="">{% trans "Any" %}</option>
+            <option value="7">{% trans "Up to 1 week" %}</option>
+            <option value="14">{% trans "Up to 2 weeks" %}</option>
+            <option value="30">{% trans "Up to 1 month" %}</option>
+          </select>
+        </div>
+        <button type="submit" class="bg-secondary hover:bg-secondary-dark text-white font-semibold rounded-lg px-4 py-2.5 transition flex items-center justify-center gap-2 mt-auto">
+          <i class="ti ti-search"></i> {% trans "Search" %}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  {# Scroll indicator #}
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 rounded-full border-2 border-white/40 flex items-start justify-center p-1">
+      <div class="w-1 h-2 bg-white/60 rounded-full"></div>
+    </div>
+  </div>
+</section>
+
+{# ── Stats ─────────────────────────────────────────────────── #}
+<section class="bg-primary py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+      {% with stats=stats %}
+      <div>
+        <p class="text-4xl font-bold font-serif text-secondary">{{ stats.tours_count }}+</p>
+        <p class="text-sm text-white/70 mt-1">{% trans "Tours" %}</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold font-serif text-secondary">{{ stats.countries_count }}+</p>
+        <p class="text-sm text-white/70 mt-1">{% trans "Countries" %}</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold font-serif text-secondary">{{ stats.happy_travelers|floatformat:"-3" }}+</p>
+        <p class="text-sm text-white/70 mt-1">{% trans "Happy Travelers" %}</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold font-serif text-secondary">{{ stats.years_experience }}+</p>
+        <p class="text-sm text-white/70 mt-1">{% trans "Years Experience" %}</p>
+      </div>
+      {% endwith %}
+    </div>
+  </div>
+</section>
+
+{# ── Featured Tours ────────────────────────────────────────── #}
+<section class="py-20 bg-accent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <p class="text-secondary font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Handpicked for You" %}</p>
+        <h2 class="text-4xl font-serif font-bold text-dark">{% trans "Featured Tours" %}</h2>
+      </div>
+      <a href="{% url 'tours:list' %}" class="btn-outline flex items-center gap-2 self-start">
+        {% trans "View All Tours" %} <i class="ti ti-arrow-right"></i>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for tour in featured_tours %}
+        {% include "components/tour_card.html" with tour=tour %}
+      {% empty %}
+      <p class="col-span-3 text-center text-gray-400 py-12">{% trans "No featured tours yet." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ── Featured Destinations ─────────────────────────────────── #}
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-secondary font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Explore the World" %}</p>
+      <h2 class="text-4xl font-serif font-bold text-dark">{% trans "Top Destinations" %}</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {% for country in featured_destinations %}
+        {% include "components/destination_card.html" with country=country %}
+      {% endfor %}
+    </div>
+    <div class="text-center mt-10">
+      <a href="{% url 'destinations:list' %}" class="btn-primary px-8 py-3 inline-flex items-center gap-2">
+        {% trans "All Destinations" %} <i class="ti ti-globe"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+{# ── Why Choose Us ─────────────────────────────────────────── #}
+<section class="py-20 bg-dark text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="text-secondary font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Our Promise" %}</p>
+      <h2 class="text-4xl font-serif font-bold">{% trans "Why Travel Pro?" %}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {% with features=why_us %}
+      <div class="text-center">
+        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+          <i class="ti ti-shield-check text-secondary text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">{% trans "Trusted Agency" %}</h3>
+        <p class="text-gray-400 text-sm">{% trans "Licensed and fully insured with 15+ years of excellence." %}</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+          <i class="ti ti-headset text-secondary text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">{% trans "24/7 Support" %}</h3>
+        <p class="text-gray-400 text-sm">{% trans "Our team is always available to assist you anywhere in the world." %}</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+          <i class="ti ti-tag text-secondary text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">{% trans "Best Price" %}</h3>
+        <p class="text-gray-400 text-sm">{% trans "Price-match guarantee on all our tour packages worldwide." %}</p>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+          <i class="ti ti-star text-secondary text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">{% trans "Top Rated" %}</h3>
+        <p class="text-gray-400 text-sm">{% trans "4.9★ average rating from thousands of verified travelers." %}</p>
+      </div>
+      {% endwith %}
+    </div>
+  </div>
+</section>
+
+{# ── Featured Hotels ───────────────────────────────────────── #}
+{% if featured_hotels %}
+<section class="py-20 bg-accent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <p class="text-secondary font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Hand-Picked Stays" %}</p>
+        <h2 class="text-4xl font-serif font-bold text-dark">{% trans "Featured Hotels" %}</h2>
+      </div>
+      <a href="{% url 'hotels:list' %}" class="btn-outline flex items-center gap-2 self-start">{% trans "All Hotels" %} <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for hotel in featured_hotels %}
+        {% include "components/hotel_card.html" with hotel=hotel %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# ── Testimonials ──────────────────────────────────────────── #}
+{% if testimonials %}
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <p class="text-secondary font-semibold text-sm uppercase tracking-wide mb-2">{% trans "What Travelers Say" %}</p>
+      <h2 class="text-4xl font-serif font-bold text-dark">{% trans "Customer Reviews" %}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for review in testimonials %}
+        {% include "components/review_card.html" with review=review %}
+      {% endfor %}
+    </div>
+    <div class="text-center mt-10">
+      <a href="{% url 'reviews:list' %}" class="btn-outline px-8 py-3">{% trans "Read All Reviews" %}</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# ── Latest Articles ───────────────────────────────────────── #}
+{% if latest_articles %}
+<section class="py-20 bg-accent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <p class="text-secondary font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Travel Tips & Inspiration" %}</p>
+        <h2 class="text-4xl font-serif font-bold text-dark">{% trans "Latest Guides" %}</h2>
+      </div>
+      <a href="{% url 'guides:list' %}" class="btn-outline flex items-center gap-2 self-start">{% trans "All Articles" %} <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {% for article in latest_articles %}
+        {% include "components/article_card.html" with article=article %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# ── CTA Banner ────────────────────────────────────────────── #}
+<section class="py-20 bg-primary text-white text-center">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-4xl font-serif font-bold mb-4">{% trans "Ready for Your Next Adventure?" %}</h2>
+    <p class="text-white/80 text-lg mb-8">{% trans "Get a personalised itinerary from our travel experts — completely free." %}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="{% url 'bookings:inquiry' %}" class="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-4 rounded-lg transition text-lg">
+        {% trans "Plan My Trip" %}
+      </a>
+      <a href="{% url 'tours:list' %}" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition border border-white/30 text-lg">
+        {% trans "Browse Tours" %}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

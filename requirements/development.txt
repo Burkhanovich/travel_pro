@@ -1,0 +1,12 @@
+-r base.txt
+
+# Dev server & debugging
+django-debug-toolbar==5.1.0
+django-extensions==3.2.3
+
+# Testing
+pytest-django==4.10.0
+factory-boy==3.3.3
+
+# Seed data
+Faker==37.1.0

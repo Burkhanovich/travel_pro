@@ -1,0 +1,34 @@
+[Unit]
+Description=Travel Pro – Celery Worker
+After=network.target redis.service
+Requires=redis.service
+
+[Service]
+Type=forking
+User=travelpro
+Group=travelpro
+WorkingDirectory=/var/www/travelpro
+Environment="DJANGO_SETTINGS_MODULE=config.settings.production"
+EnvironmentFile=/var/www/travelpro/.env
+ExecStart=/var/www/travelpro/.venv/bin/celery \
+    -A config.celery \
+    multi start worker \
+    --pidfile=/run/travelpro/celery_worker.pid \
+    --logfile=/var/log/travelpro/celery_worker.log \
+    --loglevel=WARNING \
+    --concurrency=2 \
+    -Q celery,default
+ExecStop=/var/www/travelpro/.venv/bin/celery \
+    multi stopwait worker \
+    --pidfile=/run/travelpro/celery_worker.pid
+ExecReload=/var/www/travelpro/.venv/bin/celery \
+    -A config.celery \
+    multi restart worker \
+    --pidfile=/run/travelpro/celery_worker.pid \
+    --logfile=/var/log/travelpro/celery_worker.log \
+    --loglevel=WARNING
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Customer Reviews" %} | {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="pt-20">
+  <div class="relative py-16 text-center text-white overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center"
+         style="background-image:url('{% static 'images/hero-reviews.jpg' %}')"></div>
+    <div class="absolute inset-0" style="background:rgba(27,67,50,0.80)"></div>
+    <div class="relative z-10 px-4">
+      <h1 class="text-4xl font-serif font-bold mb-2">{% trans "What Our Travelers Say" %}</h1>
+      <p class="text-white/75 mt-1">{% trans "Genuine reviews from verified customers worldwide" %}</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {# Filters #}
+    <div class="flex flex-wrap gap-3 mb-8">
+      <a href="?{% if request.GET.rating %}rating={{ request.GET.rating }}{% endif %}"
+         class="px-4 py-2 rounded-full text-sm font-medium transition {% if not current_type %}bg-primary text-white{% else %}bg-white border border-gray-200 text-gray-700{% endif %}">
+        {% trans "All" %}
+      </a>
+      {% for val, label in review_types %}
+      <a href="?type={{ val }}{% if request.GET.rating %}&rating={{ request.GET.rating }}{% endif %}"
+         class="px-4 py-2 rounded-full text-sm font-medium transition {% if current_type == val %}bg-primary text-white{% else %}bg-white border border-gray-200 text-gray-700{% endif %}">
+        {{ label }}
+      </a>
+      {% endfor %}
+    </div>
+
+    {# Rating filter #}
+    <div class="flex gap-2 mb-8">
+      {% for i in "54321" %}
+      <a href="?{% if current_type %}type={{ current_type }}&{% endif %}rating={{ i }}"
+         class="px-3 py-1.5 rounded-full text-sm border transition {% if current_rating == i %}bg-secondary text-white border-secondary{% else %}bg-white border-gray-200 text-gray-700{% endif %}">
+        {{ i }}★
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for review in reviews %}
+        {% include "components/review_card.html" with review=review %}
+      {% empty %}
+      <div class="col-span-3 text-center py-20 text-gray-400">{% trans "No reviews found." %}</div>
+      {% endfor %}
+    </div>
+
+    {% include "components/pagination.html" %}
+  </div>
+</div>
+{% endblock %}
