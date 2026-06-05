@@ -13,16 +13,18 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=lambda v: [s.strip() for s in v.spl
 # ---------------------------------------------------------------------------
 # Security hardening
 # ---------------------------------------------------------------------------
-SECURE_HSTS_SECONDS = 31_536_000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+_https = config("HTTPS_ENABLED", cast=bool, default=False)
+SECURE_HSTS_SECONDS = 31_536_000 if _https else 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = _https
+SECURE_HSTS_PRELOAD = _https
+SECURE_SSL_REDIRECT = config("SECURE_SSL_REDIRECT", cast=bool, default=False)
+SESSION_COOKIE_SECURE = _https
+CSRF_COOKIE_SECURE = _https
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https") if _https else None
 
 # ---------------------------------------------------------------------------
 # Admin URL (obscure in production)
