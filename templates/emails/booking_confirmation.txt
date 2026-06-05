@@ -15,6 +15,6 @@ Booking Details:
 
 A member of our team will contact you within 24 hours.
 
-Questions? Email: info@travelpro.com
+Questions? Email: burkhanov1c@gmail.com
 
 © {{ SITE_NAME }}

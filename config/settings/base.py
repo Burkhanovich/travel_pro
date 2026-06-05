@@ -327,9 +327,9 @@ CSP_CONNECT_SRC = ("'self'",)
 SITE_NAME = config("SITE_NAME", default="Travel Pro")
 SITE_URL = config("SITE_URL", default="http://localhost:8000")
 SITE_TAGLINE = "Discover the World with Confidence"
-SITE_PHONE = "+1 (555) 123-4567"
-SITE_EMAIL = "info@travelpro.com"
-SITE_ADDRESS = "123 Travel Street, New York, NY 10001"
+SITE_PHONE = "+998919917101"
+SITE_EMAIL = "burkhanov1c@gmail.com"
+SITE_ADDRESS = "Navoiy viloyati, Navoiy shahri, Jasorat 29-36"
 SOCIAL_LINKS = {
     "facebook": "https://facebook.com/travelpro",
     "instagram": "https://instagram.com/travelpro",
