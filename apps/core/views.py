@@ -3,7 +3,7 @@
 from django.db.models import Avg, Count
 from django.views.generic import TemplateView, View
 from django.http import HttpResponse
-from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
 from apps.tours.models import Tour
@@ -13,7 +13,7 @@ from apps.guides.models import Article
 from apps.reviews.models import Review
 
 
-@method_decorator(cache_page(60 * 10), name="dispatch")
+@method_decorator(ensure_csrf_cookie, name="dispatch")
 class HomeView(TemplateView):
     """
     Home page view.
