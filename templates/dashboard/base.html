@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Dashboard{% endblock %} — Travel Pro Admin</title>
+  <title>{% block title %}Dashboard{% endblock %} — UNITUR Admin</title>
   <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
   <link rel="stylesheet" href="{% static 'css/tabler-icons.min.css' %}">
   <style>
@@ -33,8 +33,7 @@
 
   {# Logo #}
   <div class="flex items-center gap-3 px-5 py-5 border-b border-white/10">
-    <span class="text-xl">✈</span>
-    <span class="text-white font-bold font-serif text-lg tracking-wide">Travel Pro</span>
+    <img src="{% static 'images/logo-unitur.png' %}" alt="UNITUR" class="h-8 w-auto brightness-0 invert">
     <button @click="sidebarOpen=false" class="ml-auto lg:hidden text-slate-400 hover:text-white">
       <i class="ti ti-x text-lg"></i>
     </button>

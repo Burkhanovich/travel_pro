@@ -324,18 +324,17 @@ CSP_CONNECT_SRC = ("'self'",)
 # ---------------------------------------------------------------------------
 # Site meta (used by context processor)
 # ---------------------------------------------------------------------------
-SITE_NAME = config("SITE_NAME", default="Travel Pro")
+SITE_NAME = config("SITE_NAME", default="UNITUR travel agency")
 SITE_URL = config("SITE_URL", default="http://localhost:8000")
-SITE_TAGLINE = "Discover the World with Confidence"
+SITE_TAGLINE = "Dunyoning eng go'zal joylarini kashf eting"
 SITE_PHONE = "+998919917101"
 SITE_EMAIL = "burkhanov1c@gmail.com"
 SITE_ADDRESS = "Navoiy viloyati, Navoiy shahri, Jasorat 29-36"
 SOCIAL_LINKS = {
-    "facebook": "https://facebook.com/travelpro",
-    "instagram": "https://instagram.com/travelpro",
-    "twitter": "https://twitter.com/travelpro",
-    "youtube": "https://youtube.com/travelpro",
-    "telegram": "https://t.me/travelpro",
+    "facebook": "https://facebook.com/unituruz",
+    "instagram": "https://instagram.com/unitouruz",
+    "telegram": "https://t.me/unituruz",
+    "youtube": "https://youtube.com/@Unituruz",
 }
 
 # ---------------------------------------------------------------------------

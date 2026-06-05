@@ -5,8 +5,10 @@
 
       {# Column 1 – About #}
       <div>
-        <h3 class="text-white text-xl font-serif font-bold mb-4">✈ {{ SITE_NAME }}</h3>
-        <p class="text-sm leading-relaxed mb-4">{{ SITE_TAGLINE }}. We craft unforgettable journeys tailored to your dreams.</p>
+        <div class="mb-4">
+          <img src="{% static 'images/logo-unitur.png' %}" alt="{{ SITE_NAME }}" class="h-10 w-auto brightness-0 invert">
+        </div>
+        <p class="text-sm leading-relaxed mb-4">{{ SITE_TAGLINE }}.</p>
         <div class="flex gap-3">
           {% if SOCIAL_LINKS.facebook %}
           <a href="{{ SOCIAL_LINKS.facebook }}" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition">

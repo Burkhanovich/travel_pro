@@ -58,8 +58,8 @@ class HomeView(TemplateView):
         ctx["stats"] = {
             "tours_count": Tour.objects.filter(is_active=True).count(),
             "countries_count": Country.objects.filter(is_active=True).count(),
-            "years_experience": 15,
-            "happy_travelers": 50000,
+            "years_experience": 10,
+            "happy_travelers": 500,
         }
         return ctx
 
