@@ -146,6 +146,7 @@ AUTH_USER_MODEL = "auth.User"
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_ADAPTER = "apps.accounts.adapters.AccountAdapter"
 
 # ---------------------------------------------------------------------------
 # Internationalization
