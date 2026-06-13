@@ -11,6 +11,9 @@
   <div class="absolute inset-0 bg-gradient-to-br from-dark via-primary/90 to-primary">
     <div class="absolute inset-0 bg-cover bg-center opacity-30"
          style="background-image:url('{% static 'images/hero-home.jpg' %}')"></div>
+    {# Brand feather motif overlay #}
+    <div class="pattern-overlay opacity-[0.10]"
+         style="background-image:url('{% static 'images/patterns/feather-cream.png' %}')"></div>
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
@@ -61,7 +64,7 @@
 </section>
 
 {# ── Stats ─────────────────────────────────────────────────── #}
-<section class="bg-primary py-12">
+<section class="bg-primary py-12 pattern-bg ptn-cream ptn-soft">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
       {% with stats=stats %}
@@ -231,7 +234,7 @@
 {% endif %}
 
 {# ── CTA Banner ────────────────────────────────────────────── #}
-<section class="py-20 bg-primary text-white text-center">
+<section class="py-20 bg-primary text-white text-center pattern-bg ptn-gold ptn-medium">
   <div class="max-w-3xl mx-auto px-4">
     <h2 class="text-4xl font-serif font-bold mb-4">{% trans "Ready for Your Next Adventure?" %}</h2>
     <p class="text-white/80 text-lg mb-8">{% trans "Get a personalised itinerary from our travel experts — completely free." %}</p>
