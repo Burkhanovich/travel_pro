@@ -93,8 +93,8 @@ class Inquiry(TimeStampedModel):
     # Customer info
     first_name = models.CharField(_("First name"), max_length=100)
     last_name = models.CharField(_("Last name"), max_length=100)
-    email = models.EmailField(_("Email"))
-    phone = models.CharField(_("Phone"), max_length=30, blank=True)
+    email = models.EmailField(_("Email"), blank=True)
+    phone = models.CharField(_("Phone"), max_length=30)
     country_of_origin = models.CharField(_("Country of origin"), max_length=100, blank=True)
 
     # Travel details

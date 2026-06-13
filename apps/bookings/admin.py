@@ -28,25 +28,34 @@ def action_cancel(modeladmin, request, queryset):
 action_cancel.short_description = _("Mark selected as Cancelled")
 
 
+def action_complete(modeladmin, request, queryset):
+    queryset.update(status="completed")
+action_complete.short_description = _("Mark selected as Completed")
+
+
 @admin.register(Inquiry)
 class InquiryAdmin(ImportExportModelAdmin):
     list_display = (
         "confirmation_number",
         "full_name_display",
+        "phone",
         "email",
+        "tour",
         "inquiry_type",
         "status_badge",
-        "travel_date",
-        "total_travelers",
         "source",
         "assigned_to",
         "created_at",
     )
-    list_filter = ("status", "inquiry_type", "source", "assigned_to")
+    list_display_links = ("confirmation_number", "full_name_display")
+    list_filter = ("status", "inquiry_type", "source", "assigned_to", "created_at")
     search_fields = ("first_name", "last_name", "email", "confirmation_number", "phone")
     readonly_fields = ("confirmation_number", "created_ip", "created_at", "updated_at")
+    autocomplete_fields = ("tour", "hotel", "departure", "assigned_to")
+    list_select_related = ("tour", "hotel", "assigned_to")
+    list_per_page = 50
     date_hierarchy = "created_at"
-    actions = [action_confirm, action_cancel, export_as_csv]
+    actions = [action_confirm, action_cancel, action_complete, export_as_csv]
 
     fieldsets = (
         (_("Booking Reference"), {

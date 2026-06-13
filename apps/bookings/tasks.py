@@ -61,7 +61,12 @@ def send_admin_notification(self, inquiry_pk: int) -> None:
         return
 
     subject = f"[New {inquiry.get_inquiry_type_display()}] {inquiry.full_name} – {inquiry.confirmation_number}"
-    context = {"inquiry": inquiry, "SITE_NAME": settings.SITE_NAME}
+    admin_url = "{}/{}bookings/inquiry/{}/change/".format(
+        settings.SITE_URL.rstrip("/"),
+        getattr(settings, "ADMIN_URL", "admin/"),
+        inquiry.pk,
+    )
+    context = {"inquiry": inquiry, "SITE_NAME": settings.SITE_NAME, "admin_url": admin_url}
     html_body = render_to_string("emails/booking_admin_notification.html", context)
     text_body = strip_tags(html_body)
 

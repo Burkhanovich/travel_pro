@@ -9,31 +9,38 @@ from .models import Inquiry
 
 
 class BookingForm(forms.ModelForm):
-    """Main tour booking form (maps to Inquiry model)."""
+    """
+    Tour booking form (maps to Inquiry model).
 
-    agree_terms = forms.BooleanField(
-        label=_("I agree to the Terms & Conditions and Privacy Policy"),
-        required=True,
-    )
+    Collects only the essentials: first name, last name, phone (required)
+    and email (optional). The selected tour/departure are passed as hidden
+    fields from the tour page.
+    """
 
     class Meta:
         model = Inquiry
-        fields = [
-            "tour", "departure", "first_name", "last_name",
-            "email", "phone", "country_of_origin",
-            "travel_date", "num_adults", "num_children",
-            "special_requests", "budget_range",
-        ]
+        fields = ["tour", "departure", "first_name", "last_name", "phone", "email"]
         widgets = {
-            "travel_date": forms.DateInput(attrs={"type": "date"}),
-            "special_requests": forms.Textarea(attrs={"rows": 4}),
             "tour": forms.HiddenInput(),
+            "departure": forms.HiddenInput(),
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # tour/departure come from the page, not the user
         self.fields["tour"].required = False
         self.fields["departure"].required = False
+        # Contact fields
+        self.fields["first_name"].required = True
+        self.fields["last_name"].required = True
+        self.fields["phone"].required = True
+        self.fields["email"].required = False
+        self.fields["email"].help_text = _("Optional")
+        self.fields["first_name"].widget.attrs.setdefault("placeholder", _("First name"))
+        self.fields["last_name"].widget.attrs.setdefault("placeholder", _("Last name"))
+        self.fields["phone"].widget.attrs.setdefault("placeholder", "+998 90 123 45 67")
+        self.fields["email"].widget.attrs.setdefault("placeholder", "you@example.com")
+
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Field("tour"),
@@ -43,20 +50,9 @@ class BookingForm(forms.ModelForm):
                 Column("last_name", css_class="col-md-6"),
             ),
             Row(
-                Column("email", css_class="col-md-6"),
                 Column("phone", css_class="col-md-6"),
+                Column("email", css_class="col-md-6"),
             ),
-            Row(
-                Column("country_of_origin", css_class="col-md-6"),
-                Column("travel_date", css_class="col-md-6"),
-            ),
-            Row(
-                Column("num_adults", css_class="col-md-4"),
-                Column("num_children", css_class="col-md-4"),
-                Column("budget_range", css_class="col-md-4"),
-            ),
-            "special_requests",
-            "agree_terms",
             Submit("submit", _("Confirm Booking"), css_class="btn-primary"),
         )
 

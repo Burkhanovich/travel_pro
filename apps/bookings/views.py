@@ -4,6 +4,8 @@ Booking views: multi-step booking form and generic inquiry form.
 Rate-limited to 5 submissions per hour per IP.
 """
 
+import logging
+
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext_lazy as _
@@ -15,6 +17,26 @@ from apps.tours.models import Tour
 from .forms import BookingForm, InquiryForm
 from .models import Inquiry
 from .tasks import send_booking_confirmation, send_admin_notification
+
+logger = logging.getLogger(__name__)
+
+
+def _dispatch_task(task, inquiry_pk: int) -> None:
+    """
+    Fire a Celery task without ever breaking the request.
+
+    Tries to enqueue asynchronously; if the broker is unavailable
+    (Redis down / no worker), falls back to running it synchronously.
+    Any failure is logged but never raised to the user.
+    """
+    try:
+        task.delay(inquiry_pk)
+    except Exception:
+        logger.warning("Broker unavailable for %s; running synchronously", task.name)
+        try:
+            task(inquiry_pk)
+        except Exception:
+            logger.exception("Notification %s failed for inquiry %s", task.name, inquiry_pk)
 
 
 class BookingFormView(FormView):
@@ -58,13 +80,16 @@ class BookingFormView(FormView):
 
     def form_valid(self, form):
         inquiry = form.save(commit=False)
+        inquiry.inquiry_type = "tour"
         inquiry.source = "web"
         inquiry.created_ip = self._get_client_ip()
         inquiry.save()
 
-        # Fire async email tasks
-        send_booking_confirmation.delay(inquiry.pk)
-        send_admin_notification.delay(inquiry.pk)
+        # Notify admin about the new booking (best-effort, never blocks the user).
+        _dispatch_task(send_admin_notification, inquiry.pk)
+        # Confirmation to the customer only if they left an email.
+        if inquiry.email:
+            _dispatch_task(send_booking_confirmation, inquiry.pk)
 
         return redirect("bookings:confirmation", pk=inquiry.pk)
 
@@ -100,6 +125,6 @@ class InquiryFormView(FormView):
         x_fwd = self.request.META.get("HTTP_X_FORWARDED_FOR")
         inquiry.created_ip = x_fwd.split(",")[0] if x_fwd else self.request.META.get("REMOTE_ADDR", "")
         inquiry.save()
-        send_admin_notification.delay(inquiry.pk)
+        _dispatch_task(send_admin_notification, inquiry.pk)
         messages.success(self.request, _("Thank you! We'll be in touch within 24 hours."))
         return redirect("bookings:inquiry")
