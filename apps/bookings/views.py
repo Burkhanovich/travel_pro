@@ -8,6 +8,7 @@ import logging
 
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView, TemplateView
 from django_ratelimit.decorators import ratelimit
@@ -39,20 +40,17 @@ def _dispatch_task(task, inquiry_pk: int) -> None:
             logger.exception("Notification %s failed for inquiry %s", task.name, inquiry_pk)
 
 
+@method_decorator(ratelimit(key="ip", rate="5/h", method="POST", block=True), name="dispatch")
 class BookingFormView(FormView):
     """
-    Multi-step tour booking form.
+    Tour booking form.
 
-    Steps: 1 tour/departure → 2 personal info → 3 confirmation.
+    Collects contact details for a chosen tour.
     Rate-limited: 5 submissions per hour per IP.
     """
 
     template_name = "tours/booking.html"
     form_class = BookingForm
-
-    @ratelimit(key="ip", rate="5/h", method="POST", block=True)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
 
     def get_initial(self):
         initial = super().get_initial()
@@ -109,15 +107,12 @@ class BookingConfirmationView(TemplateView):
         return ctx
 
 
+@method_decorator(ratelimit(key="ip", rate="5/h", method="POST", block=True), name="dispatch")
 class InquiryFormView(FormView):
     """Generic inquiry / contact form for custom trip requests."""
 
     template_name = "bookings/inquiry.html"
     form_class = InquiryForm
-
-    @ratelimit(key="ip", rate="5/h", method="POST", block=True)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
 
     def form_valid(self, form):
         inquiry = form.save(commit=False)
