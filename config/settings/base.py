@@ -298,6 +298,9 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = ("en",)
 # ---------------------------------------------------------------------------
 RATELIMIT_USE_CACHE = "default"
 RATELIMIT_ENABLE = True
+# Behind nginx (Unix socket) REMOTE_ADDR is empty; nginx sets the real client
+# IP in X-Real-IP (from $remote_addr, not client-spoofable). Use it for keying.
+RATELIMIT_IP_META_KEY = "HTTP_X_REAL_IP"
 
 # ---------------------------------------------------------------------------
 # CSP headers (django-csp)
