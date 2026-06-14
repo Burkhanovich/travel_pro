@@ -4,12 +4,9 @@
 {% block title %}{% trans "About Us" %} | {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
-<div class="pt-20">
-  {# Hero #}
-  <div class="relative py-24 text-center text-white overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center"
-         style="background-image:url('{% static 'images/hero-about.jpg' %}')"></div>
-    <div class="absolute inset-0" style="background:rgba(27,67,50,0.83)"></div>
+<div class="pt-20 bg-pattern bg-pattern--a bg-pattern--faint">
+  {# Hero — Variant C banner #}
+  <div class="relative py-24 text-center text-white overflow-hidden bg-pattern bg-pattern--c bg-pattern--full">
     <div class="relative z-10 max-w-3xl mx-auto px-4">
       <p class="text-secondary text-sm font-semibold uppercase tracking-widest mb-3">{% trans "Our Story" %}</p>
       <h1 class="text-5xl font-serif font-bold mb-4">{% trans "About UNITUR" %}</h1>

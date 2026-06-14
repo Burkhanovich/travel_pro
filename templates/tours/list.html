@@ -4,12 +4,9 @@
 {% block title %}{% trans "Tours" %} | {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
-<div class="pt-20">
-  {# ── Page header #}
-  <div class="relative py-16 text-center text-white overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center"
-         style="background-image:url('{% static 'images/hero-tours.jpg' %}')"></div>
-    <div class="absolute inset-0" style="background:rgba(27,67,50,0.82)"></div>
+<div class="pt-20 bg-pattern bg-pattern--b bg-pattern--faint">
+  {# ── Page header — Variant C banner #}
+  <div class="relative py-16 text-center text-white overflow-hidden bg-pattern bg-pattern--c bg-pattern--full">
     <div class="relative z-10 px-4">
       <h1 class="text-4xl font-serif font-bold mb-2">{% trans "All Tours" %}</h1>
       <p class="text-white/75 mt-1">{% trans "Explore our handpicked collection of unforgettable journeys" %}</p>

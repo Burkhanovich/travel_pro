@@ -5,17 +5,8 @@
 
 {% block content %}
 
-{# ── Hero ──────────────────────────────────────────────────── #}
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  {# Background #}
-  <div class="absolute inset-0 bg-gradient-to-br from-dark via-primary/90 to-primary">
-    <div class="absolute inset-0 bg-cover bg-center opacity-30"
-         style="background-image:url('{% static 'images/hero-home.jpg' %}')"></div>
-    {# Brand feather motif overlay #}
-    <div class="pattern-overlay"
-         style="opacity:0.10;background-image:url('{% static 'images/patterns/feather-cream.png' %}')"></div>
-  </div>
-
+{# ── Hero — brand pattern Variant C (blue bg, orange feathers), full ── #}
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-pattern bg-pattern--c bg-pattern--full">
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
     <p class="text-secondary font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">{% trans "Your Journey Begins Here" %}</p>
     <h1 class="text-white font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
@@ -64,7 +55,7 @@
 </section>
 
 {# ── Stats ─────────────────────────────────────────────────── #}
-<section class="bg-primary py-12 pattern-bg ptn-cream ptn-soft">
+<section class="py-12 bg-pattern bg-pattern--c bg-pattern--full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
       {% with stats=stats %}
@@ -90,7 +81,7 @@
 </section>
 
 {# ── Featured Tours ────────────────────────────────────────── #}
-<section class="py-20 bg-accent">
+<section class="py-20 bg-pattern bg-pattern--b bg-pattern--soft">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -175,7 +166,7 @@
 
 {# ── Featured Hotels ───────────────────────────────────────── #}
 {% if featured_hotels %}
-<section class="py-20 bg-accent">
+<section class="py-20 bg-pattern bg-pattern--b bg-pattern--soft">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -215,7 +206,7 @@
 
 {# ── Latest Articles ───────────────────────────────────────── #}
 {% if latest_articles %}
-<section class="py-20 bg-accent">
+<section class="py-20 bg-pattern bg-pattern--b bg-pattern--soft">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -233,8 +224,8 @@
 </section>
 {% endif %}
 
-{# ── CTA Banner ────────────────────────────────────────────── #}
-<section class="py-20 bg-primary text-white text-center pattern-bg ptn-gold ptn-medium">
+{# ── CTA Banner — Variant C full ──────────────────────────── #}
+<section class="py-20 text-white text-center bg-pattern bg-pattern--c bg-pattern--full">
   <div class="max-w-3xl mx-auto px-4">
     <h2 class="text-4xl font-serif font-bold mb-4">{% trans "Ready for Your Next Adventure?" %}</h2>
     <p class="text-white/80 text-lg mb-8">{% trans "Get a personalised itinerary from our travel experts — completely free." %}</p>

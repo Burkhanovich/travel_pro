@@ -4,11 +4,8 @@
 {% block title %}{% trans "Hotels" %} | {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
-<div class="pt-20">
-  <div class="relative py-16 text-center text-white overflow-hidden">
-    <div class="absolute inset-0 bg-cover bg-center"
-         style="background-image:url('{% static 'images/hero-hotels.jpg' %}')"></div>
-    <div class="absolute inset-0" style="background:rgba(27,67,50,0.80)"></div>
+<div class="pt-20 bg-pattern bg-pattern--b bg-pattern--soft">
+  <div class="relative py-16 text-center text-white overflow-hidden bg-pattern bg-pattern--c bg-pattern--full">
     <div class="relative z-10 px-4">
       <h1 class="text-4xl font-serif font-bold mb-2">{% trans "Find Your Perfect Stay" %}</h1>
       <p class="text-white/75 mt-1">{% trans "Handpicked hotels from budget to luxury worldwide" %}</p>

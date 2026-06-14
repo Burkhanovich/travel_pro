@@ -13,7 +13,7 @@ html { scroll-behavior: smooth; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #1B4332;
+  background-color: #4F91C6;
   color: #ffffff;
   font-weight: 600;
   border-radius: 0.5rem;
@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 }
 
 .btn-primary:hover {
-  background-color: #2D6A4F;
+  background-color: #3B7AAD;
   color: #fff;
 }
 
@@ -37,17 +37,17 @@ html { scroll-behavior: smooth; }
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: #1B4332;
+  color: #4F91C6;
   font-weight: 600;
   border-radius: 0.5rem;
   padding: 0.625rem 1.25rem;
-  border: 2px solid #1B4332;
+  border: 2px solid #4F91C6;
   transition: all 0.2s;
   text-decoration: none;
 }
 
 .btn-outline:hover {
-  background-color: #1B4332;
+  background-color: #4F91C6;
   color: #ffffff;
 }
 
@@ -68,7 +68,7 @@ html { scroll-behavior: smooth; }
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #D4A853;
+  background-color: #F4733D;
   transition: width 0.3s;
 }
 
@@ -108,9 +108,9 @@ select {
 }
 
 /* ── Prose (CKEditor content) ────────────────────────────── */
-.prose h2 { font-family: 'Playfair Display', serif; color: #0D1B2A; margin-top: 2rem; }
-.prose h3 { font-family: 'Playfair Display', serif; color: #1B4332; }
-.prose a  { color: #1B4332; text-decoration: underline; }
+.prose h2 { font-family: 'Playfair Display', serif; color: #1D2939; margin-top: 2rem; }
+.prose h3 { font-family: 'Playfair Display', serif; color: #4F91C6; }
+.prose a  { color: #4F91C6; text-decoration: underline; }
 .prose img { border-radius: 0.75rem; }
 
 /* ── Page transition ─────────────────────────────────────── */
@@ -124,8 +124,8 @@ main > * { animation: fadeIn 0.4s ease; }
 /* ── Scrollbar styling ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #1B4332; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #2D6A4F; }
+::-webkit-scrollbar-thumb { background: #4F91C6; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3B7AAD; }
 
 /* ── Line clamp utilities (older browser fallback) ───────── */
 .line-clamp-2 {
@@ -164,47 +164,4 @@ main > * { animation: fadeIn 0.4s ease; }
 /* ── Tabler icon sizing helpers ──────────────────────────── */
 .ti { line-height: 1; }
 
-/* ── Brand feather pattern (UNITUR motif) ────────────────────
-   Decorative background overlay recoloured to the brand palette.
-   `isolation:isolate` keeps the ::before layer above the element's
-   own background colour but behind its content, so no child markup
-   needs adjusting. Tune density with the ptn-* opacity modifiers. */
-.pattern-bg {
-  position: relative;
-  isolation: isolate;
-}
-.pattern-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-repeat: repeat;
-  background-position: center top;
-  background-size: var(--ptn-size, 190px) auto;
-  background-image: var(--ptn-img);
-  opacity: var(--ptn-opacity, 0.2);
-}
-/* colour variants */
-.ptn-gold::before  { background-image: url("../images/patterns/feather-gold.png"); }
-.ptn-cream::before { background-image: url("../images/patterns/feather-cream.png"); }
-.ptn-green::before { background-image: url("../images/patterns/feather-green.png"); }
-/* density modifiers */
-.ptn-faint  { --ptn-opacity: 0.08; }
-.ptn-soft   { --ptn-opacity: 0.16; }
-.ptn-medium { --ptn-opacity: 0.30; }
-.ptn-strong { --ptn-opacity: 0.45; }
-/* scale modifiers */
-.ptn-sm { --ptn-size: 150px; }
-.ptn-lg { --ptn-size: 240px; }
-
-/* Plain overlay layer (for heroes where the pattern must sit ABOVE a
-   background image/gradient but below content). */
-.pattern-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-repeat: repeat;
-  background-position: center top;
-  background-size: 200px auto;
-}
+/* The brand feather pattern lives in pattern.css (.bg-pattern--a..d). */

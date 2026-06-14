@@ -8,18 +8,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Brand palette — Unitur blue & orange (approved pattern)
         primary: {
-          DEFAULT: "#1B4332",
-          light: "#2D6A4F",
-          dark: "#0D2B1F",
+          DEFAULT: "#4F91C6",
+          light: "#8CB7D9",
+          dark: "#3B7AAD",
         },
         secondary: {
-          DEFAULT: "#D4A853",
-          light: "#E2BE7A",
-          dark: "#B8872A",
+          DEFAULT: "#F4733D",
+          light: "#F89B72",
+          dark: "#D85F2C",
         },
-        accent: "#F8F5F0",
-        dark: "#0D1B2A",
+        accent: "#EFF4F9",
+        dark: "#1D2939",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],

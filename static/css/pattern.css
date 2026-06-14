@@ -1,0 +1,46 @@
+/* =============================================================================
+   Travel Pro / Unitur — brand feather pattern background system
+   -----------------------------------------------------------------------------
+   ONE tileable SVG (static/img/pattern.svg) recoloured entirely from CSS.
+
+   NOTE: an external SVG loaded with `background-image:url()` cannot pick up the
+   element's `color` (currentColor only resolves for inline SVG). To honour the
+   intent — one SVG, CSS-driven colours, four variants — the tile is applied as a
+   MASK on a ::before layer, and the line colour is the layer's background-color.
+   This also keeps the pattern independent of the text, so body copy stays the
+   normal ink colour and remains fully readable.
+   ============================================================================= */
+
+.bg-pattern { position: relative; isolation: isolate; }
+
+.bg-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;                       /* behind content, above the section bg */
+  pointer-events: none;
+  background-color: var(--pattern-ink, #4F91C6);   /* = the line colour */
+  -webkit-mask: url("/static/img/pattern.svg") left top / 360px auto repeat;
+          mask: url("/static/img/pattern.svg") left top / 360px auto repeat;
+  opacity: var(--pattern-opacity, 1);
+}
+
+/* ── Colour variants ──────────────────────────────────────────────────────── */
+.bg-pattern--a { background-color: #FFFFFF; --pattern-ink: #F4733D; } /* white  + orange */
+.bg-pattern--b { background-color: #FFFFFF; --pattern-ink: #4F91C6; } /* white  + blue   */
+.bg-pattern--c { background-color: #4F91C6; --pattern-ink: #F4733D; } /* blue   + orange */
+.bg-pattern--d { background-color: #F4733D; --pattern-ink: #4F91C6; } /* orange + blue   */
+
+/* ── Strength (opacity of the pattern only; never touches text) ────────────── */
+.bg-pattern--full  { --pattern-opacity: 1;    }  /* hero / footer / CTA banners */
+.bg-pattern--10    { --pattern-opacity: 0.10; }
+.bg-pattern--soft  { --pattern-opacity: 0.08; }  /* content sections            */
+.bg-pattern--faint { --pattern-opacity: 0.06; }  /* behind long body copy       */
+
+/* ── Mobile: smaller tile, never stretched ────────────────────────────────── */
+@media (max-width: 640px) {
+  .bg-pattern::before {
+    -webkit-mask-size: 240px auto;
+            mask-size: 240px auto;
+  }
+}
