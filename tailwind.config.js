@@ -21,6 +21,15 @@ module.exports = {
         },
         accent: "#EFF4F9",
         dark: "#1D2939",
+        // Official brand namespace (matches primary/secondary)
+        brand: {
+          blue: "#4F91C6",
+          blueDark: "#3B7AAD",
+          blueLight: "#8CB7D9",
+          orange: "#F4733D",
+          orangeDark: "#D85F2C",
+          ink: "#1D2939",
+        },
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],

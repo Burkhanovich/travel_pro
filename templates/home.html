@@ -5,8 +5,10 @@
 
 {% block content %}
 
-{# ── Hero — brand pattern Variant C (blue bg, orange feathers), full ── #}
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-pattern bg-pattern--c bg-pattern--medium">
+{# ── Hero — official Variant C (blue bg, orange feathers), full ── #}
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-pattern-c">
+  {# legibility overlay (blue tint) over the full-strength pattern #}
+  <div class="absolute inset-0" style="background:rgba(59,122,173,0.55)"></div>
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
     <p class="text-secondary font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">{% trans "Your Journey Begins Here" %}</p>
     <h1 class="text-white font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
@@ -55,7 +57,7 @@
 </section>
 
 {# ── Stats ─────────────────────────────────────────────────── #}
-<section class="py-12 bg-pattern bg-pattern--c bg-pattern--full">
+<section class="py-12 bg-primary">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
       {% with stats=stats %}
@@ -81,7 +83,7 @@
 </section>
 
 {# ── Featured Tours ────────────────────────────────────────── #}
-<section class="py-20 bg-pattern bg-pattern--b bg-pattern--soft">
+<section class="py-20 bg-pattern-b-subtle">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -166,7 +168,7 @@
 
 {# ── Featured Hotels ───────────────────────────────────────── #}
 {% if featured_hotels %}
-<section class="py-20 bg-pattern bg-pattern--b bg-pattern--soft">
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -186,7 +188,7 @@
 
 {# ── Testimonials ──────────────────────────────────────────── #}
 {% if testimonials %}
-<section class="py-20 bg-white">
+<section class="py-20 bg-pattern-a-subtle">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <p class="text-secondary font-semibold text-sm uppercase tracking-wide mb-2">{% trans "What Travelers Say" %}</p>
@@ -206,7 +208,7 @@
 
 {# ── Latest Articles ───────────────────────────────────────── #}
 {% if latest_articles %}
-<section class="py-20 bg-pattern bg-pattern--b bg-pattern--soft">
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -224,16 +226,16 @@
 </section>
 {% endif %}
 
-{# ── CTA Banner — Variant C full ──────────────────────────── #}
-<section class="py-20 text-white text-center bg-pattern bg-pattern--c bg-pattern--full">
+{# ── CTA Banner — Variant D full (orange accent) ──────────── #}
+<section class="py-20 text-white text-center bg-pattern-d">
   <div class="max-w-3xl mx-auto px-4">
     <h2 class="text-4xl font-serif font-bold mb-4">{% trans "Ready for Your Next Adventure?" %}</h2>
     <p class="text-white/80 text-lg mb-8">{% trans "Get a personalised itinerary from our travel experts — completely free." %}</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="{% url 'bookings:inquiry' %}" class="bg-secondary hover:bg-secondary-dark text-white font-semibold px-8 py-4 rounded-lg transition text-lg">
+      <a href="{% url 'bookings:inquiry' %}" class="bg-white hover:bg-white/90 text-secondary font-semibold px-8 py-4 rounded-lg transition text-lg">
         {% trans "Plan My Trip" %}
       </a>
-      <a href="{% url 'tours:list' %}" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition border border-white/30 text-lg">
+      <a href="{% url 'tours:list' %}" class="bg-white/15 hover:bg-white/25 text-white font-semibold px-8 py-4 rounded-lg transition border border-white/50 text-lg">
         {% trans "Browse Tours" %}
       </a>
     </div>

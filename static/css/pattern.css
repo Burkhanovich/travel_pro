@@ -1,47 +1,63 @@
 /* =============================================================================
-   Travel Pro / Unitur — brand feather pattern background system
-   -----------------------------------------------------------------------------
-   ONE tileable SVG (static/img/pattern.svg) recoloured entirely from CSS.
-
-   NOTE: an external SVG loaded with `background-image:url()` cannot pick up the
-   element's `color` (currentColor only resolves for inline SVG). To honour the
-   intent — one SVG, CSS-driven colours, four variants — the tile is applied as a
-   MASK on a ::before layer, and the line colour is the layer's background-color.
-   This also keeps the pattern independent of the text, so body copy stays the
-   normal ink colour and remains fully readable.
+   UNITUR — brand pattern background system
+   Official approved tiles (static/img/patterns/pattern-*.png, 222×578, seamless)
+   used AS-IS via background-image. Do not recreate or modify the tiles.
    ============================================================================= */
 
-.bg-pattern { position: relative; isolation: isolate; }
+/* ── Full-strength variants (bold banners: hero, footer, CTA) ─────────────── */
+.bg-pattern-a { background: #FFFFFF url("/static/img/patterns/pattern-a-white-orange.png") repeat; }
+.bg-pattern-b { background: #FFFFFF url("/static/img/patterns/pattern-b-white-blue.png")  repeat; }
+.bg-pattern-c { background: #4F91C6 url("/static/img/patterns/pattern-c-blue-orange.png") repeat; }
+.bg-pattern-d { background: #F4733D url("/static/img/patterns/pattern-d-orange-blue.png") repeat; }
+.bg-pattern-a, .bg-pattern-b, .bg-pattern-c, .bg-pattern-d {
+  background-size: 222px 578px;          /* native size — sharp, never stretched */
+}
 
-.bg-pattern::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;                       /* behind content, above the section bg */
+/* ── Subtle variants (sections that contain body text) ────────────────────── */
+.bg-pattern-a-subtle, .bg-pattern-b-subtle {
+  position: relative;
+  background-color: #FFFFFF;
+}
+.bg-pattern-a-subtle::before, .bg-pattern-b-subtle::before {
+  content: ""; position: absolute; inset: 0;
+  background-repeat: repeat;
+  background-size: 222px 578px;
+  opacity: 0.10;
   pointer-events: none;
-  background-color: var(--pattern-ink, #4F91C6);   /* = the line colour */
+  z-index: 0;
+}
+.bg-pattern-a-subtle::before { background-image: url("/static/img/patterns/pattern-a-white-orange.png"); }
+.bg-pattern-b-subtle::before { background-image: url("/static/img/patterns/pattern-b-white-blue.png"); }
+.bg-pattern-a-subtle > *, .bg-pattern-b-subtle > * { position: relative; z-index: 1; }
+
+/* ── Mobile: smaller tiles ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .bg-pattern-a, .bg-pattern-b, .bg-pattern-c, .bg-pattern-d { background-size: 148px 385px; }
+  .bg-pattern-a-subtle::before, .bg-pattern-b-subtle::before { background-size: 148px 385px; }
+}
+
+/* =============================================================================
+   LEGACY SVG-mask pattern (.bg-pattern--*) — still used by pages not yet
+   migrated to the official PNG tiles. Will be removed once every page is on
+   the bg-pattern-a/b/c/d system.
+   ============================================================================= */
+.bg-pattern { position: relative; isolation: isolate; }
+.bg-pattern::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-color: var(--pattern-ink, #4F91C6);
   -webkit-mask: url("/static/img/pattern.svg") left top / 360px auto repeat;
           mask: url("/static/img/pattern.svg") left top / 360px auto repeat;
   opacity: var(--pattern-opacity, 1);
 }
-
-/* ── Colour variants ──────────────────────────────────────────────────────── */
-.bg-pattern--a { background-color: #FFFFFF; --pattern-ink: #F4733D; } /* white  + orange */
-.bg-pattern--b { background-color: #FFFFFF; --pattern-ink: #4F91C6; } /* white  + blue   */
-.bg-pattern--c { background-color: #4F91C6; --pattern-ink: #F4733D; } /* blue   + orange */
-.bg-pattern--d { background-color: #F4733D; --pattern-ink: #4F91C6; } /* orange + blue   */
-
-/* ── Strength (opacity of the pattern only; never touches text) ────────────── */
-.bg-pattern--full  { --pattern-opacity: 1;    }  /* bold banners            */
-.bg-pattern--medium{ --pattern-opacity: 0.35; }  /* softened hero / footer   */
-.bg-pattern--10    { --pattern-opacity: 0.10; }
-.bg-pattern--soft  { --pattern-opacity: 0.08; }  /* content sections            */
-.bg-pattern--faint { --pattern-opacity: 0.06; }  /* behind long body copy       */
-
-/* ── Mobile: smaller tile, never stretched ────────────────────────────────── */
+.bg-pattern--a { background-color: #FFFFFF; --pattern-ink: #F4733D; }
+.bg-pattern--b { background-color: #FFFFFF; --pattern-ink: #4F91C6; }
+.bg-pattern--c { background-color: #4F91C6; --pattern-ink: #F4733D; }
+.bg-pattern--d { background-color: #F4733D; --pattern-ink: #4F91C6; }
+.bg-pattern--full   { --pattern-opacity: 1;    }
+.bg-pattern--medium { --pattern-opacity: 0.35; }
+.bg-pattern--10     { --pattern-opacity: 0.10; }
+.bg-pattern--soft   { --pattern-opacity: 0.08; }
+.bg-pattern--faint  { --pattern-opacity: 0.06; }
 @media (max-width: 640px) {
-  .bg-pattern::before {
-    -webkit-mask-size: 240px auto;
-            mask-size: 240px auto;
-  }
+  .bg-pattern::before { -webkit-mask-size: 240px auto; mask-size: 240px auto; }
 }
