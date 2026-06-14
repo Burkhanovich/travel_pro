@@ -32,7 +32,8 @@
 .bg-pattern--d { background-color: #F4733D; --pattern-ink: #4F91C6; } /* orange + blue   */
 
 /* ── Strength (opacity of the pattern only; never touches text) ────────────── */
-.bg-pattern--full  { --pattern-opacity: 1;    }  /* hero / footer / CTA banners */
+.bg-pattern--full  { --pattern-opacity: 1;    }  /* bold banners            */
+.bg-pattern--medium{ --pattern-opacity: 0.35; }  /* softened hero / footer   */
 .bg-pattern--10    { --pattern-opacity: 0.10; }
 .bg-pattern--soft  { --pattern-opacity: 0.08; }  /* content sections            */
 .bg-pattern--faint { --pattern-opacity: 0.06; }  /* behind long body copy       */
