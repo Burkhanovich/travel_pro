@@ -4,8 +4,8 @@
   "description": "A production-ready Django 5 travel agency platform with multilingual support (EN, UZ, RU, IT, ES, JA), tour/hotel/MICE booking, Celery async tasks, Cloudinary media, and Tailwind CSS frontend.",
   "main": "tailwind.config.js",
   "scripts": {
-    "css:build": "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./static/css/src/input.css -o ./static/css/tailwind.css --minify",
-    "css:watch": "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./static/css/src/input.css -o ./static/css/tailwind.css --watch"
+    "css:build": "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./tailwind_src/input.css -o ./static/css/tailwind.css --minify",
+    "css:watch": "node node_modules/@tailwindcss/cli/dist/index.mjs -i ./tailwind_src/input.css -o ./static/css/tailwind.css --watch"
   },
   "keywords": [],
   "author": "",

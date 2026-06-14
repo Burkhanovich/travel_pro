@@ -27,6 +27,15 @@ CSRF_COOKIE_SECURE = _https
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https") if _https else None
 
 # ---------------------------------------------------------------------------
+# Static files: content-hashed + compressed (WhiteNoise) so every deploy gets
+# a fresh URL and the long-lived immutable cache header is actually safe.
+# ---------------------------------------------------------------------------
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "config.storages.ForgivingManifestStaticFilesStorage"},
+}
+
+# ---------------------------------------------------------------------------
 # Admin URL (obscure in production)
 # ---------------------------------------------------------------------------
 ADMIN_URL = config("ADMIN_URL", default="secret-admin-xyz123/")
