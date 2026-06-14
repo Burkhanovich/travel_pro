@@ -13,7 +13,7 @@ html { scroll-behavior: smooth; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #4F91C6;
+  background-color: #2E6DA4;
   color: #ffffff;
   font-weight: 600;
   border-radius: 0.5rem;
@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
 }
 
 .btn-primary:hover {
-  background-color: #3B7AAD;
+  background-color: #1F4F77;
   color: #fff;
 }
 
@@ -37,17 +37,17 @@ html { scroll-behavior: smooth; }
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: #4F91C6;
+  color: #2E6DA4;
   font-weight: 600;
   border-radius: 0.5rem;
   padding: 0.625rem 1.25rem;
-  border: 2px solid #4F91C6;
+  border: 2px solid #2E6DA4;
   transition: all 0.2s;
   text-decoration: none;
 }
 
 .btn-outline:hover {
-  background-color: #4F91C6;
+  background-color: #2E6DA4;
   color: #ffffff;
 }
 
@@ -68,7 +68,7 @@ html { scroll-behavior: smooth; }
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #F4733D;
+  background-color: #EC6A33;
   transition: width 0.3s;
 }
 
@@ -108,9 +108,9 @@ select {
 }
 
 /* ── Prose (CKEditor content) ────────────────────────────── */
-.prose h2 { font-family: 'Playfair Display', serif; color: #1D2939; margin-top: 2rem; }
-.prose h3 { font-family: 'Playfair Display', serif; color: #4F91C6; }
-.prose a  { color: #4F91C6; text-decoration: underline; }
+.prose h2 { font-family: 'Playfair Display', serif; color: #16202E; margin-top: 2rem; }
+.prose h3 { font-family: 'Playfair Display', serif; color: #2E6DA4; }
+.prose a  { color: #2E6DA4; text-decoration: underline; }
 .prose img { border-radius: 0.75rem; }
 
 /* ── Page transition ─────────────────────────────────────── */
@@ -124,8 +124,8 @@ main > * { animation: fadeIn 0.4s ease; }
 /* ── Scrollbar styling ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #4F91C6; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #3B7AAD; }
+::-webkit-scrollbar-thumb { background: #2E6DA4; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #1F4F77; }
 
 /* ── Line clamp utilities (older browser fallback) ───────── */
 .line-clamp-2 {

@@ -4,23 +4,23 @@
 @source "../../../apps/**/*.py";
 
 @theme {
-  /* Brand palette — Unitur blue & orange (approved pattern) */
-  --color-primary: #4F91C6;
-  --color-primary-light: #8CB7D9;
-  --color-primary-dark: #3B7AAD;
-  --color-secondary: #F4733D;
-  --color-secondary-light: #F89B72;
-  --color-secondary-dark: #D85F2C;
-  --color-accent: #EFF4F9;
-  --color-dark: #1D2939;
+  /* Brand palette — Unitur deep blue & orange (darkened) */
+  --color-primary: #2E6DA4;
+  --color-primary-light: #6BA1CD;
+  --color-primary-dark: #1F4F77;
+  --color-secondary: #EC6A33;
+  --color-secondary-light: #F4733D;
+  --color-secondary-dark: #C8521F;
+  --color-accent: #EAF1F8;
+  --color-dark: #16202E;
 
   /* Official brand namespace (matches primary/secondary above) */
-  --color-brand-blue: #4F91C6;
-  --color-brand-blueDark: #3B7AAD;
-  --color-brand-blueLight: #8CB7D9;
-  --color-brand-orange: #F4733D;
-  --color-brand-orangeDark: #D85F2C;
-  --color-brand-ink: #1D2939;
+  --color-brand-blue: #2E6DA4;
+  --color-brand-blueDark: #1F4F77;
+  --color-brand-blueLight: #6BA1CD;
+  --color-brand-orange: #EC6A33;
+  --color-brand-orangeDark: #C8521F;
+  --color-brand-ink: #16202E;
 
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
