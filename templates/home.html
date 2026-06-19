@@ -54,25 +54,25 @@
   </div>
 </section>
 
-{# ── Stats strip — bg-white, numbers in brand-blue ─────────────────────── #}
-<section class="py-12 bg-white border-b border-gray-100">
+{# ── Stats strip — brand-blue gradient band, white figures, gold accent ── #}
+<section class="py-14 bg-gradient-to-br from-brand-blue to-brand-blueDark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div>
-        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.tours_count }}+</p>
-        <p class="text-sm text-text-muted mt-1">{% trans "Tours" %}</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white divide-y sm:divide-y-0 md:divide-x divide-white/15">
+      <div class="px-2">
+        <p class="text-4xl md:text-5xl font-bold font-serif">{{ stats.tours_count }}<span class="text-brand-ctaLine">+</span></p>
+        <p class="text-sm text-white/80 mt-2 uppercase tracking-wide">{% trans "Tours" %}</p>
       </div>
-      <div>
-        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.countries_count }}+</p>
-        <p class="text-sm text-text-muted mt-1">{% trans "Countries" %}</p>
+      <div class="px-2">
+        <p class="text-4xl md:text-5xl font-bold font-serif">{{ stats.countries_count }}<span class="text-brand-ctaLine">+</span></p>
+        <p class="text-sm text-white/80 mt-2 uppercase tracking-wide">{% trans "Countries" %}</p>
       </div>
-      <div>
-        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.happy_travelers|floatformat:"-3" }}+</p>
-        <p class="text-sm text-text-muted mt-1">{% trans "Happy Travelers" %}</p>
+      <div class="px-2">
+        <p class="text-4xl md:text-5xl font-bold font-serif">{{ stats.happy_travelers|floatformat:"-3" }}<span class="text-brand-ctaLine">+</span></p>
+        <p class="text-sm text-white/80 mt-2 uppercase tracking-wide">{% trans "Happy Travelers" %}</p>
       </div>
-      <div>
-        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.years_experience }}+</p>
-        <p class="text-sm text-text-muted mt-1">{% trans "Years Experience" %}</p>
+      <div class="px-2">
+        <p class="text-4xl md:text-5xl font-bold font-serif">{{ stats.years_experience }}<span class="text-brand-ctaLine">+</span></p>
+        <p class="text-sm text-white/80 mt-2 uppercase tracking-wide">{% trans "Years Experience" %}</p>
       </div>
     </div>
   </div>
