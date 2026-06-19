@@ -80,11 +80,12 @@ class RobotsTxtView(View):
     """Serve robots.txt."""
 
     def get(self, request):
+        sitemap_url = request.build_absolute_uri("/sitemap.xml")
         content = (
             "User-agent: *\n"
             "Disallow: /admin/\n"
             "Disallow: /accounts/\n"
             "Disallow: /rosetta/\n"
-            "Sitemap: /sitemap.xml\n"
+            f"Sitemap: {sitemap_url}\n"
         )
         return HttpResponse(content, content_type="text/plain")
