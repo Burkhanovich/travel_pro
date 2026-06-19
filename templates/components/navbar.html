@@ -1,17 +1,11 @@
 {% load i18n static %}
-{# ── Sticky transparent → solid navbar with Alpine.js scroll detection ── #}
+{# ── Navbar — muted frame zone (bg-pattern-frame), white text on every page ── #}
 <nav
   x-data="{
-    solid: false,
     mobileOpen: false,
     searchOpen: false,
-    toursOpen: false,
-    destOpen: false,
-    scrollHandler() { this.solid = window.scrollY > 60 }
   }"
-  @scroll.window="scrollHandler()"
-  :class="solid ? 'bg-white shadow-md' : 'bg-transparent'"
-  class="fixed w-full top-0 z-40 transition-all duration-300"
+  class="fixed w-full top-0 z-40 bg-pattern-frame shadow-md"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
@@ -19,8 +13,7 @@
       {# Logo #}
       <a href="{% url 'home' %}" class="flex items-center flex-shrink-0">
         <img src="{% static 'images/logo-unitur.png' %}" alt="{{ SITE_NAME }}"
-             class="h-12 lg:h-14 w-auto"
-             :class="solid ? '' : 'brightness-0 invert'">
+             class="h-12 lg:h-14 w-auto brightness-0 invert">
       </a>
 
       {# Desktop nav #}
@@ -28,7 +21,7 @@
 
         {# Tours mega-menu #}
         <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <button class="nav-link flex items-center gap-1" :class="solid ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'">
+          <button class="nav-link flex items-center gap-1 text-white/90 hover:text-white">
             {% trans "Tours" %} <i class="ti ti-chevron-down text-sm"></i>
           </button>
           <div x-show="open" x-transition:enter="transition ease-out duration-150"
@@ -49,7 +42,7 @@
 
         {# Destinations mega-menu #}
         <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <button class="nav-link flex items-center gap-1" :class="solid ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'">
+          <button class="nav-link flex items-center gap-1 text-white/90 hover:text-white">
             {% trans "Destinations" %} <i class="ti ti-chevron-down text-sm"></i>
           </button>
           <div x-show="open" x-transition class="absolute left-0 top-full mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-4 z-50">
@@ -72,12 +65,12 @@
           </div>
         </div>
 
-        <a href="{% url 'hotels:list' %}" class="nav-link" :class="solid ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'">{% trans "Hotels" %}</a>
-        <a href="{% url 'mice:list' %}" class="nav-link" :class="solid ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'">{% trans "MICE" %}</a>
-        <a href="{% url 'guides:list' %}" class="nav-link" :class="solid ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'">{% trans "Guides" %}</a>
+        <a href="{% url 'hotels:list' %}" class="nav-link text-white/90 hover:text-white">{% trans "Hotels" %}</a>
+        <a href="{% url 'mice:list' %}" class="nav-link text-white/90 hover:text-white">{% trans "MICE" %}</a>
+        <a href="{% url 'guides:list' %}" class="nav-link text-white/90 hover:text-white">{% trans "Guides" %}</a>
 
         {# Search trigger #}
-        <button @click="searchOpen = !searchOpen" class="p-2 rounded-full hover:bg-white/20 transition" :class="solid ? 'text-gray-600' : 'text-white'">
+        <button @click="searchOpen = !searchOpen" class="p-2 rounded-full text-white hover:bg-white/20 transition">
           <i class="ti ti-search text-lg"></i>
         </button>
 
@@ -87,10 +80,8 @@
         {# Auth #}
         {% if user.is_authenticated %}
         <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <button class="flex items-center gap-2 text-sm font-medium rounded-full px-3 py-1.5 transition"
-                  :class="solid ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/20'">
-            <span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold"
-                  :class="solid ? 'bg-primary text-white' : 'bg-white/25 text-white'">
+          <button class="flex items-center gap-2 text-sm font-medium rounded-full px-3 py-1.5 transition text-white hover:bg-white/20">
+            <span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold bg-white/25 text-white">
               {{ user.first_name|first|upper|default:user.email|first|upper }}
             </span>
             <span class="hidden xl:block">{{ user.first_name|default:user.email|truncatechars:12 }}</span>
@@ -114,14 +105,14 @@
           </div>
         </div>
         {% else %}
-        <a href="{% url 'account_login' %}" class="btn-outline text-sm px-4 py-2">{% trans "Sign in" %}</a>
+        <a href="{% url 'account_login' %}" class="btn-frame-outline text-sm px-4 py-2">{% trans "Sign in" %}</a>
         {% endif %}
 
-        <a href="{% url 'bookings:inquiry' %}" class="btn-primary text-sm px-5 py-2">{% trans "Book Now" %}</a>
+        <a href="{% url 'bookings:inquiry' %}" class="btn-frame-accent text-sm px-5 py-2">{% trans "Book Now" %}</a>
       </div>
 
       {# Mobile menu button #}
-      <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2" :class="solid ? 'text-gray-700' : 'text-white'">
+      <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 text-white">
         <i x-show="!mobileOpen" class="ti ti-menu-2 text-2xl"></i>
         <i x-show="mobileOpen" class="ti ti-x text-2xl"></i>
       </button>

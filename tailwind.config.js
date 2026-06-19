@@ -8,27 +8,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand palette — Unitur deep blue & orange (darkened)
+        // APPROVED brand palette — blue + yellow
         primary: {
-          DEFAULT: "#2E6DA4",
-          light: "#6BA1CD",
-          dark: "#1F4F77",
+          DEFAULT: "#4497CB",
+          light: "#B4D2E8",
+          dark: "#2B7BAD",
         },
         secondary: {
-          DEFAULT: "#EC6A33",
-          light: "#F4733D",
-          dark: "#C8521F",
+          DEFAULT: "#FFB81C",
+          light: "#FFB81C",
+          dark: "#D89A0E",
         },
-        accent: "#EAF1F8",
-        dark: "#16202E",
-        // Official brand namespace (matches primary/secondary)
+        accent: "#E4F0F9",
+        dark: "#1D2939",
+        // Official brand namespace
         brand: {
-          blue: "#2E6DA4",
-          blueDark: "#1F4F77",
-          blueLight: "#6BA1CD",
-          orange: "#EC6A33",
-          orangeDark: "#C8521F",
-          ink: "#16202E",
+          blue: "#4497CB",
+          blueDark: "#2B7BAD",
+          blueLight: "#B4D2E8",
+          bluePale: "#E4F0F9",
+          yellow: "#FFB81C",
+          yellowDark: "#D89A0E",
+          yellowPale: "#FFF6E0",
+          ink: "#1D2939",
+          ctaBg: "#3E6C8F",
+          ctaLine: "#ECB456",
         },
       },
       fontFamily: {
