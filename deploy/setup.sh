@@ -87,6 +87,15 @@ cp $SCRIPT_DIR/celery.service      /etc/systemd/system/travelpro-celery.service
 cp $SCRIPT_DIR/celery-beat.service /etc/systemd/system/travelpro-celery-beat.service
 systemctl daemon-reload
 
+# --- Let the app user (re)start ONLY its own services without a password ---
+# deploy.sh runs as $APP_USER and calls `sudo systemctl restart ...`; grant just
+# those specific commands so the deploy completes without manual intervention.
+cat > /etc/sudoers.d/travelpro-deploy << EOF
+$APP_USER ALL=(root) NOPASSWD: /usr/bin/systemctl restart travelpro-gunicorn, /usr/bin/systemctl restart travelpro-celery, /usr/bin/systemctl restart travelpro-celery-beat, /usr/bin/systemctl reload travelpro-gunicorn, /usr/bin/systemctl is-active travelpro-gunicorn, /usr/bin/systemctl is-active travelpro-celery, /usr/bin/systemctl is-active travelpro-celery-beat
+EOF
+chmod 0440 /etc/sudoers.d/travelpro-deploy
+visudo -c -f /etc/sudoers.d/travelpro-deploy
+
 echo ""
 echo "=============================="
 echo " Setup complete!"
