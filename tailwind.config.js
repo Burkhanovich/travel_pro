@@ -30,6 +30,7 @@ module.exports = {
           yellow: "#FFB81C",
           yellowDark: "#D89A0E",
           yellowPale: "#FFF6E0",
+          gold: "#B8860B",
           ink: "#1D2939",
           ctaBg: "#3E6C8F",
           ctaLine: "#ECB456",

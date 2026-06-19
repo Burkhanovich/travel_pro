@@ -8,10 +8,10 @@
 {# ── Hero — bg-pattern-subtle-blue (white + soft blue), light theme ──────── #}
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-pattern-subtle-blue">
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-    <p class="text-brand-blue font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">{% trans "Your Journey Begins Here" %}</p>
+    <p class="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">{% trans "Your Journey Begins Here" %}</p>
     <h1 class="text-brand-ink font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
       {% trans "Discover the World" %}<br>
-      <span class="text-brand-blue">{% trans "With Confidence" %}</span>
+      <span class="text-brand-gold">{% trans "With Confidence" %}</span>
     </h1>
     <p class="text-text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10">
       {% trans "Expertly crafted tours across 6 continents. Unparalleled service, unforgettable memories." %}
@@ -59,31 +59,34 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       <div>
-        <p class="text-4xl font-bold font-serif text-brand-blue">{{ stats.tours_count }}+</p>
+        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.tours_count }}+</p>
         <p class="text-sm text-text-muted mt-1">{% trans "Tours" %}</p>
       </div>
       <div>
-        <p class="text-4xl font-bold font-serif text-brand-blue">{{ stats.countries_count }}+</p>
+        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.countries_count }}+</p>
         <p class="text-sm text-text-muted mt-1">{% trans "Countries" %}</p>
       </div>
       <div>
-        <p class="text-4xl font-bold font-serif text-brand-blue">{{ stats.happy_travelers|floatformat:"-3" }}+</p>
+        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.happy_travelers|floatformat:"-3" }}+</p>
         <p class="text-sm text-text-muted mt-1">{% trans "Happy Travelers" %}</p>
       </div>
       <div>
-        <p class="text-4xl font-bold font-serif text-brand-blue">{{ stats.years_experience }}+</p>
+        <p class="text-4xl font-bold font-serif text-brand-blueDark">{{ stats.years_experience }}+</p>
         <p class="text-sm text-text-muted mt-1">{% trans "Years Experience" %}</p>
       </div>
     </div>
   </div>
 </section>
 
-{# ── Featured Tours — bg-white ─────────────────────────────────────────── #}
-<section class="py-20 bg-white">
+{# Patterned block 1: Featured Tours + Top Destinations in ONE container so the pattern stays continuous (no seam). #}
+<div class="bg-pattern-subtle-blue">
+
+{# ── Featured Tours #}
+<section class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
-        <p class="text-brand-blue font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Handpicked for You" %}</p>
+        <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Handpicked for You" %}</p>
         <h2 class="text-4xl font-serif font-bold text-brand-ink">{% trans "Featured Tours" %}</h2>
       </div>
       <a href="{% url 'tours:list' %}" class="btn-outline flex items-center gap-2 self-start">
@@ -100,11 +103,11 @@
   </div>
 </section>
 
-{# ── Top Destinations — bg-pattern-subtle-blue ─────────────────────────── #}
-<section class="py-20 bg-pattern-subtle-blue">
+{# ── Top Destinations #}
+<section class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <p class="text-brand-blue font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Explore the World" %}</p>
+      <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Explore the World" %}</p>
       <h2 class="text-4xl font-serif font-bold text-brand-ink">{% trans "Top Destinations" %}</h2>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -120,38 +123,40 @@
   </div>
 </section>
 
+</div>{# /patterned block 1 #}
+
 {# ── Why UNITUR — bg-pattern-tint-blue (pale blue variant for contrast) ── #}
 <section class="py-20 bg-pattern-tint-blue">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
-      <p class="text-brand-blue font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Our Promise" %}</p>
+      <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Our Promise" %}</p>
       <h2 class="text-4xl font-serif font-bold text-brand-ink">{% trans "Why UNITUR?" %}</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="text-center">
         <div class="w-16 h-16 rounded-full bg-brand-blue/10 flex items-center justify-center mx-auto mb-4">
-          <i class="ti ti-shield-check text-brand-blue text-2xl"></i>
+          <i class="ti ti-shield-check text-brand-blueDark text-2xl"></i>
         </div>
         <h3 class="font-semibold text-lg mb-2 text-brand-ink">{% trans "Trusted Agency" %}</h3>
         <p class="text-text-muted text-sm">{% trans "Licensed and fully insured with 15+ years of excellence." %}</p>
       </div>
       <div class="text-center">
         <div class="w-16 h-16 rounded-full bg-brand-blue/10 flex items-center justify-center mx-auto mb-4">
-          <i class="ti ti-headset text-brand-blue text-2xl"></i>
+          <i class="ti ti-headset text-brand-blueDark text-2xl"></i>
         </div>
         <h3 class="font-semibold text-lg mb-2 text-brand-ink">{% trans "24/7 Support" %}</h3>
         <p class="text-text-muted text-sm">{% trans "Our team is always available to assist you anywhere in the world." %}</p>
       </div>
       <div class="text-center">
         <div class="w-16 h-16 rounded-full bg-brand-blue/10 flex items-center justify-center mx-auto mb-4">
-          <i class="ti ti-tag text-brand-blue text-2xl"></i>
+          <i class="ti ti-tag text-brand-blueDark text-2xl"></i>
         </div>
         <h3 class="font-semibold text-lg mb-2 text-brand-ink">{% trans "Best Price" %}</h3>
         <p class="text-text-muted text-sm">{% trans "Price-match guarantee on all our tour packages worldwide." %}</p>
       </div>
       <div class="text-center">
         <div class="w-16 h-16 rounded-full bg-brand-blue/10 flex items-center justify-center mx-auto mb-4">
-          <i class="ti ti-star text-brand-blue text-2xl"></i>
+          <i class="ti ti-star text-brand-blueDark text-2xl"></i>
         </div>
         <h3 class="font-semibold text-lg mb-2 text-brand-ink">{% trans "Top Rated" %}</h3>
         <p class="text-text-muted text-sm">{% trans "4.9★ average rating from thousands of verified travelers." %}</p>
@@ -160,13 +165,16 @@
   </div>
 </section>
 
-{# ── Featured Hotels — bg-white ────────────────────────────────────────── #}
+{# Patterned block 2: Featured Hotels + Customer Reviews + Latest Guides in ONE container so the pattern stays continuous (no seam). #}
+<div class="bg-pattern-subtle-blue">
+
+{# ── Featured Hotels #}
 {% if featured_hotels %}
-<section class="py-20 bg-white">
+<section class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
-        <p class="text-brand-blue font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Hand-Picked Stays" %}</p>
+        <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Hand-Picked Stays" %}</p>
         <h2 class="text-4xl font-serif font-bold text-brand-ink">{% trans "Featured Hotels" %}</h2>
       </div>
       <a href="{% url 'hotels:list' %}" class="btn-outline flex items-center gap-2 self-start">{% trans "All Hotels" %} <i class="ti ti-arrow-right"></i></a>
@@ -180,12 +188,12 @@
 </section>
 {% endif %}
 
-{# ── Customer Reviews — bg-pattern-subtle-blue ─────────────────────────── #}
+{# ── Customer Reviews #}
 {% if testimonials %}
-<section class="py-20 bg-pattern-subtle-blue">
+<section class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <p class="text-brand-blue font-semibold text-sm uppercase tracking-wide mb-2">{% trans "What Travelers Say" %}</p>
+      <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "What Travelers Say" %}</p>
       <h2 class="text-4xl font-serif font-bold text-brand-ink">{% trans "Customer Reviews" %}</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -200,13 +208,13 @@
 </section>
 {% endif %}
 
-{# ── Latest Guides — bg-white ──────────────────────────────────────────── #}
+{# ── Latest Guides #}
 {% if latest_articles %}
-<section class="py-20 bg-white">
+<section class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
-        <p class="text-brand-blue font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Travel Tips & Inspiration" %}</p>
+        <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Travel Tips & Inspiration" %}</p>
         <h2 class="text-4xl font-serif font-bold text-brand-ink">{% trans "Latest Guides" %}</h2>
       </div>
       <a href="{% url 'guides:list' %}" class="btn-outline flex items-center gap-2 self-start">{% trans "All Articles" %} <i class="ti ti-arrow-right"></i></a>
@@ -219,6 +227,8 @@
   </div>
 </section>
 {% endif %}
+
+</div>{# /patterned block 2 #}
 
 {# ── CTA "Ready for…" — bg-pattern-cta (frame zone, muted sea-blue) ─────── #}
 <section class="py-20 text-white text-center bg-pattern-cta">
