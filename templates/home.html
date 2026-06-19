@@ -5,15 +5,15 @@
 
 {% block content %}
 
-{# ── Hero — bg-pattern-subtle-blue (white + soft blue), light theme ──────── #}
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-pattern-subtle-blue">
+{# ── Hero — bg-pattern-hero (muted sea-blue + calm yellow, connects with navbar) ── #}
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-pattern-hero">
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-    <p class="text-brand-gold font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">{% trans "Your Journey Begins Here" %}</p>
-    <h1 class="text-brand-ink font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+    <p class="hero-eyebrow font-semibold tracking-widest uppercase text-sm mb-4 animate-fade-in">{% trans "Your Journey Begins Here" %}</p>
+    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
       {% trans "Discover the World" %}<br>
-      <span class="text-brand-gold">{% trans "With Confidence" %}</span>
+      <span class="hero-heading-accent">{% trans "With Confidence" %}</span>
     </h1>
-    <p class="text-text-muted text-lg md:text-xl max-w-2xl mx-auto mb-10">
+    <p class="hero-subtitle text-lg md:text-xl max-w-2xl mx-auto mb-10">
       {% trans "Expertly crafted tours across 6 continents. Unparalleled service, unforgettable memories." %}
     </p>
 
@@ -48,8 +48,8 @@
 
   {# Scroll indicator #}
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <div class="w-6 h-10 rounded-full border-2 border-brand-blue/40 flex items-start justify-center p-1">
-      <div class="w-1 h-2 bg-brand-blue/60 rounded-full"></div>
+    <div class="w-6 h-10 rounded-full border-2 border-white/50 flex items-start justify-center p-1">
+      <div class="w-1 h-2 bg-white/70 rounded-full"></div>
     </div>
   </div>
 </section>
@@ -78,11 +78,8 @@
   </div>
 </section>
 
-{# Patterned block 1: Featured Tours + Top Destinations in ONE container so the pattern stays continuous (no seam). #}
-<div class="bg-pattern-subtle-blue">
-
-{# ── Featured Tours #}
-<section class="py-20">
+{# ── Featured Tours — bg-white #}
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -103,8 +100,8 @@
   </div>
 </section>
 
-{# ── Top Destinations #}
-<section class="py-20">
+{# ── Top Destinations — bg-pattern-subtle-blue #}
+<section class="py-20 bg-pattern-subtle-blue">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "Explore the World" %}</p>
@@ -122,8 +119,6 @@
     </div>
   </div>
 </section>
-
-</div>{# /patterned block 1 #}
 
 {# ── Why UNITUR — bg-pattern-tint-blue (pale blue variant for contrast) ── #}
 <section class="py-20 bg-pattern-tint-blue">
@@ -165,12 +160,9 @@
   </div>
 </section>
 
-{# Patterned block 2: Featured Hotels + Customer Reviews + Latest Guides in ONE container so the pattern stays continuous (no seam). #}
-<div class="bg-pattern-subtle-blue">
-
-{# ── Featured Hotels #}
+{# ── Featured Hotels — bg-white #}
 {% if featured_hotels %}
-<section class="py-20">
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -188,9 +180,9 @@
 </section>
 {% endif %}
 
-{# ── Customer Reviews #}
+{# ── Customer Reviews — bg-pattern-subtle-blue #}
 {% if testimonials %}
-<section class="py-20">
+<section class="py-20 bg-pattern-subtle-blue">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "What Travelers Say" %}</p>
@@ -208,9 +200,9 @@
 </section>
 {% endif %}
 
-{# ── Latest Guides #}
+{# ── Latest Guides — bg-white #}
 {% if latest_articles %}
-<section class="py-20">
+<section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
@@ -227,8 +219,6 @@
   </div>
 </section>
 {% endif %}
-
-</div>{# /patterned block 2 #}
 
 {# ── CTA "Ready for…" — bg-pattern-cta (frame zone, muted sea-blue) ─────── #}
 <section class="py-20 text-white text-center bg-pattern-cta">
