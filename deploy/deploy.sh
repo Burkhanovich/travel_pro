@@ -35,9 +35,12 @@ $PIP install -r requirements/production.txt
 echo "[3/8] Building Tailwind CSS..."
 if [ -f "$APP_DIR/package.json" ] && command -v npm >/dev/null 2>&1; then
     cd $APP_DIR
-    # @tailwindcss/cli is a devDependency; npm omits dev deps when
-    # NODE_ENV=production, so --include=dev is required or the build
-    # can't find the CLI. Build must run before collectstatic below.
+    # The 'travelpro' user's real $HOME (/home/travelpro) isn't writable, so
+    # npm ci fails with EACCES trying to create its cache there. Point HOME and
+    # the npm cache at the writable app dir. --include=dev ensures the build
+    # CLI (@tailwindcss/cli, a devDependency) is installed.
+    export HOME="$APP_DIR"
+    export npm_config_cache="$APP_DIR/.npm-cache"
     npm ci --include=dev --silent
     npm run css:build
 else
