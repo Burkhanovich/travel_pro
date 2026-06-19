@@ -31,17 +31,22 @@ fi
 $PIP install --upgrade pip
 $PIP install -r requirements/production.txt
 
-# --- Collect static files ---
-echo "[3/8] Collecting static files..."
-DJANGO_SETTINGS_MODULE=config.settings.production $MANAGE collectstatic --noinput
-
-# --- Build Tailwind CSS ---
-echo "[4/8] Building Tailwind CSS..."
-if [ -f "$APP_DIR/package.json" ]; then
+# --- Build Tailwind CSS (BEFORE collectstatic, so the fresh CSS is collected) ---
+echo "[3/8] Building Tailwind CSS..."
+if [ -f "$APP_DIR/package.json" ] && command -v npm >/dev/null 2>&1; then
     cd $APP_DIR
-    npm ci --silent
+    # @tailwindcss/cli is a devDependency; npm omits dev deps when
+    # NODE_ENV=production, so --include=dev is required or the build
+    # can't find the CLI. Build must run before collectstatic below.
+    npm ci --include=dev --silent
     npm run css:build
+else
+    echo "  npm/package.json unavailable — using committed static/css/tailwind.css"
 fi
+
+# --- Collect static files ---
+echo "[4/8] Collecting static files..."
+DJANGO_SETTINGS_MODULE=config.settings.production $MANAGE collectstatic --noinput
 
 # --- Run database migrations ---
 echo "[5/8] Running migrations..."
