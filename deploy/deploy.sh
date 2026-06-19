@@ -44,7 +44,7 @@ if [ -f "$APP_DIR/package.json" ] && command -v npm >/dev/null 2>&1; then
     npm ci --include=dev --silent
     npm run css:build
 else
-    echo "  npm/package.json unavailable — using committed static/css/tailwind.css"
+    echo "  WARNING: npm/package.json unavailable — static/css/tailwind.css NOT built"
 fi
 
 # --- Collect static files ---
