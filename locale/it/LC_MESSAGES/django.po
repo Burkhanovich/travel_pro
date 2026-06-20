@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 12:05+0000\n"
-"PO-Revision-Date: 2026-06-05 12:05+0000\n"
+"POT-Creation-Date: 2026-06-20 12:10+0000\n"
+"PO-Revision-Date: 2026-06-20 12:10+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: it\n"
 "Language: it\n"
@@ -42,6 +42,44 @@ msgstr "Accedi"
 
 msgid "Book Now"
 msgstr "Prenota ora"
+
+msgid "Domestic Tours"
+msgstr "Tour nazionali"
+
+msgid "Route"
+msgstr "Itinerario"
+
+msgid "Tap a city to explore it."
+msgstr "Tocca una città per esplorarla."
+
+msgid "nights"
+msgstr "notti"
+
+msgid "Photos"
+msgstr "Foto"
+
+msgid "No multi-city tours yet."
+msgstr "Ancora nessun tour multi-città."
+
+msgid "Browse all tours"
+msgstr "Sfoglia tutti i tour"
+
+msgid "Multi-city journeys — discover several cities in a single trip"
+msgstr "Viaggi multi-città — scopri più città in un solo viaggio"
+
+msgid ""
+"Multi-city tours across Uzbekistan — discover several cities in a single "
+"journey."
+msgstr "Tour multi-città in Uzbekistan — scopri più città in un solo viaggio."
+
+msgid "%(count)s multi-city tours"
+msgstr "%(count)s tour multi-città"
+
+msgid "Log in"
+msgstr "Accedi"
+
+msgid "Invalid username or password."
+msgstr "Nome utente o password non validi."
 
 msgid "Accept"
 msgstr "Accetta"

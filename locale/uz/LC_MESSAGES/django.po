@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 12:05+0000\n"
-"PO-Revision-Date: 2026-06-05 12:05+0000\n"
+"POT-Creation-Date: 2026-06-20 12:10+0000\n"
+"PO-Revision-Date: 2026-06-20 12:10+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -42,6 +42,47 @@ msgstr "Kirish"
 
 msgid "Book Now"
 msgstr "Hozir band qiling"
+
+msgid "Domestic Tours"
+msgstr "Ichki Turlar"
+
+msgid "Route"
+msgstr "Marshrut"
+
+msgid "Tap a city to explore it."
+msgstr "Shaharni ko'rish uchun ustiga bosing."
+
+msgid "nights"
+msgstr "kecha"
+
+msgid "Photos"
+msgstr "Suratlar"
+
+msgid "No multi-city tours yet."
+msgstr "Hozircha ko'p shaharli turlar yo'q."
+
+msgid "Browse all tours"
+msgstr "Barcha turlarni ko'rish"
+
+msgid "Multi-city journeys — discover several cities in a single trip"
+msgstr ""
+"Ko'p shaharli sayohatlar — bitta safarda bir nechta shaharni kashf eting"
+
+msgid ""
+"Multi-city tours across Uzbekistan — discover several cities in a single "
+"journey."
+msgstr ""
+"O'zbekiston bo'ylab ko'p shaharli turlar — bitta sayohatda bir nechta "
+"shaharni kashf eting."
+
+msgid "%(count)s multi-city tours"
+msgstr "%(count)s ta ko'p shaharli tur"
+
+msgid "Log in"
+msgstr "Kirish"
+
+msgid "Invalid username or password."
+msgstr "Login yoki parol noto'g'ri."
 
 msgid "Accept"
 msgstr "Qabul qilish"

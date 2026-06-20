@@ -6,7 +6,7 @@
     <a class="route-stop" href="{{ stop.city.get_absolute_url }}" title="{{ stop.city.name }}">
       <span class="route-stop-dot"></span>
       <span class="route-stop-label">{{ stop.city.name }}</span>
-      <span class="route-stop-nights">{{ stop.nights }} {% blocktrans count nights=stop.nights %}night{% plural %}nights{% endblocktrans %}</span>
+      <span class="route-stop-nights">{{ stop.nights }} {% trans "nights" %}</span>
     </a>
     {% if not forloop.last %}<span class="route-connector"></span>{% endif %}
   {% endfor %}

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 12:05+0000\n"
-"PO-Revision-Date: 2026-06-05 12:05+0000\n"
+"POT-Creation-Date: 2026-06-20 12:10+0000\n"
+"PO-Revision-Date: 2026-06-20 12:10+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ja\n"
 "Language: ja\n"
@@ -42,6 +42,44 @@ msgstr "ログイン"
 
 msgid "Book Now"
 msgstr "今すぐ予約"
+
+msgid "Domestic Tours"
+msgstr "国内ツアー"
+
+msgid "Route"
+msgstr "ルート"
+
+msgid "Tap a city to explore it."
+msgstr "都市をタップして詳細を見る。"
+
+msgid "nights"
+msgstr "泊"
+
+msgid "Photos"
+msgstr "写真"
+
+msgid "No multi-city tours yet."
+msgstr "マルチシティツアーはまだありません。"
+
+msgid "Browse all tours"
+msgstr "すべてのツアーを見る"
+
+msgid "Multi-city journeys — discover several cities in a single trip"
+msgstr "マルチシティの旅 — 一度の旅行で複数の都市を巡る"
+
+msgid ""
+"Multi-city tours across Uzbekistan — discover several cities in a single "
+"journey."
+msgstr "ウズベキスタンを巡るマルチシティツアー — 一度の旅で複数の都市へ。"
+
+msgid "%(count)s multi-city tours"
+msgstr "%(count)s 件のマルチシティツアー"
+
+msgid "Log in"
+msgstr "ログイン"
+
+msgid "Invalid username or password."
+msgstr "ユーザー名またはパスワードが無効です。"
 
 msgid "Accept"
 msgstr "承諾する"

@@ -102,7 +102,7 @@
       <input type="text" name="username" placeholder="Username" autocomplete="off" autocapitalize="off" spellcheck="false" required>
       <input type="password" name="password" placeholder="Password" autocomplete="off" required>
       <button type="submit">{% trans "Log in" %}</button>
-      <p class="admin-access-error" hidden>{% trans "Login yoki parol noto'g'ri." %}</p>
+      <p class="admin-access-error" hidden>{% trans "Invalid username or password." %}</p>
     </form>
   </div>
   <script src="{% static 'js/admin-access.js' %}"></script>
