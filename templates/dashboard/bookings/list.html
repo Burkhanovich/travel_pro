@@ -55,7 +55,7 @@
               <p class="text-xs text-gray-400">{{ b.email }}</p>
             </td>
             <td class="px-4 py-3 text-gray-600 text-xs">{{ b.get_inquiry_type_display }}</td>
-            <td class="px-4 py-3 text-gray-600 text-xs">{{ b.tour.title|default:b.hotel.name|default:"—"|truncatechars:30 }}</td>
+            <td class="px-4 py-3 text-gray-600 text-xs">{% if b.tour %}{{ b.tour.title|truncatechars:30 }}{% elif b.hotel %}{{ b.hotel.name|truncatechars:30 }}{% else %}—{% endif %}</td>
             <td class="px-4 py-3 text-gray-600">{{ b.total_travelers }}</td>
             <td class="px-4 py-3">{{ b.status|status_badge }}</td>
             <td class="px-4 py-3 text-gray-500 text-xs">{{ b.created_at|date:"M j, Y" }}</td>
