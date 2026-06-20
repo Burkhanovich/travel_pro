@@ -92,11 +92,10 @@ class TourEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
 class TourDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
     model = Tour
     success_url = reverse_lazy("dashboard:tours_list")
+    # GET shows the confirmation page; POST (list button or that page) deletes.
+    template_name = "dashboard/confirm_delete.html"
 
     def form_valid(self, form):
         self.log_action("DELETE", "Tour", self.object.pk)
         messages.success(self.request, f"Tour '{self.object.title}' deleted.")
         return super().form_valid(form)
-
-    def get(self, request, *args, **kwargs):
-        return self.post(request, *args, **kwargs)

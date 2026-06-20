@@ -84,11 +84,10 @@ class ArticleEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
 class ArticleDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
     model = Article
     success_url = reverse_lazy("dashboard:articles_list")
+    # GET shows the confirmation page; POST (list button or that page) deletes.
+    template_name = "dashboard/confirm_delete.html"
 
     def form_valid(self, form):
         self.log_action("DELETE", "Article", self.object.pk)
         messages.success(self.request, f"Article '{self.object.title}' deleted.")
         return super().form_valid(form)
-
-    def get(self, request, *args, **kwargs):
-        return self.post(request, *args, **kwargs)
