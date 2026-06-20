@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
-from .models import UserProfile
+from .models import AdminLoginLog, UserProfile
 
 
 class UserProfileInline(admin.StackedInline):
@@ -27,3 +27,14 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_display = ("user", "country", "city", "preferred_language", "newsletter_subscribed")
     search_fields = ("user__username", "user__email", "country")
     list_filter = ("preferred_language", "newsletter_subscribed")
+
+
+@admin.register(AdminLoginLog)
+class AdminLoginLogAdmin(admin.ModelAdmin):
+    list_display = ("user", "ip_address", "created_at")
+    search_fields = ("user__username", "user__email", "ip_address")
+    list_filter = ("created_at",)
+    readonly_fields = ("user", "ip_address", "created_at", "updated_at")
+
+    def has_add_permission(self, request):
+        return False

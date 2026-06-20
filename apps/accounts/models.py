@@ -55,3 +55,23 @@ class UserProfile(TimeStampedModel):
 
     def get_absolute_url(self) -> str:
         return reverse("accounts:profile")
+
+
+class AdminLoginLog(TimeStampedModel):
+    """Audit trail for staff logins via the hidden keyboard-shortcut form."""
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="admin_logins",
+        verbose_name=_("User"),
+    )
+    ip_address = models.GenericIPAddressField(_("IP address"), null=True, blank=True)
+
+    class Meta:
+        verbose_name = _("Admin login log")
+        verbose_name_plural = _("Admin login logs")
+        ordering = ["-created_at"]
+
+    def __str__(self) -> str:
+        return f"{self.user} @ {self.created_at:%Y-%m-%d %H:%M}"

@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="{% static 'css/tabler-icons.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
   <link rel="stylesheet" href="{% static 'css/brand.css' %}">
+  <link rel="stylesheet" href="{% static 'css/admin-access.css' %}">
 
   {% block extra_head %}{% endblock %}
 </head>
@@ -48,6 +49,7 @@
   {% if messages %}
   <div class="fixed top-20 right-4 z-50 space-y-2" id="messages">
     {% for message in messages %}
+    {% if message.message == 'invalid_staff_login' %}{# internal flag for the hidden staff modal — not a user-facing toast #}{% else %}
     <div x-data="{ show: true }" x-show="show" x-transition
          class="flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg
                 {% if message.tags == 'error' %}bg-red-600{% elif message.tags == 'warning' %}bg-amber-500{% else %}bg-primary{% endif %}
@@ -55,6 +57,7 @@
       <span>{{ message }}</span>
       <button @click="show = false" class="ml-auto opacity-70 hover:opacity-100"><i class="ti ti-x"></i></button>
     </div>
+    {% endif %}
     {% endfor %}
   </div>
   {% endif %}
@@ -78,6 +81,39 @@
 
   {# ── Custom JS ─────────────────────────────────────────────── #}
   <script src="{% static 'js/main.js' %}"></script>
+
+  {# ── Hidden staff-access modal (revealed via Ctrl+Shift+A) ──── #}
+  {% load i18n %}
+  <div id="admin-access-modal" class="admin-access-modal" hidden>
+    <div class="admin-access-backdrop"></div>
+    <form id="admin-access-form" class="admin-access-form" method="post" action="{% url 'accounts:staff-login' %}">
+      {% csrf_token %}
+      <button type="button" class="admin-access-close" aria-label="Close">&times;</button>
+      <h2>Staff Login</h2>
+      <input type="text" name="username" placeholder="Username" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+      <input type="password" name="password" placeholder="Password" autocomplete="off" required>
+      <button type="submit">{% trans "Log in" %}</button>
+      <p class="admin-access-error" hidden>{% trans "Login yoki parol noto'g'ri." %}</p>
+    </form>
+  </div>
+  <script src="{% static 'js/admin-access.js' %}"></script>
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.message == 'invalid_staff_login' %}
+      <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          var modal = document.getElementById('admin-access-modal');
+          if (!modal) return;
+          modal.hidden = false;
+          var err = modal.querySelector('.admin-access-error');
+          if (err) err.hidden = false;
+          var username = modal.querySelector('input[name=username]');
+          if (username) username.focus();
+        });
+      </script>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 
   {% block extra_js %}{% endblock %}
 </body>

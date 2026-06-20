@@ -77,37 +77,8 @@
         {# Language switcher #}
         {% include "components/language_switcher.html" %}
 
-        {# Auth #}
-        {% if user.is_authenticated %}
-        <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <button class="flex items-center gap-2 text-sm font-medium rounded-full px-3 py-1.5 transition text-white hover:bg-white/20">
-            <span class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold bg-white/25 text-white">
-              {{ user.first_name|first|upper|default:user.email|first|upper }}
-            </span>
-            <span class="hidden xl:block">{{ user.first_name|default:user.email|truncatechars:12 }}</span>
-            <i class="ti ti-chevron-down text-xs"></i>
-          </button>
-          <div x-show="open" x-transition
-               class="absolute right-0 top-full mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
-            <a href="{% url 'accounts:profile' %}"
-               class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-accent hover:text-primary">
-              <i class="ti ti-user text-base"></i> {% trans "My Profile" %}
-            </a>
-            <a href="{% url 'accounts:profile' %}"
-               class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-accent hover:text-primary">
-              <i class="ti ti-calendar text-base"></i> {% trans "My Bookings" %}
-            </a>
-            <div class="border-t my-1"></div>
-            <a href="{% url 'account_logout' %}"
-               class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50">
-              <i class="ti ti-logout text-base"></i> {% trans "Sign Out" %}
-            </a>
-          </div>
-        </div>
-        {% else %}
-        <a href="{% url 'account_login' %}" class="btn-frame-outline text-sm px-4 py-2">{% trans "Sign in" %}</a>
-        {% endif %}
-
+        {# No public sign-in: visitors browse and book as guests. Staff log in
+           via the hidden Ctrl+Shift+A admin-access modal (see base.html). #}
         <a href="{% url 'bookings:inquiry' %}" class="btn-frame-accent text-sm px-5 py-2">{% trans "Book Now" %}</a>
       </div>
 
@@ -128,22 +99,6 @@
       <a href="{% url 'mice:list' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "MICE" %}</a>
       <a href="{% url 'guides:list' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "Guides" %}</a>
       <div class="pt-3 border-t mt-2 flex flex-col gap-2">
-        {% if user.is_authenticated %}
-        <div class="flex items-center gap-3 px-1 py-2">
-          <span class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
-            {{ user.first_name|first|upper|default:user.email|first|upper }}
-          </span>
-          <span class="text-sm text-gray-700 font-medium">{{ user.first_name|default:user.email|truncatechars:20 }}</span>
-        </div>
-        <a href="{% url 'accounts:profile' %}" class="flex items-center gap-2 py-2 text-gray-700 hover:text-primary text-sm">
-          <i class="ti ti-user"></i> {% trans "My Profile" %}
-        </a>
-        <a href="{% url 'account_logout' %}" class="flex items-center gap-2 py-2 text-red-600 hover:text-red-700 text-sm">
-          <i class="ti ti-logout"></i> {% trans "Sign Out" %}
-        </a>
-        {% else %}
-        <a href="{% url 'account_login' %}" class="btn-outline text-center py-2 text-sm">{% trans "Sign in" %}</a>
-        {% endif %}
         <a href="{% url 'bookings:inquiry' %}" class="btn-primary text-center py-2 text-sm">{% trans "Book Now" %}</a>
       </div>
     </div>
