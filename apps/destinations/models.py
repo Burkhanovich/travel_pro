@@ -160,3 +160,22 @@ class City(TimeStampedModel, SEOMixin, PublishableMixin, OrderedMixin):
             "destinations:city",
             kwargs={"country_slug": self.country.slug, "city_slug": self.slug},
         )
+
+
+class CityImage(models.Model):
+    """A gallery photo for a city (shown on the city detail page)."""
+
+    city = models.ForeignKey(
+        City, on_delete=models.CASCADE, related_name="images", verbose_name=_("City")
+    )
+    image = models.ImageField(_("Image"), upload_to="cities/gallery/")
+    caption = models.CharField(_("Caption"), max_length=200, blank=True)
+    order = models.PositiveSmallIntegerField(_("Order"), default=0)
+
+    class Meta:
+        verbose_name = _("City image")
+        verbose_name_plural = _("City images")
+        ordering = ["order"]
+
+    def __str__(self) -> str:
+        return f"{self.city.name} – image {self.order}"

@@ -16,7 +16,16 @@ class TourStopInline(admin.TabularInline):
     extra = 1
     fields = ("order", "city", "nights")
     ordering = ("order",)
-    autocomplete_fields = ("city",)
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        # Domestic ("Ichki Turlar") routes are built only from Uzbek cities.
+        if db_field.name == "city":
+            from apps.destinations.models import City
+
+            kwargs["queryset"] = City.objects.filter(
+                country__name__icontains="Uzbek", is_active=True
+            ).order_by("name")
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 class TourDayInline(TranslationStackedInline):

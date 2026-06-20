@@ -59,6 +59,7 @@ LOCAL_APPS = [
     "apps.core",
     "apps.tours",
     "apps.destinations",
+    "apps.ichki_turlar",
     "apps.hotels",
     "apps.bookings",
     "apps.guides",

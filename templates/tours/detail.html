@@ -304,10 +304,6 @@
 {% if tour.is_multi_city %}<link rel="stylesheet" href="{% static 'css/route-line.css' %}">{% endif %}
 {% endblock %}
 
-{% block extra_js %}
-{% if tour.is_multi_city %}<script src="{% static 'js/route-line.js' %}"></script>{% endif %}
-{% endblock %}
-
 {% block schema_json %}
 <script type="application/ld+json">{{ schema_json|safe }}</script>
 {% endblock %}

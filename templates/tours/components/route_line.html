@@ -1,16 +1,13 @@
 {% load i18n %}
-{# Interactive multi-city route line. Expects `stops` (ordered TourStop list). #}
+{# Interactive multi-city route line. Expects `stops` (ordered TourStop list).
+   Clicking a city navigates to that city's own page. #}
 <div class="route-line" data-stops="{{ stops|length }}">
   {% for stop in stops %}
-    <button type="button" class="route-stop" data-city-slug="{{ stop.city.slug }}" data-stop-index="{{ forloop.counter0 }}">
+    <a class="route-stop" href="{{ stop.city.get_absolute_url }}" title="{{ stop.city.name }}">
       <span class="route-stop-dot"></span>
       <span class="route-stop-label">{{ stop.city.name }}</span>
       <span class="route-stop-nights">{{ stop.nights }} {% blocktrans count nights=stop.nights %}night{% plural %}nights{% endblocktrans %}</span>
-    </button>
+    </a>
     {% if not forloop.last %}<span class="route-connector"></span>{% endif %}
   {% endfor %}
-</div>
-
-<div id="city-detail-panel" class="city-detail-panel" hidden>
-  {# populated dynamically when a stop is clicked #}
 </div>

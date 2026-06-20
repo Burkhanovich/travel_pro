@@ -5,7 +5,14 @@ from django.utils.translation import gettext_lazy as _
 from import_export.admin import ImportExportModelAdmin
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 
-from .models import Attraction, City, Continent, Country
+from .models import Attraction, City, CityImage, Continent, Country
+
+
+class CityImageInline(admin.TabularInline):
+    model = CityImage
+    extra = 3
+    fields = ("image", "caption", "order")
+    ordering = ("order",)
 
 
 class CityInline(admin.TabularInline):
@@ -62,7 +69,7 @@ class CityAdmin(TranslationAdmin):
     search_fields = ("name", "country__name")
     prepopulated_fields = {"slug": ("name",)}
     list_editable = ("is_featured", "is_active", "order")
-    inlines = [AttractionInline]
+    inlines = [CityImageInline, AttractionInline]
 
 
 @admin.register(Attraction)

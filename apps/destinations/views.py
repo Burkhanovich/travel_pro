@@ -74,7 +74,9 @@ class CityDetailView(DetailView):
         country_slug = self.kwargs["country_slug"]
         city_slug = self.kwargs["city_slug"]
         return get_object_or_404(
-            City.objects.select_related("country").prefetch_related("attractions", "hotels"),
+            City.objects.select_related("country").prefetch_related(
+                "attractions", "hotels", "images"
+            ),
             slug=city_slug,
             country__slug=country_slug,
             is_active=True,
@@ -85,11 +87,6 @@ class CityDetailView(DetailView):
         city = self.object
         ctx["attractions"] = city.attractions.filter(is_active=True)
         ctx["hotels"] = city.hotels.filter(is_active=True).order_by("order")[:6]
-        ctx["tours"] = (
-            Tour.objects.filter(destinations__cities=city, is_active=True)
-            .distinct()
-            .select_related("category")[:6]
-        )
         return ctx
 
 
