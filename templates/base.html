@@ -36,11 +36,17 @@
   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
   <link rel="stylesheet" href="{% static 'css/brand.css' %}">
   <link rel="stylesheet" href="{% static 'css/admin-access.css' %}">
+  <link rel="stylesheet" href="{% static 'css/transition.css' %}">
 
   {% block extra_head %}{% endblock %}
 </head>
 
 <body class="font-sans text-gray-800 bg-white antialiased" x-cloak>
+
+  {# ── Page-transition overlay (brand-pattern wipe) ──────────── #}
+  <div id="page-transition-overlay" class="page-transition-overlay">
+    <div class="page-transition-pattern"></div>
+  </div>
 
   {# ── Navbar ────────────────────────────────────────────────── #}
   {% include "components/navbar.html" %}
@@ -81,6 +87,9 @@
 
   {# ── Custom JS ─────────────────────────────────────────────── #}
   <script src="{% static 'js/main.js' %}"></script>
+
+  {# ── Page-transition wipe ──────────────────────────────────── #}
+  <script src="{% static 'js/page-transition.js' %}"></script>
 
   {# ── Hidden staff-access modal (revealed via Ctrl+Shift+A) ──── #}
   {% load i18n %}
