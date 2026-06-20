@@ -77,6 +77,35 @@ class TourListView(ListView):
         return ctx
 
 
+@method_decorator(cache_page(60 * 5), name="dispatch")
+class IchkiTurlarListView(ListView):
+    """
+    "Ichki Turlar" — multi-city tours (those with more than one itinerary stop).
+
+    Reuses regular Tour objects; the only distinction is having >1 TourStop.
+    """
+
+    model = Tour
+    template_name = "tours/ichki_turlar_list.html"
+    context_object_name = "tours"
+    paginate_by = 12
+
+    def get_queryset(self):
+        return (
+            Tour.objects.filter(is_active=True)
+            .annotate(num_stops=Count("stops"))
+            .filter(num_stops__gt=1)
+            .select_related("category")
+            .prefetch_related("stops__city")
+            .order_by("order", "-created_at")
+        )
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["page_title"] = "Ichki Turlar"
+        return ctx
+
+
 class TourDetailView(DetailView):
     """
     Full tour detail page.
@@ -101,6 +130,7 @@ class TourDetailView(DetailView):
                 "images",
                 "departures",
                 "reviews",
+                "stops__city",
             )
         )
 

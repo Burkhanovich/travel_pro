@@ -16,6 +16,8 @@ from apps.core.sitemaps import (
     TourSitemap,
 )
 from apps.core.views import RobotsTxtView
+from apps.destinations.views import CityInfoAPIView
+from apps.tours.views import IchkiTurlarListView
 
 sitemaps = {
     "tours": TourSitemap,
@@ -47,11 +49,14 @@ urlpatterns = [
     path("tours/", include("apps.tours.urls", namespace="tours")),
     path("destinations/", include("apps.destinations.urls", namespace="destinations")),
     path("hotels/", include("apps.hotels.urls", namespace="hotels")),
-    path("mice/", include("apps.mice.urls", namespace="mice")),
     path("guides/", include("apps.guides.urls", namespace="guides")),
     path("reviews/", include("apps.reviews.urls", namespace="reviews")),
     path("bookings/", include("apps.bookings.urls", namespace="bookings")),
     path("accounts/", include("apps.accounts.urls", namespace="accounts")),
+    # Ichki Turlar (multi-city tours) — reuses the Tours app
+    path("ichki-turlar/", IchkiTurlarListView.as_view(), name="ichki-turlar-list"),
+    # JSON API for the interactive route line on multi-city tours
+    path("api/cities/<slug:slug>/info/", CityInfoAPIView.as_view(), name="city-info-api"),
 ]
 
 if settings.DEBUG:

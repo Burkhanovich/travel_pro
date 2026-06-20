@@ -145,6 +145,42 @@ class Tour(TimeStampedModel, SEOMixin, PublishableMixin, OrderedMixin):
         """Atomically increment view counter."""
         Tour.objects.filter(pk=self.pk).update(views_count=models.F("views_count") + 1)
 
+    @property
+    def is_multi_city(self) -> bool:
+        """True when the tour has a multi-stop itinerary (Ichki Turlar)."""
+        return self.stops.count() > 1
+
+
+class TourStop(models.Model):
+    """
+    An ordered stop in a tour's multi-city itinerary.
+
+    A tour with more than one stop is a multi-city ("Ichki Turlar") tour and
+    renders the interactive route line on its detail page. Cities are shown in
+    the visited sequence given by ``order`` rather than arbitrary M2M order.
+    """
+
+    tour = models.ForeignKey(
+        Tour, on_delete=models.CASCADE, related_name="stops", verbose_name=_("Tour")
+    )
+    city = models.ForeignKey(
+        "destinations.City",
+        on_delete=models.CASCADE,
+        related_name="tour_stops",
+        verbose_name=_("City"),
+    )
+    order = models.PositiveIntegerField(_("Order"), help_text=_("Sequence in the itinerary: 1, 2, 3…"))
+    nights = models.PositiveIntegerField(_("Nights"), default=1, help_text=_("Nights spent in this city"))
+
+    class Meta:
+        verbose_name = _("Tour stop")
+        verbose_name_plural = _("Tour stops")
+        ordering = ["order"]
+        unique_together = [("tour", "order")]
+
+    def __str__(self) -> str:
+        return f"{self.tour} – {self.order}. {self.city.name}"
+
 
 class TourImage(models.Model):
     """Additional gallery images for a tour."""

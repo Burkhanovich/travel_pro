@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{{ tour.seo_title|default:tour.title }} | {{ SITE_NAME }}{% endblock %}
 {% block meta_description %}{{ tour.seo_description|default:tour.overview|truncatechars:160 }}{% endblock %}
@@ -98,6 +98,15 @@
           </div>
           {% endif %}
         </div>
+
+        {# Multi-city route line (Ichki Turlar) — shown only for multi-stop tours #}
+        {% if tour.is_multi_city %}
+        <div class="mb-10">
+          <h2 class="font-serif text-2xl font-bold text-dark mb-2">{% trans "Marshrut" %}</h2>
+          <p class="text-gray-500 text-sm mb-2">{% trans "Tap a city to explore it." %}</p>
+          {% include "tours/components/route_line.html" with stops=tour.stops.all %}
+        </div>
+        {% endif %}
 
         {# Day-by-day itinerary accordion #}
         {% if tour.days.exists %}
@@ -289,6 +298,14 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block extra_head %}
+{% if tour.is_multi_city %}<link rel="stylesheet" href="{% static 'css/route-line.css' %}">{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+{% if tour.is_multi_city %}<script src="{% static 'js/route-line.js' %}"></script>{% endif %}
 {% endblock %}
 
 {% block schema_json %}

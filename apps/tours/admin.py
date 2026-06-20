@@ -8,7 +8,15 @@ from modeltranslation.admin import TranslationAdmin, TranslationStackedInline, T
 
 from apps.core.admin import export_as_csv
 
-from .models import Tour, TourCategory, TourDay, TourDeparture, TourImage
+from .models import Tour, TourCategory, TourDay, TourDeparture, TourImage, TourStop
+
+
+class TourStopInline(admin.TabularInline):
+    model = TourStop
+    extra = 1
+    fields = ("order", "city", "nights")
+    ordering = ("order",)
+    autocomplete_fields = ("city",)
 
 
 class TourDayInline(TranslationStackedInline):
@@ -59,7 +67,7 @@ class TourAdmin(ImportExportModelAdmin, TranslationAdmin):
     filter_horizontal = ("destinations", "hotels")
     readonly_fields = ("views_count", "created_at", "updated_at")
     actions = [export_as_csv]
-    inlines = [TourDayInline, TourImageInline, TourDepartureInline]
+    inlines = [TourStopInline, TourDayInline, TourImageInline, TourDepartureInline]
 
     fieldsets = (
         (None, {

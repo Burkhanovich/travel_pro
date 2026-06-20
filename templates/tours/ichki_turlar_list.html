@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Ichki Turlar" %} | {{ SITE_NAME }}{% endblock %}
+{% block meta_description %}{% trans "Multi-city tours across Uzbekistan — discover several cities in a single journey." %}{% endblock %}
+
+{% block content %}
+<div class="pt-20 bg-white">
+  {# ── Page header — subtle-blue strip #}
+  <div class="relative py-16 text-center overflow-hidden bg-pattern-hero">
+    <div class="relative z-10 px-4">
+      <h1 class="text-4xl font-serif font-bold mb-2">{% trans "Ichki Turlar" %}</h1>
+      <p class="hero-subtitle mt-1">{% trans "Multi-city journeys — discover several cities in a single trip" %}</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <p class="text-gray-500 text-sm mb-6">
+      {% blocktrans with count=page_obj.paginator.count %}{{ count }} multi-city tours{% endblocktrans %}
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+      {% for tour in tours %}
+        {% include "components/tour_card.html" with tour=tour %}
+      {% empty %}
+      <div class="col-span-3 text-center py-20 text-gray-400">
+        <i class="ti ti-route-off text-5xl mb-4 block"></i>
+        <p class="text-lg">{% trans "No multi-city tours yet." %}</p>
+        <a href="{% url 'tours:list' %}" class="btn-outline mt-4 inline-block">{% trans "Browse all tours" %}</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% include "components/pagination.html" %}
+  </div>
+</div>
+{% endblock %}

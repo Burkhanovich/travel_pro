@@ -6,7 +6,6 @@ Seeds the database with realistic sample data for development:
   - 5 tour categories, 30 tours with days and departures
   - 15 hotels with rooms
   - 5 guide categories, 5 articles
-  - 3 MICE packages
   - 20 reviews (approved)
   - 5 tags
 """
@@ -26,7 +25,6 @@ from django.utils.text import slugify
 from apps.destinations.models import Attraction, City, Continent, Country
 from apps.guides.models import Article, GuideCategory, Tag
 from apps.hotels.models import Hotel, HotelAmenity, HotelRoom
-from apps.mice.models import CorporatePackage
 from apps.reviews.models import Review
 from apps.tours.models import Tour, TourCategory, TourDay, TourDeparture
 
@@ -96,12 +94,6 @@ GUIDE_CATEGORIES = [
     ("Packing Guides", "luggage", "What to pack for every destination"),
 ]
 
-MICE_PACKAGES = [
-    ("Global Innovation Conference", "conference"),
-    ("Executive Team Building Retreat", "team_building"),
-    ("International Sales Incentive Trip", "incentive"),
-]
-
 REVIEW_TITLES = [
     "Absolutely incredible experience!",
     "Best trip of my life",
@@ -153,11 +145,6 @@ ARTICLE_PHOTOS = [
     "photo-1501555088652-021faa106b9b",
 ]
 
-MICE_PHOTOS = [
-    "photo-1540575467063-178a50c2df87",
-    "photo-1517048676732-d65bc937f952",
-    "photo-1512453979798-5ea266f8880c",
-]
 
 REVIEW_BODIES = [
     "The tour was perfectly organized from start to finish. Every detail was taken care of and our guide was knowledgeable and friendly.",
@@ -219,9 +206,8 @@ class Command(BaseCommand):
         tours = self._create_tours(categories, countries, hotels)
         self._create_departures(tours)
         articles = self._create_guide_content(tours)
-        mice = self._create_mice_packages(countries)
         self._create_reviews(tours, hotels)
-        self._assign_images(countries, tours, hotels, articles, mice)
+        self._assign_images(countries, tours, hotels, articles)
 
         self.stdout.write(self.style.SUCCESS("Seed complete!"))
 
@@ -477,31 +463,7 @@ class Command(BaseCommand):
         self.stdout.write(f"  Articles: {len(article_data)}")
         return list(Article.objects.filter(slug__in=[slugify(t) for t, *_ in article_data]))
 
-    def _create_mice_packages(self, countries):
-        country_list = list(countries.values())
-        for i, (title, pkg_type) in enumerate(MICE_PACKAGES):
-            slug = slugify(title)
-            pkg, _ = CorporatePackage.objects.get_or_create(
-                slug=slug,
-                defaults={
-                    "title": title,
-                    "package_type": pkg_type,
-                    "description": f"A premium {pkg_type.replace('_', ' ')} experience designed for modern organisations.",
-                    "includes": "Venue hire\nAV equipment\nCatering\nAccommodation\nAirport transfers\nDedicated coordinator",
-                    "min_participants": 20,
-                    "max_participants": 300,
-                    "price_per_person": random.randint(300, 1200),
-                    "duration_days": random.randint(2, 5),
-                    "is_featured": i == 0,
-                    "is_active": True,
-                    "order": i,
-                },
-            )
-            pkg.featured_destinations.set(random.sample(country_list, k=3))
-        self.stdout.write(f"  MICE packages: {len(MICE_PACKAGES)}")
-        return list(CorporatePackage.objects.filter(slug__in=[slugify(t) for t, _ in MICE_PACKAGES]))
-
-    def _assign_images(self, countries, tours, hotels, articles, mice):
+    def _assign_images(self, countries, tours, hotels, articles):
         self.stdout.write("  Downloading images from Unsplash...")
         n = 0
 
@@ -537,13 +499,6 @@ class Command(BaseCommand):
             photo_id = ARTICLE_PHOTOS[i % len(ARTICLE_PHOTOS)]
             fname = f"article-{i}-cover.jpg"
             if self._set_img(article, "cover_image", photo_id, fname, 900):
-                n += 1
-
-        # MICE packages
-        for i, pkg in enumerate(mice):
-            photo_id = MICE_PHOTOS[i % len(MICE_PHOTOS)]
-            fname = f"mice-{i}-cover.jpg"
-            if self._set_img(pkg, "cover_image", photo_id, fname, 900):
                 n += 1
 
         self.stdout.write(f"  Images assigned: {n}")

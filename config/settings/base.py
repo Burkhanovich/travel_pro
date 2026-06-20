@@ -61,7 +61,6 @@ LOCAL_APPS = [
     "apps.destinations",
     "apps.hotels",
     "apps.bookings",
-    "apps.mice",
     "apps.guides",
     "apps.reviews",
     "apps.accounts",
