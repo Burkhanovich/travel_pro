@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-20 12:10+0000\n"
-"PO-Revision-Date: 2026-06-20 12:10+0000\n"
+"POT-Creation-Date: 2026-06-20 22:23+0000\n"
+"PO-Revision-Date: 2026-06-20 22:23+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -1401,3 +1401,51 @@ msgstr "Категории туров"
 
 msgid "Search tours, destinations…"
 msgstr "Поиск туров, направлений…"
+
+msgid "Bookings"
+msgstr "Бронирования"
+
+msgid "Accounts"
+msgstr "Аккаунты"
+
+msgid "Core"
+msgstr "Основное"
+
+msgid "Domestic city"
+msgstr "Город внутреннего тура"
+
+msgid "Domestic cities"
+msgstr "Города внутренних туров"
+
+msgid "City image"
+msgstr "Изображение города"
+
+msgid "City images"
+msgstr "Изображения города"
+
+msgid "Admin login log"
+msgstr "Журнал входа администратора"
+
+msgid "Admin login logs"
+msgstr "Журналы входа администратора"
+
+msgid "Dashboard notification"
+msgstr "Уведомление панели"
+
+msgid "Dashboard notifications"
+msgstr "Уведомления панели"
+
+msgid "Tour stop"
+msgstr "Остановка тура"
+
+msgid "Tour stops"
+msgstr "Остановки тура"
+
+msgid "Information"
+msgstr "Информация"
+
+msgid "Nights"
+msgstr "Ночи"
+
+msgid "IP address"
+msgstr "IP-адрес"

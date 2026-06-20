@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-20 12:10+0000\n"
-"PO-Revision-Date: 2026-06-20 12:10+0000\n"
+"POT-Creation-Date: 2026-06-20 22:23+0000\n"
+"PO-Revision-Date: 2026-06-20 22:23+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -1412,3 +1412,51 @@ msgstr "Tur toifalari"
 
 msgid "Search tours, destinations…"
 msgstr "Turlar, yo'nalishlarni qidiring…"
+
+msgid "Bookings"
+msgstr "Bandlovlar"
+
+msgid "Accounts"
+msgstr "Akkauntlar"
+
+msgid "Core"
+msgstr "Asosiy"
+
+msgid "Domestic city"
+msgstr "Ichki tur shahri"
+
+msgid "Domestic cities"
+msgstr "Ichki tur shaharlari"
+
+msgid "City image"
+msgstr "Shahar rasmi"
+
+msgid "City images"
+msgstr "Shahar rasmlari"
+
+msgid "Admin login log"
+msgstr "Admin kirish jurnali"
+
+msgid "Admin login logs"
+msgstr "Admin kirish jurnallari"
+
+msgid "Dashboard notification"
+msgstr "Boshqaruv bildirishnomasi"
+
+msgid "Dashboard notifications"
+msgstr "Boshqaruv bildirishnomalari"
+
+msgid "Tour stop"
+msgstr "Tur bekati"
+
+msgid "Tour stops"
+msgstr "Tur bekatlari"
+
+msgid "Information"
+msgstr "Ma'lumot"
+
+msgid "Nights"
+msgstr "Kechalar"
+
+msgid "IP address"
+msgstr "IP manzil"

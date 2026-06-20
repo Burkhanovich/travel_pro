@@ -5,6 +5,7 @@ blocks selectable when creating a domestic multi-city tour's route.
 """
 
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TranslationAdmin
 
 from apps.destinations.admin import AttractionInline, CityImageInline
@@ -25,8 +26,8 @@ class DomesticCityAdmin(TranslationAdmin):
     inlines = [CityImageInline, AttractionInline]
     fieldsets = (
         (None, {"fields": ("name", "slug", "cover_image", "is_featured", "is_active", "order")}),
-        ("Ma'lumot", {"fields": ("overview", "population", "latitude", "longitude")}),
-        ("SEO", {"fields": ("seo_title", "seo_description"), "classes": ("collapse",)}),
+        (_("Information"), {"fields": ("overview", "population", "latitude", "longitude")}),
+        (_("SEO"), {"fields": ("seo_title", "seo_description"), "classes": ("collapse",)}),
     )
 
     def get_queryset(self, request):

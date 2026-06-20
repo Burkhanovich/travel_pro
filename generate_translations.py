@@ -678,6 +678,76 @@ T = {
     "Sign Out":    {"uz": "Chiqish",            "ru": "Выйти",              "it": "Esci",             "es": "Cerrar sesión",     "ja": "ログアウト"},
 }
 
+# ── Admin panel: app section headings, model names, field labels ─────────────
+# Merged with setdefault() so existing T entries above are never overwritten.
+ADMIN_T = {
+    # App section headings (AppConfig.verbose_name)
+    "Bookings": {"uz": "Bandlovlar", "ru": "Бронирования", "it": "Prenotazioni", "es": "Reservas", "ja": "予約"},
+    "Accounts": {"uz": "Akkauntlar", "ru": "Аккаунты", "it": "Account", "es": "Cuentas", "ja": "アカウント"},
+    "Dashboard": {"uz": "Boshqaruv paneli", "ru": "Панель управления", "it": "Dashboard", "es": "Panel", "ja": "ダッシュボード"},
+    "Core": {"uz": "Asosiy", "ru": "Основное", "it": "Core", "es": "Núcleo", "ja": "コア"},
+    # Model names
+    "Domestic city": {"uz": "Ichki tur shahri", "ru": "Город внутреннего тура", "it": "Città nazionale", "es": "Ciudad nacional", "ja": "国内都市"},
+    "Domestic cities": {"uz": "Ichki tur shaharlari", "ru": "Города внутренних туров", "it": "Città nazionali", "es": "Ciudades nacionales", "ja": "国内都市"},
+    "Article": {"uz": "Maqola", "ru": "Статья", "it": "Articolo", "es": "Artículo", "ja": "記事"},
+    "Articles": {"uz": "Maqolalar", "ru": "Статьи", "it": "Articoli", "es": "Artículos", "ja": "記事"},
+    "Attraction": {"uz": "Diqqatga sazovor joy", "ru": "Достопримечательность", "it": "Attrazione", "es": "Atracción", "ja": "観光名所"},
+    "Attractions": {"uz": "Diqqatga sazovor joylar", "ru": "Достопримечательности", "it": "Attrazioni", "es": "Atracciones", "ja": "観光名所"},
+    "City": {"uz": "Shahar", "ru": "Город", "it": "Città", "es": "Ciudad", "ja": "都市"},
+    "Cities": {"uz": "Shaharlar", "ru": "Города", "it": "Città", "es": "Ciudades", "ja": "都市"},
+    "City image": {"uz": "Shahar rasmi", "ru": "Изображение города", "it": "Immagine città", "es": "Imagen de ciudad", "ja": "都市の画像"},
+    "City images": {"uz": "Shahar rasmlari", "ru": "Изображения города", "it": "Immagini città", "es": "Imágenes de ciudad", "ja": "都市の画像"},
+    "Continent": {"uz": "Qit'a", "ru": "Континент", "it": "Continente", "es": "Continente", "ja": "大陸"},
+    "Continents": {"uz": "Qit'alar", "ru": "Континенты", "it": "Continenti", "es": "Continentes", "ja": "大陸"},
+    "Country": {"uz": "Davlat", "ru": "Страна", "it": "Paese", "es": "País", "ja": "国"},
+    "Countries": {"uz": "Davlatlar", "ru": "Страны", "it": "Paesi", "es": "Países", "ja": "国"},
+    "Admin login log": {"uz": "Admin kirish jurnali", "ru": "Журнал входа администратора", "it": "Registro accessi admin", "es": "Registro de acceso admin", "ja": "管理者ログイン履歴"},
+    "Admin login logs": {"uz": "Admin kirish jurnallari", "ru": "Журналы входа администратора", "it": "Registri accessi admin", "es": "Registros de acceso admin", "ja": "管理者ログイン履歴"},
+    "Dashboard notification": {"uz": "Boshqaruv bildirishnomasi", "ru": "Уведомление панели", "it": "Notifica dashboard", "es": "Notificación del panel", "ja": "ダッシュボード通知"},
+    "Dashboard notifications": {"uz": "Boshqaruv bildirishnomalari", "ru": "Уведомления панели", "it": "Notifiche dashboard", "es": "Notificaciones del panel", "ja": "ダッシュボード通知"},
+    "Guide category": {"uz": "Qo'llanma toifasi", "ru": "Категория гида", "it": "Categoria guida", "es": "Categoría de guía", "ja": "ガイドカテゴリー"},
+    "Guide categories": {"uz": "Qo'llanma toifalari", "ru": "Категории гида", "it": "Categorie guida", "es": "Categorías de guía", "ja": "ガイドカテゴリー"},
+    "Hotel": {"uz": "Mehmonxona", "ru": "Отель", "it": "Hotel", "es": "Hotel", "ja": "ホテル"},
+    "Hotel amenity": {"uz": "Mehmonxona qulayligi", "ru": "Удобство отеля", "it": "Servizio hotel", "es": "Servicio del hotel", "ja": "ホテル設備"},
+    "Hotel amenities": {"uz": "Mehmonxona qulayliklari", "ru": "Удобства отеля", "it": "Servizi hotel", "es": "Servicios del hotel", "ja": "ホテル設備"},
+    "Hotel image": {"uz": "Mehmonxona rasmi", "ru": "Изображение отеля", "it": "Immagine hotel", "es": "Imagen del hotel", "ja": "ホテルの画像"},
+    "Hotel images": {"uz": "Mehmonxona rasmlari", "ru": "Изображения отеля", "it": "Immagini hotel", "es": "Imágenes del hotel", "ja": "ホテルの画像"},
+    "Hotel room": {"uz": "Mehmonxona xonasi", "ru": "Номер отеля", "it": "Camera hotel", "es": "Habitación de hotel", "ja": "客室"},
+    "Hotel rooms": {"uz": "Mehmonxona xonalari", "ru": "Номера отеля", "it": "Camere hotel", "es": "Habitaciones de hotel", "ja": "客室"},
+    "Inquiry": {"uz": "So'rov", "ru": "Заявка", "it": "Richiesta", "es": "Consulta", "ja": "問い合わせ"},
+    "Inquiries": {"uz": "So'rovlar", "ru": "Заявки", "it": "Richieste", "es": "Consultas", "ja": "問い合わせ"},
+    "Tag": {"uz": "Teg", "ru": "Тег", "it": "Tag", "es": "Etiqueta", "ja": "タグ"},
+    "Tags": {"uz": "Teglar", "ru": "Теги", "it": "Tag", "es": "Etiquetas", "ja": "タグ"},
+    "Tour": {"uz": "Tur", "ru": "Тур", "it": "Tour", "es": "Tour", "ja": "ツアー"},
+    "Tour category": {"uz": "Tur toifasi", "ru": "Категория тура", "it": "Categoria tour", "es": "Categoría de tour", "ja": "ツアーカテゴリー"},
+    "Tour categories": {"uz": "Tur toifalari", "ru": "Категории туров", "it": "Categorie tour", "es": "Categorías de tour", "ja": "ツアーカテゴリー"},
+    "Tour day": {"uz": "Tur kuni", "ru": "День тура", "it": "Giorno tour", "es": "Día del tour", "ja": "ツアーの日"},
+    "Tour days": {"uz": "Tur kunlari", "ru": "Дни тура", "it": "Giorni tour", "es": "Días del tour", "ja": "ツアーの日"},
+    "Tour departure": {"uz": "Tur jo'nashi", "ru": "Отправление тура", "it": "Partenza tour", "es": "Salida del tour", "ja": "ツアー出発"},
+    "Tour departures": {"uz": "Tur jo'nashlari", "ru": "Отправления тура", "it": "Partenze tour", "es": "Salidas del tour", "ja": "ツアー出発"},
+    "Tour image": {"uz": "Tur rasmi", "ru": "Изображение тура", "it": "Immagine tour", "es": "Imagen del tour", "ja": "ツアーの画像"},
+    "Tour images": {"uz": "Tur rasmlari", "ru": "Изображения тура", "it": "Immagini tour", "es": "Imágenes del tour", "ja": "ツアーの画像"},
+    "Tour stop": {"uz": "Tur bekati", "ru": "Остановка тура", "it": "Tappa del tour", "es": "Parada del tour", "ja": "ツアーの立ち寄り"},
+    "Tour stops": {"uz": "Tur bekatlari", "ru": "Остановки тура", "it": "Tappe del tour", "es": "Paradas del tour", "ja": "ツアーの立ち寄り"},
+    "User profile": {"uz": "Foydalanuvchi profili", "ru": "Профиль пользователя", "it": "Profilo utente", "es": "Perfil de usuario", "ja": "ユーザープロフィール"},
+    "User profiles": {"uz": "Foydalanuvchi profillari", "ru": "Профили пользователей", "it": "Profili utente", "es": "Perfiles de usuario", "ja": "ユーザープロフィール"},
+    # Common field labels
+    "Information": {"uz": "Ma'lumot", "ru": "Информация", "it": "Informazioni", "es": "Información", "ja": "情報"},
+    "Nights": {"uz": "Kechalar", "ru": "Ночи", "it": "Notti", "es": "Noches", "ja": "泊数"},
+    "Order": {"uz": "Tartib", "ru": "Порядок", "it": "Ordine", "es": "Orden", "ja": "順序"},
+    "Caption": {"uz": "Izoh", "ru": "Подпись", "it": "Didascalia", "es": "Leyenda", "ja": "キャプション"},
+    "Cover image": {"uz": "Muqova rasmi", "ru": "Обложка", "it": "Immagine di copertina", "es": "Imagen de portada", "ja": "カバー画像"},
+    "Overview": {"uz": "Umumiy ma'lumot", "ru": "Обзор", "it": "Panoramica", "es": "Resumen", "ja": "概要"},
+    "Population": {"uz": "Aholisi", "ru": "Население", "it": "Popolazione", "es": "Población", "ja": "人口"},
+    "IP address": {"uz": "IP manzil", "ru": "IP-адрес", "it": "Indirizzo IP", "es": "Dirección IP", "ja": "IPアドレス"},
+    "Created at": {"uz": "Yaratilgan", "ru": "Создано", "it": "Creato il", "es": "Creado", "ja": "作成日時"},
+    "Updated at": {"uz": "Yangilangan", "ru": "Обновлено", "it": "Aggiornato il", "es": "Actualizado", "ja": "更新日時"},
+    "User": {"uz": "Foydalanuvchi", "ru": "Пользователь", "it": "Utente", "es": "Usuario", "ja": "ユーザー"},
+}
+
+for _k, _v in ADMIN_T.items():
+    T.setdefault(_k, _v)
+
 
 def make_header(lang: str) -> dict:
     return {

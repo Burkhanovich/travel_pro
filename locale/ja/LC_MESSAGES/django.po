@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-20 12:10+0000\n"
-"PO-Revision-Date: 2026-06-20 12:10+0000\n"
+"POT-Creation-Date: 2026-06-20 22:23+0000\n"
+"PO-Revision-Date: 2026-06-20 22:23+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ja\n"
 "Language: ja\n"
@@ -1378,3 +1378,51 @@ msgstr "ツアーカテゴリー一覧"
 
 msgid "Search tours, destinations…"
 msgstr "ツアー、目的地を検索…"
+
+msgid "Bookings"
+msgstr "予約"
+
+msgid "Accounts"
+msgstr "アカウント"
+
+msgid "Core"
+msgstr "コア"
+
+msgid "Domestic city"
+msgstr "国内都市"
+
+msgid "Domestic cities"
+msgstr "国内都市"
+
+msgid "City image"
+msgstr "都市の画像"
+
+msgid "City images"
+msgstr "都市の画像"
+
+msgid "Admin login log"
+msgstr "管理者ログイン履歴"
+
+msgid "Admin login logs"
+msgstr "管理者ログイン履歴"
+
+msgid "Dashboard notification"
+msgstr "ダッシュボード通知"
+
+msgid "Dashboard notifications"
+msgstr "ダッシュボード通知"
+
+msgid "Tour stop"
+msgstr "ツアーの立ち寄り"
+
+msgid "Tour stops"
+msgstr "ツアーの立ち寄り"
+
+msgid "Information"
+msgstr "情報"
+
+msgid "Nights"
+msgstr "泊数"
+
+msgid "IP address"
+msgstr "IPアドレス"

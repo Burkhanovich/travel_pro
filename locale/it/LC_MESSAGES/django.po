@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-20 12:10+0000\n"
-"PO-Revision-Date: 2026-06-20 12:10+0000\n"
+"POT-Creation-Date: 2026-06-20 22:23+0000\n"
+"PO-Revision-Date: 2026-06-20 22:23+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: it\n"
 "Language: it\n"
@@ -1406,3 +1406,51 @@ msgstr "Categorie tour"
 
 msgid "Search tours, destinations…"
 msgstr "Cerca tour, destinazioni…"
+
+msgid "Bookings"
+msgstr "Prenotazioni"
+
+msgid "Accounts"
+msgstr "Account"
+
+msgid "Core"
+msgstr "Core"
+
+msgid "Domestic city"
+msgstr "Città nazionale"
+
+msgid "Domestic cities"
+msgstr "Città nazionali"
+
+msgid "City image"
+msgstr "Immagine città"
+
+msgid "City images"
+msgstr "Immagini città"
+
+msgid "Admin login log"
+msgstr "Registro accessi admin"
+
+msgid "Admin login logs"
+msgstr "Registri accessi admin"
+
+msgid "Dashboard notification"
+msgstr "Notifica dashboard"
+
+msgid "Dashboard notifications"
+msgstr "Notifiche dashboard"
+
+msgid "Tour stop"
+msgstr "Tappa del tour"
+
+msgid "Tour stops"
+msgstr "Tappe del tour"
+
+msgid "Information"
+msgstr "Informazioni"
+
+msgid "Nights"
+msgstr "Notti"
+
+msgid "IP address"
+msgstr "Indirizzo IP"
