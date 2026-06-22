@@ -2,6 +2,7 @@
 
 import django_filters
 from django import forms
+from django.db.models import Q
 from django.utils.translation import gettext_lazy as _
 
 from apps.destinations.models import Country
@@ -10,8 +11,9 @@ from .models import Tour, TourCategory
 
 
 class TourFilter(django_filters.FilterSet):
-    """Filter tours by category, destination, duration, price, difficulty, and departure month."""
+    """Filter tours by free-text search, category, destination, duration, price, difficulty, and departure month."""
 
+    q = django_filters.CharFilter(method="filter_search", label=_("Search"))
     category = django_filters.ModelChoiceFilter(
         queryset=TourCategory.objects.all(),
         label=_("Category"),
@@ -40,3 +42,20 @@ class TourFilter(django_filters.FilterSet):
     class Meta:
         model = Tour
         fields = ["category", "destination", "difficulty"]
+
+    def filter_search(self, queryset, name, value):
+        """Free-text search across title, overview, category and destinations.
+
+        Powers the navbar and home-page "Where to?" search boxes, which submit
+        ``?q=`` to the tour list.
+        """
+        value = value.strip()
+        if not value:
+            return queryset
+        return queryset.filter(
+            Q(title__icontains=value)
+            | Q(overview__icontains=value)
+            | Q(category__name__icontains=value)
+            | Q(destinations__name__icontains=value)
+            | Q(destinations__cities__name__icontains=value)
+        ).distinct()
