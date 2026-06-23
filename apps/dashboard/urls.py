@@ -33,7 +33,11 @@ from apps.dashboard.views.tours import (
     TourEditView,
     TourListView,
 )
-from apps.dashboard.views.users import UserListView, UserRoleUpdateView
+from apps.dashboard.views.users import (
+    UserCreateView,
+    UserListView,
+    UserRoleUpdateView,
+)
 
 app_name = "dashboard"
 
@@ -76,5 +80,6 @@ urlpatterns = [
 
     # Users
     path("users/", UserListView.as_view(), name="users_list"),
+    path("users/create/", UserCreateView.as_view(), name="users_create"),
     path("users/<int:pk>/role/", UserRoleUpdateView.as_view(), name="users_role"),
 ]
