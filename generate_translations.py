@@ -119,15 +119,14 @@ T = {
     "Learn more": {"uz": "Ko'proq bilish", "ru": "Узнать больше", "it": "Scopri di più", "es": "Más información", "ja": "詳しく見る"},
 
     # ── Home page ─────────────────────────────────────────────────────────────
-    "Your Journey Begins Here": {"uz": "Sayohatingiz shu yerdan boshlanadi", "ru": "Ваше путешествие начинается здесь", "it": "Il tuo viaggio inizia qui", "es": "Tu viaje comienza aquí", "ja": "あなたの旅はここから始まります"},
     "Discover the World": {"uz": "Dunyoni kashf eting", "ru": "Откройте мир", "it": "Scopri il Mondo", "es": "Descubre el Mundo", "ja": "世界を発見しよう"},
     "With Confidence": {"uz": "Ishonch bilan", "ru": "С уверенностью", "it": "Con Fiducia", "es": "Con Confianza", "ja": "自信を持って"},
-    "Expertly crafted tours across 6 continents. Unparalleled service, unforgettable memories.": {
-        "uz": "6 qit'ada professional tarzda yaratilgan turlar. Tengsiz xizmat, unutilmas xotiralar.",
-        "ru": "Мастерски составленные туры по 6 континентам. Непревзойдённый сервис, незабываемые воспоминания.",
-        "it": "Tour magistralmente curati in 6 continenti. Servizio senza pari, ricordi indimenticabili.",
-        "es": "Tours magistralmente diseñados en 6 continentes. Servicio inigualable, recuerdos inolvidables.",
-        "ja": "6大陸にわたる厳選されたツアー。類まれなサービス、忘れられない思い出。",
+    "Authentic tours across Uzbekistan and Eurasia. Unmatched service, unforgettable memories.": {
+        "uz": "O'zbekiston va Yevrosiyo bo'ylab betakror turlar. Tengsiz xizmat, unutilmas xotiralar.",
+        "ru": "Подлинные туры по Узбекистану и Евразии. Безупречный сервис, незабываемые впечатления.",
+        "it": "Tour autentici in Uzbekistan ed Eurasia. Servizio impareggiabile, ricordi indimenticabili.",
+        "es": "Tours auténticos por Uzbekistán y Eurasia. Servicio inigualable, recuerdos inolvidables.",
+        "ja": "ウズベキスタンとユーラシアを巡る本格的なツアー。比類なきサービス、忘れられない思い出。",
     },
     "Destination": {"uz": "Yo'nalish", "ru": "Направление", "it": "Destinazione", "es": "Destino", "ja": "目的地"},
     "Where to?": {"uz": "Qayerga?", "ru": "Куда?", "it": "Dove vai?", "es": "¿A dónde?", "ja": "どこへ？"},

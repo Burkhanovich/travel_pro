@@ -8,6 +8,10 @@
 <div class="max-w-7xl mx-auto">
   <div class="flex items-center justify-between mb-5">
     <h1 class="text-xl font-bold text-gray-800">Users <span class="text-gray-400 font-normal text-base">({{ page_obj.paginator.count }})</span></h1>
+    <a href="{% url 'dashboard:users_create' %}"
+       class="bg-emerald-700 hover:bg-emerald-800 text-white text-sm px-4 py-2 rounded-lg transition flex items-center gap-1">
+      <i class="ti ti-user-plus"></i> New User
+    </a>
   </div>
 
   <form method="get" class="flex gap-2 mb-5">

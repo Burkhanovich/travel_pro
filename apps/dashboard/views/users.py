@@ -4,11 +4,43 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.views.generic import ListView, View
+from django.views.generic.edit import FormView
 
+from apps.dashboard.forms import UserCreateForm
 from apps.dashboard.mixins import AuditMixin, SuperuserRequiredMixin
 
 User = get_user_model()
+
+VALID_ROLES = {"superuser", "manager", "operator", "user"}
+
+
+def apply_role(user, role: str) -> bool:
+    """Set a user's staff/superuser flags and groups for the given role.
+
+    Returns True if the role was recognised and applied, False otherwise.
+    """
+    if role == "superuser":
+        user.is_staff = True
+        user.is_superuser = True
+        user.groups.clear()
+    elif role == "manager":
+        user.is_staff = True
+        user.is_superuser = False
+        user.groups.set(Group.objects.filter(name="Manager"))
+    elif role == "operator":
+        user.is_staff = True
+        user.is_superuser = False
+        user.groups.set(Group.objects.filter(name="Operator"))
+    elif role == "user":
+        user.is_staff = False
+        user.is_superuser = False
+        user.groups.clear()
+    else:
+        return False
+    user.save(update_fields=["is_staff", "is_superuser"])
+    return True
 
 
 class UserListView(SuperuserRequiredMixin, ListView):
@@ -33,6 +65,29 @@ class UserListView(SuperuserRequiredMixin, ListView):
         return ctx
 
 
+class UserCreateView(AuditMixin, SuperuserRequiredMixin, FormView):
+    """Create a new account and assign its role — superuser only."""
+
+    form_class = UserCreateForm
+    template_name = "dashboard/users/form.html"
+    success_url = reverse_lazy("dashboard:users_list")
+
+    def form_valid(self, form):
+        user = form.save()
+        apply_role(user, form.cleaned_data["role"])
+        self.log_action("CREATE", "User", user.pk)
+        messages.success(
+            self.request,
+            f"User {user.email} created with role '{form.cleaned_data['role']}'.",
+        )
+        return redirect(self.success_url)
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["page_title"] = "Create User"
+        return ctx
+
+
 class UserRoleUpdateView(AuditMixin, SuperuserRequiredMixin, View):
     """Update a user's role (groups + is_staff flag) via POST."""
 
@@ -45,28 +100,10 @@ class UserRoleUpdateView(AuditMixin, SuperuserRequiredMixin, View):
             return redirect("dashboard:users_list")
 
         role = request.POST.get("role", "")
-
-        if role == "superuser":
-            user.is_staff = True
-            user.is_superuser = True
-            user.groups.clear()
-        elif role == "manager":
-            user.is_staff = True
-            user.is_superuser = False
-            user.groups.set(Group.objects.filter(name="Manager"))
-        elif role == "operator":
-            user.is_staff = True
-            user.is_superuser = False
-            user.groups.set(Group.objects.filter(name="Operator"))
-        elif role == "user":
-            user.is_staff = False
-            user.is_superuser = False
-            user.groups.clear()
-        else:
+        if not apply_role(user, role):
             messages.error(request, "Unknown role.")
             return redirect("dashboard:users_list")
 
-        user.save(update_fields=["is_staff", "is_superuser"])
         self.log_action("ROLE_CHANGE", "User", pk)
         messages.success(request, f"Role for {user.email} updated to '{role}'.")
         return redirect("dashboard:users_list")
