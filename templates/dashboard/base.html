@@ -62,6 +62,9 @@
     <a href="{% url 'dashboard:tours_list' %}" class="sidebar-link {% if 'dashboard/tours' in request.path %}active{% endif %}">
       <i class="ti ti-map-2 text-lg"></i> Tours
     </a>
+    <a href="{% url 'dashboard:ichki_turlar_list' %}" class="sidebar-link {% if 'dashboard/ichki-turlar' in request.path %}active{% endif %}">
+      <i class="ti ti-route text-lg"></i> Ichki Turlar
+    </a>
     <a href="{% url 'dashboard:hotels_list' %}" class="sidebar-link {% if 'dashboard/hotels' in request.path %}active{% endif %}">
       <i class="ti ti-building text-lg"></i> Hotels
     </a>

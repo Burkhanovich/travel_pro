@@ -5,11 +5,12 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, View
+from django.views.generic import DeleteView, ListView, UpdateView, View
 from django.views.generic.edit import FormView
 
-from apps.dashboard.forms import UserCreateForm
+from apps.dashboard.forms import UserCreateForm, UserEditForm
 from apps.dashboard.mixins import AuditMixin, SuperuserRequiredMixin
+from apps.dashboard.templatetags.dashboard_tags import user_role
 
 User = get_user_model()
 
@@ -86,6 +87,62 @@ class UserCreateView(AuditMixin, SuperuserRequiredMixin, FormView):
         ctx = super().get_context_data(**kwargs)
         ctx["page_title"] = "Create User"
         return ctx
+
+
+class UserEditView(AuditMixin, SuperuserRequiredMixin, UpdateView):
+    """Edit an existing account's details, role and password — superuser only."""
+
+    model = User
+    form_class = UserEditForm
+    template_name = "dashboard/users/form.html"
+    success_url = reverse_lazy("dashboard:users_list")
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial["role"] = user_role(self.object)
+        return initial
+
+    def form_valid(self, form):
+        user = form.save()
+
+        # Don't let a superuser strip their own access and lock themselves out.
+        new_role = form.cleaned_data["role"]
+        if user == self.request.user and new_role != "superuser":
+            messages.error(self.request, "You cannot change your own role.")
+            return redirect("dashboard:users_edit", pk=user.pk)
+
+        apply_role(user, new_role)
+        self.log_action("UPDATE", "User", user.pk)
+        messages.success(self.request, f"User {user.email} updated.")
+        return redirect(self.success_url)
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["page_title"] = f"Edit: {self.object.get_full_name() or self.object.email}"
+        ctx["is_edit"] = True
+        return ctx
+
+
+class UserDeleteView(AuditMixin, SuperuserRequiredMixin, DeleteView):
+    """Delete an account — superuser only. Self-deletion is blocked."""
+
+    model = User
+    template_name = "dashboard/confirm_delete.html"
+    success_url = reverse_lazy("dashboard:users_list")
+
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object() if request.user.is_authenticated else None
+        if self.object and self.object == request.user:
+            messages.error(request, "You cannot delete your own account.")
+            return redirect("dashboard:users_list")
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        email = self.object.email
+        self.log_action("DELETE", "User", self.object.pk)
+        response = super().form_valid(form)
+        messages.success(self.request, f"User {email} deleted.")
+        return response
 
 
 class UserRoleUpdateView(AuditMixin, SuperuserRequiredMixin, View):

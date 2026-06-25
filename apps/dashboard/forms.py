@@ -3,8 +3,16 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
+from django.forms import inlineformset_factory
+
+from apps.destinations.models import City
+from apps.tours.models import Tour, TourStop
 
 User = get_user_model()
+
+# Domestic ("Ichki Turlar") tours are built from Uzbek cities. Matched by name
+# so the link survives slug/id changes (mirrors apps.ichki_turlar.admin).
+DOMESTIC_COUNTRY = "Uzbek"
 
 ROLE_CHOICES = [
     ("user", "User — public site only"),
@@ -52,3 +60,99 @@ class UserCreateForm(forms.Form):
         user.set_password(data["password"])
         user.save()
         return user
+
+
+class UserEditForm(forms.ModelForm):
+    """Edit an existing account's details, role and (optionally) password.
+
+    Email doubles as the login username, so the two are kept in sync. Password
+    is only changed when a new value is supplied.
+    """
+
+    role = forms.ChoiceField(label="Role", choices=ROLE_CHOICES)
+    password = forms.CharField(
+        label="New password",
+        widget=forms.PasswordInput,
+        required=False,
+        min_length=8,
+        help_text="Leave blank to keep the current password.",
+    )
+
+    class Meta:
+        model = User
+        fields = ["email", "first_name", "last_name", "is_active"]
+        labels = {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "is_active": "Active (can log in)",
+        }
+
+    def clean_email(self):
+        email = self.cleaned_data["email"].strip().lower()
+        clash = (
+            User.objects.filter(email__iexact=email)
+            | User.objects.filter(username__iexact=email)
+        ).exclude(pk=self.instance.pk)
+        if clash.exists():
+            raise forms.ValidationError("Another user with this email already exists.")
+        return email
+
+    def clean_password(self):
+        password = self.cleaned_data.get("password")
+        if password:
+            validate_password(password, self.instance)
+        return password
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.username = self.cleaned_data["email"]
+        password = self.cleaned_data.get("password")
+        if password:
+            user.set_password(password)
+        if commit:
+            user.save()
+        return user
+
+
+class IchkiTurForm(forms.ModelForm):
+    """Create/edit a domestic multi-city tour ("Ichki Tur").
+
+    The itinerary stops (which make it multi-city) are handled by the
+    ``TourStopFormSet`` alongside this form.
+    """
+
+    class Meta:
+        model = Tour
+        fields = [
+            "title", "category", "duration_days",
+            "group_size_min", "group_size_max", "difficulty",
+            "price_per_person", "price_currency", "discount_percent",
+            "cover_image", "overview", "includes", "excludes",
+            "important_notes", "is_active", "order",
+        ]
+
+
+class TourStopForm(forms.ModelForm):
+    """A single itinerary stop, restricted to domestic (Uzbek) cities."""
+
+    class Meta:
+        model = TourStop
+        fields = ["city", "order", "nights"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["city"].queryset = City.objects.filter(
+            country__name__icontains=DOMESTIC_COUNTRY
+        ).order_by("name")
+
+
+# At least two stops are required — that is what makes a tour "Ichki Turlar".
+TourStopFormSet = inlineformset_factory(
+    Tour,
+    TourStop,
+    form=TourStopForm,
+    extra=2,
+    can_delete=True,
+    min_num=2,
+    validate_min=True,
+)

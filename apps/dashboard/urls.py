@@ -20,6 +20,12 @@ from apps.dashboard.views.destinations import (
     DestinationListView,
 )
 from apps.dashboard.views.home import DashboardHomeView, dashboard_stats_api
+from apps.dashboard.views.ichki_turlar import (
+    IchkiTurCreateView,
+    IchkiTurDeleteView,
+    IchkiTurEditView,
+    IchkiTurListView,
+)
 from apps.dashboard.views.hotels import (
     HotelCreateView,
     HotelDeleteView,
@@ -35,6 +41,8 @@ from apps.dashboard.views.tours import (
 )
 from apps.dashboard.views.users import (
     UserCreateView,
+    UserDeleteView,
+    UserEditView,
     UserListView,
     UserRoleUpdateView,
 )
@@ -51,6 +59,12 @@ urlpatterns = [
     path("tours/create/", TourCreateView.as_view(), name="tours_create"),
     path("tours/<int:pk>/edit/", TourEditView.as_view(), name="tours_edit"),
     path("tours/<int:pk>/delete/", TourDeleteView.as_view(), name="tours_delete"),
+
+    # Ichki Turlar (domestic multi-city tours)
+    path("ichki-turlar/", IchkiTurListView.as_view(), name="ichki_turlar_list"),
+    path("ichki-turlar/create/", IchkiTurCreateView.as_view(), name="ichki_turlar_create"),
+    path("ichki-turlar/<int:pk>/edit/", IchkiTurEditView.as_view(), name="ichki_turlar_edit"),
+    path("ichki-turlar/<int:pk>/delete/", IchkiTurDeleteView.as_view(), name="ichki_turlar_delete"),
 
     # Hotels
     path("hotels/", HotelListView.as_view(), name="hotels_list"),
@@ -81,5 +95,7 @@ urlpatterns = [
     # Users
     path("users/", UserListView.as_view(), name="users_list"),
     path("users/create/", UserCreateView.as_view(), name="users_create"),
+    path("users/<int:pk>/edit/", UserEditView.as_view(), name="users_edit"),
     path("users/<int:pk>/role/", UserRoleUpdateView.as_view(), name="users_role"),
+    path("users/<int:pk>/delete/", UserDeleteView.as_view(), name="users_delete"),
 ]

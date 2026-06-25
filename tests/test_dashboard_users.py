@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from django.urls import reverse
 
-from apps.dashboard.forms import UserCreateForm
+from apps.dashboard.forms import UserCreateForm, UserEditForm
 from apps.dashboard.views.users import apply_role
 from tests import factories as f
 
@@ -155,3 +155,108 @@ class TestUserCreateView:
     def test_requires_login(self, client):
         resp = client.get(reverse("dashboard:users_create"))
         assert resp.status_code in (302, 403, 404)
+
+
+class TestUserEditForm:
+    def test_edit_details_without_password_change(self):
+        user = f.make_user(email="old@example.com")
+        original_hash = user.password
+        form = UserEditForm(
+            data={
+                "email": "old@example.com",
+                "first_name": "New",
+                "last_name": "Name",
+                "is_active": True,
+                "role": "user",
+                "password": "",
+            },
+            instance=user,
+        )
+        assert form.is_valid(), form.errors
+        saved = form.save()
+        assert saved.first_name == "New"
+        assert saved.password == original_hash  # unchanged
+
+    def test_edit_changes_password_when_provided(self):
+        user = f.make_user(email="p@example.com")
+        form = UserEditForm(
+            data={
+                "email": "p@example.com",
+                "is_active": True,
+                "role": "user",
+                "password": "BrandNewP4ss!",
+            },
+            instance=user,
+        )
+        assert form.is_valid(), form.errors
+        saved = form.save()
+        assert saved.check_password("BrandNewP4ss!")
+
+    def test_email_synced_to_username(self):
+        user = f.make_user(email="a@example.com", username="a@example.com")
+        form = UserEditForm(
+            data={"email": "b@example.com", "is_active": True, "role": "user", "password": ""},
+            instance=user,
+        )
+        assert form.is_valid(), form.errors
+        saved = form.save()
+        assert saved.username == "b@example.com"
+
+    def test_duplicate_email_rejected(self):
+        f.make_user(email="taken@example.com")
+        user = f.make_user(email="me@example.com")
+        form = UserEditForm(
+            data={"email": "taken@example.com", "is_active": True, "role": "user", "password": ""},
+            instance=user,
+        )
+        assert not form.is_valid()
+        assert "email" in form.errors
+
+
+class TestUserEditView:
+    def test_get_form_prefills_role(self, super_client, groups):
+        user = f.make_user(is_staff=True)
+        user.groups.add(Group.objects.get(name="Manager"))
+        resp = super_client.get(reverse("dashboard:users_edit", args=[user.pk]))
+        assert resp.status_code == 200
+        assert resp.context["form"].initial["role"] == "manager"
+
+    def test_edit_changes_role(self, super_client, groups):
+        user = f.make_user(email="u@example.com")
+        resp = super_client.post(
+            reverse("dashboard:users_edit", args=[user.pk]),
+            {"email": "u@example.com", "is_active": True, "role": "manager", "password": ""},
+        )
+        assert resp.status_code == 302
+        user.refresh_from_db()
+        assert user.is_staff
+        assert user.groups.filter(name="Manager").exists()
+
+    def test_requires_superuser(self, client):
+        target = f.make_user()
+        viewer = f.make_user(username="v", password="x", is_staff=True)
+        client.force_login(viewer)
+        resp = client.get(reverse("dashboard:users_edit", args=[target.pk]))
+        assert resp.status_code != 200
+
+
+class TestUserDeleteView:
+    def test_delete_other_user(self, super_client):
+        target = f.make_user(email="bye@example.com")
+        resp = super_client.post(reverse("dashboard:users_delete", args=[target.pk]))
+        assert resp.status_code == 302
+        assert not User.objects.filter(pk=target.pk).exists()
+
+    def test_cannot_delete_self(self, client):
+        me = f.make_user(username="self", password="x", is_staff=True, is_superuser=True)
+        client.force_login(me)
+        resp = client.post(reverse("dashboard:users_delete", args=[me.pk]))
+        assert resp.status_code == 302
+        assert User.objects.filter(pk=me.pk).exists()
+
+    def test_requires_superuser(self, client):
+        target = f.make_user()
+        viewer = f.make_user(username="v2", password="x", is_staff=True)
+        client.force_login(viewer)
+        resp = client.post(reverse("dashboard:users_delete", args=[target.pk]))
+        assert resp.status_code != 302 or User.objects.filter(pk=target.pk).exists()
