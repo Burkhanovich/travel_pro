@@ -6,6 +6,7 @@ import logging
 from django.contrib import messages
 from django.http import HttpResponse, StreamingHttpResponse
 from django.shortcuts import get_object_or_404, redirect
+from django.utils.translation import gettext
 from django.views.generic import DetailView, ListView
 
 from apps.bookings.models import Inquiry
@@ -59,12 +60,12 @@ class BookingDetailView(AuditMixin, StaffRequiredMixin, DetailView):
                 booking.status = new_status
                 booking.save(update_fields=["status"])
                 self.log_action("STATUS_CHANGE", "Inquiry", booking.pk)
-                messages.success(request, f"Status updated to {booking.get_status_display()}.")
+                messages.success(request, gettext("Status updated to %(status)s.") % {"status": booking.get_status_display()})
         elif action == "notes":
             booking.notes = request.POST.get("notes", "")
             booking.save(update_fields=["notes"])
             self.log_action("NOTES_UPDATE", "Inquiry", booking.pk)
-            messages.success(request, "Internal notes saved.")
+            messages.success(request, gettext("Internal notes saved."))
         return redirect("dashboard:booking_detail", pk=booking.pk)
 
 

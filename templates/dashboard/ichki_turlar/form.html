@@ -1,9 +1,10 @@
 {% extends "dashboard/base.html" %}
+{% load i18n %}
 
 {% block title %}{{ page_title }}{% endblock %}
 {% block breadcrumb %}
   <span class="text-gray-400">/</span>
-  <a href="{% url 'dashboard:ichki_turlar_list' %}" class="text-gray-600 hover:text-gray-800">Ichki Turlar</a>
+  <a href="{% url 'dashboard:ichki_turlar_list' %}" class="text-gray-600 hover:text-gray-800">{% trans "Domestic Tours" %}</a>
   <span class="text-gray-400">/</span>
   <span class="text-gray-700">{{ page_title }}</span>
 {% endblock %}
@@ -13,7 +14,7 @@
   <div class="flex items-center justify-between mb-5">
     <h1 class="text-xl font-bold text-gray-800">{{ page_title }}</h1>
     <a href="{% url 'dashboard:ichki_turlar_list' %}" class="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1">
-      <i class="ti ti-arrow-left"></i> Back
+      <i class="ti ti-arrow-left"></i> {% trans "Back" %}
     </a>
   </div>
 
@@ -22,14 +23,14 @@
 
     {% if form.errors or stops.non_form_errors %}
     <div class="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700">
-      Please correct the errors below.
+      {% trans "Please correct the errors below." %}
       {% if stops.non_form_errors %}<div class="mt-1">{{ stops.non_form_errors|join:", " }}</div>{% endif %}
     </div>
     {% endif %}
 
     {# Basic info #}
     <div class="bg-white rounded-xl border border-gray-200 p-5">
-      <h3 class="font-semibold text-gray-800 mb-4 pb-3 border-b border-gray-100">Basic Information</h3>
+      <h3 class="font-semibold text-gray-800 mb-4 pb-3 border-b border-gray-100">{% trans "Basic Information" %}</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {% for field in form %}
         <div class="{% if field.name == 'overview' or field.name == 'includes' or field.name == 'excludes' or field.name == 'important_notes' %}md:col-span-2{% endif %}">
@@ -46,8 +47,8 @@
 
     {# Itinerary stops #}
     <div class="bg-white rounded-xl border border-gray-200 p-5">
-      <h3 class="font-semibold text-gray-800 mb-1 pb-3 border-b border-gray-100">Itinerary (Route)</h3>
-      <p class="text-xs text-gray-400 mt-2 mb-4">Add the cities visited, in order. A domestic tour needs at least 2 stops.</p>
+      <h3 class="font-semibold text-gray-800 mb-1 pb-3 border-b border-gray-100">{% trans "Itinerary (Route)" %}</h3>
+      <p class="text-xs text-gray-400 mt-2 mb-4">{% trans "Add the cities visited, in order. A domestic tour needs at least 2 stops." %}</p>
 
       {{ stops.management_form }}
 
@@ -56,26 +57,26 @@
         <div class="stop-row grid grid-cols-12 gap-3 items-end border border-gray-100 rounded-lg p-3 bg-gray-50/50">
           {% for hidden in sform.hidden_fields %}{{ hidden }}{% endfor %}
           <div class="col-span-12 sm:col-span-5">
-            <label class="block text-xs font-medium text-gray-600 mb-1">City</label>
+            <label class="block text-xs font-medium text-gray-600 mb-1">{% trans "City" %}</label>
             {{ sform.city }}
             {% if sform.city.errors %}<p class="text-xs text-red-600 mt-1">{{ sform.city.errors|join:", " }}</p>{% endif %}
           </div>
           <div class="col-span-5 sm:col-span-3">
-            <label class="block text-xs font-medium text-gray-600 mb-1">Order</label>
+            <label class="block text-xs font-medium text-gray-600 mb-1">{% trans "Order" %}</label>
             {{ sform.order }}
           </div>
           <div class="col-span-5 sm:col-span-3">
-            <label class="block text-xs font-medium text-gray-600 mb-1">Nights</label>
+            <label class="block text-xs font-medium text-gray-600 mb-1">{% trans "Nights" %}</label>
             {{ sform.nights }}
           </div>
           <div class="col-span-2 sm:col-span-1 flex items-center justify-center pb-2">
             {% if sform.instance.pk %}
-              <label class="text-xs text-red-500 flex flex-col items-center gap-1" title="Delete this stop">
+              <label class="text-xs text-red-500 flex flex-col items-center gap-1" title="{% trans 'Delete this stop' %}">
                 {{ sform.DELETE }}
-                <span>Del</span>
+                <span>{% trans "Del" %}</span>
               </label>
             {% else %}
-              <button type="button" class="remove-stop text-red-400 hover:text-red-600" title="Remove"><i class="ti ti-x"></i></button>
+              <button type="button" class="remove-stop text-red-400 hover:text-red-600" title="{% trans 'Remove' %}"><i class="ti ti-x"></i></button>
             {% endif %}
           </div>
         </div>
@@ -86,32 +87,32 @@
       <template id="empty-stop-form">
         <div class="stop-row grid grid-cols-12 gap-3 items-end border border-gray-100 rounded-lg p-3 bg-gray-50/50">
           <div class="col-span-12 sm:col-span-5">
-            <label class="block text-xs font-medium text-gray-600 mb-1">City</label>
+            <label class="block text-xs font-medium text-gray-600 mb-1">{% trans "City" %}</label>
             {{ stops.empty_form.city }}
           </div>
           <div class="col-span-5 sm:col-span-3">
-            <label class="block text-xs font-medium text-gray-600 mb-1">Order</label>
+            <label class="block text-xs font-medium text-gray-600 mb-1">{% trans "Order" %}</label>
             {{ stops.empty_form.order }}
           </div>
           <div class="col-span-5 sm:col-span-3">
-            <label class="block text-xs font-medium text-gray-600 mb-1">Nights</label>
+            <label class="block text-xs font-medium text-gray-600 mb-1">{% trans "Nights" %}</label>
             {{ stops.empty_form.nights }}
           </div>
           <div class="col-span-2 sm:col-span-1 flex items-center justify-center pb-2">
-            <button type="button" class="remove-stop text-red-400 hover:text-red-600" title="Remove"><i class="ti ti-x"></i></button>
+            <button type="button" class="remove-stop text-red-400 hover:text-red-600" title="{% trans 'Remove' %}"><i class="ti ti-x"></i></button>
           </div>
         </div>
       </template>
 
       <button type="button" id="add-stop" class="mt-4 inline-flex items-center gap-1.5 text-sm text-emerald-700 hover:text-emerald-800 font-medium">
-        <i class="ti ti-plus"></i> Add stop
+        <i class="ti ti-plus"></i> {% trans "Add stop" %}
       </button>
     </div>
 
     <div class="flex items-center gap-3 justify-end">
-      <a href="{% url 'dashboard:ichki_turlar_list' %}" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition">Cancel</a>
+      <a href="{% url 'dashboard:ichki_turlar_list' %}" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition">{% trans "Cancel" %}</a>
       <button type="submit" class="px-6 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-medium rounded-lg transition">
-        <i class="ti ti-device-floppy mr-1"></i> Save
+        <i class="ti ti-device-floppy mr-1"></i> {% trans "Save" %}
       </button>
     </div>
   </form>

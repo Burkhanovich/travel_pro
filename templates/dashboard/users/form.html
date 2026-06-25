@@ -1,9 +1,10 @@
 {% extends "dashboard/base.html" %}
+{% load i18n %}
 
 {% block title %}{{ page_title }}{% endblock %}
 {% block breadcrumb %}
   <span class="text-gray-400">/</span>
-  <a href="{% url 'dashboard:users_list' %}" class="text-gray-600 hover:text-gray-800">Users</a>
+  <a href="{% url 'dashboard:users_list' %}" class="text-gray-600 hover:text-gray-800">{% trans "Users" %}</a>
   <span class="text-gray-400">/</span>
   <span class="text-gray-700">{{ page_title }}</span>
 {% endblock %}
@@ -13,7 +14,7 @@
   <div class="flex items-center justify-between mb-5">
     <h1 class="text-xl font-bold text-gray-800">{{ page_title }}</h1>
     <a href="{% url 'dashboard:users_list' %}" class="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1">
-      <i class="ti ti-arrow-left"></i> Back to Users
+      <i class="ti ti-arrow-left"></i> {% trans "Back to Users" %}
     </a>
   </div>
 
@@ -27,7 +28,7 @@
     {% endif %}
 
     <div class="bg-white rounded-xl border border-gray-200 p-5">
-      <h3 class="font-semibold text-gray-800 mb-4 pb-3 border-b border-gray-100">Account Details</h3>
+      <h3 class="font-semibold text-gray-800 mb-4 pb-3 border-b border-gray-100">{% trans "Account Details" %}</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {% for field in form %}
         <div class="{% if field.name == 'email' or field.name == 'role' %}md:col-span-2{% endif %}">
@@ -40,13 +41,13 @@
         </div>
         {% endfor %}
       </div>
-      <p class="text-xs text-gray-400 mt-4">The email address is also used as the login username.</p>
+      <p class="text-xs text-gray-400 mt-4">{% trans "The email address is also used as the login username." %}</p>
     </div>
 
     <div class="flex items-center gap-3 justify-end">
-      <a href="{% url 'dashboard:users_list' %}" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition">Cancel</a>
+      <a href="{% url 'dashboard:users_list' %}" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition">{% trans "Cancel" %}</a>
       <button type="submit" class="px-6 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-medium rounded-lg transition">
-        {% if is_edit %}<i class="ti ti-device-floppy mr-1"></i> Save Changes{% else %}<i class="ti ti-user-plus mr-1"></i> Create User{% endif %}
+        {% if is_edit %}<i class="ti ti-device-floppy mr-1"></i> {% trans "Save Changes" %}{% else %}<i class="ti ti-user-plus mr-1"></i> {% trans "Create User" %}{% endif %}
       </button>
     </div>
   </form>

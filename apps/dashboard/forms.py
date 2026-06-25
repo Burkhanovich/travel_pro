@@ -4,6 +4,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.forms import inlineformset_factory
+from django.utils.translation import gettext_lazy as _
 
 from apps.destinations.models import City
 from apps.tours.models import Tour, TourStop
@@ -15,10 +16,10 @@ User = get_user_model()
 DOMESTIC_COUNTRY = "Uzbek"
 
 ROLE_CHOICES = [
-    ("user", "User — public site only"),
-    ("operator", "Operator — bookings & reviews"),
-    ("manager", "Manager — full content management"),
-    ("superuser", "Superuser — full access"),
+    ("user", _("User — public site only")),
+    ("operator", _("Operator — bookings & reviews")),
+    ("manager", _("Manager — full content management")),
+    ("superuser", _("Superuser — full access")),
 ]
 
 
@@ -30,18 +31,18 @@ class UserCreateForm(forms.Form):
     rather than model fields.
     """
 
-    email = forms.EmailField(label="Email")
-    first_name = forms.CharField(label="First name", max_length=150, required=False)
-    last_name = forms.CharField(label="Last name", max_length=150, required=False)
-    password = forms.CharField(label="Password", widget=forms.PasswordInput, min_length=8)
-    role = forms.ChoiceField(label="Role", choices=ROLE_CHOICES, initial="user")
+    email = forms.EmailField(label=_("Email"))
+    first_name = forms.CharField(label=_("First name"), max_length=150, required=False)
+    last_name = forms.CharField(label=_("Last name"), max_length=150, required=False)
+    password = forms.CharField(label=_("Password"), widget=forms.PasswordInput, min_length=8)
+    role = forms.ChoiceField(label=_("Role"), choices=ROLE_CHOICES, initial="user")
 
     def clean_email(self):
         email = self.cleaned_data["email"].strip().lower()
         if User.objects.filter(email__iexact=email).exists() or User.objects.filter(
             username__iexact=email
         ).exists():
-            raise forms.ValidationError("A user with this email already exists.")
+            raise forms.ValidationError(_("A user with this email already exists."))
         return email
 
     def clean_password(self):
@@ -69,22 +70,22 @@ class UserEditForm(forms.ModelForm):
     is only changed when a new value is supplied.
     """
 
-    role = forms.ChoiceField(label="Role", choices=ROLE_CHOICES)
+    role = forms.ChoiceField(label=_("Role"), choices=ROLE_CHOICES)
     password = forms.CharField(
-        label="New password",
+        label=_("New password"),
         widget=forms.PasswordInput,
         required=False,
         min_length=8,
-        help_text="Leave blank to keep the current password.",
+        help_text=_("Leave blank to keep the current password."),
     )
 
     class Meta:
         model = User
         fields = ["email", "first_name", "last_name", "is_active"]
         labels = {
-            "first_name": "First name",
-            "last_name": "Last name",
-            "is_active": "Active (can log in)",
+            "first_name": _("First name"),
+            "last_name": _("Last name"),
+            "is_active": _("Active (can log in)"),
         }
 
     def clean_email(self):
@@ -94,7 +95,7 @@ class UserEditForm(forms.ModelForm):
             | User.objects.filter(username__iexact=email)
         ).exclude(pk=self.instance.pk)
         if clash.exists():
-            raise forms.ValidationError("Another user with this email already exists.")
+            raise forms.ValidationError(_("Another user with this email already exists."))
         return email
 
     def clean_password(self):

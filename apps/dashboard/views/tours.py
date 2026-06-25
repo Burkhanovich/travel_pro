@@ -3,6 +3,7 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
@@ -54,12 +55,12 @@ class TourCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("CREATE", "Tour", self.object.pk)
-        messages.success(self.request, f"Tour '{self.object.title}' created.")
+        messages.success(self.request, gettext("Tour '%(title)s' created.") % {"title": self.object.title})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = "Create Tour"
+        ctx["page_title"] = _("Create Tour")
         ctx["categories"] = TourCategory.objects.all()
         return ctx
 
@@ -79,12 +80,12 @@ class TourEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("UPDATE", "Tour", self.object.pk)
-        messages.success(self.request, f"Tour '{self.object.title}' updated.")
+        messages.success(self.request, gettext("Tour '%(title)s' updated.") % {"title": self.object.title})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = f"Edit: {self.object.title}"
+        ctx["page_title"] = gettext("Edit: %(title)s") % {"title": self.object.title}
         ctx["categories"] = TourCategory.objects.all()
         return ctx
 
@@ -97,5 +98,5 @@ class TourDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         self.log_action("DELETE", "Tour", self.object.pk)
-        messages.success(self.request, f"Tour '{self.object.title}' deleted.")
+        messages.success(self.request, gettext("Tour '%(title)s' deleted.") % {"title": self.object.title})
         return super().form_valid(form)

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 16:49+0000\n"
-"PO-Revision-Date: 2026-06-22 16:49+0000\n"
+"POT-Creation-Date: 2026-06-25 18:53+0000\n"
+"PO-Revision-Date: 2026-06-25 18:53+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: it\n"
 "Language: it\n"
@@ -1451,3 +1451,441 @@ msgstr "Notti"
 
 msgid "IP address"
 msgstr "Indirizzo IP"
+
+msgid "Operations"
+msgstr "Operazioni"
+
+msgid "Admin"
+msgstr "Amministrazione"
+
+msgid "Site"
+msgstr "Sito"
+
+msgid "View Site"
+msgstr "Vai al sito"
+
+msgid "Superuser"
+msgstr "Superutente"
+
+msgid "Staff"
+msgstr "Staff"
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "Operator"
+msgstr "Operatore"
+
+msgid "pending"
+msgstr "in attesa"
+
+msgid "Actions"
+msgstr "Azioni"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "View"
+msgstr "Visualizza"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Back"
+msgstr "Indietro"
+
+msgid "Inactive"
+msgstr "Inattivo"
+
+msgid "stops"
+msgstr "tappe"
+
+msgid "Basic Information"
+msgstr "Informazioni di base"
+
+msgid "Delete this item?"
+msgstr "Eliminare questo elemento?"
+
+msgid "Delete confirmation"
+msgstr "Conferma eliminazione"
+
+msgid ""
+"Are you sure you want to delete <strong>%(name)s</strong>? This action "
+"cannot be undone."
+msgstr "Vuoi eliminare <strong>%(name)s</strong>? L'azione è irreversibile."
+
+msgid "Showing %(start)s–%(end)s of %(total)s"
+msgstr "Mostrati %(start)s–%(end)s di %(total)s"
+
+msgid "All status"
+msgstr "Tutti gli stati"
+
+msgid "All types"
+msgstr "Tutti i tipi"
+
+msgid "Search…"
+msgstr "Cerca…"
+
+msgid "Search tours…"
+msgstr "Cerca tour…"
+
+msgid "Search hotels…"
+msgstr "Cerca hotel…"
+
+msgid "Search users…"
+msgstr "Cerca utenti…"
+
+msgid "Search countries…"
+msgstr "Cerca paesi…"
+
+msgid "Search articles…"
+msgstr "Cerca articoli…"
+
+msgid "Search name, email, #…"
+msgstr "Cerca nome, email, #…"
+
+msgid "Search title, name…"
+msgstr "Cerca titolo, nome…"
+
+msgid "No tours found."
+msgstr "Nessun tour trovato."
+
+msgid "No hotels found."
+msgstr "Nessun hotel trovato."
+
+msgid "No countries found."
+msgstr "Nessun paese trovato."
+
+msgid "No users found."
+msgstr "Nessun utente trovato."
+
+msgid "No bookings found."
+msgstr "Nessuna prenotazione trovata."
+
+msgid "No domestic tours yet. Create one to get started."
+msgstr "Ancora nessun tour nazionale. Creane uno per iniziare."
+
+msgid "Pending"
+msgstr "In attesa"
+
+msgid "This Month"
+msgstr "Questo mese"
+
+msgid "Recent Bookings"
+msgstr "Prenotazioni recenti"
+
+msgid "View all"
+msgstr "Vedi tutto"
+
+msgid "Pending Reviews"
+msgstr "Recensioni in attesa"
+
+msgid "All caught up!"
+msgstr "Tutto fatto!"
+
+msgid "New Tour"
+msgstr "Nuovo tour"
+
+msgid "New Hotel"
+msgstr "Nuovo hotel"
+
+msgid "New Article"
+msgstr "Nuovo articolo"
+
+msgid "Export CSV"
+msgstr "Esporta CSV"
+
+msgid "Back to Tours"
+msgstr "Torna ai tour"
+
+msgid "Save Tour"
+msgstr "Salva tour"
+
+msgid "Create Tour"
+msgstr "Crea tour"
+
+msgid "New Domestic Tour"
+msgstr "Nuovo tour nazionale"
+
+msgid "Create Domestic Tour"
+msgstr "Crea tour nazionale"
+
+msgid ""
+"Multi-city domestic tours (2 or more itinerary stops). These appear on the "
+"site's Domestic Tours page."
+msgstr ""
+"Tour nazionali multi-città (2 o più tappe). Appaiono nella pagina Tour "
+"nazionali del sito."
+
+msgid "Itinerary (Route)"
+msgstr "Itinerario (percorso)"
+
+msgid ""
+"Add the cities visited, in order. A domestic tour needs at least 2 stops."
+msgstr ""
+"Aggiungi le città visitate, in ordine. Un tour nazionale richiede almeno 2 "
+"tappe."
+
+msgid "Del"
+msgstr "Elim."
+
+msgid "Delete this stop"
+msgstr "Elimina tappa"
+
+msgid "Remove"
+msgstr "Rimuovi"
+
+msgid "Add stop"
+msgstr "Aggiungi tappa"
+
+msgid "Domestic tour created."
+msgstr "Tour nazionale creato."
+
+msgid "Domestic tour updated."
+msgstr "Tour nazionale aggiornato."
+
+msgid "Domestic tour saved."
+msgstr "Tour nazionale salvato."
+
+msgid "Domestic tour '%(title)s' deleted."
+msgstr "Tour nazionale «%(title)s» eliminato."
+
+msgid "Price/Night"
+msgstr "Prezzo/notte"
+
+msgid "Hotel Details"
+msgstr "Dettagli hotel"
+
+msgid "Save Hotel"
+msgstr "Salva hotel"
+
+msgid "Back to Hotels"
+msgstr "Torna agli hotel"
+
+msgid "Create Hotel"
+msgstr "Crea hotel"
+
+msgid "Hotel '%(name)s' created."
+msgstr "Hotel «%(name)s» creato."
+
+msgid "Hotel '%(name)s' updated."
+msgstr "Hotel «%(name)s» aggiornato."
+
+msgid "Hotel '%(name)s' deleted."
+msgstr "Hotel «%(name)s» eliminato."
+
+msgid "Add Country"
+msgstr "Aggiungi paese"
+
+msgid "Country '%(name)s' created."
+msgstr "Paese «%(name)s» creato."
+
+msgid "Country '%(name)s' updated."
+msgstr "Paese «%(name)s» aggiornato."
+
+msgid "Country '%(name)s' deleted."
+msgstr "Paese «%(name)s» eliminato."
+
+msgid "Save Article"
+msgstr "Salva articolo"
+
+msgid "Create Article"
+msgstr "Crea articolo"
+
+msgid "Article '%(title)s' created."
+msgstr "Articolo «%(title)s» creato."
+
+msgid "Article '%(title)s' updated."
+msgstr "Articolo «%(title)s» aggiornato."
+
+msgid "Article '%(title)s' deleted."
+msgstr "Articolo «%(title)s» eliminato."
+
+msgid "Tour '%(title)s' created."
+msgstr "Tour «%(title)s» creato."
+
+msgid "Tour '%(title)s' updated."
+msgstr "Tour «%(title)s» aggiornato."
+
+msgid "Tour '%(title)s' deleted."
+msgstr "Tour «%(title)s» eliminato."
+
+msgid "Edit: %(title)s"
+msgstr "Modifica: %(title)s"
+
+msgid "Edit: %(name)s"
+msgstr "Modifica: %(name)s"
+
+msgid "Tour/Hotel"
+msgstr "Tour/Hotel"
+
+msgid "Booking"
+msgstr "Prenotazione"
+
+msgid "Booking %(num)s"
+msgstr "Prenotazione %(num)s"
+
+msgid "Customer Information"
+msgstr "Informazioni cliente"
+
+msgid "Adults"
+msgstr "Adulti"
+
+msgid "Children"
+msgstr "Bambini"
+
+msgid "Travel Date"
+msgstr "Data di viaggio"
+
+msgid "Special Requests"
+msgstr "Richieste speciali"
+
+msgid "Internal Notes"
+msgstr "Note interne"
+
+msgid "Save Notes"
+msgstr "Salva note"
+
+msgid "Update Status"
+msgstr "Aggiorna stato"
+
+msgid "Email Customer"
+msgstr "Invia email al cliente"
+
+msgid "Status updated to %(status)s."
+msgstr "Stato aggiornato a %(status)s."
+
+msgid "Internal notes saved."
+msgstr "Note interne salvate."
+
+msgid "Approve"
+msgstr "Approva"
+
+msgid "Reject"
+msgstr "Rifiuta"
+
+msgid "%(n)s pending"
+msgstr "%(n)s in attesa"
+
+msgid "Review approved."
+msgstr "Recensione approvata."
+
+msgid "Review rejected."
+msgstr "Recensione rifiutata."
+
+msgid "New User"
+msgstr "Nuovo utente"
+
+msgid "Create User"
+msgstr "Crea utente"
+
+msgid "Current Role"
+msgstr "Ruolo attuale"
+
+msgid "Change Role"
+msgstr "Cambia ruolo"
+
+msgid "Role"
+msgstr "Ruolo"
+
+msgid "Joined"
+msgstr "Iscritto"
+
+msgid "Last Login"
+msgstr "Ultimo accesso"
+
+msgid "Never"
+msgstr "Mai"
+
+msgid "(you)"
+msgstr "(tu)"
+
+msgid "Cannot change own role"
+msgstr "Non puoi cambiare il tuo ruolo"
+
+msgid "You cannot delete your own account"
+msgstr "Non puoi eliminare il tuo account"
+
+msgid "You cannot delete your own account."
+msgstr "Non puoi eliminare il tuo account."
+
+msgid "You cannot change your own role."
+msgstr "Non puoi cambiare il tuo ruolo."
+
+msgid "Delete this user? This cannot be undone."
+msgstr "Eliminare questo utente? Azione irreversibile."
+
+msgid "Role Permissions"
+msgstr "Permessi ruoli"
+
+msgid "Public site only, no dashboard access"
+msgstr "Solo sito pubblico, nessun accesso alla dashboard"
+
+msgid "Dashboard: view bookings & reviews only"
+msgstr "Dashboard: solo prenotazioni e recensioni"
+
+msgid "Dashboard: full content management"
+msgstr "Dashboard: gestione completa dei contenuti"
+
+msgid "Full access including user management"
+msgstr "Accesso completo, inclusa la gestione utenti"
+
+msgid "Account Details"
+msgstr "Dettagli account"
+
+msgid "The email address is also used as the login username."
+msgstr "L'indirizzo email è usato anche come nome utente."
+
+msgid "Save Changes"
+msgstr "Salva modifiche"
+
+msgid "Back to Users"
+msgstr "Torna agli utenti"
+
+msgid "New password"
+msgstr "Nuova password"
+
+msgid "Leave blank to keep the current password."
+msgstr "Lascia vuoto per mantenere la password attuale."
+
+msgid "Active (can log in)"
+msgstr "Attivo (può accedere)"
+
+msgid "A user with this email already exists."
+msgstr "Esiste già un utente con questa email."
+
+msgid "Another user with this email already exists."
+msgstr "Esiste già un altro utente con questa email."
+
+msgid "Unknown role."
+msgstr "Ruolo sconosciuto."
+
+msgid "User %(email)s created with role '%(role)s'."
+msgstr "Utente %(email)s creato con ruolo «%(role)s»."
+
+msgid "User %(email)s updated."
+msgstr "Utente %(email)s aggiornato."
+
+msgid "User %(email)s deleted."
+msgstr "Utente %(email)s eliminato."
+
+msgid "Role for %(email)s updated to '%(role)s'."
+msgstr "Ruolo di %(email)s aggiornato a «%(role)s»."
+
+msgid "User — public site only"
+msgstr "Utente — solo sito pubblico"
+
+msgid "Operator — bookings & reviews"
+msgstr "Operatore — prenotazioni e recensioni"
+
+msgid "Manager — full content management"
+msgstr "Manager — gestione completa contenuti"
+
+msgid "Superuser — full access"
+msgstr "Superutente — accesso completo"
