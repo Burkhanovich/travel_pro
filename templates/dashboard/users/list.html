@@ -31,6 +31,7 @@
             <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">Joined</th>
             <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">Last Login</th>
             <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">Change Role</th>
+            <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">Actions</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-100">
@@ -89,9 +90,22 @@
               </form>
               {% endif %}
             </td>
+            <td class="px-4 py-3">
+              <div class="flex items-center gap-2">
+                <a href="{% url 'dashboard:users_edit' u.pk %}" class="text-blue-500 hover:text-blue-700" title="Edit"><i class="ti ti-pencil"></i></a>
+                {% if u == request.user %}
+                <span class="text-gray-300 cursor-not-allowed" title="You cannot delete your own account"><i class="ti ti-trash"></i></span>
+                {% else %}
+                <form method="post" action="{% url 'dashboard:users_delete' u.pk %}" onsubmit="return confirm('Delete {{ u.email|escapejs }}? This cannot be undone.')">
+                  {% csrf_token %}
+                  <button type="submit" class="text-red-400 hover:text-red-600" title="Delete"><i class="ti ti-trash"></i></button>
+                </form>
+                {% endif %}
+              </div>
+            </td>
           </tr>
           {% empty %}
-          <tr><td colspan="5" class="px-4 py-10 text-center text-gray-400">No users found.</td></tr>
+          <tr><td colspan="6" class="px-4 py-10 text-center text-gray-400">No users found.</td></tr>
           {% endfor %}
         </tbody>
       </table>

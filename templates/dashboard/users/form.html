@@ -46,7 +46,7 @@
     <div class="flex items-center gap-3 justify-end">
       <a href="{% url 'dashboard:users_list' %}" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition">Cancel</a>
       <button type="submit" class="px-6 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-medium rounded-lg transition">
-        <i class="ti ti-user-plus mr-1"></i> Create User
+        {% if is_edit %}<i class="ti ti-device-floppy mr-1"></i> Save Changes{% else %}<i class="ti ti-user-plus mr-1"></i> Create User{% endif %}
       </button>
     </div>
   </form>
