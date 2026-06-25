@@ -1,7 +1,8 @@
+{% load i18n %}
 {% if page_obj.has_other_pages %}
 <div class="flex items-center justify-between px-4 py-3 border-t border-gray-100 bg-gray-50">
   <p class="text-xs text-gray-500">
-    Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ page_obj.paginator.count }}
+    {% blocktrans with start=page_obj.start_index end=page_obj.end_index total=page_obj.paginator.count %}Showing {{ start }}–{{ end }} of {{ total }}{% endblocktrans %}
   </p>
   <div class="flex items-center gap-1">
     {% if page_obj.has_previous %}

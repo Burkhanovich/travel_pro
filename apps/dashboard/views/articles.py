@@ -2,6 +2,7 @@
 
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
@@ -50,12 +51,12 @@ class ArticleCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("CREATE", "Article", self.object.pk)
-        messages.success(self.request, f"Article '{self.object.title}' created.")
+        messages.success(self.request, gettext("Article '%(title)s' created.") % {"title": self.object.title})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = "Create Article"
+        ctx["page_title"] = _("Create Article")
         return ctx
 
 
@@ -72,12 +73,12 @@ class ArticleEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("UPDATE", "Article", self.object.pk)
-        messages.success(self.request, f"Article '{self.object.title}' updated.")
+        messages.success(self.request, gettext("Article '%(title)s' updated.") % {"title": self.object.title})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = f"Edit: {self.object.title}"
+        ctx["page_title"] = gettext("Edit: %(title)s") % {"title": self.object.title}
         return ctx
 
 
@@ -89,5 +90,5 @@ class ArticleDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         self.log_action("DELETE", "Article", self.object.pk)
-        messages.success(self.request, f"Article '{self.object.title}' deleted.")
+        messages.success(self.request, gettext("Article '%(title)s' deleted.") % {"title": self.object.title})
         return super().form_valid(form)

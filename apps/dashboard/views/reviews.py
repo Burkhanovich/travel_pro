@@ -2,6 +2,7 @@
 
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect
+from django.utils.translation import gettext
 from django.views.generic import ListView
 
 from apps.dashboard.mixins import AuditMixin, StaffRequiredMixin
@@ -38,9 +39,9 @@ class ReviewListView(AuditMixin, StaffRequiredMixin, ListView):
         if action == "approve":
             review.approve()
             self.log_action("APPROVE", "Review", pk)
-            messages.success(request, "Review approved.")
+            messages.success(request, gettext("Review approved."))
         elif action == "reject":
             review.reject()
             self.log_action("REJECT", "Review", pk)
-            messages.success(request, "Review rejected.")
+            messages.success(request, gettext("Review rejected."))
         return redirect(request.path + "?" + request.GET.urlencode())

@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import DeleteView, ListView, UpdateView, View
 from django.views.generic.edit import FormView
 
@@ -79,13 +80,14 @@ class UserCreateView(AuditMixin, SuperuserRequiredMixin, FormView):
         self.log_action("CREATE", "User", user.pk)
         messages.success(
             self.request,
-            f"User {user.email} created with role '{form.cleaned_data['role']}'.",
+            gettext("User %(email)s created with role '%(role)s'.")
+            % {"email": user.email, "role": form.cleaned_data["role"]},
         )
         return redirect(self.success_url)
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = "Create User"
+        ctx["page_title"] = _("Create User")
         return ctx
 
 
@@ -108,17 +110,19 @@ class UserEditView(AuditMixin, SuperuserRequiredMixin, UpdateView):
         # Don't let a superuser strip their own access and lock themselves out.
         new_role = form.cleaned_data["role"]
         if user == self.request.user and new_role != "superuser":
-            messages.error(self.request, "You cannot change your own role.")
+            messages.error(self.request, gettext("You cannot change your own role."))
             return redirect("dashboard:users_edit", pk=user.pk)
 
         apply_role(user, new_role)
         self.log_action("UPDATE", "User", user.pk)
-        messages.success(self.request, f"User {user.email} updated.")
+        messages.success(self.request, gettext("User %(email)s updated.") % {"email": user.email})
         return redirect(self.success_url)
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = f"Edit: {self.object.get_full_name() or self.object.email}"
+        ctx["page_title"] = gettext("Edit: %(name)s") % {
+            "name": self.object.get_full_name() or self.object.email
+        }
         ctx["is_edit"] = True
         return ctx
 
@@ -133,7 +137,7 @@ class UserDeleteView(AuditMixin, SuperuserRequiredMixin, DeleteView):
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object() if request.user.is_authenticated else None
         if self.object and self.object == request.user:
-            messages.error(request, "You cannot delete your own account.")
+            messages.error(request, gettext("You cannot delete your own account."))
             return redirect("dashboard:users_list")
         return super().dispatch(request, *args, **kwargs)
 
@@ -141,7 +145,7 @@ class UserDeleteView(AuditMixin, SuperuserRequiredMixin, DeleteView):
         email = self.object.email
         self.log_action("DELETE", "User", self.object.pk)
         response = super().form_valid(form)
-        messages.success(self.request, f"User {email} deleted.")
+        messages.success(self.request, gettext("User %(email)s deleted.") % {"email": email})
         return response
 
 
@@ -153,14 +157,18 @@ class UserRoleUpdateView(AuditMixin, SuperuserRequiredMixin, View):
 
         # Prevent demoting yourself
         if user == request.user:
-            messages.error(request, "You cannot change your own role.")
+            messages.error(request, gettext("You cannot change your own role."))
             return redirect("dashboard:users_list")
 
         role = request.POST.get("role", "")
         if not apply_role(user, role):
-            messages.error(request, "Unknown role.")
+            messages.error(request, gettext("Unknown role."))
             return redirect("dashboard:users_list")
 
         self.log_action("ROLE_CHANGE", "User", pk)
-        messages.success(request, f"Role for {user.email} updated to '{role}'.")
+        messages.success(
+            request,
+            gettext("Role for %(email)s updated to '%(role)s'.")
+            % {"email": user.email, "role": role},
+        )
         return redirect("dashboard:users_list")

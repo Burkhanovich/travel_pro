@@ -2,6 +2,7 @@
 
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
@@ -37,12 +38,12 @@ class CountryCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("CREATE", "Country", self.object.pk)
-        messages.success(self.request, f"Country '{self.object.name}' created.")
+        messages.success(self.request, gettext("Country '%(name)s' created.") % {"name": self.object.name})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = "Add Country"
+        ctx["page_title"] = _("Add Country")
         return ctx
 
 
@@ -55,12 +56,12 @@ class CountryEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("UPDATE", "Country", self.object.pk)
-        messages.success(self.request, f"Country '{self.object.name}' updated.")
+        messages.success(self.request, gettext("Country '%(name)s' updated.") % {"name": self.object.name})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = f"Edit: {self.object.name}"
+        ctx["page_title"] = gettext("Edit: %(name)s") % {"name": self.object.name}
         return ctx
 
 
@@ -72,5 +73,5 @@ class CountryDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         self.log_action("DELETE", "Country", self.object.pk)
-        messages.success(self.request, f"Country '{self.object.name}' deleted.")
+        messages.success(self.request, gettext("Country '%(name)s' deleted.") % {"name": self.object.name})
         return super().form_valid(form)

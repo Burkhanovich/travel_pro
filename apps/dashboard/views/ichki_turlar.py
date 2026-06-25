@@ -11,6 +11,7 @@ from django.db import transaction
 from django.db.models import Count
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from apps.dashboard.forms import IchkiTurForm, TourStopFormSet
@@ -50,7 +51,7 @@ class _StopsFormMixin:
     template_name = "dashboard/ichki_turlar/form.html"
     success_url = reverse_lazy("dashboard:ichki_turlar_list")
     audit_action = "SAVE"
-    success_message = "Domestic tour saved."
+    success_message = _("Domestic tour saved.")
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
@@ -77,21 +78,21 @@ class _StopsFormMixin:
 
 class IchkiTurCreateView(_StopsFormMixin, AuditMixin, ManagerRequiredMixin, CreateView):
     audit_action = "CREATE"
-    success_message = "Domestic tour created."
+    success_message = _("Domestic tour created.")
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = "Create Domestic Tour"
+        ctx["page_title"] = _("Create Domestic Tour")
         return ctx
 
 
 class IchkiTurEditView(_StopsFormMixin, AuditMixin, ManagerRequiredMixin, UpdateView):
     audit_action = "UPDATE"
-    success_message = "Domestic tour updated."
+    success_message = _("Domestic tour updated.")
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = f"Edit: {self.object.title}"
+        ctx["page_title"] = gettext("Edit: %(title)s") % {"title": self.object.title}
         return ctx
 
 
@@ -102,5 +103,8 @@ class IchkiTurDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         self.log_action("DELETE", "IchkiTur", self.object.pk)
-        messages.success(self.request, f"Domestic tour '{self.object.title}' deleted.")
+        messages.success(
+            self.request,
+            gettext("Domestic tour '%(title)s' deleted.") % {"title": self.object.title},
+        )
         return super().form_valid(form)

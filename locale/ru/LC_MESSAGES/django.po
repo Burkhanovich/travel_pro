@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 16:49+0000\n"
-"PO-Revision-Date: 2026-06-22 16:49+0000\n"
+"POT-Creation-Date: 2026-06-25 18:53+0000\n"
+"PO-Revision-Date: 2026-06-25 18:53+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -1446,3 +1446,441 @@ msgstr "Ночи"
 
 msgid "IP address"
 msgstr "IP-адрес"
+
+msgid "Operations"
+msgstr "Операции"
+
+msgid "Admin"
+msgstr "Администрирование"
+
+msgid "Site"
+msgstr "Сайт"
+
+msgid "View Site"
+msgstr "Открыть сайт"
+
+msgid "Superuser"
+msgstr "Суперпользователь"
+
+msgid "Staff"
+msgstr "Сотрудник"
+
+msgid "Manager"
+msgstr "Менеджер"
+
+msgid "Operator"
+msgstr "Оператор"
+
+msgid "pending"
+msgstr "в ожидании"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "View"
+msgstr "Просмотр"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Inactive"
+msgstr "Неактивный"
+
+msgid "stops"
+msgstr "остановок"
+
+msgid "Basic Information"
+msgstr "Основная информация"
+
+msgid "Delete this item?"
+msgstr "Удалить этот элемент?"
+
+msgid "Delete confirmation"
+msgstr "Подтверждение удаления"
+
+msgid ""
+"Are you sure you want to delete <strong>%(name)s</strong>? This action "
+"cannot be undone."
+msgstr "Удалить <strong>%(name)s</strong>? Это действие нельзя отменить."
+
+msgid "Showing %(start)s–%(end)s of %(total)s"
+msgstr "Показаны %(start)s–%(end)s из %(total)s"
+
+msgid "All status"
+msgstr "Все статусы"
+
+msgid "All types"
+msgstr "Все типы"
+
+msgid "Search…"
+msgstr "Поиск…"
+
+msgid "Search tours…"
+msgstr "Поиск туров…"
+
+msgid "Search hotels…"
+msgstr "Поиск отелей…"
+
+msgid "Search users…"
+msgstr "Поиск пользователей…"
+
+msgid "Search countries…"
+msgstr "Поиск стран…"
+
+msgid "Search articles…"
+msgstr "Поиск статей…"
+
+msgid "Search name, email, #…"
+msgstr "Поиск по имени, email, №…"
+
+msgid "Search title, name…"
+msgstr "Поиск по заголовку, имени…"
+
+msgid "No tours found."
+msgstr "Туры не найдены."
+
+msgid "No hotels found."
+msgstr "Отели не найдены."
+
+msgid "No countries found."
+msgstr "Страны не найдены."
+
+msgid "No users found."
+msgstr "Пользователи не найдены."
+
+msgid "No bookings found."
+msgstr "Бронирования не найдены."
+
+msgid "No domestic tours yet. Create one to get started."
+msgstr "Пока нет внутренних туров. Создайте первый."
+
+msgid "Pending"
+msgstr "В ожидании"
+
+msgid "This Month"
+msgstr "За месяц"
+
+msgid "Recent Bookings"
+msgstr "Последние бронирования"
+
+msgid "View all"
+msgstr "Все"
+
+msgid "Pending Reviews"
+msgstr "Отзывы на модерации"
+
+msgid "All caught up!"
+msgstr "Всё обработано!"
+
+msgid "New Tour"
+msgstr "Новый тур"
+
+msgid "New Hotel"
+msgstr "Новый отель"
+
+msgid "New Article"
+msgstr "Новая статья"
+
+msgid "Export CSV"
+msgstr "Экспорт CSV"
+
+msgid "Back to Tours"
+msgstr "Назад к турам"
+
+msgid "Save Tour"
+msgstr "Сохранить тур"
+
+msgid "Create Tour"
+msgstr "Создать тур"
+
+msgid "New Domestic Tour"
+msgstr "Новый внутренний тур"
+
+msgid "Create Domestic Tour"
+msgstr "Создать внутренний тур"
+
+msgid ""
+"Multi-city domestic tours (2 or more itinerary stops). These appear on the "
+"site's Domestic Tours page."
+msgstr ""
+"Мультигородские внутренние туры (2+ остановки). Отображаются на странице "
+"«Внутренние туры»."
+
+msgid "Itinerary (Route)"
+msgstr "Маршрут"
+
+msgid ""
+"Add the cities visited, in order. A domestic tour needs at least 2 stops."
+msgstr ""
+"Добавьте посещаемые города по порядку. Для внутреннего тура нужно минимум 2 "
+"остановки."
+
+msgid "Del"
+msgstr "Удал."
+
+msgid "Delete this stop"
+msgstr "Удалить остановку"
+
+msgid "Remove"
+msgstr "Убрать"
+
+msgid "Add stop"
+msgstr "Добавить остановку"
+
+msgid "Domestic tour created."
+msgstr "Внутренний тур создан."
+
+msgid "Domestic tour updated."
+msgstr "Внутренний тур обновлён."
+
+msgid "Domestic tour saved."
+msgstr "Внутренний тур сохранён."
+
+msgid "Domestic tour '%(title)s' deleted."
+msgstr "Внутренний тур «%(title)s» удалён."
+
+msgid "Price/Night"
+msgstr "Цена/ночь"
+
+msgid "Hotel Details"
+msgstr "Данные отеля"
+
+msgid "Save Hotel"
+msgstr "Сохранить отель"
+
+msgid "Back to Hotels"
+msgstr "Назад к отелям"
+
+msgid "Create Hotel"
+msgstr "Создать отель"
+
+msgid "Hotel '%(name)s' created."
+msgstr "Отель «%(name)s» создан."
+
+msgid "Hotel '%(name)s' updated."
+msgstr "Отель «%(name)s» обновлён."
+
+msgid "Hotel '%(name)s' deleted."
+msgstr "Отель «%(name)s» удалён."
+
+msgid "Add Country"
+msgstr "Добавить страну"
+
+msgid "Country '%(name)s' created."
+msgstr "Страна «%(name)s» создана."
+
+msgid "Country '%(name)s' updated."
+msgstr "Страна «%(name)s» обновлена."
+
+msgid "Country '%(name)s' deleted."
+msgstr "Страна «%(name)s» удалена."
+
+msgid "Save Article"
+msgstr "Сохранить статью"
+
+msgid "Create Article"
+msgstr "Создать статью"
+
+msgid "Article '%(title)s' created."
+msgstr "Статья «%(title)s» создана."
+
+msgid "Article '%(title)s' updated."
+msgstr "Статья «%(title)s» обновлена."
+
+msgid "Article '%(title)s' deleted."
+msgstr "Статья «%(title)s» удалена."
+
+msgid "Tour '%(title)s' created."
+msgstr "Тур «%(title)s» создан."
+
+msgid "Tour '%(title)s' updated."
+msgstr "Тур «%(title)s» обновлён."
+
+msgid "Tour '%(title)s' deleted."
+msgstr "Тур «%(title)s» удалён."
+
+msgid "Edit: %(title)s"
+msgstr "Редактирование: %(title)s"
+
+msgid "Edit: %(name)s"
+msgstr "Редактирование: %(name)s"
+
+msgid "Tour/Hotel"
+msgstr "Тур/Отель"
+
+msgid "Booking"
+msgstr "Бронирование"
+
+msgid "Booking %(num)s"
+msgstr "Бронирование %(num)s"
+
+msgid "Customer Information"
+msgstr "Информация о клиенте"
+
+msgid "Adults"
+msgstr "Взрослые"
+
+msgid "Children"
+msgstr "Дети"
+
+msgid "Travel Date"
+msgstr "Дата поездки"
+
+msgid "Special Requests"
+msgstr "Особые пожелания"
+
+msgid "Internal Notes"
+msgstr "Внутренние заметки"
+
+msgid "Save Notes"
+msgstr "Сохранить заметки"
+
+msgid "Update Status"
+msgstr "Обновить статус"
+
+msgid "Email Customer"
+msgstr "Написать клиенту"
+
+msgid "Status updated to %(status)s."
+msgstr "Статус изменён на %(status)s."
+
+msgid "Internal notes saved."
+msgstr "Внутренние заметки сохранены."
+
+msgid "Approve"
+msgstr "Одобрить"
+
+msgid "Reject"
+msgstr "Отклонить"
+
+msgid "%(n)s pending"
+msgstr "%(n)s в ожидании"
+
+msgid "Review approved."
+msgstr "Отзыв одобрен."
+
+msgid "Review rejected."
+msgstr "Отзыв отклонён."
+
+msgid "New User"
+msgstr "Новый пользователь"
+
+msgid "Create User"
+msgstr "Создать пользователя"
+
+msgid "Current Role"
+msgstr "Текущая роль"
+
+msgid "Change Role"
+msgstr "Изменить роль"
+
+msgid "Role"
+msgstr "Роль"
+
+msgid "Joined"
+msgstr "Зарегистрирован"
+
+msgid "Last Login"
+msgstr "Последний вход"
+
+msgid "Never"
+msgstr "Никогда"
+
+msgid "(you)"
+msgstr "(вы)"
+
+msgid "Cannot change own role"
+msgstr "Нельзя изменить свою роль"
+
+msgid "You cannot delete your own account"
+msgstr "Нельзя удалить свою учётную запись"
+
+msgid "You cannot delete your own account."
+msgstr "Нельзя удалить свою учётную запись."
+
+msgid "You cannot change your own role."
+msgstr "Нельзя изменить свою роль."
+
+msgid "Delete this user? This cannot be undone."
+msgstr "Удалить пользователя? Это нельзя отменить."
+
+msgid "Role Permissions"
+msgstr "Права ролей"
+
+msgid "Public site only, no dashboard access"
+msgstr "Только публичный сайт, без доступа к панели"
+
+msgid "Dashboard: view bookings & reviews only"
+msgstr "Панель: только просмотр бронирований и отзывов"
+
+msgid "Dashboard: full content management"
+msgstr "Панель: полное управление контентом"
+
+msgid "Full access including user management"
+msgstr "Полный доступ, включая управление пользователями"
+
+msgid "Account Details"
+msgstr "Данные учётной записи"
+
+msgid "The email address is also used as the login username."
+msgstr "Адрес email также используется как логин."
+
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+msgid "Back to Users"
+msgstr "Назад к пользователям"
+
+msgid "New password"
+msgstr "Новый пароль"
+
+msgid "Leave blank to keep the current password."
+msgstr "Оставьте пустым, чтобы сохранить текущий пароль."
+
+msgid "Active (can log in)"
+msgstr "Активен (может входить)"
+
+msgid "A user with this email already exists."
+msgstr "Пользователь с таким email уже существует."
+
+msgid "Another user with this email already exists."
+msgstr "Другой пользователь с таким email уже существует."
+
+msgid "Unknown role."
+msgstr "Неизвестная роль."
+
+msgid "User %(email)s created with role '%(role)s'."
+msgstr "Пользователь %(email)s создан с ролью «%(role)s»."
+
+msgid "User %(email)s updated."
+msgstr "Пользователь %(email)s обновлён."
+
+msgid "User %(email)s deleted."
+msgstr "Пользователь %(email)s удалён."
+
+msgid "Role for %(email)s updated to '%(role)s'."
+msgstr "Роль для %(email)s изменена на «%(role)s»."
+
+msgid "User — public site only"
+msgstr "Пользователь — только публичный сайт"
+
+msgid "Operator — bookings & reviews"
+msgstr "Оператор — бронирования и отзывы"
+
+msgid "Manager — full content management"
+msgstr "Менеджер — полное управление контентом"
+
+msgid "Superuser — full access"
+msgstr "Суперпользователь — полный доступ"

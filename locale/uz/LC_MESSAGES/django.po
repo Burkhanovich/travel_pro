@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 16:49+0000\n"
-"PO-Revision-Date: 2026-06-22 16:49+0000\n"
+"POT-Creation-Date: 2026-06-25 18:53+0000\n"
+"PO-Revision-Date: 2026-06-25 18:53+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -1457,3 +1457,443 @@ msgstr "Kechalar"
 
 msgid "IP address"
 msgstr "IP manzil"
+
+msgid "Operations"
+msgstr "Operatsiyalar"
+
+msgid "Admin"
+msgstr "Administrator"
+
+msgid "Site"
+msgstr "Sayt"
+
+msgid "View Site"
+msgstr "Saytni ko'rish"
+
+msgid "Superuser"
+msgstr "Super foydalanuvchi"
+
+msgid "Staff"
+msgstr "Xodim"
+
+msgid "Manager"
+msgstr "Menejer"
+
+msgid "Operator"
+msgstr "Operator"
+
+msgid "pending"
+msgstr "kutilmoqda"
+
+msgid "Actions"
+msgstr "Amallar"
+
+msgid "Edit"
+msgstr "Tahrirlash"
+
+msgid "Delete"
+msgstr "O'chirish"
+
+msgid "View"
+msgstr "Ko'rish"
+
+msgid "Save"
+msgstr "Saqlash"
+
+msgid "Cancel"
+msgstr "Bekor qilish"
+
+msgid "Back"
+msgstr "Orqaga"
+
+msgid "Inactive"
+msgstr "Nofaol"
+
+msgid "stops"
+msgstr "bekat"
+
+msgid "Basic Information"
+msgstr "Asosiy ma'lumot"
+
+msgid "Delete this item?"
+msgstr "Bu element o'chirilsinmi?"
+
+msgid "Delete confirmation"
+msgstr "O'chirishni tasdiqlash"
+
+msgid ""
+"Are you sure you want to delete <strong>%(name)s</strong>? This action "
+"cannot be undone."
+msgstr ""
+"<strong>%(name)s</strong> ni o'chirmoqchimisiz? Bu amalni qaytarib "
+"bo'lmaydi."
+
+msgid "Showing %(start)s–%(end)s of %(total)s"
+msgstr "%(total)s tadan %(start)s–%(end)s ko'rsatilmoqda"
+
+msgid "All status"
+msgstr "Barcha holatlar"
+
+msgid "All types"
+msgstr "Barcha turlar"
+
+msgid "Search…"
+msgstr "Qidirish…"
+
+msgid "Search tours…"
+msgstr "Turlarni qidirish…"
+
+msgid "Search hotels…"
+msgstr "Mehmonxonalarni qidirish…"
+
+msgid "Search users…"
+msgstr "Foydalanuvchilarni qidirish…"
+
+msgid "Search countries…"
+msgstr "Davlatlarni qidirish…"
+
+msgid "Search articles…"
+msgstr "Maqolalarni qidirish…"
+
+msgid "Search name, email, #…"
+msgstr "Ism, email, # bo'yicha qidirish…"
+
+msgid "Search title, name…"
+msgstr "Sarlavha, ism bo'yicha qidirish…"
+
+msgid "No tours found."
+msgstr "Turlar topilmadi."
+
+msgid "No hotels found."
+msgstr "Mehmonxonalar topilmadi."
+
+msgid "No countries found."
+msgstr "Davlatlar topilmadi."
+
+msgid "No users found."
+msgstr "Foydalanuvchilar topilmadi."
+
+msgid "No bookings found."
+msgstr "Bandlovlar topilmadi."
+
+msgid "No domestic tours yet. Create one to get started."
+msgstr "Hozircha ichki turlar yo'q. Boshlash uchun bittasini yarating."
+
+msgid "Pending"
+msgstr "Kutilmoqda"
+
+msgid "This Month"
+msgstr "Bu oy"
+
+msgid "Recent Bookings"
+msgstr "So'nggi bandlovlar"
+
+msgid "View all"
+msgstr "Hammasini ko'rish"
+
+msgid "Pending Reviews"
+msgstr "Kutilayotgan sharhlar"
+
+msgid "All caught up!"
+msgstr "Hammasi bajarildi!"
+
+msgid "New Tour"
+msgstr "Yangi tur"
+
+msgid "New Hotel"
+msgstr "Yangi mehmonxona"
+
+msgid "New Article"
+msgstr "Yangi maqola"
+
+msgid "Export CSV"
+msgstr "CSV yuklab olish"
+
+msgid "Back to Tours"
+msgstr "Turlarga qaytish"
+
+msgid "Save Tour"
+msgstr "Turni saqlash"
+
+msgid "Create Tour"
+msgstr "Tur yaratish"
+
+msgid "New Domestic Tour"
+msgstr "Yangi ichki tur"
+
+msgid "Create Domestic Tour"
+msgstr "Ichki tur yaratish"
+
+msgid ""
+"Multi-city domestic tours (2 or more itinerary stops). These appear on the "
+"site's Domestic Tours page."
+msgstr ""
+"Ko'p shaharli ichki turlar (2 yoki undan ortiq bekat). Ular saytdagi Ichki "
+"Turlar sahifasida ko'rinadi."
+
+msgid "Itinerary (Route)"
+msgstr "Marshrut"
+
+msgid ""
+"Add the cities visited, in order. A domestic tour needs at least 2 stops."
+msgstr ""
+"Tashrif buyuriladigan shaharlarni tartib bilan qo'shing. Ichki tur uchun "
+"kamida 2 ta bekat kerak."
+
+msgid "Del"
+msgstr "O'chir"
+
+msgid "Delete this stop"
+msgstr "Bu bekatni o'chirish"
+
+msgid "Remove"
+msgstr "Olib tashlash"
+
+msgid "Add stop"
+msgstr "Bekat qo'shish"
+
+msgid "Domestic tour created."
+msgstr "Ichki tur yaratildi."
+
+msgid "Domestic tour updated."
+msgstr "Ichki tur yangilandi."
+
+msgid "Domestic tour saved."
+msgstr "Ichki tur saqlandi."
+
+msgid "Domestic tour '%(title)s' deleted."
+msgstr "'%(title)s' ichki turi o'chirildi."
+
+msgid "Price/Night"
+msgstr "Narx/kecha"
+
+msgid "Hotel Details"
+msgstr "Mehmonxona ma'lumotlari"
+
+msgid "Save Hotel"
+msgstr "Mehmonxonani saqlash"
+
+msgid "Back to Hotels"
+msgstr "Mehmonxonalarga qaytish"
+
+msgid "Create Hotel"
+msgstr "Mehmonxona yaratish"
+
+msgid "Hotel '%(name)s' created."
+msgstr "'%(name)s' mehmonxonasi yaratildi."
+
+msgid "Hotel '%(name)s' updated."
+msgstr "'%(name)s' mehmonxonasi yangilandi."
+
+msgid "Hotel '%(name)s' deleted."
+msgstr "'%(name)s' mehmonxonasi o'chirildi."
+
+msgid "Add Country"
+msgstr "Davlat qo'shish"
+
+msgid "Country '%(name)s' created."
+msgstr "'%(name)s' davlati yaratildi."
+
+msgid "Country '%(name)s' updated."
+msgstr "'%(name)s' davlati yangilandi."
+
+msgid "Country '%(name)s' deleted."
+msgstr "'%(name)s' davlati o'chirildi."
+
+msgid "Save Article"
+msgstr "Maqolani saqlash"
+
+msgid "Create Article"
+msgstr "Maqola yaratish"
+
+msgid "Article '%(title)s' created."
+msgstr "'%(title)s' maqolasi yaratildi."
+
+msgid "Article '%(title)s' updated."
+msgstr "'%(title)s' maqolasi yangilandi."
+
+msgid "Article '%(title)s' deleted."
+msgstr "'%(title)s' maqolasi o'chirildi."
+
+msgid "Tour '%(title)s' created."
+msgstr "'%(title)s' turi yaratildi."
+
+msgid "Tour '%(title)s' updated."
+msgstr "'%(title)s' turi yangilandi."
+
+msgid "Tour '%(title)s' deleted."
+msgstr "'%(title)s' turi o'chirildi."
+
+msgid "Edit: %(title)s"
+msgstr "Tahrirlash: %(title)s"
+
+msgid "Edit: %(name)s"
+msgstr "Tahrirlash: %(name)s"
+
+msgid "Tour/Hotel"
+msgstr "Tur/Mehmonxona"
+
+msgid "Booking"
+msgstr "Bandlov"
+
+msgid "Booking %(num)s"
+msgstr "Bandlov %(num)s"
+
+msgid "Customer Information"
+msgstr "Mijoz ma'lumotlari"
+
+msgid "Adults"
+msgstr "Kattalar"
+
+msgid "Children"
+msgstr "Bolalar"
+
+msgid "Travel Date"
+msgstr "Sayohat sanasi"
+
+msgid "Special Requests"
+msgstr "Maxsus so'rovlar"
+
+msgid "Internal Notes"
+msgstr "Ichki eslatmalar"
+
+msgid "Save Notes"
+msgstr "Eslatmalarni saqlash"
+
+msgid "Update Status"
+msgstr "Holatni yangilash"
+
+msgid "Email Customer"
+msgstr "Mijozga email yozish"
+
+msgid "Status updated to %(status)s."
+msgstr "Holat %(status)s ga yangilandi."
+
+msgid "Internal notes saved."
+msgstr "Ichki eslatmalar saqlandi."
+
+msgid "Approve"
+msgstr "Tasdiqlash"
+
+msgid "Reject"
+msgstr "Rad etish"
+
+msgid "%(n)s pending"
+msgstr "%(n)s ta kutilmoqda"
+
+msgid "Review approved."
+msgstr "Sharh tasdiqlandi."
+
+msgid "Review rejected."
+msgstr "Sharh rad etildi."
+
+msgid "New User"
+msgstr "Yangi foydalanuvchi"
+
+msgid "Create User"
+msgstr "Foydalanuvchi yaratish"
+
+msgid "Current Role"
+msgstr "Joriy rol"
+
+msgid "Change Role"
+msgstr "Rolni o'zgartirish"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Joined"
+msgstr "Qo'shilgan"
+
+msgid "Last Login"
+msgstr "Oxirgi kirish"
+
+msgid "Never"
+msgstr "Hech qachon"
+
+msgid "(you)"
+msgstr "(siz)"
+
+msgid "Cannot change own role"
+msgstr "O'z rolingizni o'zgartira olmaysiz"
+
+msgid "You cannot delete your own account"
+msgstr "O'z akkauntingizni o'chira olmaysiz"
+
+msgid "You cannot delete your own account."
+msgstr "O'z akkauntingizni o'chira olmaysiz."
+
+msgid "You cannot change your own role."
+msgstr "O'z rolingizni o'zgartira olmaysiz."
+
+msgid "Delete this user? This cannot be undone."
+msgstr "Bu foydalanuvchi o'chirilsinmi? Buni qaytarib bo'lmaydi."
+
+msgid "Role Permissions"
+msgstr "Rol huquqlari"
+
+msgid "Public site only, no dashboard access"
+msgstr "Faqat ommaviy sayt, boshqaruv paneliga kirish yo'q"
+
+msgid "Dashboard: view bookings & reviews only"
+msgstr "Panel: faqat bandlov va sharhlarni ko'rish"
+
+msgid "Dashboard: full content management"
+msgstr "Panel: to'liq kontent boshqaruvi"
+
+msgid "Full access including user management"
+msgstr "To'liq kirish, jumladan foydalanuvchilarni boshqarish"
+
+msgid "Account Details"
+msgstr "Akkaunt ma'lumotlari"
+
+msgid "The email address is also used as the login username."
+msgstr "Email manzili login sifatida ham ishlatiladi."
+
+msgid "Save Changes"
+msgstr "O'zgarishlarni saqlash"
+
+msgid "Back to Users"
+msgstr "Foydalanuvchilarga qaytish"
+
+msgid "New password"
+msgstr "Yangi parol"
+
+msgid "Leave blank to keep the current password."
+msgstr "Joriy parolni saqlab qolish uchun bo'sh qoldiring."
+
+msgid "Active (can log in)"
+msgstr "Faol (kira oladi)"
+
+msgid "A user with this email already exists."
+msgstr "Bu email bilan foydalanuvchi allaqachon mavjud."
+
+msgid "Another user with this email already exists."
+msgstr "Bu email bilan boshqa foydalanuvchi allaqachon mavjud."
+
+msgid "Unknown role."
+msgstr "Noma'lum rol."
+
+msgid "User %(email)s created with role '%(role)s'."
+msgstr "%(email)s foydalanuvchisi '%(role)s' roli bilan yaratildi."
+
+msgid "User %(email)s updated."
+msgstr "%(email)s foydalanuvchisi yangilandi."
+
+msgid "User %(email)s deleted."
+msgstr "%(email)s foydalanuvchisi o'chirildi."
+
+msgid "Role for %(email)s updated to '%(role)s'."
+msgstr "%(email)s uchun rol '%(role)s' ga yangilandi."
+
+msgid "User — public site only"
+msgstr "Foydalanuvchi — faqat ommaviy sayt"
+
+msgid "Operator — bookings & reviews"
+msgstr "Operator — bandlov va sharhlar"
+
+msgid "Manager — full content management"
+msgstr "Menejer — to'liq kontent boshqaruvi"
+
+msgid "Superuser — full access"
+msgstr "Super foydalanuvchi — to'liq kirish"

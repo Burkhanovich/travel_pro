@@ -2,6 +2,7 @@
 
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
@@ -42,12 +43,12 @@ class HotelCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("CREATE", "Hotel", self.object.pk)
-        messages.success(self.request, f"Hotel '{self.object.name}' created.")
+        messages.success(self.request, gettext("Hotel '%(name)s' created.") % {"name": self.object.name})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = "Create Hotel"
+        ctx["page_title"] = _("Create Hotel")
         return ctx
 
 
@@ -66,12 +67,12 @@ class HotelEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         self.log_action("UPDATE", "Hotel", self.object.pk)
-        messages.success(self.request, f"Hotel '{self.object.name}' updated.")
+        messages.success(self.request, gettext("Hotel '%(name)s' updated.") % {"name": self.object.name})
         return response
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = f"Edit: {self.object.name}"
+        ctx["page_title"] = gettext("Edit: %(name)s") % {"name": self.object.name}
         return ctx
 
 
@@ -83,5 +84,5 @@ class HotelDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
 
     def form_valid(self, form):
         self.log_action("DELETE", "Hotel", self.object.pk)
-        messages.success(self.request, f"Hotel '{self.object.name}' deleted.")
+        messages.success(self.request, gettext("Hotel '%(name)s' deleted.") % {"name": self.object.name})
         return super().form_valid(form)

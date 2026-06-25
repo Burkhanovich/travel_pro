@@ -1,4 +1,4 @@
-{% load static dashboard_tags %}
+{% load static dashboard_tags i18n %}
 <!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
@@ -47,7 +47,7 @@
       </span>
       <div class="overflow-hidden">
         <p class="text-white text-xs font-semibold truncate">{{ request.user.get_full_name|default:request.user.email }}</p>
-        <p class="text-slate-400 text-xs truncate">{% if request.user.is_superuser %}Superuser{% elif request.user.groups.all|first %}{{ request.user.groups.all|first }}{% else %}Staff{% endif %}</p>
+        <p class="text-slate-400 text-xs truncate">{% if request.user.is_superuser %}{% trans "Superuser" %}{% elif request.user.groups.all|first %}{{ request.user.groups.all|first }}{% else %}{% trans "Staff" %}{% endif %}</p>
       </div>
     </div>
   </div>
@@ -55,51 +55,51 @@
   {# Navigation #}
   <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-0.5">
     <a href="{% url 'dashboard:home' %}" class="sidebar-link {% active_link request 'dashboard:home' %}">
-      <i class="ti ti-dashboard text-lg"></i> Overview
+      <i class="ti ti-dashboard text-lg"></i> {% trans "Overview" %}
     </a>
 
-    <p class="sidebar-section">Content</p>
+    <p class="sidebar-section">{% trans "Content" %}</p>
     <a href="{% url 'dashboard:tours_list' %}" class="sidebar-link {% if 'dashboard/tours' in request.path %}active{% endif %}">
-      <i class="ti ti-map-2 text-lg"></i> Tours
+      <i class="ti ti-map-2 text-lg"></i> {% trans "Tours" %}
     </a>
     <a href="{% url 'dashboard:ichki_turlar_list' %}" class="sidebar-link {% if 'dashboard/ichki-turlar' in request.path %}active{% endif %}">
-      <i class="ti ti-route text-lg"></i> Ichki Turlar
+      <i class="ti ti-route text-lg"></i> {% trans "Domestic Tours" %}
     </a>
     <a href="{% url 'dashboard:hotels_list' %}" class="sidebar-link {% if 'dashboard/hotels' in request.path %}active{% endif %}">
-      <i class="ti ti-building text-lg"></i> Hotels
+      <i class="ti ti-building text-lg"></i> {% trans "Hotels" %}
     </a>
     <a href="{% url 'dashboard:destinations_list' %}" class="sidebar-link {% if 'dashboard/destinations' in request.path %}active{% endif %}">
-      <i class="ti ti-world text-lg"></i> Destinations
+      <i class="ti ti-world text-lg"></i> {% trans "Destinations" %}
     </a>
     <a href="{% url 'dashboard:articles_list' %}" class="sidebar-link {% if 'dashboard/articles' in request.path %}active{% endif %}">
-      <i class="ti ti-article text-lg"></i> Articles
+      <i class="ti ti-article text-lg"></i> {% trans "Articles" %}
     </a>
 
-    <p class="sidebar-section">Operations</p>
+    <p class="sidebar-section">{% trans "Operations" %}</p>
     <a href="{% url 'dashboard:bookings_list' %}" class="sidebar-link {% if 'dashboard/bookings' in request.path %}active{% endif %}">
       <i class="ti ti-calendar-event text-lg"></i>
-      Bookings
+      {% trans "Bookings" %}
       {% with cnt=pending_booking_count %}{% if cnt %}<span class="ml-auto bg-yellow-500 text-white text-xs px-1.5 py-0.5 rounded-full">{{ cnt }}</span>{% endif %}{% endwith %}
     </a>
     <a href="{% url 'dashboard:reviews_list' %}" class="sidebar-link {% if 'dashboard/reviews' in request.path %}active{% endif %}">
       <i class="ti ti-star text-lg"></i>
-      Reviews
+      {% trans "Reviews" %}
       {% with cnt=pending_review_count %}{% if cnt %}<span class="ml-auto bg-yellow-500 text-white text-xs px-1.5 py-0.5 rounded-full">{{ cnt }}</span>{% endif %}{% endwith %}
     </a>
 
     {% if request.user.is_superuser %}
-    <p class="sidebar-section">Admin</p>
+    <p class="sidebar-section">{% trans "Admin" %}</p>
     <a href="{% url 'dashboard:users_list' %}" class="sidebar-link {% if 'dashboard/users' in request.path %}active{% endif %}">
-      <i class="ti ti-users text-lg"></i> Users
+      <i class="ti ti-users text-lg"></i> {% trans "Users" %}
     </a>
     {% endif %}
 
-    <p class="sidebar-section">Site</p>
+    <p class="sidebar-section">{% trans "Site" %}</p>
     <a href="{% url 'home' %}" target="_blank" class="sidebar-link">
-      <i class="ti ti-external-link text-lg"></i> View Site
+      <i class="ti ti-external-link text-lg"></i> {% trans "View Site" %}
     </a>
     <a href="{% url 'account_logout' %}" class="sidebar-link text-red-400 hover:text-red-300 hover:bg-red-900/20">
-      <i class="ti ti-logout text-lg"></i> Sign Out
+      <i class="ti ti-logout text-lg"></i> {% trans "Sign Out" %}
     </a>
   </nav>
 </aside>
@@ -119,15 +119,18 @@
 
     {# Breadcrumb #}
     <nav class="hidden sm:flex items-center gap-1.5 text-sm text-gray-500">
-      <a href="{% url 'dashboard:home' %}" class="hover:text-gray-700">Dashboard</a>
+      <a href="{% url 'dashboard:home' %}" class="hover:text-gray-700">{% trans "Dashboard" %}</a>
       {% block breadcrumb %}{% endblock %}
     </nav>
 
     <div class="ml-auto flex items-center gap-3">
+      {# Language switcher #}
+      <div x-data="{ solid: true }">{% include "components/language_switcher.html" %}</div>
+
       {# Live stats badge #}
       <span id="pending-badge" class="hidden items-center gap-1 text-xs bg-yellow-50 text-yellow-700 border border-yellow-200 px-2 py-1 rounded-full">
         <i class="ti ti-clock text-xs"></i>
-        <span id="pending-count">0</span> pending
+        <span id="pending-count">0</span> {% trans "pending" %}
       </span>
 
       {# User menu #}
@@ -141,11 +144,11 @@
         <div x-show="open" x-transition
              class="absolute right-0 mt-1 w-44 bg-white rounded-xl border border-gray-200 shadow-lg py-1 z-50">
           <a href="{% url 'accounts:profile' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-            <i class="ti ti-user"></i> My Profile
+            <i class="ti ti-user"></i> {% trans "My Profile" %}
           </a>
           <div class="border-t my-1"></div>
           <a href="{% url 'account_logout' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50">
-            <i class="ti ti-logout"></i> Sign Out
+            <i class="ti ti-logout"></i> {% trans "Sign Out" %}
           </a>
         </div>
       </div>
