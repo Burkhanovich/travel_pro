@@ -21,6 +21,9 @@ SESSION_ENGINE = "django.contrib.sessions.backends.db"
 # No rate limiting during tests.
 RATELIMIT_ENABLE = False
 
+# Never hit the network for machine translation during tests.
+AUTO_TRANSLATE = False
+
 # In-memory email + local file storage.
 EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"

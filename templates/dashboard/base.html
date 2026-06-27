@@ -65,6 +65,9 @@
     <a href="{% url 'dashboard:ichki_turlar_list' %}" class="sidebar-link {% if 'dashboard/ichki-turlar' in request.path %}active{% endif %}">
       <i class="ti ti-route text-lg"></i> {% trans "Domestic Tours" %}
     </a>
+    <a href="{% url 'dashboard:cities_list' %}" class="sidebar-link {% if 'dashboard/cities' in request.path %}active{% endif %}">
+      <i class="ti ti-building-monument text-lg"></i> {% trans "Cities" %}
+    </a>
     <a href="{% url 'dashboard:hotels_list' %}" class="sidebar-link {% if 'dashboard/hotels' in request.path %}active{% endif %}">
       <i class="ti ti-building text-lg"></i> {% trans "Hotels" %}
     </a>

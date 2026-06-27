@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 18:53+0000\n"
-"PO-Revision-Date: 2026-06-25 18:53+0000\n"
+"POT-Creation-Date: 2026-06-27 16:02+0000\n"
+"PO-Revision-Date: 2026-06-27 16:02+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -1884,3 +1884,36 @@ msgstr "Менеджер — полное управление контенто�
 
 msgid "Superuser — full access"
 msgstr "Суперпользователь — полный доступ"
+
+msgid "Add City"
+msgstr "Добавить город"
+
+msgid "Save City"
+msgstr "Сохранить город"
+
+msgid "City '%(name)s' created."
+msgstr "Город «%(name)s» создан."
+
+msgid "City '%(name)s' updated."
+msgstr "Город «%(name)s» обновлён."
+
+msgid "City '%(name)s' deleted."
+msgstr "Город «%(name)s» удалён."
+
+msgid ""
+"Domestic (Uzbek) cities. These are the stops you can pick when building a "
+"domestic tour route."
+msgstr ""
+"Внутренние (узбекские) города. Их можно выбирать как остановки при "
+"составлении маршрута внутреннего тура."
+
+msgid "No cities yet. Add one to build domestic tour routes."
+msgstr ""
+"Пока нет городов. Добавьте город для составления маршрутов внутренних туров."
+
+msgid ""
+"The city is added under Uzbekistan and becomes selectable in domestic tour "
+"routes."
+msgstr ""
+"Город добавляется в Узбекистан и становится доступным для выбора в маршрутах"
+" внутренних туров."

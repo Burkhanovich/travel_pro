@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 18:53+0000\n"
-"PO-Revision-Date: 2026-06-25 18:53+0000\n"
+"POT-Creation-Date: 2026-06-27 16:02+0000\n"
+"PO-Revision-Date: 2026-06-27 16:02+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -1897,3 +1897,37 @@ msgstr "Menejer — to'liq kontent boshqaruvi"
 
 msgid "Superuser — full access"
 msgstr "Super foydalanuvchi — to'liq kirish"
+
+msgid "Add City"
+msgstr "Shahar qo'shish"
+
+msgid "Save City"
+msgstr "Shaharni saqlash"
+
+msgid "City '%(name)s' created."
+msgstr "'%(name)s' shahri yaratildi."
+
+msgid "City '%(name)s' updated."
+msgstr "'%(name)s' shahri yangilandi."
+
+msgid "City '%(name)s' deleted."
+msgstr "'%(name)s' shahri o'chirildi."
+
+msgid ""
+"Domestic (Uzbek) cities. These are the stops you can pick when building a "
+"domestic tour route."
+msgstr ""
+"Ichki (O'zbekiston) shaharlari. Ichki tur marshrutini tuzishda shu "
+"shaharlarni bekat sifatida tanlaysiz."
+
+msgid "No cities yet. Add one to build domestic tour routes."
+msgstr ""
+"Hozircha shaharlar yo'q. Ichki tur marshrutlarini tuzish uchun bittasini "
+"qo'shing."
+
+msgid ""
+"The city is added under Uzbekistan and becomes selectable in domestic tour "
+"routes."
+msgstr ""
+"Shahar O'zbekiston ostida qo'shiladi va ichki tur marshrutlarida "
+"tanlanadigan bo'ladi."

@@ -14,6 +14,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from apps.dashboard.autotranslate import autofill_translations
 from apps.dashboard.forms import IchkiTurForm, TourStopFormSet
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
 from apps.tours.models import Tour, TourCategory
@@ -71,6 +72,7 @@ class _StopsFormMixin:
             self.object = form.save()
             stops.instance = self.object
             stops.save()
+        autofill_translations(self.object)
         self.log_action(self.audit_action, "IchkiTur", self.object.pk)
         messages.success(self.request, self.success_message)
         return redirect(self.success_url)

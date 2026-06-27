@@ -17,6 +17,7 @@ django-allauth==65.5.0
 # Multilingual
 django-modeltranslation==0.19.12
 django-rosetta==0.10.1
+deep-translator==1.11.4
 
 # Forms & filtering
 django-filter==25.1

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from apps.dashboard.autotranslate import autofill_translations
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
 from apps.destinations.models import City, Continent, Country
 
@@ -37,6 +38,7 @@ class CountryCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        autofill_translations(self.object)
         self.log_action("CREATE", "Country", self.object.pk)
         messages.success(self.request, gettext("Country '%(name)s' created.") % {"name": self.object.name})
         return response
@@ -55,6 +57,7 @@ class CountryEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        autofill_translations(self.object)
         self.log_action("UPDATE", "Country", self.object.pk)
         messages.success(self.request, gettext("Country '%(name)s' updated.") % {"name": self.object.name})
         return response

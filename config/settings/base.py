@@ -300,6 +300,10 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
 MODELTRANSLATION_LANGUAGES = ("en", "uz", "ru", "it", "es", "ja")
 MODELTRANSLATION_FALLBACK_LANGUAGES = ("en",)
 
+# Auto-translation: when content is saved from the dashboard, machine-translate
+# the entered text into the other languages (deep-translator / Google).
+AUTO_TRANSLATE = config("AUTO_TRANSLATE", cast=bool, default=True)
+
 # ---------------------------------------------------------------------------
 # Rate limiting (django-ratelimit) — module is django_ratelimit
 # ---------------------------------------------------------------------------
