@@ -6,7 +6,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.forms import inlineformset_factory
 from django.utils.translation import gettext_lazy as _
 
-from apps.destinations.models import City
+from apps.destinations.models import City, Country
 from apps.tours.models import Tour, TourStop
 
 User = get_user_model()
@@ -124,9 +124,11 @@ class IchkiTurForm(forms.ModelForm):
 
     class Meta:
         model = Tour
+        # Difficulty is intentionally omitted: domestic city tours don't need a
+        # difficulty rating (it stays at the model default).
         fields = [
             "title", "category", "duration_days",
-            "group_size_min", "group_size_max", "difficulty",
+            "group_size_min", "group_size_max",
             "price_per_person", "price_currency", "discount_percent",
             "cover_image", "overview", "includes", "excludes",
             "important_notes", "is_active", "order",
@@ -157,3 +159,24 @@ TourStopFormSet = inlineformset_factory(
     min_num=2,
     validate_min=True,
 )
+
+
+class DomesticCityForm(forms.ModelForm):
+    """Create/edit a domestic (Uzbek) city used to build Ichki Tur routes.
+
+    New cities are always attached to Uzbekistan, so the country isn't shown.
+    """
+
+    class Meta:
+        model = City
+        fields = ["name", "cover_image", "overview", "is_featured", "is_active", "order"]
+
+    def save(self, commit=True):
+        city = super().save(commit=False)
+        if city.country_id is None:
+            city.country = Country.objects.filter(
+                name__icontains=DOMESTIC_COUNTRY
+            ).first()
+        if commit:
+            city.save()
+        return city

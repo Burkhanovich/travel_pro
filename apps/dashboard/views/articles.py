@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from apps.dashboard.autotranslate import autofill_translations
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
 from apps.guides.models import Article, GuideCategory
 
@@ -50,6 +51,7 @@ class ArticleCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        autofill_translations(self.object)
         self.log_action("CREATE", "Article", self.object.pk)
         messages.success(self.request, gettext("Article '%(title)s' created.") % {"title": self.object.title})
         return response
@@ -72,6 +74,7 @@ class ArticleEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        autofill_translations(self.object)
         self.log_action("UPDATE", "Article", self.object.pk)
         messages.success(self.request, gettext("Article '%(title)s' updated.") % {"title": self.object.title})
         return response

@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
+from apps.dashboard.autotranslate import autofill_translations
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
 from apps.hotels.models import Hotel
 
@@ -42,6 +43,7 @@ class HotelCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        autofill_translations(self.object)
         self.log_action("CREATE", "Hotel", self.object.pk)
         messages.success(self.request, gettext("Hotel '%(name)s' created.") % {"name": self.object.name})
         return response
@@ -66,6 +68,7 @@ class HotelEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        autofill_translations(self.object)
         self.log_action("UPDATE", "Hotel", self.object.pk)
         messages.success(self.request, gettext("Hotel '%(name)s' updated.") % {"name": self.object.name})
         return response

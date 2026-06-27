@@ -19,6 +19,12 @@ from apps.dashboard.views.destinations import (
     CountryEditView,
     DestinationListView,
 )
+from apps.dashboard.views.cities import (
+    DomesticCityCreateView,
+    DomesticCityDeleteView,
+    DomesticCityEditView,
+    DomesticCityListView,
+)
 from apps.dashboard.views.home import DashboardHomeView, dashboard_stats_api
 from apps.dashboard.views.ichki_turlar import (
     IchkiTurCreateView,
@@ -65,6 +71,12 @@ urlpatterns = [
     path("ichki-turlar/create/", IchkiTurCreateView.as_view(), name="ichki_turlar_create"),
     path("ichki-turlar/<int:pk>/edit/", IchkiTurEditView.as_view(), name="ichki_turlar_edit"),
     path("ichki-turlar/<int:pk>/delete/", IchkiTurDeleteView.as_view(), name="ichki_turlar_delete"),
+
+    # Domestic cities (building blocks for Ichki Tur routes)
+    path("cities/", DomesticCityListView.as_view(), name="cities_list"),
+    path("cities/create/", DomesticCityCreateView.as_view(), name="cities_create"),
+    path("cities/<int:pk>/edit/", DomesticCityEditView.as_view(), name="cities_edit"),
+    path("cities/<int:pk>/delete/", DomesticCityDeleteView.as_view(), name="cities_delete"),
 
     # Hotels
     path("hotels/", HotelListView.as_view(), name="hotels_list"),
