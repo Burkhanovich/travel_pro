@@ -1,12 +1,21 @@
 """Tests for dashboard auto-translation of content."""
 
 import pytest
+from django.core.management import call_command
 
 from apps.dashboard import autotranslate
 from apps.dashboard.autotranslate import autofill_translations
 from tests import factories as f
 
 pytestmark = pytest.mark.django_db
+
+
+class _FakeTranslator:
+    def __init__(self, source="auto", target="en"):
+        self.target = target
+
+    def translate(self, text):
+        return f"{self.target}:{text}"
 
 
 def test_translated_field_detection():
@@ -73,3 +82,19 @@ def test_refreshes_targets_on_resave(settings, monkeypatch):
     tour.refresh_from_db()
     assert tour.title_ru == "ru:Silk Road"   # refreshed from source
     assert tour.title_uz == "uz:Silk Road"
+
+
+def test_translate_content_command(settings, monkeypatch):
+    """The bulk command back-fills translations even when AUTO_TRANSLATE is off
+    (it passes force=True)."""
+    settings.AUTO_TRANSLATE = False  # command must still work
+
+    import deep_translator
+    monkeypatch.setattr(deep_translator, "GoogleTranslator", _FakeTranslator)
+
+    tour = f.make_tour(title="Registan Square")
+    call_command("translate_content", models=["tours.Tour"], overwrite=True, source="en")
+
+    tour.refresh_from_db()
+    assert tour.title_ru == "ru:Registan Square"
+    assert tour.title_uz == "uz:Registan Square"

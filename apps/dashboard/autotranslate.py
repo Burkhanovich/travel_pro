@@ -32,33 +32,36 @@ def _translated_fields(model):
     return list(fields)
 
 
-def autofill_translations(instance, source_lang=None):
+def autofill_translations(instance, source_lang=None, overwrite=True, force=False):
     """Translate ``instance``'s registered fields from the source language
     into all other site languages and persist the result.
 
-    No-op when ``settings.AUTO_TRANSLATE`` is False (e.g. during tests).
+    No-op when ``settings.AUTO_TRANSLATE`` is False (e.g. during tests) unless
+    ``force`` is set (used by the bulk management command). When ``overwrite``
+    is False, target languages that already have a value are left untouched —
+    useful for resumable bulk runs. Returns the number of fields translated.
     """
-    if not getattr(settings, "AUTO_TRANSLATE", False):
-        return
+    if not force and not getattr(settings, "AUTO_TRANSLATE", False):
+        return 0
 
     fields = _translated_fields(type(instance))
     if not fields:
-        return
+        return 0
 
     # The dashboard runs in the staff member's chosen UI language, so whatever
     # they typed is in that language.
     src = (source_lang or get_language() or settings.LANGUAGE_CODE).split("-")[0]
     targets = [code for code, _ in settings.LANGUAGES if code != src]
     if not targets:
-        return
+        return 0
 
     try:
         from deep_translator import GoogleTranslator
     except ImportError:  # pragma: no cover - dependency missing
         logger.warning("deep-translator not installed; skipping auto-translation")
-        return
+        return 0
 
-    changed = False
+    count = 0
     for field in fields:
         source_value = getattr(instance, f"{field}_{src}", None) or getattr(instance, field, None)
         if not source_value:
@@ -69,8 +72,8 @@ def autofill_translations(instance, source_lang=None):
             continue
         for lang in targets:
             attr = f"{field}_{lang}"
-            # Pure auto-translate mode: always refresh the target from the
-            # source so edits to the source text propagate to every language.
+            if not overwrite and getattr(instance, attr, None):
+                continue
             try:
                 # 'auto' lets Google detect the real language of the text, so
                 # it works even if the typed language differs from the UI one.
@@ -80,10 +83,11 @@ def autofill_translations(instance, source_lang=None):
                 continue
             if result:
                 setattr(instance, attr, result)
-                changed = True
+                count += 1
 
-    if changed:
+    if count:
         instance.save()
+    return count
 
 
 class AutoTranslateMixin:
