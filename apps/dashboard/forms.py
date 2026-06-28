@@ -6,6 +6,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.forms import inlineformset_factory
 from django.utils.translation import gettext_lazy as _
 
+from apps.core.models import HeroSlide
 from apps.destinations.models import City, Country
 from apps.tours.models import Tour, TourStop
 
@@ -182,3 +183,11 @@ class DomesticCityForm(forms.ModelForm):
         if commit:
             city.save()
         return city
+
+
+class HeroSlideForm(forms.ModelForm):
+    """Upload/manage a rotating hero background image for a page."""
+
+    class Meta:
+        model = HeroSlide
+        fields = ["page", "image", "alt", "is_active", "order"]

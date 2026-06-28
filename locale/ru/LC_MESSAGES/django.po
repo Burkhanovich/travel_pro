@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 16:02+0000\n"
-"PO-Revision-Date: 2026-06-27 16:02+0000\n"
+"POT-Creation-Date: 2026-06-28 11:23+0000\n"
+"PO-Revision-Date: 2026-06-28 11:23+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -1917,3 +1917,45 @@ msgid ""
 msgstr ""
 "Город добавляется в Узбекистан и становится доступным для выбора в маршрутах"
 " внутренних туров."
+
+msgid "Hero Images"
+msgstr "Фоновые изображения"
+
+msgid "Add Hero Image"
+msgstr "Добавить фон"
+
+msgid "Edit Hero Image"
+msgstr "Редактировать фон"
+
+msgid "Hero image added."
+msgstr "Фоновое изображение добавлено."
+
+msgid "Hero image updated."
+msgstr "Фоновое изображение обновлено."
+
+msgid "Hero image deleted."
+msgstr "Фоновое изображение удалено."
+
+msgid "All pages"
+msgstr "Все страницы"
+
+msgid "Page"
+msgstr "Страница"
+
+msgid "Alt text"
+msgstr "Альт-текст"
+
+msgid ""
+"Rotating background images for page heroes. Add several images to the same "
+"page and they cross-fade automatically."
+msgstr ""
+"Сменяющиеся фоновые изображения для hero-блоков страниц. Добавьте несколько "
+"изображений одной странице — они будут плавно чередоваться."
+
+msgid "No hero images yet. Add a few to a page to start the slideshow."
+msgstr ""
+"Пока нет фоновых изображений. Добавьте несколько на страницу, чтобы "
+"запустить слайд-шоу."
+
+msgid "Which page's hero slideshow this image belongs to."
+msgstr "К слайд-шоу какой страницы относится это изображение."

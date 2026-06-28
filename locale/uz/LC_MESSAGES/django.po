@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 16:02+0000\n"
-"PO-Revision-Date: 2026-06-27 16:02+0000\n"
+"POT-Creation-Date: 2026-06-28 11:23+0000\n"
+"PO-Revision-Date: 2026-06-28 11:23+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -1931,3 +1931,45 @@ msgid ""
 msgstr ""
 "Shahar O'zbekiston ostida qo'shiladi va ichki tur marshrutlarida "
 "tanlanadigan bo'ladi."
+
+msgid "Hero Images"
+msgstr "Fon rasmlari"
+
+msgid "Add Hero Image"
+msgstr "Fon rasmi qo'shish"
+
+msgid "Edit Hero Image"
+msgstr "Fon rasmini tahrirlash"
+
+msgid "Hero image added."
+msgstr "Fon rasmi qo'shildi."
+
+msgid "Hero image updated."
+msgstr "Fon rasmi yangilandi."
+
+msgid "Hero image deleted."
+msgstr "Fon rasmi o'chirildi."
+
+msgid "All pages"
+msgstr "Barcha sahifalar"
+
+msgid "Page"
+msgstr "Sahifa"
+
+msgid "Alt text"
+msgstr "Alt matn"
+
+msgid ""
+"Rotating background images for page heroes. Add several images to the same "
+"page and they cross-fade automatically."
+msgstr ""
+"Sahifa hero qismi uchun almashib turadigan fon rasmlari. Bitta sahifaga bir "
+"nechta rasm qo'shsangiz, ular avtomatik almashadi."
+
+msgid "No hero images yet. Add a few to a page to start the slideshow."
+msgstr ""
+"Hozircha fon rasmlari yo'q. Slayd-shou uchun sahifaga bir nechta rasm "
+"qo'shing."
+
+msgid "Which page's hero slideshow this image belongs to."
+msgstr "Bu rasm qaysi sahifaning hero slayderiga tegishli."

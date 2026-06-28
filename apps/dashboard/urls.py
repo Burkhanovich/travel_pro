@@ -25,6 +25,12 @@ from apps.dashboard.views.cities import (
     DomesticCityEditView,
     DomesticCityListView,
 )
+from apps.dashboard.views.hero import (
+    HeroSlideCreateView,
+    HeroSlideDeleteView,
+    HeroSlideEditView,
+    HeroSlideListView,
+)
 from apps.dashboard.views.home import DashboardHomeView, dashboard_stats_api
 from apps.dashboard.views.ichki_turlar import (
     IchkiTurCreateView,
@@ -77,6 +83,12 @@ urlpatterns = [
     path("cities/create/", DomesticCityCreateView.as_view(), name="cities_create"),
     path("cities/<int:pk>/edit/", DomesticCityEditView.as_view(), name="cities_edit"),
     path("cities/<int:pk>/delete/", DomesticCityDeleteView.as_view(), name="cities_delete"),
+
+    # Hero slides (rotating background images)
+    path("hero/", HeroSlideListView.as_view(), name="hero_list"),
+    path("hero/create/", HeroSlideCreateView.as_view(), name="hero_create"),
+    path("hero/<int:pk>/edit/", HeroSlideEditView.as_view(), name="hero_edit"),
+    path("hero/<int:pk>/delete/", HeroSlideDeleteView.as_view(), name="hero_delete"),
 
     # Hotels
     path("hotels/", HotelListView.as_view(), name="hotels_list"),
