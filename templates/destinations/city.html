@@ -4,7 +4,7 @@
 {% block title %}{{ city.name }}, {{ city.country.name }} | {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
-<div class="pt-20">
+<div class="pt-20 bg-pattern-subtle-blue">
   <div class="relative h-72 overflow-hidden">
     {% if city.cover_image %}
     <img src="{{ city.cover_image.url }}" alt="{{ city.name }}" class="w-full h-full object-cover">
