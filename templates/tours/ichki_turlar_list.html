@@ -6,13 +6,45 @@
 
 {% block content %}
 <div class="pt-20 bg-white">
-  {# ── Page header — subtle-blue strip #}
-  <div class="relative py-16 text-center overflow-hidden bg-pattern-hero">
+  {# ── Page header — rotating background slideshow (cross-fade) ── #}
+  <div id="ichki-hero" class="relative h-[420px] flex items-center justify-center text-center overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="ichki-slide is-active" style="background-image:url('{% static 'images/hero-ichki-1.jpg' %}')"></div>
+      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-2.jpg' %}')"></div>
+      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-3.jpg' %}')"></div>
+      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-4.jpg' %}')"></div>
+      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-5.jpg' %}')"></div>
+    </div>
+    {# Dark overlay so the white text stays readable over any image #}
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/65"></div>
     <div class="relative z-10 px-4">
-      <h1 class="text-4xl font-serif font-bold mb-2">{% trans "Domestic Tours" %}</h1>
-      <p class="hero-subtitle mt-1">{% trans "Multi-city journeys — discover several cities in a single trip" %}</p>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-2 text-white drop-shadow">{% trans "Domestic Tours" %}</h1>
+      <p class="mt-2 text-lg text-white/90 drop-shadow">{% trans "Multi-city journeys — discover several cities in a single trip" %}</p>
     </div>
   </div>
+
+  <style>
+    #ichki-hero .ichki-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transform: scale(1.06);
+      transition: opacity 1.5s ease-in-out, transform 6s ease-in-out;
+      will-change: opacity, transform;
+    }
+    #ichki-hero .ichki-slide.is-active { opacity: 1; transform: scale(1); }
+  </style>
+  <script>
+    (function () {
+      var slides = document.querySelectorAll('#ichki-hero .ichki-slide');
+      if (slides.length < 2) return;
+      var i = 0;
+      setInterval(function () {
+        slides[i].classList.remove('is-active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('is-active');
+      }, 5000);
+    })();
+  </script>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <p class="text-gray-500 text-sm mb-6">

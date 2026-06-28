@@ -25,6 +25,12 @@ IMAGES = {
     "hero-guides.jpg":       "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=85&fit=crop",
     "hero-mice.jpg":         "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=85&fit=crop",
     "hero-reviews.jpg":      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=85&fit=crop",
+    # Rotating background slideshow for the Ichki Turlar (domestic tours) page.
+    "hero-ichki-1.jpg":      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85&fit=crop",
+    "hero-ichki-2.jpg":      "https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&q=85&fit=crop",
+    "hero-ichki-3.jpg":      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=85&fit=crop",
+    "hero-ichki-4.jpg":      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&q=85&fit=crop",
+    "hero-ichki-5.jpg":      "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?w=1920&q=85&fit=crop",
 }
 
 ok = 0
