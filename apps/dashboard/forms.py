@@ -189,8 +189,13 @@ class DomesticCityForm(forms.ModelForm):
 
 
 class HeroSlideForm(forms.ModelForm):
-    """Upload/manage a rotating hero background image for a page."""
+    """Upload a rotating hero background image for a page.
+
+    Kept deliberately minimal — just the page and the image. ``alt`` is unused
+    (slides render as CSS background-images, not <img> tags); ``is_active`` and
+    ``order`` stay at their model defaults (active, creation order).
+    """
 
     class Meta:
         model = HeroSlide
-        fields = ["page", "image", "alt", "is_active", "order"]
+        fields = ["page", "image"]
