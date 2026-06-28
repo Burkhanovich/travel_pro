@@ -6,6 +6,7 @@ licensed photo (e.g. from Wikimedia Commons).
     python manage.py set_city_image "Samarkand" "https://upload.wikimedia.org/.../1600px-Registan.jpg"
 """
 
+import io
 import ssl
 import urllib.request
 
@@ -14,6 +15,8 @@ from django.core.management.base import BaseCommand, CommandError
 from django.utils.text import slugify
 
 from apps.destinations.models import City
+
+MAX_WIDTH = 1600
 
 
 class Command(BaseCommand):
@@ -54,6 +57,21 @@ class Command(BaseCommand):
 
         if len(data) < 10_000:
             raise CommandError(f"Downloaded file too small ({len(data)} bytes).")
+
+        # Downscale to a web-friendly width (originals can be many megapixels).
+        try:
+            from PIL import Image
+            img = Image.open(io.BytesIO(data))
+            if img.mode not in ("RGB", "L"):
+                img = img.convert("RGB")
+            if img.width > MAX_WIDTH:
+                ratio = MAX_WIDTH / img.width
+                img = img.resize((MAX_WIDTH, int(img.height * ratio)), Image.LANCZOS)
+            buf = io.BytesIO()
+            img.save(buf, format="JPEG", quality=85, optimize=True)
+            data = buf.getvalue()
+        except Exception as exc:  # noqa: BLE001 - fall back to the raw bytes
+            self.stderr.write(self.style.WARNING(f"  resize skipped: {exc}"))
 
         city.cover_image.save(f"{slugify(city.name)}-cover.jpg", ContentFile(data), save=True)
         self.stdout.write(self.style.SUCCESS(
