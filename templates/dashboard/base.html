@@ -77,6 +77,9 @@
     <a href="{% url 'dashboard:articles_list' %}" class="sidebar-link {% if 'dashboard/articles' in request.path %}active{% endif %}">
       <i class="ti ti-article text-lg"></i> {% trans "Articles" %}
     </a>
+    <a href="{% url 'dashboard:hero_list' %}" class="sidebar-link {% if 'dashboard/hero' in request.path %}active{% endif %}">
+      <i class="ti ti-photo text-lg"></i> {% trans "Hero Images" %}
+    </a>
 
     <p class="sidebar-section">{% trans "Operations" %}</p>
     <a href="{% url 'dashboard:bookings_list' %}" class="sidebar-link {% if 'dashboard/bookings' in request.path %}active{% endif %}">

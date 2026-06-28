@@ -9,11 +9,18 @@
   {# ── Page header — rotating background slideshow (cross-fade) ── #}
   <div id="ichki-hero" class="relative h-[420px] flex items-center justify-center text-center overflow-hidden">
     <div class="absolute inset-0">
-      <div class="ichki-slide is-active" style="background-image:url('{% static 'images/hero-ichki-1.jpg' %}')"></div>
-      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-2.jpg' %}')"></div>
-      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-3.jpg' %}')"></div>
-      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-4.jpg' %}')"></div>
-      <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-5.jpg' %}')"></div>
+      {% if hero_slides %}
+        {% for s in hero_slides %}
+        <div class="ichki-slide {% if forloop.first %}is-active{% endif %}" style="background-image:url('{{ s.image.url }}')"></div>
+        {% endfor %}
+      {% else %}
+        {# Fallback to bundled images until slides are uploaded in the dashboard #}
+        <div class="ichki-slide is-active" style="background-image:url('{% static 'images/hero-ichki-1.jpg' %}')"></div>
+        <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-2.jpg' %}')"></div>
+        <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-3.jpg' %}')"></div>
+        <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-4.jpg' %}')"></div>
+        <div class="ichki-slide" style="background-image:url('{% static 'images/hero-ichki-5.jpg' %}')"></div>
+      {% endif %}
     </div>
     {# Dark overlay so the white text stays readable over any image #}
     <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/65"></div>

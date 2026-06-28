@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 16:02+0000\n"
-"PO-Revision-Date: 2026-06-27 16:02+0000\n"
+"POT-Creation-Date: 2026-06-28 11:23+0000\n"
+"PO-Revision-Date: 2026-06-28 11:23+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: es\n"
 "Language: es\n"
@@ -1923,3 +1923,45 @@ msgid ""
 msgstr ""
 "La ciudad se añade bajo Uzbekistán y queda disponible en las rutas de tours "
 "nacionales."
+
+msgid "Hero Images"
+msgstr "Imágenes hero"
+
+msgid "Add Hero Image"
+msgstr "Añadir imagen hero"
+
+msgid "Edit Hero Image"
+msgstr "Editar imagen hero"
+
+msgid "Hero image added."
+msgstr "Imagen hero añadida."
+
+msgid "Hero image updated."
+msgstr "Imagen hero actualizada."
+
+msgid "Hero image deleted."
+msgstr "Imagen hero eliminada."
+
+msgid "All pages"
+msgstr "Todas las páginas"
+
+msgid "Page"
+msgstr "Página"
+
+msgid "Alt text"
+msgstr "Texto alternativo"
+
+msgid ""
+"Rotating background images for page heroes. Add several images to the same "
+"page and they cross-fade automatically."
+msgstr ""
+"Imágenes de fondo rotativas para los hero de las páginas. Añade varias "
+"imágenes a la misma página y se alternarán automáticamente."
+
+msgid "No hero images yet. Add a few to a page to start the slideshow."
+msgstr ""
+"Aún no hay imágenes hero. Añade varias a una página para iniciar el pase de "
+"diapositivas."
+
+msgid "Which page's hero slideshow this image belongs to."
+msgstr "A qué slideshow hero de página pertenece esta imagen."
