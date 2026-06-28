@@ -169,8 +169,9 @@ class DomesticCityForm(forms.ModelForm):
 
     class Meta:
         model = City
-        # is_featured is omitted: it has no effect for cities on the public site.
-        fields = ["name", "cover_image", "overview", "is_active", "order"]
+        # is_featured and order are omitted: featured has no effect for cities,
+        # and cities are simply listed alphabetically by name.
+        fields = ["name", "cover_image", "overview", "is_active"]
 
     def save(self, commit=True):
         city = super().save(commit=False)

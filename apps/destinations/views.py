@@ -50,7 +50,7 @@ class CountryDetailView(DetailView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         country = self.object
-        ctx["cities"] = country.cities.filter(is_active=True).order_by("order")
+        ctx["cities"] = country.cities.filter(is_active=True).order_by("order", "name")
         ctx["tours"] = (
             Tour.objects.filter(destinations=country, is_active=True)
             .select_related("category")
