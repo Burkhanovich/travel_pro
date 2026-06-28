@@ -31,8 +31,6 @@
           <tr class="bg-gray-50 text-left border-b border-gray-200">
             <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">{% trans "Image" %}</th>
             <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">{% trans "Page" %}</th>
-            <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">{% trans "Status" %}</th>
-            <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">{% trans "Order" %}</th>
             <th class="px-4 py-3 text-xs text-gray-500 font-semibold uppercase tracking-wide">{% trans "Actions" %}</th>
           </tr>
         </thead>
@@ -46,11 +44,6 @@
             </td>
             <td class="px-4 py-3 text-gray-700">{{ slide.get_page_display }}</td>
             <td class="px-4 py-3">
-              {% if slide.is_active %}<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">{% trans "Active" %}</span>
-              {% else %}<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">{% trans "Inactive" %}</span>{% endif %}
-            </td>
-            <td class="px-4 py-3 text-gray-600">{{ slide.order }}</td>
-            <td class="px-4 py-3">
               <div class="flex items-center gap-2">
                 <a href="{% url 'dashboard:hero_edit' slide.pk %}" class="text-blue-500 hover:text-blue-700" title="{% trans 'Edit' %}"><i class="ti ti-pencil"></i></a>
                 <form method="post" action="{% url 'dashboard:hero_delete' slide.pk %}" onsubmit="return confirm('{% trans 'Delete this item?' %}')">
@@ -61,7 +54,7 @@
             </td>
           </tr>
           {% empty %}
-          <tr><td colspan="5" class="px-4 py-10 text-center text-gray-400">{% trans "No hero images yet. Add a few to a page to start the slideshow." %}</td></tr>
+          <tr><td colspan="3" class="px-4 py-10 text-center text-gray-400">{% trans "No hero images yet. Add a few to a page to start the slideshow." %}</td></tr>
           {% endfor %}
         </tbody>
       </table>

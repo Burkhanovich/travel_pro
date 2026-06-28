@@ -53,11 +53,11 @@ class TestHeroSlideCrud:
         s.image.save("a.jpg", _image(), save=True)
         resp = super_client.post(
             reverse("dashboard:hero_edit", args=[s.pk]),
-            {"page": "home", "alt": "x", "order": 5, "image": _image("b.jpg")},
+            {"page": "home", "image": _image("b.jpg")},
         )
         assert resp.status_code == 302
         s.refresh_from_db()
-        assert s.page == "home" and s.order == 5 and not s.is_active
+        assert s.page == "home"
 
     def test_delete(self, super_client):
         s = HeroSlide(page="ichki_turlar", order=1)
