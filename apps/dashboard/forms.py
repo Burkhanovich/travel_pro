@@ -169,7 +169,8 @@ class DomesticCityForm(forms.ModelForm):
 
     class Meta:
         model = City
-        fields = ["name", "cover_image", "overview", "is_featured", "is_active", "order"]
+        # is_featured is omitted: it has no effect for cities on the public site.
+        fields = ["name", "cover_image", "overview", "is_active", "order"]
 
     def save(self, commit=True):
         city = super().save(commit=False)
