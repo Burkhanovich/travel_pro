@@ -83,3 +83,20 @@ class TestDomesticCityPermissions:
         client.force_login(mgr)
         resp = client.get(reverse("dashboard:cities_list"))
         assert resp.status_code == 200
+
+
+class TestAddUzbekCitiesCommand:
+    def test_creates_cities_under_uzbekistan(self, uzbekistan):
+        from django.core.management import call_command
+        call_command("add_uzbek_cities", no_images=True, no_translate=True)
+        assert City.objects.filter(country=uzbekistan, name="Samarkand").exists()
+        assert City.objects.filter(country=uzbekistan, name="Khiva").exists()
+        assert City.objects.filter(country=uzbekistan).count() >= 14
+
+    def test_idempotent(self, uzbekistan):
+        from django.core.management import call_command
+        call_command("add_uzbek_cities", no_images=True, no_translate=True)
+        n1 = City.objects.filter(country=uzbekistan).count()
+        call_command("add_uzbek_cities", no_images=True, no_translate=True)
+        n2 = City.objects.filter(country=uzbekistan).count()
+        assert n1 == n2
