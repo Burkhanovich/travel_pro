@@ -23,7 +23,7 @@ class TourStopInline(admin.TabularInline):
             from apps.destinations.models import City
 
             kwargs["queryset"] = City.objects.filter(
-                country__name__icontains="Uzbek", is_active=True
+                country__name_en__icontains="Uzbek", is_active=True
             ).order_by("name")
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 

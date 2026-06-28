@@ -23,7 +23,7 @@ class DomesticCityListView(ManagerRequiredMixin, ListView):
 
     def get_queryset(self):
         qs = (
-            City.objects.filter(country__name__icontains=DOMESTIC_COUNTRY)
+            City.objects.filter(country__name_en__icontains=DOMESTIC_COUNTRY)
             .select_related("country")
             .order_by("name")
         )
@@ -64,7 +64,7 @@ class DomesticCityEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
     success_url = reverse_lazy("dashboard:cities_list")
 
     def get_queryset(self):
-        return City.objects.filter(country__name__icontains=DOMESTIC_COUNTRY)
+        return City.objects.filter(country__name_en__icontains=DOMESTIC_COUNTRY)
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -85,7 +85,7 @@ class DomesticCityDeleteView(AuditMixin, ManagerRequiredMixin, DeleteView):
     success_url = reverse_lazy("dashboard:cities_list")
 
     def get_queryset(self):
-        return City.objects.filter(country__name__icontains=DOMESTIC_COUNTRY)
+        return City.objects.filter(country__name_en__icontains=DOMESTIC_COUNTRY)
 
     def form_valid(self, form):
         self.log_action("DELETE", "DomesticCity", self.object.pk)

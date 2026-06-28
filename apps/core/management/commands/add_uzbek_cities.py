@@ -86,7 +86,7 @@ class Command(BaseCommand):
             return None
 
     def handle(self, *args, **opts):
-        country = Country.objects.filter(name__icontains=DOMESTIC_COUNTRY).first()
+        country = Country.objects.filter(name_en__icontains=DOMESTIC_COUNTRY).first()
         if not country:
             raise CommandError("No Uzbekistan country found. Run seed_data first.")
 
