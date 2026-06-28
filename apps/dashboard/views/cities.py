@@ -25,7 +25,7 @@ class DomesticCityListView(ManagerRequiredMixin, ListView):
         qs = (
             City.objects.filter(country__name__icontains=DOMESTIC_COUNTRY)
             .select_related("country")
-            .order_by("order", "name")
+            .order_by("name")
         )
         q = self.request.GET.get("q", "").strip()
         if q:
