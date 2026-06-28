@@ -68,6 +68,18 @@ class TestDomesticCityCreate:
         resp = super_client.get(reverse("dashboard:cities_edit", args=[foreign.pk]))
         assert resp.status_code == 404
 
+    def test_list_works_when_language_is_uzbek(self, super_client, uzbekistan):
+        """Regression: switching the panel to Uzbek must not hide the cities.
+
+        ``country__name`` resolves to name_uz under modeltranslation, which for
+        Uzbekistan is "O'zbekiston" (no "Uzbek"); the filter must use name_en.
+        """
+        f.make_city(name="Bukhara", country=uzbekistan)
+        super_client.cookies["django_language"] = "uz"
+        resp = super_client.get(reverse("dashboard:cities_list"))
+        assert resp.status_code == 200
+        assert "Bukhara" in [c.name for c in resp.context["cities"]]
+
 
 class TestDomesticCityPermissions:
     def test_plain_user_forbidden(self, client):

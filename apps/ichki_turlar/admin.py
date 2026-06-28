@@ -31,14 +31,16 @@ class DomesticCityAdmin(TranslationAdmin):
     )
 
     def get_queryset(self, request):
+        # Match the language-independent English name (name_en); ``country__name``
+        # resolves to the active admin language under modeltranslation.
         return super().get_queryset(request).filter(
-            country__name__icontains=DOMESTIC_COUNTRY
+            country__name_en__icontains=DOMESTIC_COUNTRY
         )
 
     def save_model(self, request, obj, form, change):
         # New cities added in this section always belong to Uzbekistan.
         if obj.country_id is None:
             obj.country = Country.objects.filter(
-                name__icontains=DOMESTIC_COUNTRY
+                name_en__icontains=DOMESTIC_COUNTRY
             ).first()
         super().save_model(request, obj, form, change)

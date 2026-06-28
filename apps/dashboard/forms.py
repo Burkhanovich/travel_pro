@@ -145,8 +145,11 @@ class TourStopForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # Match on the language-independent English name; under modeltranslation
+        # ``country__name`` would resolve to the active language (e.g. name_uz =
+        # "O'zbekiston") and never contain "Uzbek".
         self.fields["city"].queryset = City.objects.filter(
-            country__name__icontains=DOMESTIC_COUNTRY
+            country__name_en__icontains=DOMESTIC_COUNTRY
         ).order_by("name")
 
 
@@ -178,7 +181,7 @@ class DomesticCityForm(forms.ModelForm):
         city = super().save(commit=False)
         if city.country_id is None:
             city.country = Country.objects.filter(
-                name__icontains=DOMESTIC_COUNTRY
+                name_en__icontains=DOMESTIC_COUNTRY
             ).first()
         if commit:
             city.save()
