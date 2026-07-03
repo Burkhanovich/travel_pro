@@ -65,7 +65,7 @@ class TestBookingForm:
 
     def test_email_optional(self):
         form = BookingForm(
-            data={"first_name": "Ali", "last_name": "Valiev", "phone": "123"}
+            data={"first_name": "Ali", "last_name": "Valiev", "phone": "1234567"}
         )
         assert form.is_valid(), form.errors
 
@@ -73,6 +73,13 @@ class TestBookingForm:
         form = BookingForm(data={"first_name": "Ali"})
         assert not form.is_valid()
         assert "last_name" in form.errors
+        assert "phone" in form.errors
+
+    def test_phone_too_short_rejected(self):
+        form = BookingForm(
+            data={"first_name": "Ali", "last_name": "Valiev", "phone": "123"}
+        )
+        assert not form.is_valid()
         assert "phone" in form.errors
 
 

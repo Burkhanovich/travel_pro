@@ -7,12 +7,20 @@ Handles tour bookings, hotel inquiries, and general custom travel requests.
 import uuid
 
 from django.contrib.auth import get_user_model
+from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from apps.core.models import TimeStampedModel
 
 User = get_user_model()
+
+# Lenient international phone check: digits with optional +, spaces, dashes,
+# parentheses (7–20 chars). Keeps validation forgiving across countries.
+phone_validator = RegexValidator(
+    regex=r"^\+?[0-9\s\-()]{7,20}$",
+    message=_("Enter a valid phone number (7–20 digits, +, spaces, - or () allowed)."),
+)
 
 
 def _generate_confirmation_number() -> str:
@@ -94,7 +102,7 @@ class Inquiry(TimeStampedModel):
     first_name = models.CharField(_("First name"), max_length=100)
     last_name = models.CharField(_("Last name"), max_length=100)
     email = models.EmailField(_("Email"), blank=True)
-    phone = models.CharField(_("Phone"), max_length=30)
+    phone = models.CharField(_("Phone"), max_length=30, validators=[phone_validator])
     country_of_origin = models.CharField(_("Country of origin"), max_length=100, blank=True)
 
     # Travel details
