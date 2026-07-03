@@ -103,3 +103,37 @@
   border: 2px solid #fff; transition: background-color 0.2s, color 0.2s;
 }
 .btn-frame-outline:hover { background-color: #fff; color: var(--c-cta-bg); }
+
+/* ── Content isolation on pattern backgrounds ─────────────────────────────── */
+/*
+ * Content sections that sit on the leaf pattern must have a solid background.
+ * Add this class to any section wrapper that needs isolation from the pattern.
+ */
+.content-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(68, 151, 203, 0.07);
+  margin-bottom: 24px;
+}
+@media (min-width: 640px) {
+  .content-card { padding: 32px; }
+}
+
+/*
+ * Section headings that appear directly on the pattern (not inside a white card)
+ * should have a stronger color so they stay readable.
+ */
+.section-heading-on-pattern {
+  color: #1D2939;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/*
+ * Meta text (duration, group size, secondary price text) that appears on the
+ * pattern must never be light gray — use a darker tone.
+ */
+.meta-on-pattern {
+  color: #344054;
+}

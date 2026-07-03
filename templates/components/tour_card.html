@@ -44,10 +44,6 @@
         <i class="ti ti-users text-secondary"></i>
         {% blocktrans with min=tour.group_size_min max=tour.group_size_max %}{{ min }}–{{ max }} pax{% endblocktrans %}
       </span>
-      <span class="flex items-center gap-1 capitalize">
-        <i class="ti ti-mountain text-secondary"></i>
-        {{ tour.get_difficulty_display }}
-      </span>
     </div>
 
     {# Rating #}
