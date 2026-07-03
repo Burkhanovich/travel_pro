@@ -110,7 +110,7 @@
 
         {# Day-by-day itinerary accordion #}
         {% if tour.days.exists %}
-        <div class="mb-10">
+        <div class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
           <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Day-by-Day Itinerary" %}</h2>
           <div class="space-y-3">
             {% for day in tour.days.all %}
@@ -269,10 +269,6 @@
               <div class="flex justify-between">
                 <span class="flex items-center gap-1"><i class="ti ti-users text-secondary"></i>{% trans "Group size" %}</span>
                 <span class="font-medium">{{ tour.group_size_min }}–{{ tour.group_size_max }}</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="flex items-center gap-1"><i class="ti ti-mountain text-secondary"></i>{% trans "Difficulty" %}</span>
-                <span class="font-medium">{{ tour.get_difficulty_display }}</span>
               </div>
             </div>
           </div>
