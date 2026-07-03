@@ -1,4 +1,16 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * ⚠️ DEPRECATED — NOT USED.
+ *
+ * The project runs Tailwind CSS v4 with a CSS-first config in
+ * `tailwind_src/input.css` (@theme, @source, @plugin). This JS config is
+ * ignored by the build (there is no `@config` directive in input.css).
+ *
+ * All values below already live in input.css @theme; the old `typography`
+ * h2/h3 Playfair overrides were ported to the `.prose` rules at the bottom of
+ * input.css. Kept only for historical reference — safe to delete.
+ *
+ * @type {import('tailwindcss').Config}
+ */
 module.exports = {
   content: [
     "./templates/**/*.html",

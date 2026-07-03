@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
 
 @source "../templates/**/*.html";
 @source "../apps/**/*.py";
@@ -39,3 +41,21 @@
   --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
   --shadow-card: 0 8px 40px rgba(0,0,0,0.08);
 }
+
+/* Brand typography (prose) — ported from the old tailwind.config.js typography
+   callback. The @tailwindcss/typography plugin emits low-specificity :where()
+   selectors, so these plain `.prose` rules override them cleanly. */
+.prose {
+  --tw-prose-body: #374151;              /* gray-700 */
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-headings: var(--color-dark);
+}
+.prose h1, .prose h2 {
+  font-family: var(--font-serif);
+  color: var(--color-dark);
+}
+.prose h3 {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+}
+.prose a:hover { color: var(--color-primary-light); }
