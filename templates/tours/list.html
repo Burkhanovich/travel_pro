@@ -68,24 +68,6 @@
             </div>
           </div>
 
-          {# Difficulty #}
-          <div class="mb-5">
-            <label class="block text-sm font-medium text-gray-700 mb-2">{% trans "Difficulty" %}</label>
-            <div class="space-y-1">
-              {% for val, label in filterset.form.difficulty.field.choices %}
-              {% if val %}
-              <label class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
-                <input type="radio" name="difficulty" value="{{ val }}"
-                       {% if request.GET.difficulty == val %}checked{% endif %}
-                       class="text-primary focus:ring-primary"
-                       onchange="this.form.submit()">
-                {{ label }}
-              </label>
-              {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-
           <button type="submit" class="btn-primary w-full py-2.5 text-sm">{% trans "Apply Filters" %}</button>
           <a href="{% url 'tours:list' %}" class="block text-center text-gray-400 hover:text-primary text-xs mt-3">{% trans "Clear all" %}</a>
         </form>
@@ -94,8 +76,8 @@
       {# ── Tour Grid ────────────────────────────────────────── #}
       <div class="flex-1">
         {# Toolbar #}
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-          <p class="text-gray-500 text-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 bg-white rounded-xl px-4 py-3 shadow-sm">
+          <p class="text-gray-600 text-sm">
             {% blocktrans with count=page_obj.paginator.count %}{{ count }} tours found{% endblocktrans %}
           </p>
           <div class="flex items-center gap-3">

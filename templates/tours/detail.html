@@ -26,7 +26,6 @@
       <div class="flex flex-wrap gap-4 mt-3 text-white/80 text-sm">
         <span><i class="ti ti-calendar mr-1"></i>{{ tour.duration_days }} {% trans "days" %}</span>
         <span><i class="ti ti-users mr-1"></i>{{ tour.group_size_min }}–{{ tour.group_size_max }} {% trans "pax" %}</span>
-        <span><i class="ti ti-mountain mr-1"></i>{{ tour.get_difficulty_display }}</span>
         {% if tour.category %}<span><i class="ti ti-tag mr-1"></i>{{ tour.category.name }}</span>{% endif %}
       </div>
     </div>
@@ -58,7 +57,7 @@
         {% endif %}
 
         {# Overview #}
-        <div class="prose prose-lg max-w-none mb-10">
+        <div class="prose prose-lg max-w-none mb-6 bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
           <h2 class="font-serif text-2xl font-bold text-dark mb-4">{% trans "Tour Overview" %}</h2>
           <p class="text-gray-700 leading-relaxed">{{ tour.overview }}</p>
         </div>
@@ -101,7 +100,7 @@
 
         {# Multi-city route line (Ichki Turlar) — shown only for multi-stop tours #}
         {% if tour.is_multi_city %}
-        <div class="mb-10">
+        <div class="mb-6 bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
           <h2 class="font-serif text-2xl font-bold text-dark mb-2">{% trans "Route" %}</h2>
           <p class="text-gray-500 text-sm mb-2">{% trans "Tap a city to explore it." %}</p>
           {% include "tours/components/route_line.html" with stops=tour.stops.all %}
@@ -152,7 +151,7 @@
 
         {# Available Departures #}
         {% if departures %}
-        <div class="mb-10">
+        <div class="mb-6 bg-white rounded-2xl p-6 shadow-sm">
           <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Available Departures" %}</h2>
           <div class="overflow-x-auto rounded-xl border border-gray-200">
             <table class="w-full text-sm">
@@ -193,7 +192,7 @@
 
         {# Reviews section #}
         {% if approved_reviews %}
-        <div class="mb-10">
+        <div class="mb-6 bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
           <div class="flex items-center justify-between mb-6">
             <h2 class="font-serif text-2xl font-bold text-dark">
               {% trans "Reviews" %}
@@ -228,7 +227,7 @@
 
         {# Related tours #}
         {% if related_tours %}
-        <div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
           <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Similar Tours" %}</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {% for t in related_tours|slice:":4" %}
