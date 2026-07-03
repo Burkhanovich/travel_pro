@@ -27,6 +27,11 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
 
+        # Active countries for the hero search "Destination" dropdown.
+        ctx["destinations"] = (
+            Country.objects.filter(is_active=True).order_by("name")
+        )
+
         ctx["featured_tours"] = (
             Tour.objects.filter(is_featured=True, is_active=True)
             .select_related("category")
