@@ -95,7 +95,7 @@
       {% for tour in featured_tours %}
         {% include "components/tour_card.html" with tour=tour %}
       {% empty %}
-      <p class="col-span-3 text-center text-gray-400 py-12">{% trans "No featured tours yet." %}</p>
+      <p class="col-span-3 text-center text-gray-500 py-12">{% trans "No featured tours yet." %}</p>
       {% endfor %}
     </div>
   </div>

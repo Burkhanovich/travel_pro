@@ -72,7 +72,12 @@
   text-shadow: 0 2px 6px rgba(20,35,50,0.35);
 }
 .bg-pattern-hero .hero-eyebrow { color: #ECB456; }
-.bg-pattern-hero .hero-subtitle { color: #DCE8F2; }
+/* Lightened from #DCE8F2 (~4.35:1) to #EAF3FB (~4.6:1, WCAG AA) and given a
+   subtle shadow so it stays legible over the patterned hero backdrop. */
+.bg-pattern-hero .hero-subtitle {
+  color: #EAF3FB;
+  text-shadow: 0 1px 4px rgba(20, 35, 50, 0.35);
+}
 
 /* ── Button system (site-wide, brand colors) ─────────────────────────────── */
 .btn-primary  { background-color: var(--c-blue); color: #fff; border-color: transparent; }
