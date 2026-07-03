@@ -4,7 +4,7 @@
 # ============================================================
 
 # Core
-Django==5.2.2
+Django==5.2.15  # security: fixes 72 CVEs vs 5.2.2 (LTS patch, backward-compatible)
 python-decouple==3.8
 
 # Database
@@ -12,7 +12,7 @@ psycopg2-binary==2.9.10
 dj-database-url==2.3.0
 
 # Authentication
-django-allauth==65.5.0
+django-allauth==65.14.1
 
 # Multilingual
 django-modeltranslation==0.19.12
@@ -34,7 +34,7 @@ kombu==5.5.2
 # Media / Images
 cloudinary==1.41.0
 django-cloudinary-storage==0.3.0
-Pillow==11.2.1
+Pillow==12.2.0
 
 # Rich text editor
 django-ckeditor==6.7.1
@@ -57,5 +57,5 @@ django-import-export==4.3.7
 
 # Utilities
 polib==1.2.0
-requests==2.32.3
-urllib3==2.4.0
+requests==2.33.0
+urllib3==2.7.0
