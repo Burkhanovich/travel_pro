@@ -38,6 +38,7 @@ T = {
     "Accept": {"uz": "Qabul qilish", "ru": "Принять", "it": "Accetta", "es": "Aceptar", "ja": "承諾する"},
     "Any": {"uz": "Barchasi", "ru": "Любой", "it": "Qualsiasi", "es": "Cualquiera", "ja": "すべて"},
     "Anywhere": {"uz": "Istalgan joy", "ru": "Куда угодно", "it": "Ovunque", "es": "A cualquier lugar", "ja": "どこでも"},
+    "Close": {"uz": "Yopish", "ru": "Закрыть", "it": "Chiudi", "es": "Cerrar", "ja": "閉じる"},
     "Apply": {"uz": "Qo'llash", "ru": "Применить", "it": "Applica", "es": "Aplicar", "ja": "適用"},
     "Clear": {"uz": "Tozalash", "ru": "Очистить", "it": "Cancella", "es": "Limpiar", "ja": "クリア"},
     "Apply Filters": {"uz": "Filtrlarni qo'llash", "ru": "Применить фильтры", "it": "Applica filtri", "es": "Aplicar filtros", "ja": "フィルターを適用"},

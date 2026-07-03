@@ -170,6 +170,7 @@ class CityImage(models.Model):
     )
     image = models.ImageField(_("Image"), upload_to="cities/gallery/")
     caption = models.CharField(_("Caption"), max_length=200, blank=True)
+    description = models.TextField(_("Description"), blank=True)
     order = models.PositiveSmallIntegerField(_("Order"), default=0)
 
     class Meta:

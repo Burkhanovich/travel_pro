@@ -20,27 +20,73 @@
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     {% if city.overview %}
-    <p class="text-gray-700 text-lg max-w-3xl mb-10">{{ city.overview }}</p>
+    <div class="prose prose-lg max-w-3xl mb-12">{{ city.overview|linebreaks }}</div>
     {% endif %}
 
-    {# Gallery #}
+    {# ── Photo gallery — layout adapts to the number of images ── #}
     {% if city.images.exists %}
-    <section class="mb-12" x-data="{ activeImg: null }">
+    {% with total=city.images.count %}
+    <section class="mb-14">
       <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Photos" %}</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        {% for img in city.images.all %}
-        <div @click="activeImg='{{ img.image.url }}'"
-             class="cursor-pointer rounded-xl overflow-hidden aspect-[4/3] hover:opacity-90 transition">
-          <img src="{{ img.image.url }}" alt="{{ img.caption|default:city.name }}" loading="lazy" class="w-full h-full object-cover">
+
+      {% if total == 1 %}
+        {# Single image — full width #}
+        <div class="grid grid-cols-1">
+          {% for img in city.images.all %}{% include "destinations/components/gallery_item.html" with img=img city=city ratio="aspect-video" %}{% endfor %}
         </div>
-        {% endfor %}
-      </div>
-      {# Lightbox #}
-      <div x-show="activeImg" @click="activeImg=null" x-transition
-           class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-        <img :src="activeImg" class="max-h-full max-w-full rounded-xl" @click.stop>
-      </div>
+      {% elif total <= 3 %}
+        {# 2–3 images — equal columns #}
+        <div class="grid grid-cols-1 {% if total == 2 %}sm:grid-cols-2{% else %}sm:grid-cols-3{% endif %} gap-3">
+          {% for img in city.images.all %}{% include "destinations/components/gallery_item.html" with img=img city=city ratio="aspect-[4/3]" %}{% endfor %}
+        </div>
+      {% else %}
+        {# 4+ images — 1 large feature + smaller tiles mosaic #}
+        <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[9rem] md:auto-rows-[11rem] gap-3">
+          {% for img in city.images.all %}{% include "destinations/components/gallery_item.html" with img=img city=city mosaic=True feature=forloop.first %}{% endfor %}
+        </div>
+      {% endif %}
     </section>
+    {% endwith %}
+
+    {# ── Lightbox (vanilla JS, no library) ── #}
+    <div id="city-lightbox" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm p-4 sm:p-8">
+      <button type="button" data-lb-close
+              class="absolute top-4 right-4 text-white/80 hover:text-white text-3xl leading-none" aria-label="{% trans 'Close' %}">&times;</button>
+      <div class="h-full w-full flex flex-col items-center justify-center gap-4">
+        <img data-lb-img src="" alt="" class="max-h-[75vh] max-w-full rounded-xl shadow-2xl object-contain">
+        <div class="max-w-2xl text-center text-white">
+          <p data-lb-caption class="font-serif text-lg font-semibold"></p>
+          <p data-lb-desc class="text-sm text-white/80 mt-1"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function () {
+      var lb = document.getElementById("city-lightbox");
+      if (!lb) return;
+      var img = lb.querySelector("[data-lb-img]"),
+          cap = lb.querySelector("[data-lb-caption]"),
+          desc = lb.querySelector("[data-lb-desc]");
+      function open(el) {
+        img.src = el.getAttribute("data-src");
+        img.alt = el.getAttribute("data-caption") || "";
+        cap.textContent = el.getAttribute("data-caption") || "";
+        desc.textContent = el.getAttribute("data-description") || "";
+        cap.style.display = cap.textContent ? "" : "none";
+        desc.style.display = desc.textContent ? "" : "none";
+        lb.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+      function close() { lb.classList.add("hidden"); document.body.style.overflow = ""; }
+      document.querySelectorAll(".gallery-item").forEach(function (el) {
+        el.addEventListener("click", function () { open(el); });
+      });
+      lb.addEventListener("click", function (e) {
+        if (e.target === lb || e.target.hasAttribute("data-lb-close")) close();
+      });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+    })();
+    </script>
     {% endif %}
 
     {# Attractions #}

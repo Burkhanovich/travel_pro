@@ -8,11 +8,16 @@ from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 from .models import Attraction, City, CityImage, Continent, Country
 
 
-class CityImageInline(admin.TabularInline):
+class CityImageInline(TranslationStackedInline):
+    """Gallery images for a city. Stacked so each image's translated caption
+    and description are editable per language. Unlimited rows (extra=3)."""
+
     model = CityImage
     extra = 3
-    fields = ("image", "caption", "order")
+    fields = ("image", "caption", "description", "order")
     ordering = ("order",)
+    verbose_name = _("Gallery image")
+    verbose_name_plural = _("Gallery images")
 
 
 class CityInline(admin.TabularInline):
@@ -69,6 +74,13 @@ class CityAdmin(TranslationAdmin):
     search_fields = ("name", "country__name")
     prepopulated_fields = {"slug": ("name",)}
     list_editable = ("is_featured", "is_active", "order")
+    # Field order: cover image first, then the overview text; the gallery images
+    # (optional, unlimited) are added below via the inline.
+    fieldsets = (
+        (None, {"fields": ("country", "name", "slug", "cover_image", "overview")}),
+        (_("Details"), {"fields": ("population", "latitude", "longitude", "is_featured", "is_active", "order")}),
+        (_("SEO"), {"fields": ("seo_title", "seo_description"), "classes": ("collapse",)}),
+    )
     inlines = [CityImageInline, AttractionInline]
 
 
