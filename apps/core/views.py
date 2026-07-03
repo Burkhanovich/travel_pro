@@ -56,6 +56,7 @@ class HomeView(TemplateView):
         )
         ctx["testimonials"] = (
             Review.objects.filter(status="approved")
+            .select_related("user", "tour", "hotel")
             .order_by("-helpful_count", "-created_at")[:6]
         )
 
