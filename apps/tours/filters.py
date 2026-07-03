@@ -11,7 +11,7 @@ from .models import Tour, TourCategory
 
 
 class TourFilter(django_filters.FilterSet):
-    """Filter tours by free-text search, category, destination, duration, price, difficulty, and departure month."""
+    """Filter tours by free-text search, category, destination, duration, price, and difficulty."""
 
     q = django_filters.CharFilter(method="filter_search", label=_("Search"))
     category = django_filters.ModelChoiceFilter(
@@ -32,11 +32,6 @@ class TourFilter(django_filters.FilterSet):
     difficulty = django_filters.ChoiceFilter(
         choices=[("", _("Any difficulty"))] + Tour.DIFFICULTY_CHOICES,
         label=_("Difficulty"),
-    )
-    departure_month = django_filters.NumberFilter(
-        field_name="departures__departure_date__month",
-        label=_("Departure month"),
-        distinct=True,
     )
 
     class Meta:

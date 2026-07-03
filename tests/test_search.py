@@ -87,6 +87,40 @@ class TestPublicTourSearch:
 
 
 # ---------------------------------------------------------------------------
+# Home hero search form (Destination dropdown + Duration; no Date)
+# ---------------------------------------------------------------------------
+class TestHomeHeroSearch:
+    def _titles(self, response):
+        return {t.title for t in response.context["tours"]}
+
+    def test_home_renders_destination_dropdown(self, client):
+        country = f.make_country(name="Uzbekistan", is_active=True)
+        resp = client.get(reverse("home"))
+        html = resp.content.decode()
+        assert resp.status_code == 200
+        assert 'name="destination"' in html          # dropdown present
+        assert 'name="departure_month"' not in html  # date field removed
+        assert "Uzbekistan" in html                  # dynamic option
+        assert country in list(resp.context["destinations"])
+
+    def test_filter_by_destination(self, client):
+        jp = f.make_country(name="Japan", is_active=True)
+        fr = f.make_country(name="France", is_active=True)
+        t1 = f.make_tour(title="Tokyo", is_active=True)
+        t1.destinations.add(jp)
+        t2 = f.make_tour(title="Paris", is_active=True)
+        t2.destinations.add(fr)
+        resp = client.get(reverse("tours:list") + f"?destination={jp.pk}")
+        assert self._titles(resp) == {"Tokyo"}
+
+    def test_filter_by_max_duration(self, client):
+        f.make_tour(title="Short", duration_days=5, is_active=True)
+        f.make_tour(title="Long", duration_days=20, is_active=True)
+        resp = client.get(reverse("tours:list") + "?max_duration=7")
+        assert self._titles(resp) == {"Short"}
+
+
+# ---------------------------------------------------------------------------
 # Backend: dashboard list search (staff-only)
 # ---------------------------------------------------------------------------
 @pytest.fixture
