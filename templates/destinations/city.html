@@ -5,16 +5,16 @@
 
 {% block content %}
 <div class="pt-20 bg-pattern-subtle-blue">
-  <div class="relative h-72 overflow-hidden">
+  <div class="relative min-h-[320px] h-[50vh] md:min-h-[520px] md:h-[60vh] md:max-h-[700px] overflow-hidden">
     {% if city.cover_image %}
     <img src="{{ city.cover_image.url }}" alt="{{ city.name }}" class="w-full h-full object-cover">
     {% else %}
     <div class="w-full h-full bg-gradient-to-br from-primary to-primary/50"></div>
     {% endif %}
-    <div class="absolute inset-0 bg-dark/50"></div>
-    <div class="absolute bottom-6 left-8">
-      <h1 class="text-white font-serif text-4xl font-bold">{{ city.name }}</h1>
-      <p class="text-white/70">{{ city.country.name }}</p>
+    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(30,45,65,0.05)] to-[rgba(30,45,65,0.55)]"></div>
+    <div class="absolute bottom-6 left-6 sm:bottom-8 sm:left-10 right-6">
+      <h1 class="text-white font-serif text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">{{ city.name }}</h1>
+      <p class="text-white/80 text-lg mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]">{{ city.country.name }}</p>
     </div>
   </div>
 
