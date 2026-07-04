@@ -58,31 +58,31 @@
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {% for value in values %}
-        <div class="text-center p-6">
-          <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <i class="ti ti-{{ value.icon }} text-primary text-2xl"></i>
+        <div class="bg-white rounded-2xl shadow-soft border border-brand-blueLight/30 p-8 flex flex-col items-center text-center gap-3 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-sm">
+            <i class="ti ti-{{ value.icon }} text-white text-2xl"></i>
           </div>
           <h3 class="font-semibold text-dark text-xl mb-2">{{ value.title }}</h3>
           <p class="text-gray-500 text-sm leading-relaxed">{{ value.text }}</p>
         </div>
         {% empty %}
-        <div class="text-center p-6">
-          <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <i class="ti ti-leaf text-primary text-2xl"></i>
+        <div class="bg-white rounded-2xl shadow-soft border border-brand-blueLight/30 p-8 flex flex-col items-center text-center gap-3 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-sm">
+            <i class="ti ti-leaf text-white text-2xl"></i>
           </div>
           <h3 class="font-semibold text-dark text-xl mb-2">{% trans "Sustainability" %}</h3>
           <p class="text-gray-500 text-sm leading-relaxed">{% trans "We partner with eco-conscious operators and promote responsible tourism." %}</p>
         </div>
-        <div class="text-center p-6">
-          <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <i class="ti ti-heart text-primary text-2xl"></i>
+        <div class="bg-white rounded-2xl shadow-soft border border-brand-blueLight/30 p-8 flex flex-col items-center text-center gap-3 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-sm">
+            <i class="ti ti-heart text-white text-2xl"></i>
           </div>
           <h3 class="font-semibold text-dark text-xl mb-2">{% trans "Authenticity" %}</h3>
           <p class="text-gray-500 text-sm leading-relaxed">{% trans "We create genuine local experiences, not just tourist attractions." %}</p>
         </div>
-        <div class="text-center p-6">
-          <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <i class="ti ti-star text-primary text-2xl"></i>
+        <div class="bg-white rounded-2xl shadow-soft border border-brand-blueLight/30 p-8 flex flex-col items-center text-center gap-3 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+          <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-sm">
+            <i class="ti ti-star text-white text-2xl"></i>
           </div>
           <h3 class="font-semibold text-dark text-xl mb-2">{% trans "Excellence" %}</h3>
           <p class="text-gray-500 text-sm leading-relaxed">{% trans "Every detail is carefully curated to exceed your expectations." %}</p>

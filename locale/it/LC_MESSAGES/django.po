@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 02:38+0000\n"
-"PO-Revision-Date: 2026-07-04 02:38+0000\n"
+"POT-Creation-Date: 2026-07-04 11:12+0000\n"
+"PO-Revision-Date: 2026-07-04 11:12+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: it\n"
 "Language: it\n"
@@ -92,6 +92,24 @@ msgstr "Ovunque"
 
 msgid "Close"
 msgstr "Chiudi"
+
+msgid "Why UNITUR?"
+msgstr "Perché UNITUR?"
+
+msgid "Licensed and fully insured with 15+ years of excellence."
+msgstr ""
+"Autorizzata e completamente assicurata con oltre 15 anni di eccellenza."
+
+msgid "Our team is always available to assist you anywhere in the world."
+msgstr "Il nostro team è sempre disponibile ad assisterti ovunque nel mondo."
+
+msgid "Price-match guarantee on all our tour packages worldwide."
+msgstr ""
+"Garanzia di parità prezzo su tutti i nostri pacchetti turistici in tutto il "
+"mondo."
+
+msgid "4.9★ average rating from thousands of verified travelers."
+msgstr "Valutazione media di 4.9★ da migliaia di viaggiatori verificati."
 
 msgid "Apply"
 msgstr "Applica"
@@ -369,29 +387,14 @@ msgstr "Perché Travel Pro?"
 msgid "Trusted Agency"
 msgstr "Agenzia fidata"
 
-msgid "Licensed and fully insured with 15+ years of excellence."
-msgstr ""
-"Autorizzata e completamente assicurata con oltre 15 anni di eccellenza."
-
 msgid "24/7 Support"
 msgstr "Supporto 24/7"
-
-msgid "Our team is always available to assist you anywhere in the world."
-msgstr "Il nostro team è sempre disponibile ad assisterti ovunque nel mondo."
 
 msgid "Best Price"
 msgstr "Miglior prezzo"
 
-msgid "Price-match guarantee on all our tour packages worldwide."
-msgstr ""
-"Garanzia di parità prezzo su tutti i nostri pacchetti turistici in tutto il "
-"mondo."
-
 msgid "Top Rated"
 msgstr "Altamente valutato"
-
-msgid "4.9★ average rating from thousands of verified travelers."
-msgstr "Valutazione media di 4.9★ da migliaia di viaggiatori verificati."
 
 msgid "Hand-Picked Stays"
 msgstr "Sistemazioni selezionate"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 02:38+0000\n"
-"PO-Revision-Date: 2026-07-04 02:38+0000\n"
+"POT-Creation-Date: 2026-07-04 11:12+0000\n"
+"PO-Revision-Date: 2026-07-04 11:12+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ja\n"
 "Language: ja\n"
@@ -92,6 +92,21 @@ msgstr "どこでも"
 
 msgid "Close"
 msgstr "閉じる"
+
+msgid "Why UNITUR?"
+msgstr "なぜUNITUR？"
+
+msgid "Licensed and fully insured with 15+ years of excellence."
+msgstr "15年以上の実績を持つ、ライセンス取得・完全保険付きの代理店。"
+
+msgid "Our team is always available to assist you anywhere in the world."
+msgstr "私たちのチームは世界中どこでもいつでもお手伝いします。"
+
+msgid "Price-match guarantee on all our tour packages worldwide."
+msgstr "世界中のすべてのツアーパッケージで最安値保証。"
+
+msgid "4.9★ average rating from thousands of verified travelers."
+msgstr "何千人もの認証済み旅行者からの平均評価4.9★。"
 
 msgid "Apply"
 msgstr "適用"
@@ -365,26 +380,14 @@ msgstr "なぜTravel Proなのか？"
 msgid "Trusted Agency"
 msgstr "信頼できる代理店"
 
-msgid "Licensed and fully insured with 15+ years of excellence."
-msgstr "15年以上の実績を持つ、ライセンス取得・完全保険付きの代理店。"
-
 msgid "24/7 Support"
 msgstr "24時間365日サポート"
-
-msgid "Our team is always available to assist you anywhere in the world."
-msgstr "私たちのチームは世界中どこでもいつでもお手伝いします。"
 
 msgid "Best Price"
 msgstr "最安値保証"
 
-msgid "Price-match guarantee on all our tour packages worldwide."
-msgstr "世界中のすべてのツアーパッケージで最安値保証。"
-
 msgid "Top Rated"
 msgstr "高評価"
-
-msgid "4.9★ average rating from thousands of verified travelers."
-msgstr "何千人もの認証済み旅行者からの平均評価4.9★。"
 
 msgid "Hand-Picked Stays"
 msgstr "厳選された宿泊施設"

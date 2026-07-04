@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 02:38+0000\n"
-"PO-Revision-Date: 2026-07-04 02:38+0000\n"
+"POT-Creation-Date: 2026-07-04 11:12+0000\n"
+"PO-Revision-Date: 2026-07-04 11:12+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: es\n"
 "Language: es\n"
@@ -94,6 +94,26 @@ msgstr "A cualquier lugar"
 
 msgid "Close"
 msgstr "Cerrar"
+
+msgid "Why UNITUR?"
+msgstr "¿Por qué UNITUR?"
+
+msgid "Licensed and fully insured with 15+ years of excellence."
+msgstr ""
+"Licenciados y completamente asegurados con más de 15 años de excelencia."
+
+msgid "Our team is always available to assist you anywhere in the world."
+msgstr ""
+"Nuestro equipo siempre está disponible para ayudarte en cualquier parte del "
+"mundo."
+
+msgid "Price-match guarantee on all our tour packages worldwide."
+msgstr ""
+"Garantía de igualación de precios en todos nuestros paquetes turísticos en "
+"todo el mundo."
+
+msgid "4.9★ average rating from thousands of verified travelers."
+msgstr "Calificación promedio de 4.9★ de miles de viajeros verificados."
 
 msgid "Apply"
 msgstr "Aplicar"
@@ -370,31 +390,14 @@ msgstr "¿Por qué Travel Pro?"
 msgid "Trusted Agency"
 msgstr "Agencia de confianza"
 
-msgid "Licensed and fully insured with 15+ years of excellence."
-msgstr ""
-"Licenciados y completamente asegurados con más de 15 años de excelencia."
-
 msgid "24/7 Support"
 msgstr "Soporte 24/7"
-
-msgid "Our team is always available to assist you anywhere in the world."
-msgstr ""
-"Nuestro equipo siempre está disponible para ayudarte en cualquier parte del "
-"mundo."
 
 msgid "Best Price"
 msgstr "Mejor precio"
 
-msgid "Price-match guarantee on all our tour packages worldwide."
-msgstr ""
-"Garantía de igualación de precios en todos nuestros paquetes turísticos en "
-"todo el mundo."
-
 msgid "Top Rated"
 msgstr "Mejor valorado"
-
-msgid "4.9★ average rating from thousands of verified travelers."
-msgstr "Calificación promedio de 4.9★ de miles de viajeros verificados."
 
 msgid "Hand-Picked Stays"
 msgstr "Alojamientos seleccionados"

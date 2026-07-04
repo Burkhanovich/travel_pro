@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 02:38+0000\n"
-"PO-Revision-Date: 2026-07-04 02:38+0000\n"
+"POT-Creation-Date: 2026-07-04 11:12+0000\n"
+"PO-Revision-Date: 2026-07-04 11:12+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -93,6 +93,23 @@ msgstr "Куда угодно"
 
 msgid "Close"
 msgstr "Закрыть"
+
+msgid "Why UNITUR?"
+msgstr "Почему UNITUR?"
+
+msgid "Licensed and fully insured with 15+ years of excellence."
+msgstr ""
+"Лицензированы и полностью застрахованы, 15+ лет превосходного сервиса."
+
+msgid "Our team is always available to assist you anywhere in the world."
+msgstr "Наша команда всегда готова помочь вам в любой точке мира."
+
+msgid "Price-match guarantee on all our tour packages worldwide."
+msgstr ""
+"Гарантия соответствия цен на все наши туристические пакеты по всему миру."
+
+msgid "4.9★ average rating from thousands of verified travelers."
+msgstr "Средний рейтинг 4.9★ от тысяч проверенных путешественников."
 
 msgid "Apply"
 msgstr "Применить"
@@ -370,28 +387,14 @@ msgstr "Почему Travel Pro?"
 msgid "Trusted Agency"
 msgstr "Надёжное агентство"
 
-msgid "Licensed and fully insured with 15+ years of excellence."
-msgstr ""
-"Лицензированы и полностью застрахованы, 15+ лет превосходного сервиса."
-
 msgid "24/7 Support"
 msgstr "Поддержка 24/7"
-
-msgid "Our team is always available to assist you anywhere in the world."
-msgstr "Наша команда всегда готова помочь вам в любой точке мира."
 
 msgid "Best Price"
 msgstr "Лучшая цена"
 
-msgid "Price-match guarantee on all our tour packages worldwide."
-msgstr ""
-"Гарантия соответствия цен на все наши туристические пакеты по всему миру."
-
 msgid "Top Rated"
 msgstr "Высокий рейтинг"
-
-msgid "4.9★ average rating from thousands of verified travelers."
-msgstr "Средний рейтинг 4.9★ от тысяч проверенных путешественников."
 
 msgid "Hand-Picked Stays"
 msgstr "Избранные места для проживания"
