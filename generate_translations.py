@@ -39,12 +39,9 @@ T = {
     "Any": {"uz": "Barchasi", "ru": "Любой", "it": "Qualsiasi", "es": "Cualquiera", "ja": "すべて"},
     "Anywhere": {"uz": "Istalgan joy", "ru": "Куда угодно", "it": "Ovunque", "es": "A cualquier lugar", "ja": "どこでも"},
     "Close": {"uz": "Yopish", "ru": "Закрыть", "it": "Chiudi", "es": "Cerrar", "ja": "閉じる"},
-    # Home — "Why UNITUR?" section
+    # Home — "Why UNITUR?" heading (the four feature descriptions already exist
+    # lower in this file; only the heading was genuinely missing).
     "Why UNITUR?": {"uz": "Nega aynan UNITUR?", "ru": "Почему UNITUR?", "it": "Perché UNITUR?", "es": "¿Por qué UNITUR?", "ja": "なぜUNITUR？"},
-    "Licensed and fully insured with 15+ years of excellence.": {"uz": "Litsenziyalangan va to'liq sug'urtalangan, 15+ yillik mukammal tajriba.", "ru": "Лицензировано и полностью застраховано, более 15 лет безупречной работы.", "it": "Con licenza e assicurazione completa, oltre 15 anni di eccellenza.", "es": "Con licencia y totalmente asegurada, con más de 15 años de excelencia.", "ja": "認可・完全保険付き、15年以上の卓越した実績。"},
-    "Our team is always available to assist you anywhere in the world.": {"uz": "Jamoamiz dunyoning istalgan nuqtasida sizga yordam berishga doim tayyor.", "ru": "Наша команда всегда готова помочь вам в любой точке мира.", "it": "Il nostro team è sempre disponibile ad aiutarti ovunque nel mondo.", "es": "Nuestro equipo siempre está disponible para ayudarte en cualquier parte del mundo.", "ja": "私たちのチームは世界中どこでもいつでもサポートいたします。"},
-    "Price-match guarantee on all our tour packages worldwide.": {"uz": "Butun dunyo bo'ylab barcha tur paketlarimizga narx-moslik kafolati.", "ru": "Гарантия соответствия цены на все наши турпакеты по всему миру.", "it": "Garanzia del miglior prezzo su tutti i nostri pacchetti in tutto il mondo.", "es": "Garantía de igualación de precios en todos nuestros paquetes en todo el mundo.", "ja": "世界中のすべてのツアーパッケージに最低価格保証。"},
-    "4.9★ average rating from thousands of verified travelers.": {"uz": "Minglab tasdiqlangan sayohatchilardan o'rtacha 4.9★ baho.", "ru": "Средняя оценка 4.9★ от тысяч проверенных путешественников.", "it": "Valutazione media di 4,9★ da migliaia di viaggiatori verificati.", "es": "Valoración media de 4,9★ de miles de viajeros verificados.", "ja": "何千人もの認証済み旅行者から平均4.9★の評価。"},
     "Apply": {"uz": "Qo'llash", "ru": "Применить", "it": "Applica", "es": "Aplicar", "ja": "適用"},
     "Clear": {"uz": "Tozalash", "ru": "Очистить", "it": "Cancella", "es": "Limpiar", "ja": "クリア"},
     "Apply Filters": {"uz": "Filtrlarni qo'llash", "ru": "Применить фильтры", "it": "Applica filtri", "es": "Aplicar filtros", "ja": "フィルターを適用"},
