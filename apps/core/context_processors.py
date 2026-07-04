@@ -18,6 +18,9 @@ def site_settings(request) -> dict:
         "SITE_PHONE": getattr(settings, "SITE_PHONE", ""),
         "SITE_EMAIL": getattr(settings, "SITE_EMAIL", ""),
         "SITE_ADDRESS": getattr(settings, "SITE_ADDRESS", ""),
+        "SITE_LATITUDE": getattr(settings, "SITE_LATITUDE", None),
+        "SITE_LONGITUDE": getattr(settings, "SITE_LONGITUDE", None),
+        "SITE_WORKING_HOURS": getattr(settings, "SITE_WORKING_HOURS", ""),
         "SOCIAL_LINKS": getattr(settings, "SOCIAL_LINKS", {}),
     }
 

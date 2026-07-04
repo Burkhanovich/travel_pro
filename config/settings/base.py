@@ -345,6 +345,11 @@ SITE_TAGLINE = "Dunyoning eng go'zal joylarini kashf eting"
 SITE_PHONE = "+998919917101"
 SITE_EMAIL = "burkhanov1c@gmail.com"
 SITE_ADDRESS = "Navoiy viloyati, Navoiy shahri, Jasorat 29-36"
+# Office map pin (Navoiy city — approximate: the exact "Jasorat 29-36" building
+# coordinate is not precisely geocoded, so this points at central Navoiy).
+SITE_LATITUDE = 40.0844
+SITE_LONGITUDE = 65.3792
+SITE_WORKING_HOURS = "Dushanba–Shanba, 9:00–18:00"
 SOCIAL_LINKS = {
     "facebook": "https://facebook.com/unituruz",
     "instagram": "https://instagram.com/unitouruz",

@@ -148,12 +148,14 @@
 
 {% block extra_js %}
 {% if hotel.latitude and hotel.longitude %}
+<style>#hotel-map { position: relative; z-index: 0; }</style>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const map = L.map('hotel-map').setView([{{ hotel.latitude }}, {{ hotel.longitude }}], 15);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 L.marker([{{ hotel.latitude }}, {{ hotel.longitude }}]).addTo(map)
-  .bindPopup('<strong>{{ hotel.name }}</strong>').openPopup();
+  .bindPopup('<strong>{{ hotel.name }}</strong>');
+setTimeout(function () { map.invalidateSize(); }, 100);
 </script>
 {% endif %}
 {% endblock %}

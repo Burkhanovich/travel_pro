@@ -46,6 +46,7 @@ T = {
     "About us": {"uz": "Biz haqimizda", "ru": "О нас", "it": "Chi siamo", "es": "Sobre nosotros", "ja": "会社概要"},
     "About the Company": {"uz": "Kompaniya haqida", "ru": "О компании", "it": "Sull'azienda", "es": "Sobre la empresa", "ja": "会社について"},
     "Contact": {"uz": "Aloqa", "ru": "Контакты", "it": "Contatti", "es": "Contacto", "ja": "お問い合わせ"},
+    "Working hours": {"uz": "Ish vaqti", "ru": "Время работы", "it": "Orari di apertura", "es": "Horario", "ja": "営業時間"},
     # Home — "Why UNITUR?" heading (the four feature descriptions already exist
     # lower in this file; only the heading was genuinely missing).
     "Why UNITUR?": {"uz": "Nega aynan UNITUR?", "ru": "Почему UNITUR?", "it": "Perché UNITUR?", "es": "¿Por qué UNITUR?", "ja": "なぜUNITUR？"},
