@@ -5,7 +5,7 @@
 {% block meta_description %}{{ country.seo_description|default:country.overview|truncatechars:160 }}{% endblock %}
 
 {% block content %}
-<div class="pt-20 bg-pattern-subtle-blue">
+<div class="pt-20 lg:pt-24 bg-pattern-subtle-blue">
   {# Hero #}
   <div class="relative min-h-[320px] h-[50vh] md:min-h-[520px] md:h-[60vh] md:max-h-[700px] overflow-hidden">
     {% if country.cover_image %}
