@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 11:12+0000\n"
-"PO-Revision-Date: 2026-07-04 11:12+0000\n"
+"POT-Creation-Date: 2026-07-04 17:47+0000\n"
+"PO-Revision-Date: 2026-07-04 17:47+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -96,22 +96,26 @@ msgstr "Istalgan joy"
 msgid "Close"
 msgstr "Yopish"
 
+msgid "Main page"
+msgstr "Bosh sahifa"
+
+msgid "Guidebook"
+msgstr "Qo'llanma"
+
+msgid "More"
+msgstr "Yana"
+
+msgid "About us"
+msgstr "Biz haqimizda"
+
+msgid "About the Company"
+msgstr "Kompaniya haqida"
+
+msgid "Contact"
+msgstr "Aloqa"
+
 msgid "Why UNITUR?"
 msgstr "Nega aynan UNITUR?"
-
-msgid "Licensed and fully insured with 15+ years of excellence."
-msgstr ""
-"15+ yillik mukammallik bilan litsenziyalangan va to'liq sug'urtalangan."
-
-msgid "Our team is always available to assist you anywhere in the world."
-msgstr ""
-"Bizning jamoamiz dunyo bo'ylab sizga yordam berish uchun har doim tayyor."
-
-msgid "Price-match guarantee on all our tour packages worldwide."
-msgstr "Barcha tur paketlarimizda narx mosligi kafolati."
-
-msgid "4.9★ average rating from thousands of verified travelers."
-msgstr "Minglab tasdiqlangan sayohatchilardan 4.9★ o'rtacha reyting."
 
 msgid "Apply"
 msgstr "Qo'llash"
@@ -389,14 +393,28 @@ msgstr "Nima uchun Travel Pro?"
 msgid "Trusted Agency"
 msgstr "Ishonchli agentlik"
 
+msgid "Licensed and fully insured with 15+ years of excellence."
+msgstr ""
+"15+ yillik mukammallik bilan litsenziyalangan va to'liq sug'urtalangan."
+
 msgid "24/7 Support"
 msgstr "24/7 Qo'llab-quvvatlash"
+
+msgid "Our team is always available to assist you anywhere in the world."
+msgstr ""
+"Bizning jamoamiz dunyo bo'ylab sizga yordam berish uchun har doim tayyor."
 
 msgid "Best Price"
 msgstr "Eng yaxshi narx"
 
+msgid "Price-match guarantee on all our tour packages worldwide."
+msgstr "Barcha tur paketlarimizda narx mosligi kafolati."
+
 msgid "Top Rated"
 msgstr "Yuqori baholangan"
+
+msgid "4.9★ average rating from thousands of verified travelers."
+msgstr "Minglab tasdiqlangan sayohatchilardan 4.9★ o'rtacha reyting."
 
 msgid "Hand-Picked Stays"
 msgstr "Tanlangan turar joylar"
@@ -1660,6 +1678,19 @@ msgstr "Olib tashlash"
 
 msgid "Add stop"
 msgstr "Bekat qo'shish"
+
+msgid "Add day"
+msgstr "Kun qo'shish"
+
+msgid "Delete this day"
+msgstr "Bu kunni o'chirish"
+
+msgid ""
+"Optionally describe each day of the tour. It appears on the tour page when "
+"provided."
+msgstr ""
+"Ixtiyoriy: turning har bir kunini tasvirlang. Kiritilsa, tur sahifasida "
+"ko'rinadi."
 
 msgid "Domestic tour created."
 msgstr "Ichki tur yaratildi."

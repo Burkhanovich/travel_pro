@@ -109,6 +109,106 @@
       </button>
     </div>
 
+    {# Day-by-day itinerary #}
+    <div class="bg-white rounded-xl border border-gray-200 p-5">
+      <h3 class="font-semibold text-gray-800 mb-1 pb-3 border-b border-gray-100">{% trans "Day-by-Day Itinerary" %}</h3>
+      <p class="text-xs text-gray-400 mt-2 mb-4">{% trans "Optionally describe each day of the tour. It appears on the tour page when provided." %}</p>
+
+      {{ days.management_form }}
+      {% if days.non_form_errors %}<div class="text-xs text-red-600 mb-3">{{ days.non_form_errors|join:", " }}</div>{% endif %}
+
+      <div id="days-body" class="space-y-3">
+        {% for dform in days %}
+        <div class="day-row grid grid-cols-12 gap-3 border border-gray-100 rounded-lg p-3 bg-gray-50/50">
+          {% for hidden in dform.hidden_fields %}{{ hidden }}{% endfor %}
+          <div class="col-span-4 sm:col-span-2">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ dform.day_number.label }}</label>
+            {{ dform.day_number }}
+          </div>
+          <div class="col-span-8 sm:col-span-6">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ dform.title.label }}</label>
+            {{ dform.title }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ dform.meals_included.label }}</label>
+            {{ dform.meals_included }}
+          </div>
+          <div class="col-span-12">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ dform.description.label }}</label>
+            {{ dform.description }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ dform.accommodation.label }}</label>
+            {{ dform.accommodation }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ dform.transport.label }}</label>
+            {{ dform.transport }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ dform.image.label }}</label>
+            {{ dform.image }}
+          </div>
+          <div class="col-span-12 flex items-center justify-end pt-1">
+            {% if dform.instance.pk %}
+              <label class="text-xs text-red-500 flex items-center gap-1" title="{% trans 'Delete this day' %}">
+                {{ dform.DELETE }} {% trans "Delete this day" %}
+              </label>
+            {% else %}
+              <button type="button" class="remove-day text-red-400 hover:text-red-600 text-xs flex items-center gap-1" title="{% trans 'Remove' %}">
+                <i class="ti ti-x"></i> {% trans "Remove" %}
+              </button>
+            {% endif %}
+          </div>
+          {% if dform.errors %}<div class="col-span-12 text-xs text-red-600">{{ dform.errors }}</div>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      {# Hidden template for new day rows #}
+      <template id="empty-day-form">
+        <div class="day-row grid grid-cols-12 gap-3 border border-gray-100 rounded-lg p-3 bg-gray-50/50">
+          <div class="col-span-4 sm:col-span-2">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ days.empty_form.day_number.label }}</label>
+            {{ days.empty_form.day_number }}
+          </div>
+          <div class="col-span-8 sm:col-span-6">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ days.empty_form.title.label }}</label>
+            {{ days.empty_form.title }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ days.empty_form.meals_included.label }}</label>
+            {{ days.empty_form.meals_included }}
+          </div>
+          <div class="col-span-12">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ days.empty_form.description.label }}</label>
+            {{ days.empty_form.description }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ days.empty_form.accommodation.label }}</label>
+            {{ days.empty_form.accommodation }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ days.empty_form.transport.label }}</label>
+            {{ days.empty_form.transport }}
+          </div>
+          <div class="col-span-12 sm:col-span-4">
+            <label class="block text-xs font-medium text-gray-600 mb-1">{{ days.empty_form.image.label }}</label>
+            {{ days.empty_form.image }}
+          </div>
+          <div class="col-span-12 flex items-center justify-end pt-1">
+            <button type="button" class="remove-day text-red-400 hover:text-red-600 text-xs flex items-center gap-1" title="{% trans 'Remove' %}">
+              <i class="ti ti-x"></i> {% trans "Remove" %}
+            </button>
+          </div>
+        </div>
+      </template>
+
+      <button type="button" id="add-day" class="mt-4 inline-flex items-center gap-1.5 text-sm text-emerald-700 hover:text-emerald-800 font-medium">
+        <i class="ti ti-plus"></i> {% trans "Add day" %}
+      </button>
+    </div>
+
     <div class="flex items-center gap-3 justify-end">
       <a href="{% url 'dashboard:ichki_turlar_list' %}" class="px-4 py-2 text-sm text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition">{% trans "Cancel" %}</a>
       <button type="submit" class="px-6 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-medium rounded-lg transition">
@@ -160,6 +260,33 @@
     const btn = e.target.closest(".remove-stop");
     if (!btn) return;
     const row = btn.closest(".stop-row");
+    if (row) row.remove();
+  });
+})();
+
+// Day-by-day itinerary formset — same behaviour as stops.
+(function () {
+  const totalForms = document.getElementById("id_days-TOTAL_FORMS");
+  const body = document.getElementById("days-body");
+  const tpl = document.getElementById("empty-day-form");
+  const addBtn = document.getElementById("add-day");
+
+  if (!totalForms || !body || !tpl || !addBtn) return;
+
+  addBtn.addEventListener("click", function () {
+    const index = parseInt(totalForms.value, 10);
+    const html = tpl.innerHTML.replace(/__prefix__/g, index);
+    const wrap = document.createElement("div");
+    wrap.innerHTML = html.trim();
+    const row = wrap.firstChild;
+    body.appendChild(row);
+    totalForms.value = index + 1;
+  });
+
+  body.addEventListener("click", function (e) {
+    const btn = e.target.closest(".remove-day");
+    if (!btn) return;
+    const row = btn.closest(".day-row");
     if (row) row.remove();
   });
 })();

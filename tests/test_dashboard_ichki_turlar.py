@@ -27,8 +27,9 @@ def domestic_cities():
     ]
 
 
-def _payload(category, stops, total=None):
-    """Build a create/edit POST body: tour fields + stop formset."""
+def _payload(category, stops, total=None, days=None):
+    """Build a create/edit POST body: tour fields + stop & day formsets."""
+    days = days or []
     data = {
         "title": "Golden Road of Uzbekistan",
         "category": category.pk,
@@ -45,11 +46,23 @@ def _payload(category, stops, total=None):
         "stops-INITIAL_FORMS": 0,
         "stops-MIN_NUM_FORMS": 0,
         "stops-MAX_NUM_FORMS": 1000,
+        # Day-by-day itinerary formset (optional) — the real form always submits it.
+        "days-TOTAL_FORMS": len(days),
+        "days-INITIAL_FORMS": 0,
+        "days-MIN_NUM_FORMS": 0,
+        "days-MAX_NUM_FORMS": 1000,
     }
     for i, (city, order, nights) in enumerate(stops):
         data[f"stops-{i}-city"] = city.pk
         data[f"stops-{i}-order"] = order
         data[f"stops-{i}-nights"] = nights
+    for i, day in enumerate(days):
+        data[f"days-{i}-day_number"] = day["day_number"]
+        data[f"days-{i}-title"] = day["title"]
+        data[f"days-{i}-description"] = day["description"]
+        data[f"days-{i}-meals_included"] = day.get("meals_included", "none")
+        data[f"days-{i}-accommodation"] = day.get("accommodation", "")
+        data[f"days-{i}-transport"] = day.get("transport", "")
     return data
 
 
@@ -83,6 +96,23 @@ class TestIchkiTurCreateView:
         tour = Tour.objects.get(title="Golden Road of Uzbekistan")
         assert tour.stops.count() == 2
         assert tour.is_multi_city
+
+    def test_create_with_days(self, super_client, domestic_cities):
+        cat = f.make_tour_category()
+        days = [
+            {"day_number": 1, "title": "Arrival in Tashkent", "description": "City tour.",
+             "meals_included": "breakfast"},
+            {"day_number": 2, "title": "Samarkand", "description": "Registan visit."},
+        ]
+        data = _payload(
+            cat, [(domestic_cities[0], 1, 2), (domestic_cities[1], 2, 1)], days=days
+        )
+        resp = super_client.post(reverse("dashboard:ichki_turlar_create"), data)
+        assert resp.status_code == 302
+        tour = Tour.objects.get(title="Golden Road of Uzbekistan")
+        assert tour.days.count() == 2
+        assert list(tour.days.values_list("day_number", flat=True)) == [1, 2]
+        assert tour.days.first().title == "Arrival in Tashkent"
 
     def test_single_stop_rejected(self, super_client, domestic_cities):
         cat = f.make_tour_category()

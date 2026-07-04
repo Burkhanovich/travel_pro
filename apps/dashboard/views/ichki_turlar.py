@@ -15,7 +15,7 @@ from django.utils.translation import gettext, gettext_lazy as _
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
 
 from apps.dashboard.autotranslate import autofill_translations
-from apps.dashboard.forms import IchkiTurForm, TourStopFormSet
+from apps.dashboard.forms import IchkiTurForm, TourDayFormSet, TourStopFormSet
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
 from apps.tours.models import Tour, TourCategory
 
@@ -58,20 +58,27 @@ class _StopsFormMixin:
         ctx = super().get_context_data(**kwargs)
         if self.request.method == "POST":
             ctx["stops"] = TourStopFormSet(self.request.POST, instance=self.object)
+            ctx["days"] = TourDayFormSet(
+                self.request.POST, self.request.FILES, instance=self.object
+            )
         else:
             ctx["stops"] = TourStopFormSet(instance=self.object)
+            ctx["days"] = TourDayFormSet(instance=self.object)
         ctx["categories"] = TourCategory.objects.all()
         return ctx
 
     def form_valid(self, form):
         ctx = self.get_context_data()
         stops = ctx["stops"]
-        if not stops.is_valid():
+        days = ctx["days"]
+        if not stops.is_valid() or not days.is_valid():
             return self.render_to_response(ctx)
         with transaction.atomic():
             self.object = form.save()
             stops.instance = self.object
             stops.save()
+            days.instance = self.object
+            days.save()
         autofill_translations(self.object)
         self.log_action(self.audit_action, "IchkiTur", self.object.pk)
         messages.success(self.request, self.success_message)

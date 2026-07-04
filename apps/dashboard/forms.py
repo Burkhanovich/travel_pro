@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.core.models import HeroSlide
 from apps.destinations.models import City, Country
-from apps.tours.models import Tour, TourStop
+from apps.tours.models import Tour, TourDay, TourStop
 
 User = get_user_model()
 
@@ -162,6 +162,29 @@ TourStopFormSet = inlineformset_factory(
     can_delete=True,
     min_num=2,
     validate_min=True,
+)
+
+
+class TourDayForm(forms.ModelForm):
+    """A single day of the day-by-day itinerary (mirrors TourStopForm)."""
+
+    class Meta:
+        model = TourDay
+        fields = [
+            "day_number", "title", "description",
+            "meals_included", "accommodation", "transport", "image",
+        ]
+
+
+# The day-by-day itinerary is optional supplementary content (the tour detail
+# page renders it only when days exist), so no minimum is enforced — unlike
+# stops, requiring a day would block editing existing tours that have none.
+TourDayFormSet = inlineformset_factory(
+    Tour,
+    TourDay,
+    form=TourDayForm,
+    extra=1,
+    can_delete=True,
 )
 
 

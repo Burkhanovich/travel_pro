@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 11:12+0000\n"
-"PO-Revision-Date: 2026-07-04 11:12+0000\n"
+"POT-Creation-Date: 2026-07-04 17:47+0000\n"
+"PO-Revision-Date: 2026-07-04 17:47+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -94,22 +94,26 @@ msgstr "Куда угодно"
 msgid "Close"
 msgstr "Закрыть"
 
+msgid "Main page"
+msgstr "Главная"
+
+msgid "Guidebook"
+msgstr "Путеводитель"
+
+msgid "More"
+msgstr "Ещё"
+
+msgid "About us"
+msgstr "О нас"
+
+msgid "About the Company"
+msgstr "О компании"
+
+msgid "Contact"
+msgstr "Контакты"
+
 msgid "Why UNITUR?"
 msgstr "Почему UNITUR?"
-
-msgid "Licensed and fully insured with 15+ years of excellence."
-msgstr ""
-"Лицензированы и полностью застрахованы, 15+ лет превосходного сервиса."
-
-msgid "Our team is always available to assist you anywhere in the world."
-msgstr "Наша команда всегда готова помочь вам в любой точке мира."
-
-msgid "Price-match guarantee on all our tour packages worldwide."
-msgstr ""
-"Гарантия соответствия цен на все наши туристические пакеты по всему миру."
-
-msgid "4.9★ average rating from thousands of verified travelers."
-msgstr "Средний рейтинг 4.9★ от тысяч проверенных путешественников."
 
 msgid "Apply"
 msgstr "Применить"
@@ -342,8 +346,8 @@ msgid ""
 "Authentic tours across Uzbekistan and Eurasia. Unmatched service, "
 "unforgettable memories."
 msgstr ""
-"Подлинные туры по Узбекистану и Евразии. Безупречный сервис, незабываемые "
-"впечатления."
+"Подлинные туры по Узбекистану и Центральной Азии. Безупречный сервис, "
+"незабываемые впечатления."
 
 msgid "Destination"
 msgstr "Направление"
@@ -387,14 +391,28 @@ msgstr "Почему Travel Pro?"
 msgid "Trusted Agency"
 msgstr "Надёжное агентство"
 
+msgid "Licensed and fully insured with 15+ years of excellence."
+msgstr ""
+"Лицензированы и полностью застрахованы, 15+ лет превосходного сервиса."
+
 msgid "24/7 Support"
 msgstr "Поддержка 24/7"
+
+msgid "Our team is always available to assist you anywhere in the world."
+msgstr "Наша команда всегда готова помочь вам в любой точке мира."
 
 msgid "Best Price"
 msgstr "Лучшая цена"
 
+msgid "Price-match guarantee on all our tour packages worldwide."
+msgstr ""
+"Гарантия соответствия цен на все наши туристические пакеты по всему миру."
+
 msgid "Top Rated"
 msgstr "Высокий рейтинг"
+
+msgid "4.9★ average rating from thousands of verified travelers."
+msgstr "Средний рейтинг 4.9★ от тысяч проверенных путешественников."
 
 msgid "Hand-Picked Stays"
 msgstr "Избранные места для проживания"
@@ -1647,6 +1665,19 @@ msgstr "Убрать"
 
 msgid "Add stop"
 msgstr "Добавить остановку"
+
+msgid "Add day"
+msgstr "Добавить день"
+
+msgid "Delete this day"
+msgstr "Удалить этот день"
+
+msgid ""
+"Optionally describe each day of the tour. It appears on the tour page when "
+"provided."
+msgstr ""
+"По желанию опишите каждый день тура. Отображается на странице тура, если "
+"заполнено."
 
 msgid "Domestic tour created."
 msgstr "Внутренний тур создан."

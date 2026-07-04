@@ -39,6 +39,13 @@ T = {
     "Any": {"uz": "Barchasi", "ru": "Любой", "it": "Qualsiasi", "es": "Cualquiera", "ja": "すべて"},
     "Anywhere": {"uz": "Istalgan joy", "ru": "Куда угодно", "it": "Ovunque", "es": "A cualquier lugar", "ja": "どこでも"},
     "Close": {"uz": "Yopish", "ru": "Закрыть", "it": "Chiudi", "es": "Cerrar", "ja": "閉じる"},
+    # Navbar
+    "Main page": {"uz": "Bosh sahifa", "ru": "Главная", "it": "Home", "es": "Inicio", "ja": "ホーム"},
+    "Guidebook": {"uz": "Qo'llanma", "ru": "Путеводитель", "it": "Guida", "es": "Guía", "ja": "ガイドブック"},
+    "More": {"uz": "Yana", "ru": "Ещё", "it": "Altro", "es": "Más", "ja": "その他"},
+    "About us": {"uz": "Biz haqimizda", "ru": "О нас", "it": "Chi siamo", "es": "Sobre nosotros", "ja": "会社概要"},
+    "About the Company": {"uz": "Kompaniya haqida", "ru": "О компании", "it": "Sull'azienda", "es": "Sobre la empresa", "ja": "会社について"},
+    "Contact": {"uz": "Aloqa", "ru": "Контакты", "it": "Contatti", "es": "Contacto", "ja": "お問い合わせ"},
     # Home — "Why UNITUR?" heading (the four feature descriptions already exist
     # lower in this file; only the heading was genuinely missing).
     "Why UNITUR?": {"uz": "Nega aynan UNITUR?", "ru": "Почему UNITUR?", "it": "Perché UNITUR?", "es": "¿Por qué UNITUR?", "ja": "なぜUNITUR？"},
@@ -128,7 +135,7 @@ T = {
     "With Confidence": {"uz": "Ishonch bilan", "ru": "С уверенностью", "it": "Con Fiducia", "es": "Con Confianza", "ja": "自信を持って"},
     "Authentic tours across Uzbekistan and Eurasia. Unmatched service, unforgettable memories.": {
         "uz": "O'zbekiston va Yevrosiyo bo'ylab betakror turlar. Tengsiz xizmat, unutilmas xotiralar.",
-        "ru": "Подлинные туры по Узбекистану и Евразии. Безупречный сервис, незабываемые впечатления.",
+        "ru": "Подлинные туры по Узбекистану и Центральной Азии. Безупречный сервис, незабываемые впечатления.",
         "it": "Tour autentici in Uzbekistan ed Eurasia. Servizio impareggiabile, ricordi indimenticabili.",
         "es": "Tours auténticos por Uzbekistán y Eurasia. Servicio inigualable, recuerdos inolvidables.",
         "ja": "ウズベキスタンとユーラシアを巡る本格的なツアー。比類なきサービス、忘れられない思い出。",
@@ -837,6 +844,9 @@ DASHBOARD_T = {
     "Delete this stop": {"uz": "Bu bekatni o'chirish", "ru": "Удалить остановку", "it": "Elimina tappa", "es": "Eliminar parada", "ja": "この立ち寄りを削除"},
     "Remove": {"uz": "Olib tashlash", "ru": "Убрать", "it": "Rimuovi", "es": "Quitar", "ja": "削除"},
     "Add stop": {"uz": "Bekat qo'shish", "ru": "Добавить остановку", "it": "Aggiungi tappa", "es": "Añadir parada", "ja": "立ち寄りを追加"},
+    "Add day": {"uz": "Kun qo'shish", "ru": "Добавить день", "it": "Aggiungi giorno", "es": "Añadir día", "ja": "日を追加"},
+    "Delete this day": {"uz": "Bu kunni o'chirish", "ru": "Удалить этот день", "it": "Elimina questo giorno", "es": "Eliminar este día", "ja": "この日を削除"},
+    "Optionally describe each day of the tour. It appears on the tour page when provided.": {"uz": "Ixtiyoriy: turning har bir kunini tasvirlang. Kiritilsa, tur sahifasida ko'rinadi.", "ru": "По желанию опишите каждый день тура. Отображается на странице тура, если заполнено.", "it": "Facoltativamente descrivi ogni giorno del tour. Appare sulla pagina del tour se compilato.", "es": "Opcionalmente describe cada día del tour. Aparece en la página del tour si se completa.", "ja": "任意でツアーの各日を説明できます。入力するとツアーページに表示されます。"},
     "Domestic tour created.": {"uz": "Ichki tur yaratildi.", "ru": "Внутренний тур создан.", "it": "Tour nazionale creato.", "es": "Tour nacional creado.", "ja": "国内ツアーを作成しました。"},
     "Domestic tour updated.": {"uz": "Ichki tur yangilandi.", "ru": "Внутренний тур обновлён.", "it": "Tour nazionale aggiornato.", "es": "Tour nacional actualizado.", "ja": "国内ツアーを更新しました。"},
     "Domestic tour saved.": {"uz": "Ichki tur saqlandi.", "ru": "Внутренний тур сохранён.", "it": "Tour nazionale salvato.", "es": "Tour nacional guardado.", "ja": "国内ツアーを保存しました。"},
