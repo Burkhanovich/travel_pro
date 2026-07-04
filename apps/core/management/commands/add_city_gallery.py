@@ -24,7 +24,9 @@ from apps.destinations.models import City, CityImage
 MAX_WIDTH = 1600
 _UA = "TravelPro/1.0 (+https://unitur.uz; admin@unitur.uz)"
 
-# city name (lowercase) -> list of (wikipedia_title, caption, description)
+# city name (lowercase) -> list of (source, caption, description).
+# `source` is a Wikipedia article title, OR "commons:File_name.jpg" for a direct
+# Wikimedia Commons file, OR a full "https://…" image URL.
 GALLERIES = {
     "samarkand": [
         ("Registan", "Registan Square",
@@ -37,6 +39,40 @@ GALLERIES = {
          "Once one of the largest mosques of the medieval Islamic world, built by Timur after his campaign in India."),
         ("Ulugh Beg Observatory", "Ulugh Beg Observatory",
          "Remains of a 15th-century astronomical observatory built by the scholar-king Ulugh Beg."),
+    ],
+    "bukhara": [
+        ("Po-i-Kalyan", "Po-i-Kalyan",
+         "The monumental religious complex — the towering Kalyan Minaret, Kalyan Mosque and the working Mir-i-Arab Madrasa."),
+        ("Ark of Bukhara", "Ark Fortress",
+         "A massive royal citadel that was the residence of Bukhara's emirs for over a thousand years."),
+        ("Lab-i Hauz", "Lyab-i Hauz",
+         "A serene plaza built around one of the few surviving ancient reservoirs (hauz), shaded by mulberry trees."),
+        ("Chor Minor", "Chor Minor",
+         "A whimsical gatehouse crowned with four distinctive turquoise-domed towers."),
+        ("Samanid mausoleum", "Samanid Mausoleum",
+         "A 10th-century brick masterpiece and one of the oldest surviving monuments in Central Asia."),
+    ],
+    "khiva": [
+        ("commons:Kalta_Minor_01.jpg", "Kalta Minor",
+         "The unfinished, fully turquoise-tiled minaret — the unmistakable emblem of Khiva."),
+        ("commons:Konya_Ark_gate.jpg", "Kunya-Ark Citadel",
+         "The fortified residence of Khiva's khans within the walls of Itchan Kala."),
+        ("commons:Alla_Kouli_Khan_madrasa_view_from_outside.JPG", "Allakuli Khan Madrasa",
+         "A grand 19th-century madrasa in the heart of the old walled city."),
+        ("Juma Mosque, Khiva", "Juma Mosque",
+         "The Friday mosque famous for its hushed hall of more than 200 carved wooden columns."),
+    ],
+    "tashkent": [
+        ("Hazrati Imam Complex", "Hazrati Imam Complex",
+         "Tashkent's spiritual heart, home to one of the oldest Qurans in the world."),
+        ("Chorsu Bazaar", "Chorsu Bazaar",
+         "A bustling, centuries-old market sheltered beneath a vast turquoise-tiled dome."),
+        ("Kukeldash Madrasa", "Kukeldash Madrasa",
+         "A 16th-century madrasa overlooking the historic old town."),
+        ("Amir Timur Square", "Amir Timur Square",
+         "The leafy central square with an equestrian statue of Amir Timur."),
+        ("Tashkent TV Tower", "Tashkent TV Tower",
+         "One of the tallest towers in Central Asia, offering panoramic views over the capital."),
     ],
 }
 
@@ -63,8 +99,19 @@ class Command(BaseCommand):
         with urllib.request.urlopen(req, context=self.ctx(), timeout=30) as r:
             return r.read()
 
-    def _wiki_image_url(self, title):
-        api = "https://en.wikipedia.org/api/rest_v1/page/summary/" + urllib.parse.quote(title.replace(" ", "_"))
+    def _resolve(self, source):
+        """Return a downloadable image URL for a gallery source.
+
+        Accepts a full URL, a "commons:File.jpg" reference, or a Wikipedia
+        article title (whose lead image is used).
+        """
+        if source.startswith("http"):
+            return source
+        if source.startswith("commons:"):
+            fname = source.split(":", 1)[1]
+            return ("https://commons.wikimedia.org/wiki/Special:FilePath/"
+                    + urllib.parse.quote(fname) + "?width=1600")
+        api = "https://en.wikipedia.org/api/rest_v1/page/summary/" + urllib.parse.quote(source.replace(" ", "_"))
         data = json.loads(self._get(api))
         return (data.get("originalimage") or {}).get("source")
 
@@ -107,14 +154,14 @@ class Command(BaseCommand):
         start_order = (city.images.count() or 0)
         added = 0
 
-        for i, (title, caption, description) in enumerate(curated):
+        for i, (source, caption, description) in enumerate(curated):
             if caption in existing:
                 self.stdout.write(f"  = {caption} (already present, skipped)")
                 continue
             try:
-                img_url = self._wiki_image_url(title)
+                img_url = self._resolve(source)
                 if not img_url:
-                    self.stderr.write(self.style.WARNING(f"  ! {title}: no image on Wikipedia"))
+                    self.stderr.write(self.style.WARNING(f"  ! {source}: no image found"))
                     continue
                 data = self._download_resized(img_url)
                 if len(data) < 10_000:
@@ -131,7 +178,7 @@ class Command(BaseCommand):
                     f"  + {caption} ({len(data)//1024} KB)"))
                 time.sleep(0.3)
             except Exception as exc:  # noqa: BLE001
-                self.stderr.write(self.style.WARNING(f"  ! {title}: {exc}"))
+                self.stderr.write(self.style.WARNING(f"  ! {source}: {exc}"))
 
         self.stdout.write(self.style.SUCCESS(
             f"\nDone — {added} gallery image(s) added to {city.name_en}."
