@@ -8,12 +8,12 @@
   class="fixed w-full top-0 z-40 bg-pattern-frame shadow-md"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20 lg:h-24">
+    <div class="flex items-center justify-between h-20 lg:h-28">
 
-      {# Logo #}
-      <a href="{% url 'home' %}" class="flex items-center flex-shrink-0">
+      {# Logo — full-colour on a white chip, enlarged and pulled toward the edge #}
+      <a href="{% url 'home' %}" class="flex items-center flex-shrink-0 bg-white/95 rounded-xl px-3 py-1.5 shadow-sm -ml-2 lg:-ml-4">
         <img src="{% static 'images/logo-unitur.png' %}" alt="{{ SITE_NAME }}"
-             class="h-16 lg:h-20 w-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)]">
+             class="h-16 lg:h-24 w-auto">
       </a>
 
       {# Desktop nav — 5 items: Main · Destinations · Tours · Guidebook · About #}
