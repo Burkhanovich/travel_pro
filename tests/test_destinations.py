@@ -47,6 +47,20 @@ class TestCountry:
         inactive.destinations.add(country)
         assert country.tour_count == 1
 
+    def test_detail_page_renders_with_cities(self, client):
+        """Country detail must render its city grid (city_card include).
+
+        Regression guard: a self-referential include once caused infinite
+        recursion / 500 here, which the model-only tests never exercised.
+        """
+        country = f.make_country(name="France", is_active=True, overview="Beautiful.")
+        f.make_city(name="Paris", country=country)
+        f.make_city(name="Nice", country=country)
+        resp = client.get(country.get_absolute_url())
+        assert resp.status_code == 200
+        html = resp.content.decode()
+        assert "Paris" in html and "Nice" in html
+
 
 class TestCity:
     def test_str_includes_country(self):
@@ -71,6 +85,26 @@ class TestCity:
         f.make_city(name="Springfield", country=country)
         with pytest.raises(Exception):
             City.objects.create(name="Springfield", country=country, slug="springfield")
+
+    def test_detail_page_renders_with_gallery(self, client):
+        """City detail must render its photo gallery + lightbox.
+
+        Regression guard for the count-adaptive gallery / gallery_item include.
+        """
+        from apps.destinations.models import CityImage
+
+        country = f.make_country(name="Uzbekistan", is_active=True)
+        city = f.make_city(name="Samarkand", country=country, overview="Silk Road jewel.")
+        for i in range(4):  # 4 images -> mosaic branch (feature + tiles)
+            CityImage.objects.create(
+                city=city, image=f"cities/gallery/img{i}.jpg",
+                caption=f"Photo {i}", description=f"About photo {i}", order=i,
+            )
+        resp = client.get(city.get_absolute_url())
+        assert resp.status_code == 200
+        html = resp.content.decode()
+        assert "gallery-item" in html      # gallery grid rendered
+        assert "city-lightbox" in html     # lightbox present
 
 
 class TestAttraction:
