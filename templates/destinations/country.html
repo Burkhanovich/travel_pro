@@ -7,20 +7,20 @@
 {% block content %}
 <div class="pt-20 bg-pattern-subtle-blue">
   {# Hero #}
-  <div class="relative h-80 overflow-hidden">
+  <div class="relative min-h-[320px] h-[50vh] md:min-h-[520px] md:h-[60vh] md:max-h-[700px] overflow-hidden">
     {% if country.cover_image %}
     <img src="{{ country.cover_image.url }}" alt="{{ country.name }}" class="w-full h-full object-cover">
     {% else %}
     <div class="w-full h-full bg-gradient-to-br from-primary to-primary/60"></div>
     {% endif %}
-    <div class="absolute inset-0 bg-dark/50"></div>
-    <div class="absolute bottom-0 left-0 p-8 max-w-7xl mx-auto w-full">
+    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(30,45,65,0.05)] to-[rgba(30,45,65,0.55)]"></div>
+    <div class="absolute bottom-0 left-0 p-6 sm:p-8 max-w-7xl mx-auto w-full">
       {% include "components/breadcrumb.html" with breadcrumbs=breadcrumbs %}
       <div class="flex items-center gap-3 mt-2">
         {% if country.flag_image %}
         <img src="{{ country.flag_image.url }}" alt="" class="w-10 h-7 object-cover rounded shadow">
         {% endif %}
-        <h1 class="text-white font-serif text-4xl font-bold">{{ country.name }}</h1>
+        <h1 class="text-white font-serif text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">{{ country.name }}</h1>
       </div>
     </div>
   </div>
@@ -30,9 +30,9 @@
       <div class="lg:col-span-2">
         {# Overview #}
         {% if country.overview %}
-        <div class="prose prose-lg max-w-none mb-10">
+        <div class="content-card prose prose-lg max-w-none">
           <h2 class="font-serif text-2xl font-bold text-dark mb-4">{% trans "About" %} {{ country.name }}</h2>
-          <p class="text-gray-700">{{ country.overview }}</p>
+          {{ country.overview|linebreaks }}
         </div>
         {% endif %}
 
@@ -42,16 +42,7 @@
           <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Cities to Explore" %}</h2>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             {% for city in cities %}
-            <a href="{{ city.get_absolute_url }}"
-               class="group relative rounded-xl overflow-hidden aspect-square shadow-sm hover:shadow-md transition">
-              {% if city.cover_image %}
-              <img src="{{ city.cover_image.url }}" alt="{{ city.name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-              {% else %}
-              <div class="w-full h-full bg-accent"></div>
-              {% endif %}
-              <div class="absolute inset-0 bg-dark/40 group-hover:bg-dark/20 transition"></div>
-              <p class="absolute bottom-3 left-3 text-white font-semibold text-sm">{{ city.name }}</p>
-            </a>
+              {% include "components/city_card.html" with city=city %}
             {% endfor %}
           </div>
         </div>

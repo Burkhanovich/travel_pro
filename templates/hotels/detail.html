@@ -6,15 +6,15 @@
 {% block content %}
 <div class="pt-20 bg-pattern-subtle-blue">
   {# Hero #}
-  <div class="relative h-80 overflow-hidden">
+  <div class="relative min-h-[320px] h-[50vh] md:min-h-[520px] md:h-[60vh] md:max-h-[700px] overflow-hidden">
     {% if hotel.cover_image %}
     <img src="{{ hotel.cover_image.url }}" alt="{{ hotel.name }}" class="w-full h-full object-cover">
     {% endif %}
-    <div class="absolute inset-0 bg-dark/50"></div>
-    <div class="absolute bottom-6 left-8">
-      <p class="text-secondary text-sm mb-1">{{ hotel.star_display }}</p>
-      <h1 class="text-white font-serif text-4xl font-bold">{{ hotel.name }}</h1>
-      <p class="text-white/70 flex items-center gap-1 mt-1"><i class="ti ti-map-pin"></i>{{ hotel.city.name }}, {{ hotel.city.country.name }}</p>
+    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(30,45,65,0.05)] to-[rgba(30,45,65,0.55)]"></div>
+    <div class="absolute bottom-6 left-6 sm:bottom-8 sm:left-10 right-6">
+      <p class="text-secondary text-sm mb-1 drop-shadow">{{ hotel.star_display }}</p>
+      <h1 class="text-white font-serif text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">{{ hotel.name }}</h1>
+      <p class="text-white/80 flex items-center gap-1 mt-1 drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)]"><i class="ti ti-map-pin"></i>{{ hotel.city.name }}, {{ hotel.city.country.name }}</p>
     </div>
   </div>
 
@@ -38,9 +38,9 @@
 
         {# Description #}
         {% if hotel.description %}
-        <div class="prose prose-lg max-w-none mb-10">
+        <div class="content-card prose prose-lg max-w-none">
           <h2 class="font-serif text-2xl font-bold text-dark mb-4">{% trans "About the Hotel" %}</h2>
-          <p class="text-gray-700">{{ hotel.description }}</p>
+          {{ hotel.description|linebreaks }}
         </div>
         {% endif %}
 

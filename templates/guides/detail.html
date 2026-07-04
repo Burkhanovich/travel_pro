@@ -7,7 +7,7 @@
 {% block content %}
 <div class="pt-20 bg-pattern-subtle-yellow">
   {% if article.cover_image %}
-  <div class="h-72 overflow-hidden">
+  <div class="min-h-[320px] h-[50vh] md:min-h-[520px] md:h-[60vh] md:max-h-[700px] overflow-hidden">
     <img src="{{ article.cover_image.url }}" alt="{{ article.title }}" class="w-full h-full object-cover">
   </div>
   {% endif %}
@@ -15,8 +15,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex flex-col lg:flex-row gap-12">
 
-      {# Article content #}
-      <article class="flex-1 max-w-3xl">
+      {# Article content — inside a solid white card so the text floats above the pattern #}
+      <article class="content-card flex-1 max-w-3xl">
         {% if article.category %}
         <a href="{{ article.category.get_absolute_url }}" class="text-secondary text-sm font-semibold uppercase tracking-wide mb-3 inline-block hover:underline">
           {{ article.category.name }}

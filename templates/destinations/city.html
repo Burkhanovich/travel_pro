@@ -20,7 +20,7 @@
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     {% if city.overview %}
-    <div class="prose prose-lg max-w-3xl mb-12">{{ city.overview|linebreaks }}</div>
+    <div class="content-card prose prose-lg max-w-3xl">{{ city.overview|linebreaks }}</div>
     {% endif %}
 
     {# ── Photo gallery — layout adapts to the number of images ── #}

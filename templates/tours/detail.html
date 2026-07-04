@@ -12,17 +12,17 @@
 <div class="pt-20 bg-pattern-subtle-blue">
 
   {# ── Hero image (real tour photo — kept) #}
-  <div class="relative h-96 overflow-hidden">
+  <div class="relative min-h-[320px] h-[50vh] md:min-h-[520px] md:h-[60vh] md:max-h-[700px] overflow-hidden">
     {% if tour.cover_image %}
     <img src="{{ tour.cover_image.url }}" alt="{{ tour.title }}"
          class="w-full h-full object-cover">
     {% else %}
     <div class="w-full h-full bg-gradient-to-br from-primary to-primary/50"></div>
     {% endif %}
-    <div class="absolute inset-0 bg-dark/50"></div>
-    <div class="absolute bottom-0 left-0 right-0 p-8 max-w-7xl mx-auto">
+    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(30,45,65,0.05)] to-[rgba(30,45,65,0.55)]"></div>
+    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 max-w-7xl mx-auto">
       {% include "components/breadcrumb.html" with breadcrumbs=breadcrumbs %}
-      <h1 class="text-white font-serif text-4xl font-bold mt-2">{{ tour.title }}</h1>
+      <h1 class="text-white font-serif text-4xl md:text-5xl lg:text-6xl font-bold mt-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">{{ tour.title }}</h1>
       <div class="flex flex-wrap gap-4 mt-3 text-white/80 text-sm">
         <span><i class="ti ti-calendar mr-1"></i>{{ tour.duration_days }} {% trans "days" %}</span>
         <span><i class="ti ti-users mr-1"></i>{{ tour.group_size_min }}–{{ tour.group_size_max }} {% trans "pax" %}</span>
