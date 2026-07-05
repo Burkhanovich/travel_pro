@@ -38,7 +38,6 @@ class HotelCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
         "address", "latitude", "longitude", "phone", "email",
         "website", "description", "amenities",
         "check_in_time", "check_out_time", "price_from",
-        "is_active", "order",
     ]
 
     def form_valid(self, form):
@@ -63,7 +62,6 @@ class HotelEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
         "address", "latitude", "longitude", "phone", "email",
         "website", "description", "amenities",
         "check_in_time", "check_out_time", "price_from",
-        "is_active", "order",
     ]
 
     def form_valid(self, form):

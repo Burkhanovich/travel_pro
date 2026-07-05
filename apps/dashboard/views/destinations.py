@@ -34,7 +34,7 @@ class CountryCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
     model = Country
     template_name = "dashboard/destinations/country_form.html"
     success_url = reverse_lazy("dashboard:destinations_list")
-    fields = ["name", "slug", "continent", "cover_image", "overview", "is_active"]
+    fields = ["name", "slug", "continent", "cover_image", "overview"]
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -53,7 +53,7 @@ class CountryEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
     model = Country
     template_name = "dashboard/destinations/country_form.html"
     success_url = reverse_lazy("dashboard:destinations_list")
-    fields = ["name", "slug", "continent", "cover_image", "overview", "is_active"]
+    fields = ["name", "slug", "continent", "cover_image", "overview"]
 
     def form_valid(self, form):
         response = super().form_valid(form)

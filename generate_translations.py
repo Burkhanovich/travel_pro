@@ -847,6 +847,11 @@ DASHBOARD_T = {
     "Add stop": {"uz": "Bekat qo'shish", "ru": "Добавить остановку", "it": "Aggiungi tappa", "es": "Añadir parada", "ja": "立ち寄りを追加"},
     "Add day": {"uz": "Kun qo'shish", "ru": "Добавить день", "it": "Aggiungi giorno", "es": "Añadir día", "ja": "日を追加"},
     "Delete this day": {"uz": "Bu kunni o'chirish", "ru": "Удалить этот день", "it": "Elimina questo giorno", "es": "Eliminar este día", "ja": "この日を削除"},
+    # Visibility toggle (show / hide on the public site)
+    "Hide from site": {"uz": "Saytdan yashirish", "ru": "Скрыть с сайта", "it": "Nascondi dal sito", "es": "Ocultar del sitio", "ja": "サイトから非表示"},
+    "Show on site": {"uz": "Saytda ko'rsatish", "ru": "Показать на сайте", "it": "Mostra sul sito", "es": "Mostrar en el sitio", "ja": "サイトに表示"},
+    "'%(name)s' is now visible on the site.": {"uz": "'%(name)s' endi saytda ko'rinadi.", "ru": "«%(name)s» теперь виден на сайте.", "it": "«%(name)s» ora è visibile sul sito.", "es": "«%(name)s» ahora es visible en el sitio.", "ja": "「%(name)s」はサイトに表示されるようになりました。"},
+    "'%(name)s' is now hidden from the site.": {"uz": "'%(name)s' endi saytdan yashirildi.", "ru": "«%(name)s» теперь скрыт с сайта.", "it": "«%(name)s» ora è nascosto dal sito.", "es": "«%(name)s» ahora está oculto del sitio.", "ja": "「%(name)s」はサイトから非表示になりました。"},
     "Optionally describe each day of the tour. It appears on the tour page when provided.": {"uz": "Ixtiyoriy: turning har bir kunini tasvirlang. Kiritilsa, tur sahifasida ko'rinadi.", "ru": "По желанию опишите каждый день тура. Отображается на странице тура, если заполнено.", "it": "Facoltativamente descrivi ogni giorno del tour. Appare sulla pagina del tour se compilato.", "es": "Opcionalmente describe cada día del tour. Aparece en la página del tour si se completa.", "ja": "任意でツアーの各日を説明できます。入力するとツアーページに表示されます。"},
     "Domestic tour created.": {"uz": "Ichki tur yaratildi.", "ru": "Внутренний тур создан.", "it": "Tour nazionale creato.", "es": "Tour nacional creado.", "ja": "国内ツアーを作成しました。"},
     "Domestic tour updated.": {"uz": "Ichki tur yangilandi.", "ru": "Внутренний тур обновлён.", "it": "Tour nazionale aggiornato.", "es": "Tour nacional actualizado.", "ja": "国内ツアーを更新しました。"},

@@ -50,7 +50,7 @@ class TourCreateView(AuditMixin, ManagerRequiredMixin, CreateView):
         "group_size_min", "group_size_max", "difficulty",
         "price_per_person", "price_currency", "discount_percent",
         "cover_image", "overview", "includes", "excludes",
-        "important_notes", "is_active", "order",
+        "important_notes",
     ]
 
     def form_valid(self, form):
@@ -76,7 +76,7 @@ class TourEditView(AuditMixin, ManagerRequiredMixin, UpdateView):
         "group_size_min", "group_size_max", "difficulty",
         "price_per_person", "price_currency", "discount_percent",
         "cover_image", "overview", "includes", "excludes",
-        "important_notes", "is_active", "order",
+        "important_notes",
     ]
 
     def form_valid(self, form):

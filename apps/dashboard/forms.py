@@ -132,7 +132,7 @@ class IchkiTurForm(forms.ModelForm):
             "group_size_min", "group_size_max",
             "price_per_person", "price_currency", "discount_percent",
             "cover_image", "overview", "includes", "excludes",
-            "important_notes", "is_active", "order",
+            "important_notes",
         ]
 
 
@@ -196,9 +196,10 @@ class DomesticCityForm(forms.ModelForm):
 
     class Meta:
         model = City
-        # is_featured and order are omitted: featured has no effect for cities,
-        # and cities are simply listed alphabetically by name.
-        fields = ["name", "cover_image", "overview", "is_active"]
+        # is_featured, order and is_active are omitted: featured/order have no
+        # effect for cities (listed alphabetically), and visibility is toggled
+        # from the city list, not this form.
+        fields = ["name", "cover_image", "overview"]
 
     def save(self, commit=True):
         city = super().save(commit=False)

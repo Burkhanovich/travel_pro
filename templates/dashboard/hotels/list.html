@@ -61,6 +61,14 @@
               <div class="flex items-center gap-2">
                 <a href="{{ hotel.get_absolute_url }}" target="_blank" class="text-gray-400 hover:text-gray-600" title="{% trans 'View' %}"><i class="ti ti-external-link"></i></a>
                 <a href="{% url 'dashboard:hotels_edit' hotel.pk %}" class="text-blue-500 hover:text-blue-700" title="{% trans 'Edit' %}"><i class="ti ti-pencil"></i></a>
+                <form method="post" action="{% url 'dashboard:toggle_active' 'hotel' hotel.pk %}">
+                  {% csrf_token %}
+                  {% if hotel.is_active %}
+                  <button type="submit" class="text-gray-400 hover:text-amber-600" title="{% trans 'Hide from site' %}"><i class="ti ti-eye-off"></i></button>
+                  {% else %}
+                  <button type="submit" class="text-gray-400 hover:text-green-600" title="{% trans 'Show on site' %}"><i class="ti ti-eye"></i></button>
+                  {% endif %}
+                </form>
                 <form method="post" action="{% url 'dashboard:hotels_delete' hotel.pk %}" onsubmit="return confirm('{% trans 'Delete this item?' %}')">
                   {% csrf_token %}
                   <button type="submit" class="text-red-400 hover:text-red-600" title="{% trans 'Delete' %}"><i class="ti ti-trash"></i></button>

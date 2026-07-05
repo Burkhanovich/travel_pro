@@ -45,6 +45,7 @@ from apps.dashboard.views.hotels import (
     HotelListView,
 )
 from apps.dashboard.views.reviews import ReviewListView
+from apps.dashboard.views.toggle import ToggleActiveView
 from apps.dashboard.views.tours import (
     TourCreateView,
     TourDeleteView,
@@ -112,6 +113,9 @@ urlpatterns = [
     path("articles/create/", ArticleCreateView.as_view(), name="articles_create"),
     path("articles/<int:pk>/edit/", ArticleEditView.as_view(), name="articles_edit"),
     path("articles/<int:pk>/delete/", ArticleDeleteView.as_view(), name="articles_delete"),
+
+    # Quick visibility toggle (show / hide) for content records
+    path("toggle-active/<str:model>/<int:pk>/", ToggleActiveView.as_view(), name="toggle_active"),
 
     # Reviews
     path("reviews/", ReviewListView.as_view(), name="reviews_list"),

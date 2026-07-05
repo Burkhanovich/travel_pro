@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 18:35+0000\n"
-"PO-Revision-Date: 2026-07-04 18:35+0000\n"
+"POT-Creation-Date: 2026-07-05 22:56+0000\n"
+"PO-Revision-Date: 2026-07-05 22:56+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: es\n"
 "Language: es\n"
@@ -1681,6 +1681,18 @@ msgstr "Añadir día"
 
 msgid "Delete this day"
 msgstr "Eliminar este día"
+
+msgid "Hide from site"
+msgstr "Ocultar del sitio"
+
+msgid "Show on site"
+msgstr "Mostrar en el sitio"
+
+msgid "'%(name)s' is now visible on the site."
+msgstr "«%(name)s» ahora es visible en el sitio."
+
+msgid "'%(name)s' is now hidden from the site."
+msgstr "«%(name)s» ahora está oculto del sitio."
 
 msgid ""
 "Optionally describe each day of the tour. It appears on the tour page when "
