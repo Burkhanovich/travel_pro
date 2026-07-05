@@ -53,8 +53,9 @@ html { scroll-behavior: smooth; }
 
 /* ── Navigation link ─────────────────────────────────────── */
 .nav-link {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   transition: color 0.2s;
   text-decoration: none;
   padding: 0.25rem 0;

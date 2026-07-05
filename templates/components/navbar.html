@@ -10,22 +10,22 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20 lg:h-28">
 
-      {# Logo — full-colour on a white chip, enlarged and pulled toward the edge #}
-      <a href="{% url 'home' %}" class="flex items-center flex-shrink-0 bg-white/95 rounded-xl px-3 py-1.5 shadow-sm -ml-2 lg:-ml-4">
+      {# Logo — full-colour on a soft, floating white card (sits naturally, ~80% of bar height) #}
+      <a href="{% url 'home' %}" class="flex items-center flex-shrink-0 bg-white rounded-2xl px-4 lg:px-5 py-1.5 lg:py-2 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
         <img src="{% static 'images/logo-unitur.png' %}" alt="{{ SITE_NAME }}"
-             class="h-16 lg:h-24 w-auto">
+             class="h-14 lg:h-20 w-auto">
       </a>
 
       {# Desktop nav — 5 items: Main · Destinations · Tours · Guidebook · About #}
-      <div class="hidden lg:flex items-center gap-6">
+      <div class="hidden lg:flex items-center gap-8">
 
         {# 1. Main page #}
-        <a href="{% url 'home' %}" class="nav-link text-white/90 hover:text-white">{% trans "Main page" %}</a>
+        <a href="{% url 'home' %}" class="nav-link text-white">{% trans "Main page" %}</a>
 
         {# 2. Destinations mega-menu #}
         <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <button class="nav-link flex items-center gap-1 text-white/90 hover:text-white">
-            {% trans "Destinations" %} <i class="ti ti-chevron-down text-sm"></i>
+          <button class="nav-link flex items-center gap-1 text-white">
+            {% trans "Destinations" %} <i class="ti ti-chevron-down text-base"></i>
           </button>
           <div x-show="open" x-transition class="absolute left-0 top-full mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-4 z-50">
             {% for continent in nav_continents %}
@@ -49,8 +49,8 @@
 
         {# 3. Tours mega-menu — categories + Hotels & Domestic Tours moved here #}
         <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <button class="nav-link flex items-center gap-1 text-white/90 hover:text-white">
-            {% trans "Tours" %} <i class="ti ti-chevron-down text-sm"></i>
+          <button class="nav-link flex items-center gap-1 text-white">
+            {% trans "Tours" %} <i class="ti ti-chevron-down text-base"></i>
           </button>
           <div x-show="open" x-transition:enter="transition ease-out duration-150"
                x-transition:enter-start="opacity-0 translate-y-1" x-transition:enter-end="opacity-100 translate-y-0"
@@ -80,12 +80,12 @@
         </div>
 
         {# 4. Guidebook #}
-        <a href="{% url 'guides:list' %}" class="nav-link text-white/90 hover:text-white">{% trans "Guidebook" %}</a>
+        <a href="{% url 'guides:list' %}" class="nav-link text-white">{% trans "Guidebook" %}</a>
 
         {# 5. About us — dropdown: Company + Contact #}
         <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <button class="nav-link flex items-center gap-1 text-white/90 hover:text-white">
-            {% trans "About us" %} <i class="ti ti-chevron-down text-sm"></i>
+          <button class="nav-link flex items-center gap-1 text-white">
+            {% trans "About us" %} <i class="ti ti-chevron-down text-base"></i>
           </button>
           <div x-show="open" x-transition class="absolute right-0 top-full mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 p-2 z-50">
             <a href="{% url 'about' %}" class="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-700 hover:bg-accent hover:text-primary text-sm">
@@ -106,7 +106,7 @@
         {% include "components/language_switcher.html" %}
 
         {# No public sign-in: visitors book as guests; staff use the hidden Ctrl+Shift+A modal (base.html). #}
-        <a href="{% url 'bookings:inquiry' %}" class="btn-frame-accent text-sm px-5 py-2">{% trans "Book Now" %}</a>
+        <a href="{% url 'bookings:inquiry' %}" class="btn-frame-accent text-base font-semibold px-6 py-2.5">{% trans "Book Now" %}</a>
       </div>
 
       {# Mobile menu button #}
