@@ -117,20 +117,64 @@
     </div>
   </div>
 
-  {# Mobile menu #}
-  <div x-show="mobileOpen" x-transition class="lg:hidden bg-white shadow-xl border-t">
+  {# ── Mobile menu ── #}
+  {# Backdrop — dim + blur the page, tap to close #}
+  <div x-show="mobileOpen" x-transition.opacity @click="mobileOpen=false" x-cloak
+       class="lg:hidden fixed inset-x-0 top-20 bottom-0 z-30 bg-dark/40 backdrop-blur-sm"></div>
+
+  {# Sliding panel #}
+  <div x-show="mobileOpen" x-cloak
+       x-transition:enter="transition ease-out duration-200"
+       x-transition:enter-start="opacity-0 -translate-y-3"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-150"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 -translate-y-3"
+       class="lg:hidden fixed inset-x-0 top-20 z-40 bg-white shadow-2xl rounded-b-2xl border-t border-gray-100 max-h-[calc(100vh-5rem)] overflow-y-auto">
     <div class="px-4 py-4 space-y-1">
-      <a href="{% url 'home' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "Main page" %}</a>
-      <a href="{% url 'destinations:list' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "Destinations" %}</a>
-      <a href="{% url 'tours:list' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "Tours" %}</a>
+
+      {# Search #}
+      <form action="{% url 'tours:list' %}" method="get" class="flex gap-2 mb-3">
+        <input type="text" name="q" placeholder="{% trans 'Search tours, destinations…' %}"
+               class="flex-1 border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+        <button type="submit" class="btn-primary px-4 rounded-xl" aria-label="{% trans 'Search' %}"><i class="ti ti-search text-lg"></i></button>
+      </form>
+
+      {# Nav items #}
+      <a href="{% url 'home' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
+        <i class="ti ti-home text-lg text-secondary w-5 text-center"></i>{% trans "Main page" %}
+      </a>
+      <a href="{% url 'destinations:list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
+        <i class="ti ti-map-2 text-lg text-secondary w-5 text-center"></i>{% trans "Destinations" %}
+      </a>
+      <a href="{% url 'tours:list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
+        <i class="ti ti-compass text-lg text-secondary w-5 text-center"></i>{% trans "Tours" %}
+      </a>
       {# Hotels & Domestic Tours — grouped under Tours #}
-      <a href="{% url 'hotels:list' %}" class="block py-2 pl-5 text-sm text-gray-600 hover:text-primary">{% trans "Hotels" %}</a>
-      <a href="{% url 'ichki-turlar-list' %}" class="block py-2 pl-5 text-sm text-gray-600 hover:text-primary">{% trans "Domestic Tours" %}</a>
-      <a href="{% url 'guides:list' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "Guidebook" %}</a>
-      <a href="{% url 'about' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "About the Company" %}</a>
-      <a href="{% url 'contact' %}" class="block py-2 text-gray-700 hover:text-primary font-medium">{% trans "Contact" %}</a>
-      <div class="pt-3 border-t mt-2 flex flex-col gap-2">
-        <a href="{% url 'bookings:inquiry' %}" class="btn-primary text-center py-2 text-sm">{% trans "Book Now" %}</a>
+      <div class="ml-6 pl-3 border-l-2 border-accent space-y-1">
+        <a href="{% url 'hotels:list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-gray-500 hover:bg-accent hover:text-primary transition-colors">
+          <i class="ti ti-building w-5 text-center"></i>{% trans "Hotels" %}
+        </a>
+        <a href="{% url 'ichki-turlar-list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-gray-500 hover:bg-accent hover:text-primary transition-colors">
+          <i class="ti ti-route w-5 text-center"></i>{% trans "Domestic Tours" %}
+        </a>
+      </div>
+      <a href="{% url 'guides:list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
+        <i class="ti ti-book-2 text-lg text-secondary w-5 text-center"></i>{% trans "Guidebook" %}
+      </a>
+      <a href="{% url 'about' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
+        <i class="ti ti-building-community text-lg text-secondary w-5 text-center"></i>{% trans "About the Company" %}
+      </a>
+      <a href="{% url 'contact' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
+        <i class="ti ti-mail text-lg text-secondary w-5 text-center"></i>{% trans "Contact" %}
+      </a>
+
+      {# CTA + language #}
+      <div class="pt-4 mt-2 border-t border-gray-100 flex items-center gap-3">
+        <a href="{% url 'bookings:inquiry' %}" class="btn-primary flex-1 text-center py-3 text-sm font-semibold">
+          <i class="ti ti-calendar-event mr-1.5"></i>{% trans "Book Now" %}
+        </a>
+        {% include "components/language_switcher.html" with solid=True %}
       </div>
     </div>
   </div>
