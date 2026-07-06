@@ -54,6 +54,17 @@
   </script>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {# Cross-link back to the international tour listing #}
+    <div class="bg-accent rounded-xl p-4 mb-6 flex items-center justify-between gap-4 flex-wrap">
+      <p class="text-sm text-gray-700">
+        <i class="ti ti-world text-primary mr-1"></i>
+        {% trans "Looking for international tours?" %}
+      </p>
+      <a href="{% url 'tours:list' %}" class="text-primary font-semibold text-sm hover:underline whitespace-nowrap">
+        {% trans "View All Tours" %} →
+      </a>
+    </div>
+
     <div class="inline-flex bg-white rounded-xl px-4 py-3 shadow-sm mb-6">
       <p class="text-gray-600 text-sm">
         {% blocktrans with count=page_obj.paginator.count %}{{ count }} multi-city tours{% endblocktrans %}

@@ -75,6 +75,17 @@
 
       {# ── Tour Grid ────────────────────────────────────────── #}
       <div class="flex-1">
+        {# Cross-link to the separate domestic (multi-city) tour listing #}
+        <div class="bg-accent rounded-xl p-4 mb-6 flex items-center justify-between gap-4 flex-wrap">
+          <p class="text-sm text-gray-700">
+            <i class="ti ti-route text-primary mr-1"></i>
+            {% trans "Looking for multi-city tours across Uzbekistan?" %}
+          </p>
+          <a href="{% url 'ichki-turlar-list' %}" class="text-primary font-semibold text-sm hover:underline whitespace-nowrap">
+            {% trans "View Domestic Tours" %} →
+          </a>
+        </div>
+
         {# Toolbar #}
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 bg-white rounded-xl px-4 py-3 shadow-sm">
           <p class="text-gray-600 text-sm">

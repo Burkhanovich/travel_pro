@@ -32,11 +32,19 @@ class TourListView(ListView):
     paginate_by = 12
 
     def get_queryset(self):
+        # Single-city (international) tours only. Multi-city "Ichki Turlar" have
+        # their own page (IchkiTurlarListView); excluding them here keeps the two
+        # listings cleanly separated. ``distinct=True`` is required because the
+        # avg_rating join over reviews would otherwise fan out the stops count.
         qs = (
             Tour.objects.filter(is_active=True)
             .select_related("category")
             .prefetch_related("destinations")
-            .annotate(avg_rating=Avg("reviews__rating", filter=Q(reviews__status="approved")))
+            .annotate(
+                num_stops=Count("stops", distinct=True),
+                avg_rating=Avg("reviews__rating", filter=Q(reviews__status="approved")),
+            )
+            .filter(num_stops__lte=1)
         )
         self.filterset = TourFilter(self.request.GET, queryset=qs)
         filtered_qs = self.filterset.qs

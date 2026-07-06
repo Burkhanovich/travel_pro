@@ -856,6 +856,11 @@ DASHBOARD_T = {
     "Across Uzbekistan": {"uz": "O'zbekiston bo'ylab", "ru": "По Узбекистану", "it": "In Uzbekistan", "es": "Por Uzbekistán", "ja": "ウズベキスタン国内"},
     "International Tours": {"uz": "Xalqaro turlar", "ru": "Международные туры", "it": "Tour internazionali", "es": "Tours internacionales", "ja": "海外ツアー"},
     "& Expert Tips": {"uz": "va ekspert maslahatlari", "ru": "и советы экспертов", "it": "e consigli di esperti", "es": "y consejos de expertos", "ja": "＆専門家のヒント"},
+    # Cross-links between the international (/tours/) and domestic (/ichki-turlar/) listings
+    "Looking for multi-city tours across Uzbekistan?": {"uz": "O'zbekiston bo'ylab ko'p shaharli turlarni qidiryapsizmi?", "ru": "Ищете мультигородские туры по Узбекистану?", "it": "Cerchi tour multi-città in Uzbekistan?", "es": "¿Buscas tours de varias ciudades por Uzbekistán?", "ja": "ウズベキスタンのマルチシティツアーをお探しですか？"},
+    "View Domestic Tours": {"uz": "Ichki Turlarni ko'rish", "ru": "Смотреть внутренние туры", "it": "Vedi i tour nazionali", "es": "Ver tours nacionales", "ja": "国内ツアーを見る"},
+    "Looking for international tours?": {"uz": "Xalqaro turlarni qidiryapsizmi?", "ru": "Ищете международные туры?", "it": "Cerchi tour internazionali?", "es": "¿Buscas tours internacionales?", "ja": "海外ツアーをお探しですか？"},
+    "View All Tours": {"uz": "Barcha turlarni ko'rish", "ru": "Смотреть все туры", "it": "Vedi tutti i tour", "es": "Ver todos los tours", "ja": "すべてのツアーを見る"},
     # ── Tour categories management (dashboard) ───────────────────────────────
     "Tour Categories": {"uz": "Tur kategoriyalari", "ru": "Категории туров", "it": "Categorie di tour", "es": "Categorías de tours", "ja": "ツアーカテゴリ"},
     "Categories": {"uz": "Kategoriyalar", "ru": "Категории", "it": "Categorie", "es": "Categorías", "ja": "カテゴリ"},

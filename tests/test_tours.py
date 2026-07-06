@@ -58,6 +58,59 @@ class TestTourCategoryFilter:
         assert "City Museums" not in titles
 
 
+class TestTourListSeparation:
+    """/tours/ shows only single-city (international) tours; multi-city
+    "Ichki Turlar" live on their own page. cache_page is cleared per test so
+    each request renders fresh (and exposes response.context)."""
+
+    @pytest.fixture(autouse=True)
+    def _clear_cache(self):
+        from django.core.cache import cache
+        cache.clear()
+        yield
+        cache.clear()
+
+    def test_tours_list_excludes_multi_city(self, client):
+        single = f.make_tour(title="Japan Highlights", is_active=True)
+        f.make_tour_stop(single, order=1)  # one stop → still single-city
+        multi = f.make_tour(title="Uzbek Grand Tour", is_active=True)
+        f.make_tour_stop(multi, order=1)
+        f.make_tour_stop(multi, order=2)
+
+        resp = client.get(reverse("tours:list"))
+        titles = [t.title for t in resp.context["tours"]]
+        assert "Japan Highlights" in titles
+        assert "Uzbek Grand Tour" not in titles
+
+    def test_tours_list_includes_zero_stop_tours(self, client):
+        plain = f.make_tour(title="No Stops Intl", is_active=True)
+        resp = client.get(reverse("tours:list"))
+        assert plain.title in [t.title for t in resp.context["tours"]]
+
+    def test_count_unaffected_by_reviews_fanout(self, client):
+        # A single-city tour with several reviews must still count as 1 stop
+        # (distinct=True guards against the review join inflating num_stops).
+        tour = f.make_tour(title="Reviewed Single", is_active=True)
+        f.make_tour_stop(tour, order=1)
+        f.make_review(tour=tour, rating=5, status="approved")
+        f.make_review(tour=tour, rating=4, status="approved")
+
+        resp = client.get(reverse("tours:list"))
+        assert "Reviewed Single" in [t.title for t in resp.context["tours"]]
+
+    def test_ichki_turlar_only_multi_city(self, client):
+        single = f.make_tour(title="Single City", is_active=True)
+        f.make_tour_stop(single, order=1)
+        multi = f.make_tour(title="Multi City", is_active=True)
+        f.make_tour_stop(multi, order=1)
+        f.make_tour_stop(multi, order=2)
+
+        resp = client.get(reverse("ichki-turlar-list"))
+        titles = [t.title for t in resp.context["tours"]]
+        assert "Multi City" in titles
+        assert "Single City" not in titles
+
+
 class TestTour:
     def test_str_and_slug(self):
         tour = f.make_tour(title="Silk Road Journey")

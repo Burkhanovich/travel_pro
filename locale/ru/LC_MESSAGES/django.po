@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 15:28+0000\n"
-"PO-Revision-Date: 2026-07-06 15:28+0000\n"
+"POT-Creation-Date: 2026-07-06 17:34+0000\n"
+"PO-Revision-Date: 2026-07-06 17:34+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -1695,6 +1695,15 @@ msgstr "Международные туры"
 
 msgid "& Expert Tips"
 msgstr "и советы экспертов"
+
+msgid "Looking for multi-city tours across Uzbekistan?"
+msgstr "Ищете мультигородские туры по Узбекистану?"
+
+msgid "View Domestic Tours"
+msgstr "Смотреть внутренние туры"
+
+msgid "Looking for international tours?"
+msgstr "Ищете международные туры?"
 
 msgid "Tour Categories"
 msgstr "Категории туров"
