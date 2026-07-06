@@ -15,7 +15,12 @@ class TourFilter(django_filters.FilterSet):
 
     q = django_filters.CharFilter(method="filter_search", label=_("Search"))
     category = django_filters.ModelChoiceFilter(
+        field_name="category",
         queryset=TourCategory.objects.all(),
+        # The whole site links categories by slug (navbar, footer,
+        # TourCategory.get_absolute_url, the filter <select>), so resolve the
+        # incoming value against the slug rather than the default pk.
+        to_field_name="slug",
         label=_("Category"),
         empty_label=_("All categories"),
     )

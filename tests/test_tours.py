@@ -6,6 +6,7 @@ import pytest
 from django.db import IntegrityError
 from django.urls import reverse
 
+from apps.tours.filters import TourFilter
 from apps.tours.models import Tour, TourDay, TourStop
 from tests import factories as f
 
@@ -21,6 +22,40 @@ class TestTourCategory:
     def test_get_absolute_url(self):
         cat = f.make_tour_category(name="Beach", slug="beach")
         assert cat.get_absolute_url() == reverse("tours:list") + "?category=beach"
+
+
+class TestTourCategoryFilter:
+    """The site links categories by slug, so the filter must match by slug
+    (regression: it previously used the default pk and never matched)."""
+
+    def test_filter_by_slug_matches(self):
+        beach = f.make_tour_category(name="Beach", slug="beach")
+        culture = f.make_tour_category(name="Culture", slug="culture")
+        t1 = f.make_tour(title="Seaside", category=beach)
+        f.make_tour(title="Museums", category=culture)
+
+        result = TourFilter({"category": "beach"}, queryset=Tour.objects.all()).qs
+        assert list(result) == [t1]
+
+    def test_filter_by_unknown_slug_is_ignored(self):
+        # An unknown slug is an invalid choice, so django-filter drops the
+        # filter and lists everything rather than erroring — a graceful fallback.
+        beach = f.make_tour_category(name="Beach", slug="beach")
+        f.make_tour(title="Seaside", category=beach)
+        result = TourFilter({"category": "does-not-exist"}, queryset=Tour.objects.all()).qs
+        assert result.count() == 1
+
+    def test_view_category_slug_filters(self, client):
+        beach = f.make_tour_category(name="Beach", slug="beach")
+        culture = f.make_tour_category(name="Culture", slug="culture")
+        f.make_tour(title="Seaside Escape", category=beach, is_active=True)
+        f.make_tour(title="City Museums", category=culture, is_active=True)
+
+        resp = client.get(reverse("tours:list"), {"category": "beach"})
+        assert resp.status_code == 200
+        titles = [t.title for t in resp.context["tours"]]
+        assert "Seaside Escape" in titles
+        assert "City Museums" not in titles
 
 
 class TestTour:

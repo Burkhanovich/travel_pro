@@ -5,8 +5,10 @@
 
 {% block content %}
 <div class="pt-20 lg:pt-28 bg-pattern-subtle-blue">
-  {# ── Page header — branded hero strip (same muted palette as the navbar) so the
-       top of the page flows out of the frame instead of jumping to a flat colour. #}
+  {% comment %}
+  ── Page header — branded hero strip (same muted palette as the navbar) so the
+     top of the page flows out of the frame instead of jumping to a flat colour.
+  {% endcomment %}
   <div class="relative py-16 text-center overflow-hidden bg-pattern-hero">
     <div class="relative z-10 px-4">
       <h1 class="text-4xl md:text-5xl font-serif font-bold">{% trans "Travel Guides" %}</h1>
