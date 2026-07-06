@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-05 22:56+0000\n"
-"PO-Revision-Date: 2026-07-05 22:56+0000\n"
+"POT-Creation-Date: 2026-07-06 15:28+0000\n"
+"PO-Revision-Date: 2026-07-06 15:28+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -1686,6 +1686,87 @@ msgstr "«%(name)s» теперь виден на сайте."
 
 msgid "'%(name)s' is now hidden from the site."
 msgstr "«%(name)s» теперь скрыт с сайта."
+
+msgid "Across Uzbekistan"
+msgstr "По Узбекистану"
+
+msgid "International Tours"
+msgstr "Международные туры"
+
+msgid "& Expert Tips"
+msgstr "и советы экспертов"
+
+msgid "Tour Categories"
+msgstr "Категории туров"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Add Category"
+msgstr "Добавить категорию"
+
+msgid "Save Category"
+msgstr "Сохранить категорию"
+
+msgid "Back to Categories"
+msgstr "Назад к категориям"
+
+msgid "No categories yet."
+msgstr "Пока нет категорий."
+
+msgid "Icon"
+msgstr "Значок"
+
+msgid ""
+"These power the “Category” filter on the public tours page and the Tours "
+"mega-menu."
+msgstr ""
+"Они управляют фильтром «Категория» на странице туров и мега-меню «Туры»."
+
+msgid ""
+"Browse icon names at tabler.io/icons — use the name without the “ti ti-” "
+"prefix."
+msgstr ""
+"Названия значков — на tabler.io/icons; вводите имя без префикса «ti ti-»."
+
+msgid "Tabler icon name, e.g. compass, building, beach, chef-hat, paw."
+msgstr "Имя значка Tabler, напр.: compass, building, beach, chef-hat, paw."
+
+msgid "Leave blank to generate from the name."
+msgstr "Оставьте пустым, чтобы создать из названия."
+
+msgid "Category '%(name)s' created."
+msgstr "Категория «%(name)s» создана."
+
+msgid "Category '%(name)s' updated."
+msgstr "Категория «%(name)s» обновлена."
+
+msgid "Category '%(name)s' deleted."
+msgstr "Категория «%(name)s» удалена."
+
+msgid "Add Continent"
+msgstr "Добавить континент"
+
+msgid "Save Continent"
+msgstr "Сохранить континент"
+
+msgid "Back to Continents"
+msgstr "Назад к континентам"
+
+msgid "No continents yet."
+msgstr "Пока нет континентов."
+
+msgid "Continents group countries in the Destinations mega-menu and footer."
+msgstr "Континенты группируют страны в мега-меню «Направления» и в подвале."
+
+msgid "Continent '%(name)s' created."
+msgstr "Континент «%(name)s» создан."
+
+msgid "Continent '%(name)s' updated."
+msgstr "Континент «%(name)s» обновлён."
+
+msgid "Continent '%(name)s' deleted."
+msgstr "Континент «%(name)s» удалён."
 
 msgid ""
 "Optionally describe each day of the tour. It appears on the tour page when "

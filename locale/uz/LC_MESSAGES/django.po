@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-05 22:56+0000\n"
-"PO-Revision-Date: 2026-07-05 22:56+0000\n"
+"POT-Creation-Date: 2026-07-06 15:28+0000\n"
+"PO-Revision-Date: 2026-07-06 15:28+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -1699,6 +1699,90 @@ msgstr "'%(name)s' endi saytda ko'rinadi."
 
 msgid "'%(name)s' is now hidden from the site."
 msgstr "'%(name)s' endi saytdan yashirildi."
+
+msgid "Across Uzbekistan"
+msgstr "O'zbekiston bo'ylab"
+
+msgid "International Tours"
+msgstr "Xalqaro turlar"
+
+msgid "& Expert Tips"
+msgstr "va ekspert maslahatlari"
+
+msgid "Tour Categories"
+msgstr "Tur kategoriyalari"
+
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+msgid "Add Category"
+msgstr "Kategoriya qo'shish"
+
+msgid "Save Category"
+msgstr "Kategoriyani saqlash"
+
+msgid "Back to Categories"
+msgstr "Kategoriyalarga qaytish"
+
+msgid "No categories yet."
+msgstr "Hozircha kategoriyalar yo'q."
+
+msgid "Icon"
+msgstr "Belgi"
+
+msgid ""
+"These power the “Category” filter on the public tours page and the Tours "
+"mega-menu."
+msgstr ""
+"Bular ommaviy turlar sahifasidagi “Kategoriya” filtri va Turlar mega-"
+"menyusini boshqaradi."
+
+msgid ""
+"Browse icon names at tabler.io/icons — use the name without the “ti ti-” "
+"prefix."
+msgstr ""
+"Belgi nomlarini tabler.io/icons saytida ko'ring — nomni “ti ti-” prefiksisiz"
+" kiriting."
+
+msgid "Tabler icon name, e.g. compass, building, beach, chef-hat, paw."
+msgstr "Tabler belgi nomi, masalan: compass, building, beach, chef-hat, paw."
+
+msgid "Leave blank to generate from the name."
+msgstr "Nomdan avtomatik yaratish uchun bo'sh qoldiring."
+
+msgid "Category '%(name)s' created."
+msgstr "'%(name)s' kategoriyasi yaratildi."
+
+msgid "Category '%(name)s' updated."
+msgstr "'%(name)s' kategoriyasi yangilandi."
+
+msgid "Category '%(name)s' deleted."
+msgstr "'%(name)s' kategoriyasi o'chirildi."
+
+msgid "Add Continent"
+msgstr "Qit'a qo'shish"
+
+msgid "Save Continent"
+msgstr "Qit'ani saqlash"
+
+msgid "Back to Continents"
+msgstr "Qit'alarga qaytish"
+
+msgid "No continents yet."
+msgstr "Hozircha qit'alar yo'q."
+
+msgid "Continents group countries in the Destinations mega-menu and footer."
+msgstr ""
+"Qit'alar “Yo'nalishlar” mega-menyusi va futerda mamlakatlarni guruhlaydi."
+
+msgid "Continent '%(name)s' created."
+msgstr "'%(name)s' qit'asi yaratildi."
+
+msgid "Continent '%(name)s' updated."
+msgstr "'%(name)s' qit'asi yangilandi."
+
+msgid "Continent '%(name)s' deleted."
+msgstr "'%(name)s' qit'asi o'chirildi."
 
 msgid ""
 "Optionally describe each day of the tour. It appears on the tour page when "

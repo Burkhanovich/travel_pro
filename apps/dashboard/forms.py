@@ -7,8 +7,8 @@ from django.forms import inlineformset_factory
 from django.utils.translation import gettext_lazy as _
 
 from apps.core.models import HeroSlide
-from apps.destinations.models import City, Country
-from apps.tours.models import Tour, TourDay, TourStop
+from apps.destinations.models import City, Continent, Country
+from apps.tours.models import Tour, TourCategory, TourDay, TourStop
 
 User = get_user_model()
 
@@ -210,6 +210,31 @@ class DomesticCityForm(forms.ModelForm):
         if commit:
             city.save()
         return city
+
+
+class TourCategoryForm(forms.ModelForm):
+    """Create/edit a tour category (the "Category" filter on the tours page)."""
+
+    class Meta:
+        model = TourCategory
+        # ``order`` is omitted — it stays at the model default (creation order);
+        # visibility isn't a concept for categories, so no is_active either.
+        fields = ["name", "slug", "icon", "description", "image"]
+        help_texts = {
+            "slug": _("Leave blank to generate from the name."),
+            "icon": _("Tabler icon name, e.g. compass, building, beach, chef-hat, paw."),
+        }
+
+
+class ContinentForm(forms.ModelForm):
+    """Create/edit a continent (groups countries in the Destinations menu)."""
+
+    class Meta:
+        model = Continent
+        fields = ["name", "slug", "image"]
+        help_texts = {
+            "slug": _("Leave blank to generate from the name."),
+        }
 
 
 class HeroSlideForm(forms.ModelForm):

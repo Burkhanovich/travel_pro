@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-05 22:56+0000\n"
-"PO-Revision-Date: 2026-07-05 22:56+0000\n"
+"POT-Creation-Date: 2026-07-06 15:28+0000\n"
+"PO-Revision-Date: 2026-07-06 15:28+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ja\n"
 "Language: ja\n"
@@ -1659,6 +1659,85 @@ msgstr "「%(name)s」はサイトに表示されるようになりました。"
 
 msgid "'%(name)s' is now hidden from the site."
 msgstr "「%(name)s」はサイトから非表示になりました。"
+
+msgid "Across Uzbekistan"
+msgstr "ウズベキスタン国内"
+
+msgid "International Tours"
+msgstr "海外ツアー"
+
+msgid "& Expert Tips"
+msgstr "＆専門家のヒント"
+
+msgid "Tour Categories"
+msgstr "ツアーカテゴリ"
+
+msgid "Categories"
+msgstr "カテゴリ"
+
+msgid "Add Category"
+msgstr "カテゴリを追加"
+
+msgid "Save Category"
+msgstr "カテゴリを保存"
+
+msgid "Back to Categories"
+msgstr "カテゴリに戻る"
+
+msgid "No categories yet."
+msgstr "カテゴリはまだありません。"
+
+msgid "Icon"
+msgstr "アイコン"
+
+msgid ""
+"These power the “Category” filter on the public tours page and the Tours "
+"mega-menu."
+msgstr "これらは公開ツアーページの「カテゴリ」フィルターとツアーのメガメニューを制御します。"
+
+msgid ""
+"Browse icon names at tabler.io/icons — use the name without the “ti ti-” "
+"prefix."
+msgstr "アイコン名は tabler.io/icons で確認 —「ti ti-」接頭辞なしで入力してください。"
+
+msgid "Tabler icon name, e.g. compass, building, beach, chef-hat, paw."
+msgstr "Tablerアイコン名、例: compass, building, beach, chef-hat, paw。"
+
+msgid "Leave blank to generate from the name."
+msgstr "空欄にすると名前から自動生成されます。"
+
+msgid "Category '%(name)s' created."
+msgstr "カテゴリ「%(name)s」を作成しました。"
+
+msgid "Category '%(name)s' updated."
+msgstr "カテゴリ「%(name)s」を更新しました。"
+
+msgid "Category '%(name)s' deleted."
+msgstr "カテゴリ「%(name)s」を削除しました。"
+
+msgid "Add Continent"
+msgstr "大陸を追加"
+
+msgid "Save Continent"
+msgstr "大陸を保存"
+
+msgid "Back to Continents"
+msgstr "大陸に戻る"
+
+msgid "No continents yet."
+msgstr "大陸はまだありません。"
+
+msgid "Continents group countries in the Destinations mega-menu and footer."
+msgstr "大陸は「目的地」メガメニューとフッターで国をグループ化します。"
+
+msgid "Continent '%(name)s' created."
+msgstr "大陸「%(name)s」を作成しました。"
+
+msgid "Continent '%(name)s' updated."
+msgstr "大陸「%(name)s」を更新しました。"
+
+msgid "Continent '%(name)s' deleted."
+msgstr "大陸「%(name)s」を削除しました。"
 
 msgid ""
 "Optionally describe each day of the tour. It appears on the tour page when "

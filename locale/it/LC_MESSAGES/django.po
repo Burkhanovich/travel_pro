@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-05 22:56+0000\n"
-"PO-Revision-Date: 2026-07-05 22:56+0000\n"
+"POT-Creation-Date: 2026-07-06 15:28+0000\n"
+"PO-Revision-Date: 2026-07-06 15:28+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: it\n"
 "Language: it\n"
@@ -1691,6 +1691,89 @@ msgstr "«%(name)s» ora è visibile sul sito."
 
 msgid "'%(name)s' is now hidden from the site."
 msgstr "«%(name)s» ora è nascosto dal sito."
+
+msgid "Across Uzbekistan"
+msgstr "In Uzbekistan"
+
+msgid "International Tours"
+msgstr "Tour internazionali"
+
+msgid "& Expert Tips"
+msgstr "e consigli di esperti"
+
+msgid "Tour Categories"
+msgstr "Categorie di tour"
+
+msgid "Categories"
+msgstr "Categorie"
+
+msgid "Add Category"
+msgstr "Aggiungi categoria"
+
+msgid "Save Category"
+msgstr "Salva categoria"
+
+msgid "Back to Categories"
+msgstr "Torna alle categorie"
+
+msgid "No categories yet."
+msgstr "Ancora nessuna categoria."
+
+msgid "Icon"
+msgstr "Icona"
+
+msgid ""
+"These power the “Category” filter on the public tours page and the Tours "
+"mega-menu."
+msgstr ""
+"Alimentano il filtro «Categoria» nella pagina dei tour e il mega-menu Tour."
+
+msgid ""
+"Browse icon names at tabler.io/icons — use the name without the “ti ti-” "
+"prefix."
+msgstr ""
+"Sfoglia i nomi delle icone su tabler.io/icons — usa il nome senza il "
+"prefisso «ti ti-»."
+
+msgid "Tabler icon name, e.g. compass, building, beach, chef-hat, paw."
+msgstr "Nome icona Tabler, es. compass, building, beach, chef-hat, paw."
+
+msgid "Leave blank to generate from the name."
+msgstr "Lascia vuoto per generarlo dal nome."
+
+msgid "Category '%(name)s' created."
+msgstr "Categoria «%(name)s» creata."
+
+msgid "Category '%(name)s' updated."
+msgstr "Categoria «%(name)s» aggiornata."
+
+msgid "Category '%(name)s' deleted."
+msgstr "Categoria «%(name)s» eliminata."
+
+msgid "Add Continent"
+msgstr "Aggiungi continente"
+
+msgid "Save Continent"
+msgstr "Salva continente"
+
+msgid "Back to Continents"
+msgstr "Torna ai continenti"
+
+msgid "No continents yet."
+msgstr "Ancora nessun continente."
+
+msgid "Continents group countries in the Destinations mega-menu and footer."
+msgstr ""
+"I continenti raggruppano i paesi nel mega-menu Destinazioni e nel footer."
+
+msgid "Continent '%(name)s' created."
+msgstr "Continente «%(name)s» creato."
+
+msgid "Continent '%(name)s' updated."
+msgstr "Continente «%(name)s» aggiornato."
+
+msgid "Continent '%(name)s' deleted."
+msgstr "Continente «%(name)s» eliminato."
 
 msgid ""
 "Optionally describe each day of the tour. It appears on the tour page when "

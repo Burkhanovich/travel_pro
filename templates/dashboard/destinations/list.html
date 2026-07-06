@@ -8,9 +8,14 @@
 <div class="max-w-7xl mx-auto">
   <div class="flex items-center justify-between mb-5">
     <h1 class="text-xl font-bold text-gray-800">{% trans "Destinations" %} <span class="text-gray-400 font-normal text-base">({{ page_obj.paginator.count }})</span></h1>
-    <a href="{% url 'dashboard:destinations_create' %}" class="inline-flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
-      <i class="ti ti-plus"></i> {% trans "Add Country" %}
-    </a>
+    <div class="flex items-center gap-2">
+      <a href="{% url 'dashboard:continents_list' %}" class="inline-flex items-center gap-1.5 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 text-sm font-medium px-4 py-2 rounded-lg transition">
+        <i class="ti ti-map-pins"></i> {% trans "Continents" %}
+      </a>
+      <a href="{% url 'dashboard:destinations_create' %}" class="inline-flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition">
+        <i class="ti ti-plus"></i> {% trans "Add Country" %}
+      </a>
+    </div>
   </div>
 
   <form method="get" class="flex gap-2 mb-5">

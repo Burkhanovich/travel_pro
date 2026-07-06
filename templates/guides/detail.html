@@ -5,7 +5,7 @@
 {% block meta_description %}{{ article.seo_description|default:article.excerpt|truncatechars:160 }}{% endblock %}
 
 {% block content %}
-<div class="pt-20 lg:pt-28 bg-pattern-subtle-yellow">
+<div class="pt-20 lg:pt-28 bg-pattern-subtle-blue">
   {% if article.cover_image %}
   <div class="min-h-[320px] h-[50vh] md:min-h-[520px] md:h-[60vh] md:max-h-[700px] overflow-hidden">
     <img src="{{ article.cover_image.url }}" alt="{{ article.title }}" class="w-full h-full object-cover">
