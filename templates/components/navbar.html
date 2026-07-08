@@ -47,10 +47,11 @@
           </div>
         </div>
 
-        {# 3. Tours mega-menu — the label itself links to the full tour list; #}
-        {#    dropdown groups domestic offerings first, then international categories. #}
+        {# 3. Tours mega-menu — the label links straight to Domestic Tours (the #}
+        {#    site's focus); dropdown leads with the domestic group, international #}
+        {#    categories follow as the secondary group. #}
         <div class="relative" x-data="{ open: false }" @mouseenter="open=true" @mouseleave="open=false">
-          <a href="{% url 'tours:list' %}" class="nav-link flex items-center gap-1 text-white">
+          <a href="{% url 'ichki-turlar-list' %}" class="nav-link flex items-center gap-1 text-white">
             {% trans "Tours" %} <i class="ti ti-chevron-down text-base"></i>
           </a>
           <div x-show="open" x-transition:enter="transition ease-out duration-150"
@@ -80,7 +81,7 @@
             </div>
 
             <div class="border-t mt-3 pt-3">
-              <a href="{% url 'tours:list' %}" class="text-primary font-medium text-sm hover:underline">{% trans "View all tours" %} →</a>
+              <a href="{% url 'tours:list' %}" class="text-primary font-medium text-sm hover:underline">{% trans "View all international tours" %} →</a>
             </div>
           </div>
         </div>
@@ -153,7 +154,7 @@
       <a href="{% url 'destinations:list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
         <i class="ti ti-map-2 text-lg text-secondary w-5 text-center"></i>{% trans "Destinations" %}
       </a>
-      <a href="{% url 'tours:list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
+      <a href="{% url 'ichki-turlar-list' %}" @click="mobileOpen=false" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-700 hover:bg-accent hover:text-primary font-medium transition-colors">
         <i class="ti ti-compass text-lg text-secondary w-5 text-center"></i>{% trans "Tours" %}
       </a>
       {# Tours submenu — same two groups as the desktop mega-menu #}

@@ -218,6 +218,7 @@ T = {
     },
     "By Category": {"uz": "Toifa bo'yicha", "ru": "По категории", "it": "Per categoria", "es": "Por categoría", "ja": "カテゴリー別"},
     "View all tours": {"uz": "Barcha turlarni ko'rish", "ru": "Все туры", "it": "Vedi tutti i tour", "es": "Ver todos los tours", "ja": "すべてのツアー"},
+    "View all international tours": {"uz": "Barcha xalqaro turlarni ko'rish", "ru": "Все международные туры", "it": "Vedi tutti i tour internazionali", "es": "Ver todos los tours internacionales", "ja": "すべての海外ツアー"},
     "All categories": {"uz": "Barcha toifalar", "ru": "Все категории", "it": "Tutte le categorie", "es": "Todas las categorías", "ja": "すべてのカテゴリー"},
     "Price Range (USD)": {"uz": "Narx diapazoni (USD)", "ru": "Диапазон цен (USD)", "it": "Fascia di prezzo (USD)", "es": "Rango de precios (USD)", "ja": "価格帯（USD）"},
     "Min": {"uz": "Min", "ru": "Мин", "it": "Min", "es": "Mín", "ja": "最小"},

@@ -23,10 +23,40 @@
     </div>
     {% endif %}
 
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8 items-start">
+
+      {# Sticky "Write a Review" panel — left column on desktop; below the list on mobile (order-2) so visitors see reviews first. #}
+      <aside class="order-2 lg:order-none">
+        <div class="content-card sticky top-24">
+          <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+            <i class="ti ti-pencil text-primary"></i> {% trans "Write a Review" %}
+          </h3>
+          <form method="post" action="{% url 'reviews:create' %}" class="space-y-3">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+            <div class="rounded-lg bg-red-50 border border-red-200 px-3 py-2 text-xs text-red-700">
+              {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            {% for field in form %}
+            <div>
+              <label for="{{ field.id_for_label }}" class="block text-xs font-medium text-gray-600 mb-1">
+                {{ field.label }}{% if field.field.required %} <span class="text-red-500">*</span>{% endif %}
+              </label>
+              {{ field }}
+              {% if field.help_text %}<p class="text-[0.7rem] text-gray-400 mt-1">{{ field.help_text }}</p>{% endif %}
+              {% for error in field.errors %}
+              <p class="text-xs text-red-600 mt-1">{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn-accent w-full mt-2">{% trans "Submit Review" %}</button>
+          </form>
+        </div>
+      </aside>
 
       {# ── Main column: filters + reviews ─────────────────────── #}
-      <div>
+      <div class="order-1 lg:order-none">
         {# Filters #}
         <div class="inline-flex flex-wrap items-center gap-3 mb-4 bg-white rounded-xl px-4 py-3 shadow-sm">
           <a href="?{% if request.GET.rating %}rating={{ request.GET.rating }}{% endif %}"
@@ -61,36 +91,6 @@
 
         {% include "components/pagination.html" %}
       </div>
-
-      {# ── Sticky "Write a Review" panel ──────────────────────── #}
-      <aside>
-        <div class="content-card sticky top-24">
-          <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
-            <i class="ti ti-pencil text-primary"></i> {% trans "Write a Review" %}
-          </h3>
-          <form method="post" action="{% url 'reviews:create' %}" class="space-y-3">
-            {% csrf_token %}
-            {% if form.non_field_errors %}
-            <div class="rounded-lg bg-red-50 border border-red-200 px-3 py-2 text-xs text-red-700">
-              {{ form.non_field_errors }}
-            </div>
-            {% endif %}
-            {% for field in form %}
-            <div>
-              <label for="{{ field.id_for_label }}" class="block text-xs font-medium text-gray-600 mb-1">
-                {{ field.label }}{% if field.field.required %} <span class="text-red-500">*</span>{% endif %}
-              </label>
-              {{ field }}
-              {% if field.help_text %}<p class="text-[0.7rem] text-gray-400 mt-1">{{ field.help_text }}</p>{% endif %}
-              {% for error in field.errors %}
-              <p class="text-xs text-red-600 mt-1">{{ error }}</p>
-              {% endfor %}
-            </div>
-            {% endfor %}
-            <button type="submit" class="btn-accent w-full mt-2">{% trans "Submit Review" %}</button>
-          </form>
-        </div>
-      </aside>
 
     </div>
   </div>
