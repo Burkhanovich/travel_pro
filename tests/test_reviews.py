@@ -60,13 +60,15 @@ class TestReview:
 
 
 class TestReviewSubmission:
-    """The public "Write a Review" form creates pending reviews."""
+    """The public "Write a Review" form creates pending reviews.
+
+    The form only asks for rating, body and who's writing; review type, title
+    and travel date are derived at save time.
+    """
 
     def _payload(self, **overrides):
         data = {
-            "review_type": "general",
             "rating": 5,
-            "title": "Wonderful",
             "body": "Had a fantastic time.",
             "guest_name": "Traveler",
             "guest_country": "France",
@@ -83,38 +85,45 @@ class TestReviewSubmission:
     def test_submit_creates_pending_review(self, client):
         resp = client.post(reverse("reviews:create"), self._payload())
         assert resp.status_code == 302
-        review = Review.objects.get(title="Wonderful")
+        review = Review.objects.get(guest_name="Traveler")
         assert review.status == "pending"
-        assert review.guest_name == "Traveler"
+        assert review.body == "Had a fantastic time."
+
+    def test_title_derived_from_body_and_date_is_today(self, client):
+        from django.utils import timezone
+
+        client.post(reverse("reviews:create"), self._payload(body="Amazing guide and views."))
+        review = Review.objects.get(guest_name="Traveler")
+        assert review.title == "Amazing guide and views."   # derived from body
+        assert review.travel_date == timezone.localdate()    # saved with today's date
+
+    def test_general_review_without_tour_succeeds(self, client):
+        # No tour chosen → a general review, no error.
+        resp = client.post(reverse("reviews:create"), self._payload(body="Loved it."))
+        assert resp.status_code == 302
+        review = Review.objects.get(body="Loved it.")
+        assert review.review_type == "general"
 
     def test_pending_review_not_public_until_approved(self, client):
-        client.post(reverse("reviews:create"), self._payload(title="Hidden"))
+        client.post(reverse("reviews:create"), self._payload(body="Hidden gem of a trip."))
         resp = client.get(reverse("reviews:list"))
-        assert "Hidden" not in resp.content.decode()
+        assert "Hidden gem of a trip." not in resp.content.decode()
 
-        review = Review.objects.get(title="Hidden")
+        review = Review.objects.get(body="Hidden gem of a trip.")
         review.approve()
         resp = client.get(reverse("reviews:list"))
-        assert "Hidden" in resp.content.decode()
+        assert "Hidden gem of a trip." in resp.content.decode()
 
-    def test_tour_review_requires_tour(self, client):
-        # review_type=tour but no tour chosen → invalid, re-renders with errors.
-        resp = client.post(
-            reverse("reviews:create"),
-            self._payload(review_type="tour"),
-        )
-        assert resp.status_code == 200
-        assert not Review.objects.filter(title="Wonderful").exists()
-        assert resp.context["form"].errors
-
-    def test_tour_review_with_tour_succeeds(self, client):
+    def test_tour_review_with_tour_sets_type(self, client):
         tour = f.make_tour(title="Silk Road")
         resp = client.post(
             reverse("reviews:create"),
-            self._payload(review_type="tour", tour=tour.pk),
+            self._payload(tour=tour.pk),
         )
         assert resp.status_code == 302
-        assert Review.objects.filter(tour=tour, status="pending").exists()
+        review = Review.objects.get(tour=tour)
+        assert review.status == "pending"
+        assert review.review_type == "tour"
 
 
 class TestDashboardReviewDelete:

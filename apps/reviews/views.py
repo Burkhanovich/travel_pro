@@ -2,6 +2,8 @@
 
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.utils import timezone
+from django.utils.text import Truncator
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import CreateView, ListView
 
@@ -66,9 +68,14 @@ class ReviewCreateView(CreateView):
     success_url = reverse_lazy("reviews:list")
 
     def form_valid(self, form):
-        form.instance.status = "pending"
+        review = form.instance
+        review.status = "pending"
         if self.request.user.is_authenticated:
-            form.instance.user = self.request.user
+            review.user = self.request.user
+        # Derive the fields we no longer ask for.
+        review.review_type = "tour" if review.tour else "general"
+        review.title = Truncator(review.body).chars(60, truncate="…") or _("Review")
+        review.travel_date = timezone.localdate()
         messages.success(
             self.request,
             _("Thank you! Your review will appear after moderation."),

@@ -955,6 +955,7 @@ DASHBOARD_T = {
     "Write a Review": {"uz": "Sharh yozish", "ru": "Написать отзыв", "it": "Scrivi una recensione", "es": "Escribir una reseña", "ja": "レビューを書く"},
     "Submit Review": {"uz": "Sharhni yuborish", "ru": "Отправить отзыв", "it": "Invia recensione", "es": "Enviar reseña", "ja": "レビューを送信"},
     "Your name": {"uz": "Ismingiz", "ru": "Ваше имя", "it": "Il tuo nome", "es": "Tu nombre", "ja": "お名前"},
+    "Tour (optional)": {"uz": "Tur (ixtiyoriy)", "ru": "Тур (необязательно)", "it": "Tour (facoltativo)", "es": "Tour (opcional)", "ja": "ツアー（任意）"},
     "Your review": {"uz": "Sharhingiz", "ru": "Ваш отзыв", "it": "La tua recensione", "es": "Tu reseña", "ja": "レビュー内容"},
     "Thank you! Your review will appear after moderation.": {"uz": "Rahmat! Sharhingiz moderatsiyadan so'ng ko'rinadi.", "ru": "Спасибо! Ваш отзыв появится после модерации.", "it": "Grazie! La tua recensione apparirà dopo la moderazione.", "es": "¡Gracias! Tu reseña aparecerá tras la moderación.", "ja": "ありがとうございます！レビューは審査後に表示されます。"},
     "Please correct the errors below and resubmit your review.": {"uz": "Iltimos, quyidagi xatolarni tuzatib, sharhni qayta yuboring.", "ru": "Пожалуйста, исправьте ошибки ниже и отправьте отзыв снова.", "it": "Correggi gli errori qui sotto e reinvia la recensione.", "es": "Corrige los errores a continuación y vuelve a enviar tu reseña.", "ja": "以下のエラーを修正してレビューを再送信してください。"},
