@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-08 14:57+0000\n"
-"PO-Revision-Date: 2026-07-08 14:57+0000\n"
+"POT-Creation-Date: 2026-07-08 15:19+0000\n"
+"PO-Revision-Date: 2026-07-08 15:19+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -750,6 +750,15 @@ msgstr "Dunyo bo'ylab tasdiqlangan mijozlardan haqiqiy sharhlar"
 
 msgid "No reviews found."
 msgstr "Sharhlar topilmadi."
+
+msgid "No reviews yet — be the first to write one!"
+msgstr "Hali sharhlar yo'q — birinchi bo'lib yozing!"
+
+msgid "Share your experience"
+msgstr "Taassurotlaringizni ulashing"
+
+msgid "Write a review and help other travelers"
+msgstr "Sharh yozing va boshqa sayohatchilarga yordam bering"
 
 msgid "About Us"
 msgstr "Biz haqimizda"

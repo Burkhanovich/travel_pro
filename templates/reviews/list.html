@@ -26,7 +26,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-8 items-start">
 
       {# Sticky "Write a Review" panel — left column on desktop; below the list on mobile (order-2) so visitors see reviews first. #}
-      <aside class="order-2 lg:order-none">
+      <aside id="write-review" class="order-2 lg:order-none scroll-mt-24">
         <div class="content-card sticky top-24">
           <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
             <i class="ti ti-pencil text-primary"></i> {% trans "Write a Review" %}
@@ -82,10 +82,20 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {# Inline "Write a Review" prompt — sits right among the review cards #}
+          <a href="#write-review"
+             class="flex flex-col items-center justify-center text-center gap-2 rounded-2xl border-2 border-dashed border-primary/40 bg-primary/5 p-6 hover:bg-primary/10 hover:border-primary/60 transition min-h-[200px]">
+            <span class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+              <i class="ti ti-pencil-plus text-primary text-2xl"></i>
+            </span>
+            <span class="font-semibold text-brand-ink">{% trans "Share your experience" %}</span>
+            <span class="text-sm text-gray-500">{% trans "Write a review and help other travelers" %}</span>
+            <span class="btn-accent mt-1 text-sm px-4 py-1.5">{% trans "Write a Review" %}</span>
+          </a>
           {% for review in reviews %}
             {% include "components/review_card.html" with review=review %}
           {% empty %}
-          <div class="col-span-2 text-center py-20 text-gray-400">{% trans "No reviews found." %}</div>
+          <div class="text-center py-20 text-gray-400 flex items-center justify-center">{% trans "No reviews yet — be the first to write one!" %}</div>
           {% endfor %}
         </div>
 

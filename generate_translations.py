@@ -377,6 +377,9 @@ T = {
         "ja": "世界中の認証済みお客様からの本物のレビュー",
     },
     "No reviews found.": {"uz": "Sharhlar topilmadi.", "ru": "Отзывы не найдены.", "it": "Nessuna recensione trovata.", "es": "No se encontraron reseñas.", "ja": "レビューが見つかりません。"},
+    "No reviews yet — be the first to write one!": {"uz": "Hali sharhlar yo'q — birinchi bo'lib yozing!", "ru": "Отзывов пока нет — станьте первым!", "it": "Ancora nessuna recensione — scrivi la prima!", "es": "Aún no hay reseñas — ¡sé el primero!", "ja": "まだレビューがありません — 最初のレビューを書きましょう！"},
+    "Share your experience": {"uz": "Taassurotlaringizni ulashing", "ru": "Поделитесь впечатлениями", "it": "Condividi la tua esperienza", "es": "Comparte tu experiencia", "ja": "体験を共有する"},
+    "Write a review and help other travelers": {"uz": "Sharh yozing va boshqa sayohatchilarga yordam bering", "ru": "Напишите отзыв и помогите другим путешественникам", "it": "Scrivi una recensione e aiuta altri viaggiatori", "es": "Escribe una reseña y ayuda a otros viajeros", "ja": "レビューを書いて他の旅行者を助けましょう"},
 
     # ── About / Contact ───────────────────────────────────────────────────────
     "About Us": {"uz": "Biz haqimizda", "ru": "О нас", "it": "Chi siamo", "es": "Sobre nosotros", "ja": "私たちについて"},

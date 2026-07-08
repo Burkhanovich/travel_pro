@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-08 14:57+0000\n"
-"PO-Revision-Date: 2026-07-08 14:57+0000\n"
+"POT-Creation-Date: 2026-07-08 15:19+0000\n"
+"PO-Revision-Date: 2026-07-08 15:19+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: es\n"
 "Language: es\n"
@@ -748,6 +748,15 @@ msgstr "Reseñas genuinas de clientes verificados en todo el mundo"
 
 msgid "No reviews found."
 msgstr "No se encontraron reseñas."
+
+msgid "No reviews yet — be the first to write one!"
+msgstr "Aún no hay reseñas — ¡sé el primero!"
+
+msgid "Share your experience"
+msgstr "Comparte tu experiencia"
+
+msgid "Write a review and help other travelers"
+msgstr "Escribe una reseña y ayuda a otros viajeros"
 
 msgid "About Us"
 msgstr "Sobre nosotros"
