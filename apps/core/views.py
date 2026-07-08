@@ -10,6 +10,7 @@ from apps.tours.models import Tour
 from apps.destinations.models import Country, Continent
 from apps.hotels.models import Hotel
 from apps.guides.models import Article
+from apps.reviews.forms import ReviewCreateForm
 from apps.reviews.models import Review
 
 
@@ -59,6 +60,8 @@ class HomeView(TemplateView):
             .select_related("user", "tour", "hotel")
             .order_by("-helpful_count", "-created_at")[:6]
         )
+        # Empty form powering the inline "Write a Review" panel on the home page.
+        ctx["review_form"] = ReviewCreateForm()
 
         # Site statistics
         ctx["stats"] = {

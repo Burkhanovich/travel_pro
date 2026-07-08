@@ -191,7 +191,7 @@
 </section>
 {% endif %}
 
-{# ── Customer Reviews #}
+{# ── Customer Reviews + inline "Write a Review" panel #}
 {% if testimonials %}
 <section class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -199,13 +199,42 @@
       <p class="text-brand-gold font-semibold text-sm uppercase tracking-wide mb-2">{% trans "What Travelers Say" %}</p>
       <h2 class="text-4xl font-serif font-bold text-brand-ink">{% trans "Customer Reviews" %}</h2>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {% for review in testimonials %}
-        {% include "components/review_card.html" with review=review %}
-      {% endfor %}
-    </div>
-    <div class="text-center mt-10">
-      <a href="{% url 'reviews:list' %}" class="btn-outline px-8 py-3">{% trans "Read All Reviews" %}</a>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+      {# Reviews — DOM-first so on mobile they appear above the form #}
+      <div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {% for review in testimonials %}
+            {% include "components/review_card.html" with review=review %}
+          {% endfor %}
+        </div>
+        <div class="text-center mt-10">
+          <a href="{% url 'reviews:list' %}" class="btn-outline px-8 py-3">{% trans "Read All Reviews" %}</a>
+        </div>
+      </div>
+
+      {# Write a Review — posts to the same endpoint as /reviews/ #}
+      <aside>
+        <div class="content-card lg:sticky lg:top-24">
+          <h3 class="text-lg font-semibold mb-1 flex items-center gap-2">
+            <i class="ti ti-pencil text-primary"></i> {% trans "Write a Review" %}
+          </h3>
+          <p class="text-sm text-gray-500 mb-4">{% trans "Write a review and help other travelers" %}</p>
+          <form method="post" action="{% url 'reviews:create' %}" class="space-y-3">
+            {% csrf_token %}
+            {% for field in review_form %}
+            <div>
+              <label for="{{ field.id_for_label }}" class="block text-xs font-medium text-gray-600 mb-1">
+                {{ field.label }}{% if field.field.required %} <span class="text-red-500">*</span>{% endif %}
+              </label>
+              {{ field }}
+              {% if field.help_text %}<p class="text-[0.7rem] text-gray-400 mt-1">{{ field.help_text }}</p>{% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn-accent w-full mt-2">{% trans "Submit Review" %}</button>
+          </form>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
