@@ -109,8 +109,8 @@ select {
 }
 
 /* ── Prose (CKEditor content) ────────────────────────────── */
-.prose h2 { font-family: 'Playfair Display', serif; color: #16202E; margin-top: 2rem; }
-.prose h3 { font-family: 'Playfair Display', serif; color: #2E6DA4; }
+.prose h2 { font-family: 'Fraunces', serif; color: #16202E; margin-top: 2rem; }
+.prose h3 { font-family: 'Fraunces', serif; color: #2E6DA4; }
 .prose a  { color: #2E6DA4; text-decoration: underline; }
 .prose img { border-radius: 0.75rem; }
 

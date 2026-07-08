@@ -27,13 +27,13 @@
   --color-brand-yellowDark: #D89A0E;
   --color-brand-yellowPale: #FFF6E0;
   --color-brand-gold: #B8860B;
-  --color-brand-ink: #1D2939;
+  --color-brand-ink: #16324D;
   --color-brand-ctaBg: #3E6C8F;
   --color-brand-ctaLine: #ECB456;
   --color-text-muted: #475467;
 
-  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
 
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
