@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 17:34+0000\n"
-"PO-Revision-Date: 2026-07-06 17:34+0000\n"
+"POT-Creation-Date: 2026-07-08 14:14+0000\n"
+"PO-Revision-Date: 2026-07-08 14:14+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: uz\n"
 "Language: uz\n"
@@ -1934,6 +1934,39 @@ msgstr "Sharh tasdiqlandi."
 
 msgid "Review rejected."
 msgstr "Sharh rad etildi."
+
+msgid "Review deleted."
+msgstr "Sharh o'chirildi."
+
+msgid "Delete this review permanently? This action cannot be undone."
+msgstr "Bu sharh butunlay o'chirilsinmi? Bu amalni orqaga qaytarib bo'lmaydi."
+
+msgid "Write a Review"
+msgstr "Sharh yozish"
+
+msgid "Submit Review"
+msgstr "Sharhni yuborish"
+
+msgid "Your name"
+msgstr "Ismingiz"
+
+msgid "Your review"
+msgstr "Sharhingiz"
+
+msgid "Thank you! Your review will appear after moderation."
+msgstr "Rahmat! Sharhingiz moderatsiyadan so'ng ko'rinadi."
+
+msgid "Please correct the errors below and resubmit your review."
+msgstr "Iltimos, quyidagi xatolarni tuzatib, sharhni qayta yuboring."
+
+msgid "Please choose the tour you are reviewing."
+msgstr "Iltimos, sharh yozayotgan turingizni tanlang."
+
+msgid "Please choose the hotel you are reviewing."
+msgstr "Iltimos, sharh yozayotgan mehmonxonangizni tanlang."
+
+msgid "Order Added"
+msgstr "Qo'shilgan tartibda"
 
 msgid "New User"
 msgstr "Yangi foydalanuvchi"

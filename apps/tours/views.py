@@ -49,23 +49,28 @@ class TourListView(ListView):
         self.filterset = TourFilter(self.request.GET, queryset=qs)
         filtered_qs = self.filterset.qs
 
-        sort = self.request.GET.get("sort", "order")
+        sort = self.request.GET.get("sort", "chronological")
         sort_map = {
             "price_asc": "price_per_person",
             "price_desc": "-price_per_person",
             "duration": "duration_days",
             "newest": "-created_at",
             "most_viewed": "-views_count",
-            "order": "order",
+            "chronological": "id",  # in the order they were added (first added first)
         }
-        return filtered_qs.order_by(sort_map.get(sort, "order"))
+        return filtered_qs.order_by(sort_map.get(sort, "id"))
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx["filterset"] = self.filterset
         ctx["categories"] = TourCategory.objects.all().order_by("order")
         ctx["destinations"] = Country.objects.filter(is_active=True).order_by("name")
-        ctx["sort"] = self.request.GET.get("sort", "order")
+        ctx["sort"] = self.request.GET.get("sort", "chronological")
+
+        from apps.core.models import HeroSlide
+        ctx["hero_slides"] = HeroSlide.objects.filter(
+            page="tours", is_active=True
+        ).order_by("order")
 
         # Serialize tour coords for map view
         map_tours = []

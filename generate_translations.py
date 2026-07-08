@@ -945,6 +945,18 @@ DASHBOARD_T = {
     "%(n)s pending": {"uz": "%(n)s ta kutilmoqda", "ru": "%(n)s в ожидании", "it": "%(n)s in attesa", "es": "%(n)s pendientes", "ja": "%(n)s 件保留中"},
     "Review approved.": {"uz": "Sharh tasdiqlandi.", "ru": "Отзыв одобрен.", "it": "Recensione approvata.", "es": "Reseña aprobada.", "ja": "レビューを承認しました。"},
     "Review rejected.": {"uz": "Sharh rad etildi.", "ru": "Отзыв отклонён.", "it": "Recensione rifiutata.", "es": "Reseña rechazada.", "ja": "レビューを却下しました。"},
+    "Review deleted.": {"uz": "Sharh o'chirildi.", "ru": "Отзыв удалён.", "it": "Recensione eliminata.", "es": "Reseña eliminada.", "ja": "レビューを削除しました。"},
+    "Delete this review permanently? This action cannot be undone.": {"uz": "Bu sharh butunlay o'chirilsinmi? Bu amalni orqaga qaytarib bo'lmaydi.", "ru": "Удалить этот отзыв навсегда? Это действие нельзя отменить.", "it": "Eliminare definitivamente questa recensione? L'azione è irreversibile.", "es": "¿Eliminar esta reseña permanentemente? Esta acción no se puede deshacer.", "ja": "このレビューを完全に削除しますか？この操作は取り消せません。"},
+    # Public review submission
+    "Write a Review": {"uz": "Sharh yozish", "ru": "Написать отзыв", "it": "Scrivi una recensione", "es": "Escribir una reseña", "ja": "レビューを書く"},
+    "Submit Review": {"uz": "Sharhni yuborish", "ru": "Отправить отзыв", "it": "Invia recensione", "es": "Enviar reseña", "ja": "レビューを送信"},
+    "Your name": {"uz": "Ismingiz", "ru": "Ваше имя", "it": "Il tuo nome", "es": "Tu nombre", "ja": "お名前"},
+    "Your review": {"uz": "Sharhingiz", "ru": "Ваш отзыв", "it": "La tua recensione", "es": "Tu reseña", "ja": "レビュー内容"},
+    "Thank you! Your review will appear after moderation.": {"uz": "Rahmat! Sharhingiz moderatsiyadan so'ng ko'rinadi.", "ru": "Спасибо! Ваш отзыв появится после модерации.", "it": "Grazie! La tua recensione apparirà dopo la moderazione.", "es": "¡Gracias! Tu reseña aparecerá tras la moderación.", "ja": "ありがとうございます！レビューは審査後に表示されます。"},
+    "Please correct the errors below and resubmit your review.": {"uz": "Iltimos, quyidagi xatolarni tuzatib, sharhni qayta yuboring.", "ru": "Пожалуйста, исправьте ошибки ниже и отправьте отзыв снова.", "it": "Correggi gli errori qui sotto e reinvia la recensione.", "es": "Corrige los errores a continuación y vuelve a enviar tu reseña.", "ja": "以下のエラーを修正してレビューを再送信してください。"},
+    "Please choose the tour you are reviewing.": {"uz": "Iltimos, sharh yozayotgan turingizni tanlang.", "ru": "Пожалуйста, выберите тур, о котором вы пишете отзыв.", "it": "Scegli il tour che stai recensendo.", "es": "Elige el tour que estás reseñando.", "ja": "レビュー対象のツアーを選択してください。"},
+    "Please choose the hotel you are reviewing.": {"uz": "Iltimos, sharh yozayotgan mehmonxonangizni tanlang.", "ru": "Пожалуйста, выберите отель, о котором вы пишете отзыв.", "it": "Scegli l'hotel che stai recensendo.", "es": "Elige el hotel que estás reseñando.", "ja": "レビュー対象のホテルを選択してください。"},
+    "Order Added": {"uz": "Qo'shilgan tartibda", "ru": "В порядке добавления", "it": "Ordine di aggiunta", "es": "Orden de adición", "ja": "追加順"},
     # Users
     "New User": {"uz": "Yangi foydalanuvchi", "ru": "Новый пользователь", "it": "Nuovo utente", "es": "Nuevo usuario", "ja": "新規ユーザー"},
     "Create User": {"uz": "Foydalanuvchi yaratish", "ru": "Создать пользователя", "it": "Crea utente", "es": "Crear usuario", "ja": "ユーザーを作成"},

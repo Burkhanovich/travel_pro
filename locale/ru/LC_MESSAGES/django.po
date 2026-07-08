@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 17:34+0000\n"
-"PO-Revision-Date: 2026-07-06 17:34+0000\n"
+"POT-Creation-Date: 2026-07-08 14:14+0000\n"
+"PO-Revision-Date: 2026-07-08 14:14+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -1918,6 +1918,39 @@ msgstr "Отзыв одобрен."
 
 msgid "Review rejected."
 msgstr "Отзыв отклонён."
+
+msgid "Review deleted."
+msgstr "Отзыв удалён."
+
+msgid "Delete this review permanently? This action cannot be undone."
+msgstr "Удалить этот отзыв навсегда? Это действие нельзя отменить."
+
+msgid "Write a Review"
+msgstr "Написать отзыв"
+
+msgid "Submit Review"
+msgstr "Отправить отзыв"
+
+msgid "Your name"
+msgstr "Ваше имя"
+
+msgid "Your review"
+msgstr "Ваш отзыв"
+
+msgid "Thank you! Your review will appear after moderation."
+msgstr "Спасибо! Ваш отзыв появится после модерации."
+
+msgid "Please correct the errors below and resubmit your review."
+msgstr "Пожалуйста, исправьте ошибки ниже и отправьте отзыв снова."
+
+msgid "Please choose the tour you are reviewing."
+msgstr "Пожалуйста, выберите тур, о котором вы пишете отзыв."
+
+msgid "Please choose the hotel you are reviewing."
+msgstr "Пожалуйста, выберите отель, о котором вы пишете отзыв."
+
+msgid "Order Added"
+msgstr "В порядке добавления"
 
 msgid "New User"
 msgstr "Новый пользователь"

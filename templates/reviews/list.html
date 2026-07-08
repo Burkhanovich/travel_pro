@@ -13,39 +13,86 @@
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    {# Filters #}
-    <div class="inline-flex flex-wrap items-center gap-3 mb-4 bg-white rounded-xl px-4 py-3 shadow-sm">
-      <a href="?{% if request.GET.rating %}rating={{ request.GET.rating }}{% endif %}"
-         class="px-4 py-2 rounded-full text-sm font-medium transition {% if not current_type %}bg-primary text-white{% else %}bg-white border border-gray-200 text-gray-700{% endif %}">
-        {% trans "All" %}
-      </a>
-      {% for val, label in review_types %}
-      <a href="?type={{ val }}{% if request.GET.rating %}&rating={{ request.GET.rating }}{% endif %}"
-         class="px-4 py-2 rounded-full text-sm font-medium transition {% if current_type == val %}bg-primary text-white{% else %}bg-white border border-gray-200 text-gray-700{% endif %}">
-        {{ label }}
-      </a>
+    {% if messages %}
+    <div class="mb-6 space-y-2">
+      {% for message in messages %}
+      <div class="rounded-lg px-4 py-3 text-sm {% if message.tags == 'error' %}bg-red-50 text-red-700 border border-red-200{% else %}bg-green-50 text-green-700 border border-green-200{% endif %}">
+        {{ message }}
+      </div>
       {% endfor %}
     </div>
+    {% endif %}
 
-    {# Rating filter #}
-    <div class="inline-flex flex-wrap gap-2 mb-8 bg-white rounded-xl px-4 py-3 shadow-sm">
-      {% for i in "54321" %}
-      <a href="?{% if current_type %}type={{ current_type }}&{% endif %}rating={{ i }}"
-         class="px-3 py-1.5 rounded-full text-sm border transition {% if current_rating == i %}bg-secondary text-white border-secondary{% else %}bg-white border-gray-200 text-gray-700{% endif %}">
-        {{ i }}★
-      </a>
-      {% endfor %}
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 items-start">
+
+      {# ── Main column: filters + reviews ─────────────────────── #}
+      <div>
+        {# Filters #}
+        <div class="inline-flex flex-wrap items-center gap-3 mb-4 bg-white rounded-xl px-4 py-3 shadow-sm">
+          <a href="?{% if request.GET.rating %}rating={{ request.GET.rating }}{% endif %}"
+             class="px-4 py-2 rounded-full text-sm font-medium transition {% if not current_type %}bg-primary text-white{% else %}bg-white border border-gray-200 text-gray-700{% endif %}">
+            {% trans "All" %}
+          </a>
+          {% for val, label in review_types %}
+          <a href="?type={{ val }}{% if request.GET.rating %}&rating={{ request.GET.rating }}{% endif %}"
+             class="px-4 py-2 rounded-full text-sm font-medium transition {% if current_type == val %}bg-primary text-white{% else %}bg-white border border-gray-200 text-gray-700{% endif %}">
+            {{ label }}
+          </a>
+          {% endfor %}
+        </div>
+
+        {# Rating filter #}
+        <div class="inline-flex flex-wrap gap-2 mb-8 bg-white rounded-xl px-4 py-3 shadow-sm">
+          {% for i in "54321" %}
+          <a href="?{% if current_type %}type={{ current_type }}&{% endif %}rating={{ i }}"
+             class="px-3 py-1.5 rounded-full text-sm border transition {% if current_rating == i %}bg-secondary text-white border-secondary{% else %}bg-white border-gray-200 text-gray-700{% endif %}">
+            {{ i }}★
+          </a>
+          {% endfor %}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {% for review in reviews %}
+            {% include "components/review_card.html" with review=review %}
+          {% empty %}
+          <div class="col-span-2 text-center py-20 text-gray-400">{% trans "No reviews found." %}</div>
+          {% endfor %}
+        </div>
+
+        {% include "components/pagination.html" %}
+      </div>
+
+      {# ── Sticky "Write a Review" panel ──────────────────────── #}
+      <aside>
+        <div class="content-card sticky top-24">
+          <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+            <i class="ti ti-pencil text-primary"></i> {% trans "Write a Review" %}
+          </h3>
+          <form method="post" action="{% url 'reviews:create' %}" class="space-y-3">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+            <div class="rounded-lg bg-red-50 border border-red-200 px-3 py-2 text-xs text-red-700">
+              {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            {% for field in form %}
+            <div>
+              <label for="{{ field.id_for_label }}" class="block text-xs font-medium text-gray-600 mb-1">
+                {{ field.label }}{% if field.field.required %} <span class="text-red-500">*</span>{% endif %}
+              </label>
+              {{ field }}
+              {% if field.help_text %}<p class="text-[0.7rem] text-gray-400 mt-1">{{ field.help_text }}</p>{% endif %}
+              {% for error in field.errors %}
+              <p class="text-xs text-red-600 mt-1">{{ error }}</p>
+              {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn-accent w-full mt-2">{% trans "Submit Review" %}</button>
+          </form>
+        </div>
+      </aside>
+
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {% for review in reviews %}
-        {% include "components/review_card.html" with review=review %}
-      {% empty %}
-      <div class="col-span-3 text-center py-20 text-gray-400">{% trans "No reviews found." %}</div>
-      {% endfor %}
-    </div>
-
-    {% include "components/pagination.html" %}
   </div>
 </div>
 {% endblock %}

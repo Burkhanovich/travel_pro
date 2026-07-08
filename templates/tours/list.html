@@ -5,13 +5,52 @@
 
 {% block content %}
 <div class="pt-20 lg:pt-28 bg-pattern-subtle-blue">
-  {# ── Page header — subtle-blue strip #}
-  <div class="relative py-16 text-center overflow-hidden bg-pattern-hero">
+  {# ── Page header — rotating background slideshow (cross-fade) ── #}
+  <div id="tours-hero" class="relative h-[420px] flex items-center justify-center text-center overflow-hidden">
+    <div class="absolute inset-0">
+      {% if hero_slides %}
+        {% for s in hero_slides %}
+        <div class="tours-slide {% if forloop.first %}is-active{% endif %}" style="background-image:url('{{ s.image.url }}')"></div>
+        {% endfor %}
+      {% else %}
+        {# Fallback to bundled images until slides are uploaded in the dashboard #}
+        <div class="tours-slide is-active" style="background-image:url('{% static 'images/hero-ichki-1.jpg' %}')"></div>
+        <div class="tours-slide" style="background-image:url('{% static 'images/hero-ichki-2.jpg' %}')"></div>
+        <div class="tours-slide" style="background-image:url('{% static 'images/hero-ichki-3.jpg' %}')"></div>
+        <div class="tours-slide" style="background-image:url('{% static 'images/hero-ichki-4.jpg' %}')"></div>
+        <div class="tours-slide" style="background-image:url('{% static 'images/hero-ichki-5.jpg' %}')"></div>
+      {% endif %}
+    </div>
+    {# Dark overlay so the white text stays readable over any image #}
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/65"></div>
     <div class="relative z-10 px-4">
-      <h1 class="text-4xl font-serif font-bold mb-2">{% trans "All Tours" %}</h1>
-      <p class="hero-subtitle mt-1">{% trans "Explore our handpicked collection of unforgettable journeys" %}</p>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold mb-2 text-white drop-shadow">{% trans "All Tours" %}</h1>
+      <p class="mt-2 text-lg text-white/90 drop-shadow">{% trans "Explore our handpicked collection of unforgettable journeys" %}</p>
     </div>
   </div>
+
+  <style>
+    #tours-hero .tours-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transform: scale(1.06);
+      transition: opacity 1.5s ease-in-out, transform 6s ease-in-out;
+      will-change: opacity, transform;
+    }
+    #tours-hero .tours-slide.is-active { opacity: 1; transform: scale(1); }
+  </style>
+  <script>
+    (function () {
+      var slides = document.querySelectorAll('#tours-hero .tours-slide');
+      if (slides.length < 2) return;
+      var i = 0;
+      setInterval(function () {
+        slides[i].classList.remove('is-active');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('is-active');
+      }, 5000);
+    })();
+  </script>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex flex-col lg:flex-row gap-8">
@@ -75,17 +114,6 @@
 
       {# ── Tour Grid ────────────────────────────────────────── #}
       <div class="flex-1">
-        {# Cross-link to the separate domestic (multi-city) tour listing #}
-        <div class="bg-accent rounded-xl p-4 mb-6 flex items-center justify-between gap-4 flex-wrap">
-          <p class="text-sm text-gray-700">
-            <i class="ti ti-route text-primary mr-1"></i>
-            {% trans "Looking for multi-city tours across Uzbekistan?" %}
-          </p>
-          <a href="{% url 'ichki-turlar-list' %}" class="text-primary font-semibold text-sm hover:underline whitespace-nowrap">
-            {% trans "View Domestic Tours" %} →
-          </a>
-        </div>
-
         {# Toolbar #}
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 bg-white rounded-xl px-4 py-3 shadow-sm">
           <p class="text-gray-600 text-sm">
@@ -94,7 +122,7 @@
           <div class="flex items-center gap-3">
             <select name="sort" form="filter-form" onchange="this.form.submit()"
                     class="border rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-primary focus:border-primary">
-              <option value="order" {% if sort == 'order' %}selected{% endif %}>{% trans "Featured" %}</option>
+              <option value="chronological" {% if sort == 'chronological' %}selected{% endif %}>{% trans "Order Added" %}</option>
               <option value="price_asc" {% if sort == 'price_asc' %}selected{% endif %}>{% trans "Price: Low to High" %}</option>
               <option value="price_desc" {% if sort == 'price_desc' %}selected{% endif %}>{% trans "Price: High to Low" %}</option>
               <option value="duration" {% if sort == 'duration' %}selected{% endif %}>{% trans "Duration" %}</option>

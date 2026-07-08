@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-06 17:34+0000\n"
-"PO-Revision-Date: 2026-07-06 17:34+0000\n"
+"POT-Creation-Date: 2026-07-08 14:14+0000\n"
+"PO-Revision-Date: 2026-07-08 14:14+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: it\n"
 "Language: it\n"
@@ -1925,6 +1925,40 @@ msgstr "Recensione approvata."
 
 msgid "Review rejected."
 msgstr "Recensione rifiutata."
+
+msgid "Review deleted."
+msgstr "Recensione eliminata."
+
+msgid "Delete this review permanently? This action cannot be undone."
+msgstr ""
+"Eliminare definitivamente questa recensione? L'azione è irreversibile."
+
+msgid "Write a Review"
+msgstr "Scrivi una recensione"
+
+msgid "Submit Review"
+msgstr "Invia recensione"
+
+msgid "Your name"
+msgstr "Il tuo nome"
+
+msgid "Your review"
+msgstr "La tua recensione"
+
+msgid "Thank you! Your review will appear after moderation."
+msgstr "Grazie! La tua recensione apparirà dopo la moderazione."
+
+msgid "Please correct the errors below and resubmit your review."
+msgstr "Correggi gli errori qui sotto e reinvia la recensione."
+
+msgid "Please choose the tour you are reviewing."
+msgstr "Scegli il tour che stai recensendo."
+
+msgid "Please choose the hotel you are reviewing."
+msgstr "Scegli l'hotel che stai recensendo."
+
+msgid "Order Added"
+msgstr "Ordine di aggiunta"
 
 msgid "New User"
 msgstr "Nuovo utente"

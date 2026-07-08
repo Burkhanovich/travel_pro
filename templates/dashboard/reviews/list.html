@@ -44,8 +44,8 @@
             <span>· {{ review.created_at|date:"M j, Y" }}</span>
           </div>
         </div>
-        {% if review.status == "pending" %}
         <div class="flex items-center gap-2 flex-shrink-0">
+          {% if review.status == "pending" %}
           <form method="post">
             {% csrf_token %}
             <input type="hidden" name="pk" value="{{ review.pk }}">
@@ -62,8 +62,17 @@
               <i class="ti ti-x mr-1"></i>{% trans "Reject" %}
             </button>
           </form>
+          {% endif %}
+          {% trans "Delete this review permanently? This action cannot be undone." as delete_confirm %}
+          <form method="post" onsubmit="return confirm('{{ delete_confirm|escapejs }}');">
+            {% csrf_token %}
+            <input type="hidden" name="pk" value="{{ review.pk }}">
+            <input type="hidden" name="action" value="delete">
+            <button type="submit" class="bg-white border border-red-300 text-red-600 hover:bg-red-50 text-xs px-3 py-1.5 rounded-lg transition">
+              <i class="ti ti-trash mr-1"></i>{% trans "Delete" %}
+            </button>
+          </form>
         </div>
-        {% endif %}
       </div>
     </div>
     {% empty %}

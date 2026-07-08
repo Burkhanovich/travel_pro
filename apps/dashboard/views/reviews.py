@@ -44,4 +44,8 @@ class ReviewListView(AuditMixin, StaffRequiredMixin, ListView):
             review.reject()
             self.log_action("REJECT", "Review", pk)
             messages.success(request, gettext("Review rejected."))
+        elif action == "delete":
+            review.delete()
+            self.log_action("DELETE", "Review", pk)
+            messages.success(request, gettext("Review deleted."))
         return redirect(request.path + "?" + request.GET.urlencode())
