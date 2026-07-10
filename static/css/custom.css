@@ -166,3 +166,19 @@ main > * { animation: fadeIn 0.4s ease; }
 .ti { line-height: 1; }
 
 /* The brand feather pattern lives in pattern.css (.bg-pattern--a..d). */
+
+/* ── Section heading gradient (home page h2 sarlavhalar) ─── */
+/*
+   Dizayn mantiq:
+   · Badge (yuqorida) oltin border bilan keladi.
+   · h2 sarlavha o'sha oltin rangdan chuqur ko'k-feruza rangga o'tadi.
+   · Bu "premium travel brand" tuyg'usini kuchaytiradi va kontrast yaxshilanadi.
+*/
+.section-heading {
+  background: linear-gradient(135deg, #7A5A08 0%, #1a3a5c 60%, #2E6DA4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* fallback */
+  display: inline-block; /* gradient clip requires block/inline-block */
+}
