@@ -175,10 +175,10 @@ main > * { animation: fadeIn 0.4s ease; }
    · Bu "premium travel brand" tuyg'usini kuchaytiradi va kontrast yaxshilanadi.
 */
 .section-heading {
-  background: linear-gradient(135deg, #7A5A08 0%, #1a3a5c 60%, #2E6DA4 100%);
+  background: linear-gradient(135deg, #1a3a5c 0%, #2E6DA4 55%, #1B8AC6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent; /* fallback */
-  display: inline-block; /* gradient clip requires block/inline-block */
+  color: transparent;
+  display: block;
 }
