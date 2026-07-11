@@ -175,8 +175,8 @@ main > * { animation: fadeIn 0.4s ease; }
    · Bu "premium travel brand" tuyg'usini kuchaytiradi va kontrast yaxshilanadi.
 */
 .section-heading {
-  color: #8B6008; /* to'q tillarang – dark gold */
-  -webkit-text-fill-color: #8B6008;
+  color: #1E3A8A; /* to'q ko'k – navy blue (Variant 6 chosen by client) */
+  -webkit-text-fill-color: #1E3A8A;
   background: none;
   display: block;
 }
