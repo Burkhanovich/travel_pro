@@ -109,6 +109,9 @@
     <a href="{% url 'home' %}" target="_blank" class="sidebar-link">
       <i class="ti ti-external-link text-lg"></i> {% trans "View Site" %}
     </a>
+    <a href="{% url 'admin:index' %}" target="_blank" class="sidebar-link">
+      <i class="ti ti-settings text-lg"></i> {% trans "System Settings" %}
+    </a>
     <a href="{% url 'account_logout' %}" class="sidebar-link text-red-400 hover:text-red-300 hover:bg-red-900/20">
       <i class="ti ti-logout text-lg"></i> {% trans "Sign Out" %}
     </a>
