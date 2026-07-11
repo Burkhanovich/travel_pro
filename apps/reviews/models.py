@@ -30,7 +30,6 @@ class Review(TimeStampedModel):
 
     REVIEW_TYPE_CHOICES = [
         ("tour", _("Tour Review")),
-        ("hotel", _("Hotel Review")),
         ("general", _("General Review")),
     ]
 
@@ -46,14 +45,6 @@ class Review(TimeStampedModel):
         blank=True,
         related_name="reviews",
         verbose_name=_("Tour"),
-    )
-    hotel = models.ForeignKey(
-        "hotels.Hotel",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        related_name="reviews",
-        verbose_name=_("Hotel"),
     )
 
     # Reviewer

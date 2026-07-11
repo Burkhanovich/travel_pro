@@ -77,3 +77,31 @@ class HeroSlide(TimeStampedModel, OrderedMixin):
 
     def __str__(self) -> str:
         return f"{self.get_page_display()} — {self.alt or self.image.name}"
+
+
+class ContactSettings(TimeStampedModel):
+    """
+    Site-wide contact information and social links managed from the admin.
+    """
+    phone = models.CharField(_("Phone"), max_length=50, default="+998919917101")
+    email = models.EmailField(_("Email"), default="burkhanov1c@gmail.com")
+    address = models.CharField(_("Address"), max_length=255, default="Navoiy viloyati, Navoiy shahri, Jasorat 29-36")
+    working_hours = models.CharField(_("Working hours"), max_length=255, default="Dushanba–Shanba, 9:00–18:00")
+    
+    # Social links
+    youtube = models.URLField(_("YouTube"), blank=True, default="https://youtube.com/@Unituruz")
+    instagram = models.URLField(_("Instagram"), blank=True, default="https://instagram.com/unitouruz")
+    telegram = models.URLField(_("Telegram"), blank=True, default="https://t.me/unituruz")
+    facebook = models.URLField(_("Facebook"), blank=True, default="https://facebook.com/unituruz")
+    
+    # Coordinates (for the map on the contact page)
+    latitude = models.FloatField(_("Latitude"), default=40.0844, null=True, blank=True)
+    longitude = models.FloatField(_("Longitude"), default=65.3792, null=True, blank=True)
+
+    class Meta:
+        verbose_name = _("Contact Settings")
+        verbose_name_plural = _("Contact Settings")
+
+    def __str__(self) -> str:
+        return f"Site Contact Settings ({self.email})"
+

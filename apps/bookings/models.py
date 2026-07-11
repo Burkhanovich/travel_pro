@@ -81,14 +81,7 @@ class Inquiry(TimeStampedModel):
         related_name="inquiries",
         verbose_name=_("Tour"),
     )
-    hotel = models.ForeignKey(
-        "hotels.Hotel",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name="inquiries",
-        verbose_name=_("Hotel"),
-    )
+
     departure = models.ForeignKey(
         "tours.TourDeparture",
         on_delete=models.SET_NULL,

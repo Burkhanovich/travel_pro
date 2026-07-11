@@ -75,7 +75,7 @@ class CityDetailView(DetailView):
         city_slug = self.kwargs["city_slug"]
         return get_object_or_404(
             City.objects.select_related("country").prefetch_related(
-                "attractions", "hotels", "images"
+                "attractions", "images"
             ),
             slug=city_slug,
             country__slug=country_slug,
@@ -86,7 +86,6 @@ class CityDetailView(DetailView):
         ctx = super().get_context_data(**kwargs)
         city = self.object
         ctx["attractions"] = city.attractions.filter(is_active=True)
-        ctx["hotels"] = city.hotels.filter(is_active=True).order_by("order")[:6]
         return ctx
 
 

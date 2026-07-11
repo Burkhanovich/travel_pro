@@ -11,7 +11,7 @@ from apps.dashboard.mixins import StaffRequiredMixin
 from apps.dashboard.models import DashboardNotification
 from apps.reviews.models import Review
 from apps.tours.models import Tour
-from apps.hotels.models import Hotel
+from apps.faq.models import FAQ
 
 
 class DashboardHomeView(StaffRequiredMixin, TemplateView):
@@ -25,13 +25,13 @@ class DashboardHomeView(StaffRequiredMixin, TemplateView):
         ctx.update(
             {
                 "total_tours": Tour.objects.count(),
-                "total_hotels": Hotel.objects.count(),
+                "total_faqs": FAQ.objects.count(),
                 "pending_bookings": Inquiry.objects.filter(status="submitted").count(),
                 "pending_reviews": Review.objects.filter(status="pending").count(),
                 "monthly_bookings": Inquiry.objects.filter(created_at__gte=month_start).count(),
                 "confirmed_bookings": Inquiry.objects.filter(status="confirmed").count(),
                 "recent_bookings": (
-                    Inquiry.objects.select_related("tour", "hotel")
+                    Inquiry.objects.select_related("tour")
                     .order_by("-created_at")[:10]
                 ),
                 "pending_review_list": Review.objects.filter(status="pending").order_by("-created_at")[:5],

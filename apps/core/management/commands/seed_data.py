@@ -24,7 +24,8 @@ from django.utils.text import slugify
 
 from apps.destinations.models import Attraction, City, Continent, Country
 from apps.guides.models import Article, GuideCategory, Tag
-from apps.hotels.models import Hotel, HotelAmenity, HotelRoom
+from apps.core.models import ContactSettings
+from apps.faq.models import FAQ
 from apps.reviews.models import Review
 from apps.tours.models import Tour, TourCategory, TourDay, TourDeparture
 
@@ -194,20 +195,20 @@ class Command(BaseCommand):
         return False
 
     def handle(self, *args, **options):
-        self.stdout.write(self.style.MIGRATE_HEADING("Starting seed_data..."))
-
+        self.stdout.write("Seeding database...")
         self._create_superuser()
+        self._create_contact_settings()
+
         continents = self._create_continents()
         countries = self._create_countries(continents)
         cities = self._create_cities(countries)
-        amenities = self._create_hotel_amenities()
-        hotels = self._create_hotels(cities, amenities)
         categories = self._create_tour_categories()
-        tours = self._create_tours(categories, countries, hotels)
+        tours = self._create_tours(categories, countries)
         self._create_departures(tours)
         articles = self._create_guide_content(tours)
-        self._create_reviews(tours, hotels)
-        self._assign_images(countries, tours, hotels, articles)
+        self._create_reviews(tours)
+        self._create_faqs()
+        self._assign_images(countries, tours, articles)
 
         self.stdout.write(self.style.SUCCESS("Seed complete!"))
 
@@ -288,47 +289,7 @@ class Command(BaseCommand):
         self.stdout.write(f"  Cities: {len(all_cities)}")
         return all_cities
 
-    def _create_hotel_amenities(self):
-        amenities = []
-        for name, icon in AMENITIES:
-            a, _ = HotelAmenity.objects.get_or_create(name=name, defaults={"icon": icon})
-            amenities.append(a)
-        return amenities
 
-    def _create_hotels(self, cities, amenities):
-        hotels = []
-        for i, city in enumerate(cities[:15]):
-            slug = slugify(f"{city.name} grand hotel {i}")
-            hotel, _ = Hotel.objects.get_or_create(
-                slug=slug,
-                defaults={
-                    "name": f"The Grand {city.name}",
-                    "city": city,
-                    "category": random.choice(["standard", "boutique", "luxury"]),
-                    "stars": random.randint(3, 5),
-                    "description": f"A premier hotel in the heart of {city.name}.",
-                    "price_from": random.randint(80, 400),
-                    "is_featured": i < 4,
-                    "is_active": True,
-                    "order": i,
-                },
-            )
-            hotel.amenities.set(random.sample(amenities, k=min(4, len(amenities))))
-
-            # Add rooms
-            for rtype in ["double", "suite"]:
-                HotelRoom.objects.get_or_create(
-                    hotel=hotel,
-                    room_type=rtype,
-                    defaults={
-                        "capacity": 2,
-                        "price_per_night": hotel.price_from * (Decimal("1.5") if rtype == "suite" else Decimal("1")),
-                        "is_available": True,
-                    },
-                )
-            hotels.append(hotel)
-        self.stdout.write(f"  Hotels: {len(hotels)}")
-        return hotels
 
     def _create_tour_categories(self):
         cats = []
@@ -341,10 +302,9 @@ class Command(BaseCommand):
             cats.append(cat)
         return cats
 
-    def _create_tours(self, categories, countries, hotels):
+    def _create_tours(self, categories, countries):
         tours = []
         country_list = list(countries.values())
-        hotel_list = list(hotels)
         tour_names = [
             "Classic {country} Discovery",
             "Hidden Gems of {country}",
@@ -377,13 +337,13 @@ class Command(BaseCommand):
                     "includes": "Accommodation\nBreakfast daily\nAirport transfers\nEnglish-speaking guide\nAll entrance fees",
                     "excludes": "International flights\nTravel insurance\nPersonal expenses\nOptional activities",
                     "important_notes": "Moderate walking required. Bring comfortable shoes.",
+                    "hotels": f"The Grand {country.name} Hotel, Royal Resort {country.name}",
                     "is_featured": i < 6,
                     "is_active": True,
                     "order": i,
                 },
             )
             tour.destinations.set([country])
-            tour.hotels.set(random.sample(hotel_list, k=min(2, len(hotel_list))))
 
             # Days
             for day_num in range(1, min(days + 1, 6)):
@@ -463,7 +423,7 @@ class Command(BaseCommand):
         self.stdout.write(f"  Articles: {len(article_data)}")
         return list(Article.objects.filter(slug__in=[slugify(t) for t, *_ in article_data]))
 
-    def _assign_images(self, countries, tours, hotels, articles):
+    def _assign_images(self, countries, tours, articles):
         self.stdout.write("  Downloading images from Unsplash...")
         n = 0
 
@@ -487,13 +447,6 @@ class Command(BaseCommand):
             if self._set_img(tour, "cover_image", photo_id, fname, 900):
                 n += 1
 
-        # Featured hotels (first 5)
-        for i, hotel in enumerate(hotels[:5]):
-            photo_id = HOTEL_PHOTOS[i % len(HOTEL_PHOTOS)]
-            fname = f"hotel-{i}-cover.jpg"
-            if self._set_img(hotel, "cover_image", photo_id, fname, 900):
-                n += 1
-
         # Articles
         for i, article in enumerate(articles):
             photo_id = ARTICLE_PHOTOS[i % len(ARTICLE_PHOTOS)]
@@ -503,7 +456,7 @@ class Command(BaseCommand):
 
         self.stdout.write(f"  Images assigned: {n}")
 
-    def _create_reviews(self, tours, hotels):
+    def _create_reviews(self, tours):
         count = 0
         countries = ["USA", "UK", "Australia", "Germany", "France", "Japan", "Canada"]
         for i in range(20):
@@ -525,3 +478,42 @@ class Command(BaseCommand):
             )
             count += 1
         self.stdout.write(f"  Reviews: {count}")
+
+    def _create_faqs(self):
+        faq_data = [
+            ("What documents do I need to travel?", "You will need a valid passport (minimum 6 months validity) and depending on your citizenship, a tourist visa for Uzbekistan or Central Asian countries. Please check our Destinations page for specific visa advice."),
+            ("Is travel insurance mandatory?", "Yes, we highly recommend obtaining comprehensive travel insurance that covers trip cancellation, medical emergencies, and baggage loss before your departure."),
+            ("What is the best time of year to visit Uzbekistan?", "Spring (April to June) and Autumn (September to November) offer the most pleasant weather with mild temperatures and clear skies, ideal for sightseeing."),
+            ("What currency is used in Uzbekistan?", "The official currency is the Uzbek Soum (UZS). Credit cards are accepted in major hotels and restaurants in Tashkent, but cash is highly recommended for markets and smaller cities. USD and EUR are easy to exchange."),
+            ("Are your tours guided in English?", "Yes, all of our standard tours include professional, licensed English-speaking local guides. We also offer tours in Russian, Italian, Spanish, and Japanese upon request."),
+        ]
+        count = 0
+        for i, (q, a) in enumerate(faq_data):
+            FAQ.objects.get_or_create(
+                question=q,
+                defaults={
+                    "answer": a,
+                    "order": i,
+                    "is_active": True,
+                }
+            )
+            count += 1
+        self.stdout.write(f"  FAQs: {count}")
+
+    def _create_contact_settings(self):
+        ContactSettings.objects.get_or_create(
+            id=1,
+            defaults={
+                "phone": "+998919917101",
+                "email": "burkhanov1c@gmail.com",
+                "address": "Navoiy viloyati, Navoiy shahri, Jasorat 29-36",
+                "working_hours": "Dushanba–Shanba, 9:00–18:00",
+                "youtube": "https://youtube.com/@Unituruz",
+                "instagram": "https://instagram.com/unitouruz",
+                "telegram": "https://t.me/unituruz",
+                "facebook": "https://facebook.com/unituruz",
+                "latitude": 40.0844,
+                "longitude": 65.3792,
+            }
+        )
+        self.stdout.write("  Created/verified Contact Settings singleton.")

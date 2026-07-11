@@ -14,17 +14,16 @@ from django.views import View
 
 from apps.dashboard.mixins import AuditMixin, ManagerRequiredMixin
 from apps.destinations.models import City, Country
-from apps.hotels.models import Hotel
 from apps.tours.models import Tour
+from apps.faq.models import FAQ
 
 # Which models can be toggled, keyed by the slug used in the URL. Each entry
 # maps to (model, list-view url name) so we can bounce back to the right page.
 TOGGLEABLE = {
     "tour": (Tour, "dashboard:tours_list"),
-    "ichki-tur": (Tour, "dashboard:ichki_turlar_list"),
     "city": (City, "dashboard:cities_list"),
-    "hotel": (Hotel, "dashboard:hotels_list"),
     "country": (Country, "dashboard:destinations_list"),
+    "faq": (FAQ, "dashboard:faq_list"),
 }
 
 

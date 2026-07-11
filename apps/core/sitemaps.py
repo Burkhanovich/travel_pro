@@ -9,7 +9,6 @@ from django.urls import reverse
 
 from apps.destinations.models import Country
 from apps.guides.models import Article
-from apps.hotels.models import Hotel
 from apps.tours.models import Tour
 
 
@@ -39,19 +38,6 @@ class CountrySitemap(Sitemap):
         return obj.updated_at
 
 
-class HotelSitemap(Sitemap):
-    """Sitemap entries for hotel pages."""
-
-    changefreq = "monthly"
-    priority = 0.6
-
-    def items(self):
-        return Hotel.objects.filter(is_active=True)
-
-    def lastmod(self, obj):
-        return obj.updated_at
-
-
 class ArticleSitemap(Sitemap):
     """Sitemap entries for published guide articles."""
 
@@ -72,7 +58,8 @@ class StaticViewSitemap(Sitemap):
     changefreq = "monthly"
 
     def items(self):
-        return ["home", "about", "contact", "tours:list", "destinations:list", "hotels:list"]
+        return ["home", "about", "contact", "tours:list", "destinations:list"]
 
     def location(self, item):
         return reverse(item)
+

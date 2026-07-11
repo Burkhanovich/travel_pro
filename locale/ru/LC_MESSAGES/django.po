@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-08 20:31+0000\n"
-"PO-Revision-Date: 2026-07-08 20:31+0000\n"
+"POT-Creation-Date: 2026-07-11 22:49+0000\n"
+"PO-Revision-Date: 2026-07-11 22:49+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ru\n"
 "Language: ru\n"
@@ -346,7 +346,7 @@ msgid "With Confidence"
 msgstr "С уверенностью"
 
 msgid ""
-"Authentic tours across Uzbekistan and Eurasia. Unmatched service, "
+"Authentic tours across Uzbekistan and Central Asia. Unmatched service, "
 "unforgettable memories."
 msgstr ""
 "Подлинные туры по Узбекистану и Центральной Азии. Безупречный сервис, "
@@ -372,6 +372,18 @@ msgstr "Рекомендуемые туры"
 
 msgid "View All Tours"
 msgstr "Смотреть все туры"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Frequently Asked Questions"
+msgstr "Часто задаваемые вопросы"
+
+msgid "Find answers to the most common questions about our tours and services"
+msgstr "Найдите ответы на самые популярные вопросы о наших турах и услугах"
+
+msgid "No questions found. Please check back later."
+msgstr "Вопросы не найдены. Пожалуйста, зайдите позже."
 
 msgid "No featured tours yet."
 msgstr "Пока нет рекомендуемых туров."

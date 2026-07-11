@@ -51,8 +51,8 @@ class InquiryAdmin(ImportExportModelAdmin):
     list_filter = ("status", "inquiry_type", "source", "assigned_to", "created_at")
     search_fields = ("first_name", "last_name", "email", "confirmation_number", "phone")
     readonly_fields = ("confirmation_number", "created_ip", "created_at", "updated_at")
-    autocomplete_fields = ("tour", "hotel", "departure", "assigned_to")
-    list_select_related = ("tour", "hotel", "assigned_to")
+    autocomplete_fields = ("tour", "departure", "assigned_to")
+    list_select_related = ("tour", "assigned_to")
     list_per_page = 50
     date_hierarchy = "created_at"
     actions = [action_confirm, action_cancel, action_complete, export_as_csv]
@@ -62,7 +62,7 @@ class InquiryAdmin(ImportExportModelAdmin):
             "fields": ("confirmation_number", "inquiry_type", "status", "source", "assigned_to"),
         }),
         (_("Linked Items"), {
-            "fields": ("tour", "departure", "hotel"),
+            "fields": ("tour", "departure"),
         }),
         (_("Customer"), {
             "fields": ("first_name", "last_name", "email", "phone", "country_of_origin"),

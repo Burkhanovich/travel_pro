@@ -73,7 +73,7 @@ class TourAdmin(ImportExportModelAdmin, TranslationAdmin):
     search_fields = ("title", "overview")
     prepopulated_fields = {"slug": ("title",)}
     list_editable = ("is_featured", "is_active", "order")
-    filter_horizontal = ("destinations", "hotels")
+    filter_horizontal = ("destinations",)
     readonly_fields = ("views_count", "created_at", "updated_at")
     actions = [export_as_csv]
     inlines = [TourStopInline, TourDayInline, TourImageInline, TourDepartureInline]

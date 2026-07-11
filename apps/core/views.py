@@ -8,7 +8,6 @@ from django.utils.decorators import method_decorator
 
 from apps.tours.models import Tour
 from apps.destinations.models import Country, Continent
-from apps.hotels.models import Hotel
 from apps.guides.models import Article
 from apps.reviews.forms import ReviewCreateForm
 from apps.reviews.models import Review
@@ -45,11 +44,6 @@ class HomeView(TemplateView):
             .annotate(num_tours=Count("tours"))
             .order_by("order")[:8]
         )
-        ctx["featured_hotels"] = (
-            Hotel.objects.filter(is_featured=True, is_active=True)
-            .select_related("city__country")
-            .order_by("order")[:4]
-        )
         ctx["latest_articles"] = (
             Article.objects.filter(is_published=True, is_active=True)
             .select_related("category", "author")
@@ -57,7 +51,7 @@ class HomeView(TemplateView):
         )
         ctx["testimonials"] = (
             Review.objects.filter(status="approved")
-            .select_related("user", "tour", "hotel")
+            .select_related("user", "tour")
             .order_by("-helpful_count", "-created_at")[:6]
         )
         # Empty form powering the inline "Write a Review" panel on the home page.

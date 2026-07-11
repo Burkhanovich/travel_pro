@@ -22,7 +22,7 @@ class BookingListView(StaffRequiredMixin, ListView):
     paginate_by = 25
 
     def get_queryset(self):
-        qs = Inquiry.objects.select_related("tour", "hotel", "assigned_to").order_by("-created_at")
+        qs = Inquiry.objects.select_related("tour", "assigned_to").order_by("-created_at")
         q = self.request.GET.get("q", "").strip()
         if q:
             qs = qs.filter(first_name__icontains=q) | qs.filter(
@@ -79,10 +79,10 @@ def booking_export_csv(request):
         header = [
             "Confirmation", "Type", "Status", "First Name", "Last Name",
             "Email", "Phone", "Travel Date", "Adults", "Children",
-            "Tour", "Hotel", "Budget", "Source", "Created",
+            "Tour", "Budget", "Source", "Created",
         ]
         yield ",".join(header) + "\n"
-        for b in Inquiry.objects.select_related("tour", "hotel").iterator(chunk_size=200):
+        for b in Inquiry.objects.select_related("tour").iterator(chunk_size=200):
             row = [
                 b.confirmation_number,
                 b.inquiry_type,
@@ -95,7 +95,6 @@ def booking_export_csv(request):
                 str(b.num_adults),
                 str(b.num_children),
                 str(b.tour or ""),
-                str(b.hotel or ""),
                 b.budget_range,
                 b.source,
                 b.created_at.strftime("%Y-%m-%d %H:%M"),

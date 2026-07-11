@@ -70,7 +70,7 @@ class TestTourListSeparation:
         yield
         cache.clear()
 
-    def test_tours_list_excludes_multi_city(self, client):
+    def test_tours_list_includes_multi_city(self, client):
         single = f.make_tour(title="Japan Highlights", is_active=True)
         f.make_tour_stop(single, order=1)  # one stop → still single-city
         multi = f.make_tour(title="Uzbek Grand Tour", is_active=True)
@@ -80,7 +80,7 @@ class TestTourListSeparation:
         resp = client.get(reverse("tours:list"))
         titles = [t.title for t in resp.context["tours"]]
         assert "Japan Highlights" in titles
-        assert "Uzbek Grand Tour" not in titles
+        assert "Uzbek Grand Tour" in titles
 
     def test_tours_list_includes_zero_stop_tours(self, client):
         plain = f.make_tour(title="No Stops Intl", is_active=True)
@@ -98,17 +98,17 @@ class TestTourListSeparation:
         resp = client.get(reverse("tours:list"))
         assert "Reviewed Single" in [t.title for t in resp.context["tours"]]
 
-    def test_ichki_turlar_only_multi_city(self, client):
+    def test_all_tours_mixed(self, client):
         single = f.make_tour(title="Single City", is_active=True)
         f.make_tour_stop(single, order=1)
         multi = f.make_tour(title="Multi City", is_active=True)
         f.make_tour_stop(multi, order=1)
         f.make_tour_stop(multi, order=2)
 
-        resp = client.get(reverse("ichki-turlar-list"))
+        resp = client.get(reverse("tours:list"))
         titles = [t.title for t in resp.context["tours"]]
         assert "Multi City" in titles
-        assert "Single City" not in titles
+        assert "Single City" in titles
 
 
 class TestTour:

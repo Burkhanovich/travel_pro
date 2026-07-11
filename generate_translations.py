@@ -134,12 +134,12 @@ T = {
     # ── Home page ─────────────────────────────────────────────────────────────
     "Discover the World": {"uz": "Dunyoni kashf eting", "ru": "Откройте мир", "it": "Scopri il Mondo", "es": "Descubre el Mundo", "ja": "世界を発見しよう"},
     "With Confidence": {"uz": "Ishonch bilan", "ru": "С уверенностью", "it": "Con Fiducia", "es": "Con Confianza", "ja": "自信を持って"},
-    "Authentic tours across Uzbekistan and Eurasia. Unmatched service, unforgettable memories.": {
-        "uz": "O'zbekiston va Yevrosiyo bo'ylab betakror turlar. Tengsiz xizmat, unutilmas xotiralar.",
+    "Authentic tours across Uzbekistan and Central Asia. Unmatched service, unforgettable memories.": {
+        "uz": "O'zbekiston va Markaziy Osiyo bo'ylab betakror turlar. Tengsiz xizmat, unutilmas xotiralar.",
         "ru": "Подлинные туры по Узбекистану и Центральной Азии. Безупречный сервис, незабываемые впечатления.",
-        "it": "Tour autentici in Uzbekistan ed Eurasia. Servizio impareggiabile, ricordi indimenticabili.",
-        "es": "Tours auténticos por Uzbekistán y Eurasia. Servicio inigualable, recuerdos inolvidables.",
-        "ja": "ウズベキスタンとユーラシアを巡る本格的なツアー。比類なきサービス、忘れられない思い出。",
+        "it": "Tour autentici in Uzbekistan e Asia Centrale. Servizio impareggiabile, ricordi indimenticabili.",
+        "es": "Tours auténticos por Uzbekistán y Asia Central. Servicio inigualable, recuerdos inolvidables.",
+        "ja": "ウズベキスタンと中央アジアを巡る本格的なツアー。比類なきサービス、忘れられない思い出。",
     },
     "Destination": {"uz": "Yo'nalish", "ru": "Направление", "it": "Destinazione", "es": "Destino", "ja": "目的地"},
     "Where to?": {"uz": "Qayerga?", "ru": "Куда?", "it": "Dove vai?", "es": "¿A dónde?", "ja": "どこへ？"},
@@ -148,6 +148,10 @@ T = {
     "Handpicked for You": {"uz": "Siz uchun tanlangan", "ru": "Подобрано для вас", "it": "Selezionato per te", "es": "Seleccionado para ti", "ja": "あなたのために厳選"},
     "Featured Tours": {"uz": "Tanlangan turlar", "ru": "Рекомендуемые туры", "it": "Tour in evidenza", "es": "Tours destacados", "ja": "おすすめツアー"},
     "View All Tours": {"uz": "Barcha turlarni ko'rish", "ru": "Смотреть все туры", "it": "Vedi tutti i tour", "es": "Ver todos los tours", "ja": "すべてのツアーを見る"},
+    "FAQ": {"uz": "Ko'p beriladigan savollar", "ru": "FAQ", "it": "FAQ", "es": "FAQ", "ja": "よくある質問"},
+    "Frequently Asked Questions": {"uz": "Ko'p beriladigan savollar", "ru": "Часто задаваемые вопросы", "it": "Domande Frequenti", "es": "Preguntas Frecuentes", "ja": "よくある質問"},
+    "Find answers to the most common questions about our tours and services": {"uz": "Turlarimiz va xizmatlarimiz haqida ko'p beriladigan savollarga javoblar", "ru": "Найдите ответы на самые популярные вопросы о наших турах и услугах", "it": "Trova le risposte alle domande più comuni sui nostri tour e servizi", "es": "Encuentre respuestas a las preguntas más comunes sobre nuestros tours & servicios", "ja": "ツアーやサービスに関するよくある質問と回答"},
+    "No questions found. Please check back later.": {"uz": "Savollar topilmadi. Keyinroq qayta tekshirib ko'ring.", "ru": "Вопросы не найдены. Пожалуйста, зайдите позже.", "it": "Nessuna domanda trovata. Ricontrolla più tardi.", "es": "No se encontraron preguntas. Por favor, vuelva a consultar más tarde.", "ja": "質問が見つかりません。後ほど再度ご確認ください。"},
     "No featured tours yet.": {"uz": "Hozircha tanlangan turlar yo'q.", "ru": "Пока нет рекомендуемых туров.", "it": "Nessun tour in evidenza.", "es": "Aún no hay tours destacados.", "ja": "おすすめツアーはまだありません。"},
     "Explore the World": {"uz": "Dunyoni o'rganing", "ru": "Исследуйте мир", "it": "Esplora il Mondo", "es": "Explora el Mundo", "ja": "世界を探索しよう"},
     "Top Destinations": {"uz": "Eng mashhur yo'nalishlar", "ru": "Лучшие направления", "it": "Destinazioni principali", "es": "Destinos principales", "ja": "人気の目的地"},

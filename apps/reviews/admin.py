@@ -30,7 +30,7 @@ class ReviewAdmin(admin.ModelAdmin):
     date_hierarchy = "created_at"
 
     fieldsets = (
-        (None, {"fields": ("review_type", "status", "is_verified", "tour", "hotel", "user")}),
+        (None, {"fields": ("review_type", "status", "is_verified", "tour", "user")}),
         (_("Reviewer"), {"fields": ("guest_name", "guest_country")}),
         (_("Content"), {"fields": ("rating", "title", "body", "travel_date")}),
         (_("Stats"), {"fields": ("helpful_count", "created_at", "updated_at"), "classes": ("collapse",)}),

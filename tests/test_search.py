@@ -138,12 +138,12 @@ class TestDashboardSearch:
         titles = {t.title for t in resp.context["tours"]}
         assert titles == {"Alpha Tour"}
 
-    def test_hotels_search(self, admin_client):
-        f.make_hotel(name="Grand Plaza")
-        f.make_hotel(name="Budget Inn")
-        resp = admin_client.get(reverse("dashboard:hotels_list") + "?q=Plaza")
-        names = {h.name for h in resp.context["hotels"]}
-        assert names == {"Grand Plaza"}
+    def test_faqs_search(self, admin_client):
+        f.make_faq(question="How to travel?")
+        f.make_faq(question="Is it safe?")
+        resp = admin_client.get(reverse("dashboard:faq_list") + "?q=travel")
+        questions = {faq.question for faq in resp.context["faqs"]}
+        assert questions == {"How to travel?"}
 
     def test_destinations_search(self, admin_client):
         f.make_country(name="Uzbekistan")

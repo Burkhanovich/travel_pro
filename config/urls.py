@@ -11,18 +11,15 @@ from django.views.i18n import JavaScriptCatalog
 from apps.core.sitemaps import (
     ArticleSitemap,
     CountrySitemap,
-    HotelSitemap,
     StaticViewSitemap,
     TourSitemap,
 )
 from apps.core.views import RobotsTxtView
 from apps.destinations.views import CityInfoAPIView
-from apps.tours.views import IchkiTurlarListView
 
 sitemaps = {
     "tours": TourSitemap,
     "destinations": CountrySitemap,
-    "hotels": HotelSitemap,
     "articles": ArticleSitemap,
     "static": StaticViewSitemap,
 }
@@ -48,13 +45,12 @@ urlpatterns = [
     path("", include("apps.core.urls")),
     path("tours/", include("apps.tours.urls", namespace="tours")),
     path("destinations/", include("apps.destinations.urls", namespace="destinations")),
-    path("hotels/", include("apps.hotels.urls", namespace="hotels")),
     path("guides/", include("apps.guides.urls", namespace="guides")),
     path("reviews/", include("apps.reviews.urls", namespace="reviews")),
     path("bookings/", include("apps.bookings.urls", namespace="bookings")),
+    path("faq/", include("apps.faq.urls", namespace="faq")),
     path("accounts/", include("apps.accounts.urls", namespace="accounts")),
-    # Ichki Turlar (multi-city tours) — reuses the Tours app
-    path("ichki-turlar/", IchkiTurlarListView.as_view(), name="ichki-turlar-list"),
+
     # JSON API for the interactive route line on multi-city tours
     path("api/cities/<slug:slug>/info/", CityInfoAPIView.as_view(), name="city-info-api"),
 ]

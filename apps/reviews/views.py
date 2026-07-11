@@ -33,11 +33,11 @@ class ReviewListView(ListView):
     def get_queryset(self):
         qs = (
             Review.objects.filter(status="approved")
-            .select_related("user", "tour", "hotel")
+            .select_related("user", "tour")
             .order_by("-created_at")
         )
         review_type = self.request.GET.get("type")
-        if review_type in ("tour", "hotel", "general"):
+        if review_type in ("tour", "general"):
             qs = qs.filter(review_type=review_type)
 
         rating = self.request.GET.get("rating")

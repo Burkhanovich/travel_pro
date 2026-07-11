@@ -16,7 +16,7 @@ class ReviewListView(AuditMixin, StaffRequiredMixin, ListView):
     paginate_by = 25
 
     def get_queryset(self):
-        qs = Review.objects.select_related("tour", "hotel", "user").order_by("-created_at")
+        qs = Review.objects.select_related("tour", "user").order_by("-created_at")
         status = self.request.GET.get("status", "pending")
         if status:
             qs = qs.filter(status=status)

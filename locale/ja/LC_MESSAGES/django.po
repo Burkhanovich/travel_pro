@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: travel_pro 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-08 20:31+0000\n"
-"PO-Revision-Date: 2026-07-08 20:31+0000\n"
+"POT-Creation-Date: 2026-07-11 22:49+0000\n"
+"PO-Revision-Date: 2026-07-11 22:49+0000\n"
 "Last-Translator: Travel Pro Team\n"
 "Language-Team: ja\n"
 "Language: ja\n"
@@ -343,9 +343,9 @@ msgid "With Confidence"
 msgstr "自信を持って"
 
 msgid ""
-"Authentic tours across Uzbekistan and Eurasia. Unmatched service, "
+"Authentic tours across Uzbekistan and Central Asia. Unmatched service, "
 "unforgettable memories."
-msgstr "ウズベキスタンとユーラシアを巡る本格的なツアー。比類なきサービス、忘れられない思い出。"
+msgstr "ウズベキスタンと中央アジアを巡る本格的なツアー。比類なきサービス、忘れられない思い出。"
 
 msgid "Destination"
 msgstr "目的地"
@@ -367,6 +367,18 @@ msgstr "おすすめツアー"
 
 msgid "View All Tours"
 msgstr "すべてのツアーを見る"
+
+msgid "FAQ"
+msgstr "よくある質問"
+
+msgid "Frequently Asked Questions"
+msgstr "よくある質問"
+
+msgid "Find answers to the most common questions about our tours and services"
+msgstr "ツアーやサービスに関するよくある質問と回答"
+
+msgid "No questions found. Please check back later."
+msgstr "質問が見つかりません。後ほど再度ご確認ください。"
 
 msgid "No featured tours yet."
 msgstr "おすすめツアーはまだありません。"

@@ -23,8 +23,7 @@ db.sqlite3-journal
 
 # Static / media (collected at deploy time)
 staticfiles/
-# media/ — keep if using local storage in dev, remove if using Cloudinary only
-# media/
+media/
 
 # ── Environment secrets ───────────────────────────────────────────────────────
 .env

@@ -80,11 +80,10 @@ class Tour(TimeStampedModel, SEOMixin, PublishableMixin, OrderedMixin):
         verbose_name=_("Destinations"),
         blank=True,
     )
-    hotels = models.ManyToManyField(
-        "hotels.Hotel",
-        related_name="tours",
-        verbose_name=_("Hotels"),
+    hotels = models.TextField(
+        _("Hotels"),
         blank=True,
+        help_text=_("Enter hotel names or accommodations for this tour (e.g. Grand Hotel, Hilton)."),
     )
 
     # Tour specs

@@ -32,10 +32,9 @@ class TourListView(ListView):
     paginate_by = 12
 
     def get_queryset(self):
-        # Single-city (international) tours only. Multi-city "Ichki Turlar" have
-        # their own page (IchkiTurlarListView); excluding them here keeps the two
-        # listings cleanly separated. ``distinct=True`` is required because the
-        # avg_rating join over reviews would otherwise fan out the stops count.
+        # All tours mixed together.
+        # ``distinct=True`` is required because the avg_rating join over reviews
+        # would otherwise fan out the stops count.
         qs = (
             Tour.objects.filter(is_active=True)
             .select_related("category")
@@ -44,7 +43,6 @@ class TourListView(ListView):
                 num_stops=Count("stops", distinct=True),
                 avg_rating=Avg("reviews__rating", filter=Q(reviews__status="approved")),
             )
-            .filter(num_stops__lte=1)
         )
         self.filterset = TourFilter(self.request.GET, queryset=qs)
         filtered_qs = self.filterset.qs
@@ -90,37 +88,7 @@ class TourListView(ListView):
         return ctx
 
 
-@method_decorator(cache_page(60 * 5), name="dispatch")
-class IchkiTurlarListView(ListView):
-    """
-    "Ichki Turlar" — multi-city tours (those with more than one itinerary stop).
 
-    Reuses regular Tour objects; the only distinction is having >1 TourStop.
-    """
-
-    model = Tour
-    template_name = "tours/ichki_turlar_list.html"
-    context_object_name = "tours"
-    paginate_by = 12
-
-    def get_queryset(self):
-        return (
-            Tour.objects.filter(is_active=True)
-            .annotate(num_stops=Count("stops"))
-            .filter(num_stops__gt=1)
-            .select_related("category")
-            .prefetch_related("stops__city")
-            .order_by("order", "-created_at")
-        )
-
-    def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        ctx["page_title"] = "Ichki Turlar"
-        from apps.core.models import HeroSlide
-        ctx["hero_slides"] = HeroSlide.objects.filter(
-            page="ichki_turlar", is_active=True
-        )
-        return ctx
 
 
 class TourDetailView(DetailView):
@@ -142,7 +110,6 @@ class TourDetailView(DetailView):
             .select_related("category")
             .prefetch_related(
                 "destinations",
-                "hotels__city",
                 "days",
                 "images",
                 "departures",

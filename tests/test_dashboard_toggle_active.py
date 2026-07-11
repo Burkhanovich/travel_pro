@@ -30,12 +30,12 @@ class TestToggleActive:
         tour.refresh_from_db()
         assert tour.is_active is True
 
-    def test_toggles_hotel(self, super_client):
-        hotel = f.make_hotel(is_active=True)
-        resp = super_client.post(reverse("dashboard:toggle_active", args=["hotel", hotel.pk]))
+    def test_toggles_faq(self, super_client):
+        faq = f.make_faq(is_active=True)
+        resp = super_client.post(reverse("dashboard:toggle_active", args=["faq", faq.pk]))
         assert resp.status_code == 302
-        hotel.refresh_from_db()
-        assert hotel.is_active is False
+        faq.refresh_from_db()
+        assert faq.is_active is False
 
     def test_toggles_country(self, super_client):
         country = f.make_country(name="Testland", is_active=True)

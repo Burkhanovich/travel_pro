@@ -23,7 +23,7 @@ class TestDashboardI18n:
     def test_sidebar_translated_uz(self, super_client):
         _set_lang(super_client, "uz")
         html = super_client.get(reverse("dashboard:home")).content.decode()
-        assert "Ichki Turlar" in html          # Domestic Tours
+        assert "Turlar" in html                # Tours
         assert "Chiqish" in html               # Sign Out
 
     def test_sidebar_english_default(self, super_client):
@@ -37,10 +37,10 @@ class TestDashboardI18n:
         html = super_client.get(reverse("dashboard:users_list")).content.decode()
         assert "Yangi foydalanuvchi" in html   # New User
 
-    def test_ichki_turlar_form_translated_uz(self, super_client):
+    def test_tours_form_translated_uz(self, super_client):
         _set_lang(super_client, "uz")
-        html = super_client.get(reverse("dashboard:ichki_turlar_create")).content.decode()
-        assert "Bekat qo'shish" in html        # Add stop
+        html = super_client.get(reverse("dashboard:tours_create")).content.decode()
+        assert "Kategoriya" in html            # Category
 
     def test_language_switcher_present(self, super_client):
         html = super_client.get(reverse("dashboard:home")).content.decode()

@@ -15,7 +15,7 @@ from django.contrib.auth import get_user_model
 from apps.bookings.models import Inquiry
 from apps.destinations.models import Attraction, City, Continent, Country
 from apps.guides.models import Article, GuideCategory, Tag
-from apps.hotels.models import Hotel, HotelAmenity, HotelRoom
+from apps.faq.models import FAQ
 from apps.reviews.models import Review
 from apps.tours.models import (
     Tour,
@@ -114,23 +114,15 @@ def make_departure(tour: Tour | None = None, **kwargs) -> TourDeparture:
     return TourDeparture.objects.create(tour=tour, **defaults)
 
 
-def make_amenity(**kwargs) -> HotelAmenity:
-    defaults = {"name": f"Amenity {_uniq()}"}
+def make_faq(**kwargs) -> FAQ:
+    defaults = {
+        "question": f"Question {_uniq()}?",
+        "answer": "This is a sample answer.",
+        "order": 0,
+        "is_active": True,
+    }
     defaults.update(kwargs)
-    return HotelAmenity.objects.create(**defaults)
-
-
-def make_hotel(**kwargs) -> Hotel:
-    if "city" not in kwargs:
-        kwargs["city"] = make_city()
-    defaults = {"name": f"Hotel {_uniq()}"}
-    defaults.update(kwargs)
-    return Hotel.objects.create(**defaults)
-
-
-def make_room(hotel: Hotel | None = None, **kwargs) -> HotelRoom:
-    hotel = hotel or make_hotel()
-    return HotelRoom.objects.create(hotel=hotel, **kwargs)
+    return FAQ.objects.create(**defaults)
 
 
 def make_guide_category(**kwargs) -> GuideCategory:

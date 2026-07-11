@@ -1,0 +1,1 @@
+# FAQ app migrations

@@ -62,11 +62,7 @@ class TestTourViews:
         resp = client.get(reverse("tours:detail", kwargs={"slug": "hidden"}))
         assert resp.status_code == 404
 
-    def test_ichki_turlar_list(self, client):
-        tour = f.make_tour(is_active=True)
-        f.make_tour_stop(tour, order=1)
-        f.make_tour_stop(tour, order=2)
-        assert client.get(reverse("ichki-turlar-list")).status_code == 200
+
 
 
 class TestDestinationViews:
@@ -107,15 +103,10 @@ class TestCityInfoAPI:
         assert resp.status_code == 404
 
 
-class TestHotelViews:
+class TestFAQViews:
     def test_list(self, client):
-        f.make_hotel(is_active=True)
-        assert client.get(reverse("hotels:list")).status_code == 200
-
-    def test_detail(self, client):
-        f.make_hotel(is_active=True, slug="grand-hotel")
-        resp = client.get(reverse("hotels:detail", kwargs={"slug": "grand-hotel"}))
-        assert resp.status_code == 200
+        f.make_faq(is_active=True)
+        assert client.get(reverse("faq:list")).status_code == 200
 
 
 class TestGuideViews:

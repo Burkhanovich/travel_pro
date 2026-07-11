@@ -34,3 +34,12 @@ def export_as_csv(modeladmin, request, queryset):
 
 
 export_as_csv.short_description = _("Export selected to CSV")
+
+
+from modeltranslation.admin import TranslationAdmin
+from .models import ContactSettings
+
+@admin.register(ContactSettings)
+class ContactSettingsAdmin(TranslationAdmin):
+    list_display = ("phone", "email", "address")
+

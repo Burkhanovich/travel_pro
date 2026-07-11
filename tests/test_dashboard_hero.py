@@ -69,20 +69,20 @@ class TestHeroSlideCrud:
 
 class TestHeroSlidePublic:
     def test_page_uses_db_slides(self, client):
-        s = HeroSlide(page="ichki_turlar", order=1, is_active=True)
+        s = HeroSlide(page="tours", order=1, is_active=True)
         s.image.save("from-db.jpg", _image(), save=True)
-        html = client.get(reverse("ichki-turlar-list")).content.decode()
+        html = client.get(reverse("tours:list")).content.decode()
         assert s.image.url in html
         assert "hero-ichki-1.jpg" not in html  # static fallback not used
 
     def test_page_falls_back_to_static(self, client):
-        html = client.get(reverse("ichki-turlar-list")).content.decode()
+        html = client.get(reverse("tours:list")).content.decode()
         assert "hero-ichki-1.jpg" in html  # no DB slides → bundled images
 
     def test_inactive_slides_excluded(self, client):
-        s = HeroSlide(page="ichki_turlar", order=1, is_active=False)
+        s = HeroSlide(page="tours", order=1, is_active=False)
         s.image.save("hidden.jpg", _image(), save=True)
-        html = client.get(reverse("ichki-turlar-list")).content.decode()
+        html = client.get(reverse("tours:list")).content.decode()
         # No active DB slides → fallback to static
         assert "hero-ichki-1.jpg" in html
 

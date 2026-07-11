@@ -12,7 +12,7 @@ class TourCategoryTranslationOptions(TranslationOptions):
 
 @register(Tour)
 class TourTranslationOptions(TranslationOptions):
-    fields = ("title", "overview", "includes", "excludes", "important_notes", "seo_title", "seo_description")
+    fields = ("title", "overview", "includes", "excludes", "important_notes", "hotels", "seo_title", "seo_description")
 
 
 @register(TourDay)

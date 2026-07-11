@@ -11,7 +11,28 @@ from apps.tours.models import TourCategory
 
 
 def site_settings(request) -> dict:
-    """Inject site-wide configuration from settings."""
+    """Inject site-wide configuration from database or settings."""
+    from apps.core.models import ContactSettings
+    db_settings = ContactSettings.objects.first()
+    
+    if db_settings:
+        return {
+            "SITE_NAME": getattr(settings, "SITE_NAME", "Travel Pro"),
+            "SITE_TAGLINE": getattr(settings, "SITE_TAGLINE", "Discover the World"),
+            "SITE_PHONE": db_settings.phone,
+            "SITE_EMAIL": db_settings.email,
+            "SITE_ADDRESS": db_settings.address,
+            "SITE_LATITUDE": db_settings.latitude,
+            "SITE_LONGITUDE": db_settings.longitude,
+            "SITE_WORKING_HOURS": db_settings.working_hours,
+            "SOCIAL_LINKS": {
+                "facebook": db_settings.facebook,
+                "instagram": db_settings.instagram,
+                "telegram": db_settings.telegram,
+                "youtube": db_settings.youtube,
+            },
+        }
+        
     return {
         "SITE_NAME": getattr(settings, "SITE_NAME", "Travel Pro"),
         "SITE_TAGLINE": getattr(settings, "SITE_TAGLINE", "Discover the World"),

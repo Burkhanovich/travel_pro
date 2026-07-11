@@ -116,17 +116,7 @@
     </section>
     {% endif %}
 
-    {# Hotels #}
-    {% if hotels %}
-    <section class="mb-12">
-      <h2 class="font-serif text-2xl font-bold text-dark mb-6">{% trans "Hotels in" %} {{ city.name }}</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {% for hotel in hotels %}
-          {% include "components/hotel_card.html" with hotel=hotel %}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+
 
   </div>
 </div>

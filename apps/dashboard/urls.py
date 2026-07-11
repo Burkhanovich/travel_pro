@@ -36,17 +36,12 @@ from apps.dashboard.views.hero import (
     HeroSlideListView,
 )
 from apps.dashboard.views.home import DashboardHomeView, dashboard_stats_api
-from apps.dashboard.views.ichki_turlar import (
-    IchkiTurCreateView,
-    IchkiTurDeleteView,
-    IchkiTurEditView,
-    IchkiTurListView,
-)
-from apps.dashboard.views.hotels import (
-    HotelCreateView,
-    HotelDeleteView,
-    HotelEditView,
-    HotelListView,
+
+from apps.dashboard.views.faq import (
+    FAQCreateView,
+    FAQDeleteView,
+    FAQEditView,
+    FAQListView,
 )
 from apps.dashboard.views.reviews import ReviewListView
 from apps.dashboard.views.toggle import ToggleActiveView
@@ -89,11 +84,7 @@ urlpatterns = [
     path("tour-categories/<int:pk>/edit/", TourCategoryEditView.as_view(), name="tour_categories_edit"),
     path("tour-categories/<int:pk>/delete/", TourCategoryDeleteView.as_view(), name="tour_categories_delete"),
 
-    # Ichki Turlar (domestic multi-city tours)
-    path("ichki-turlar/", IchkiTurListView.as_view(), name="ichki_turlar_list"),
-    path("ichki-turlar/create/", IchkiTurCreateView.as_view(), name="ichki_turlar_create"),
-    path("ichki-turlar/<int:pk>/edit/", IchkiTurEditView.as_view(), name="ichki_turlar_edit"),
-    path("ichki-turlar/<int:pk>/delete/", IchkiTurDeleteView.as_view(), name="ichki_turlar_delete"),
+
 
     # Domestic cities (building blocks for Ichki Tur routes)
     path("cities/", DomesticCityListView.as_view(), name="cities_list"),
@@ -107,11 +98,11 @@ urlpatterns = [
     path("hero/<int:pk>/edit/", HeroSlideEditView.as_view(), name="hero_edit"),
     path("hero/<int:pk>/delete/", HeroSlideDeleteView.as_view(), name="hero_delete"),
 
-    # Hotels
-    path("hotels/", HotelListView.as_view(), name="hotels_list"),
-    path("hotels/create/", HotelCreateView.as_view(), name="hotels_create"),
-    path("hotels/<int:pk>/edit/", HotelEditView.as_view(), name="hotels_edit"),
-    path("hotels/<int:pk>/delete/", HotelDeleteView.as_view(), name="hotels_delete"),
+    # FAQ
+    path("faq/", FAQListView.as_view(), name="faq_list"),
+    path("faq/create/", FAQCreateView.as_view(), name="faq_create"),
+    path("faq/<int:pk>/edit/", FAQEditView.as_view(), name="faq_edit"),
+    path("faq/<int:pk>/delete/", FAQDeleteView.as_view(), name="faq_delete"),
 
     # Destinations
     path("destinations/", DestinationListView.as_view(), name="destinations_list"),

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Frequently Asked Questions" %} | {{ SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="pt-20 lg:pt-28 bg-pattern-subtle-blue">
+  
+  {# Page header - branded hero strip #}
+  <div class="relative py-16 text-center overflow-hidden bg-pattern-hero">
+    <div class="relative z-10 px-4">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-white">{% trans "FAQ" %}</h1>
+      <p class="hero-heading-accent text-2xl md:text-3xl font-serif mt-1">{% trans "Frequently Asked Questions" %}</p>
+      <p class="hero-subtitle text-lg mt-3 max-w-2xl mx-auto text-white/90">{% trans "Find answers to the most common questions about our tours and services" %}</p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="space-y-4">
+      {% for faq in faqs %}
+      <div x-data="{ open: false }" class="bg-white rounded-2xl border border-gray-100 shadow-soft overflow-hidden transition-all duration-300">
+        <button @click="open = !open" 
+                class="w-full flex items-center justify-between px-6 py-5 text-left font-medium text-dark focus:outline-none hover:bg-accent transition-colors duration-200">
+          <span class="text-base sm:text-lg font-semibold text-gray-800">{{ faq.question }}</span>
+          <span class="ml-4 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary transition-transform duration-200" :class="open ? 'rotate-180' : ''">
+            <i class="ti ti-chevron-down text-lg"></i>
+          </span>
+        </button>
+        <div x-show="open" 
+             class="px-6 pb-6 text-gray-600 text-sm sm:text-base leading-relaxed border-t border-gray-50 pt-4">
+          {{ faq.answer|linebreaksbr }}
+        </div>
+      </div>
+      {% empty %}
+      <div class="text-center py-20 text-gray-400 bg-white rounded-2xl border border-gray-100 shadow-soft">
+        <i class="ti ti-help-circle text-5xl mb-3 text-gray-300 block"></i>
+        {% trans "No questions found. Please check back later." %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
